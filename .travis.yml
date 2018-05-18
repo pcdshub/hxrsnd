@@ -43,7 +43,7 @@ script:
   - set -e
   # Build docs
   - |
-    if [[ -n "$DOCTR_DEPLOY_ENCRYPTION_KEY" && $BUILD_DOCS ]]; then
+    if [[ -n "$DOCTR_DEPLOY_ENCRYPTION_KEY_PCDSHUB_HXRSND" && $BUILD_DOCS ]]; then
       pushd docs
       make html
       popd
