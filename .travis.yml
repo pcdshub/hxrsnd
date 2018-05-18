@@ -53,6 +53,7 @@ script:
 
 after_success:
   - codecov
+  - |
     if [[ $TRAVIS_PULL_REQUEST == false && $TRAVIS_REPO_SLUG == $OFFICIAL_REPO && $TRAVIS_BRANCH == $TRAVIS_TAG  && $TRAVIS_TAG != '' && $PCDS_CHANNEL == 'pcds-tag' ]]; then
       export ANACONDA_API_TOKEN=$CONDA_UPLOAD_TOKEN_TAG
       anaconda upload bld-dir/linux-64/*.tar.bz2
