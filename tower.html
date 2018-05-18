@@ -1,0 +1,751 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Towers &mdash; HXRSnD 0.0.1+128.ge3f26f4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Aerotech Motors" href="aerotech.html" />
+    <link rel="prev" title="Macromotors" href="macromotor.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> HXRSnD
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1+128.ge3f26f4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripting.html">Adding Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">EDM Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_scans.html">Running Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_daq_scans.html">Running DAQ Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibrating_delay_scans.html">Calibrating Delay Scans</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Devices</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sndsystem.html">Split and Delay System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macromotor.html">Macromotors</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Towers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#base-tower-class">Base Tower Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delay-tower">Delay Tower</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#channel-cut-tower">Channel Cut Tower</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aerotech.html">Aerotech Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="attocube.html">Attocube Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diode.html">Wave-8 Diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pneumatic.html">Pneumatics and Air Bearings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rtd.html">Temperature Sensors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Plans</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="alignment.html">Alignment Plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">Delay Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scans.html">General Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc_plans.html">Miscellaneous</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bragg.html">Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utility Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Core SnD Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pswalker/">pswalker</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pcds-devices/">pcds-devices</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://slaclab.github.io/pydm/">pydm</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Related Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/bluesky">bluesky</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/ophyd">ophyd</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GitHub Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab/">SLAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/pcdshub/">PCDS</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">HXRSnD</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Towers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tower.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="towers">
+<h1>Towers<a class="headerlink" href="#towers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="base-tower-class">
+<h2>Base Tower Class<a class="headerlink" href="#base-tower-class" title="Permalink to this headline">¶</a></h2>
+<p>All the towers inherit fromt the <code class="docutils literal notranslate"><span class="pre">TowerBase</span></code> class.</p>
+<dl class="class">
+<dt id="hxrsnd.tower.TowerBase">
+<em class="property">class </em><code class="descclassname">hxrsnd.tower.</code><code class="descname">TowerBase</code><span class="sig-paren">(</span><em>prefix</em>, <em>name=None</em>, <em>pos_inserted=None</em>, <em>pos_removed=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base tower class.</p>
+<dl class="method">
+<dt id="hxrsnd.tower.TowerBase.check_status">
+<code class="descname">check_status</code><span class="sig-paren">(</span><em>energy=None</em>, <em>length=None</em>, <em>no_raise=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.check_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks to make sure that all the energy motors are not in a bad state.
+Will include the delay motor if the delay argument is True.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>energy</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Energy to set the tower to.</li>
+<li><strong>length</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Length to set the delay stage to. (Doesnt apply for cc towers)</li>
+<li><strong>no_raise</strong> (<em>bool</em><em>, </em><em>optional</em>) – Do not re-raise the attribute error for delay parameters.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.tower.TowerBase.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disables all the aerotech motors.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.tower.TowerBase.disable">
+<code class="descname">disable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disables all the aerotech motors.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.tower.TowerBase.enable">
+<code class="descname">enable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables all the aerotech motors.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.TowerBase.energy">
+<code class="descname">energy</code><a class="headerlink" href="#hxrsnd.tower.TowerBase.energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the energy of the tower according to the angle of the
+arm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>E</strong> – Energy of the delay line.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.tower.TowerBase.insert">
+<code class="descname">insert</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the tower x motor to <cite>self.pos_inserted</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>status</strong> – Status of the move.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">MoveStatus</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – If pos_inserted is set to None and insert() is called.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.TowerBase.inserted">
+<code class="descname">inserted</code><a class="headerlink" href="#hxrsnd.tower.TowerBase.inserted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether the tower is in the inserted position (or close to it).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>inserted</strong> – Whether the tower is inserted or not.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – If pos_inserted is set to None and inserted is called.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.TowerBase.position">
+<code class="descname">position</code><a class="headerlink" href="#hxrsnd.tower.TowerBase.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current position of the tower. Implment this for each TowerBase
+subclass.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.tower.TowerBase.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the tower x motor to <cite>self.pos_removed</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>status</strong> – Status of the move.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">MoveStatus</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – If pos_removed is set to None and remove() is called.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.tower.TowerBase.set_energy">
+<code class="descname">set_energy</code><span class="sig-paren">(</span><em>E</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.set_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Placeholder for the energy setter. Implement for each TowerBase
+subclass.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.tower.TowerBase.status">
+<code class="descname">status</code><span class="sig-paren">(</span><em>status=''</em>, <em>offset=0</em>, <em>print_status=True</em>, <em>newline=False</em>, <em>short=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the status of the tower.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>status</strong> (<em>str</em><em>, </em><em>optional</em>) – The string to append the status to.</li>
+<li><strong>offset</strong> (<em>int</em><em>, </em><em>optional</em>) – Amount to offset each line of the status.</li>
+<li><strong>print_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Determines whether the string is printed or returned.</li>
+<li><strong>newline</strong> (<em>bool</em><em>, </em><em>optional</em>) – Adds a new line to the end of the string.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>status</strong> – Status string.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.tower.TowerBase.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops the motions of all the motors.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.TowerBase.theta">
+<code class="descname">theta</code><a class="headerlink" href="#hxrsnd.tower.TowerBase.theta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bragg angle the tower is currently set to maximize.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>position</strong> – Current position of the tower.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="delay-tower">
+<h2>Delay Tower<a class="headerlink" href="#delay-tower" title="Permalink to this headline">¶</a></h2>
+<p>Delay towers <code class="docutils literal notranslate"><span class="pre">snd.t1</span></code> and <code class="docutils literal notranslate"><span class="pre">snd.t4</span></code>.</p>
+<dl class="class">
+<dt id="hxrsnd.tower.DelayTower">
+<em class="property">class </em><code class="descclassname">hxrsnd.tower.</code><code class="descname">DelayTower</code><span class="sig-paren">(</span><em>prefix</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.DelayTower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hxrsnd.tower.TowerBase" title="hxrsnd.tower.TowerBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.tower.TowerBase</span></code></a></p>
+<p>Delay Tower</p>
+<p>Components</p>
+<dl class="docutils">
+<dt>tth <span class="classifier-delimiter">:</span> <span class="classifier">RotationAeroInterlocked</span></dt>
+<dd>Rotation axis of the entire delay arm.</dd>
+<dt>th1 <span class="classifier-delimiter">:</span> <span class="classifier">RotationAero</span></dt>
+<dd>Rotation axis of the static crystal.</dd>
+<dt>th2 <span class="classifier-delimiter">:</span> <span class="classifier">RotationAero</span></dt>
+<dd>Rotation axis of the delay crystal.</dd>
+<dt>x <span class="classifier-delimiter">:</span> <span class="classifier">LinearAero</span></dt>
+<dd>Linear stage for insertion/bypass of the tower.</dd>
+<dt>L <span class="classifier-delimiter">:</span> <span class="classifier">LinearAero</span></dt>
+<dd>Linear stage for the delay crystal.</dd>
+<dt>y1 <span class="classifier-delimiter">:</span> <span class="classifier">TranslationEcc</span></dt>
+<dd>Y translation for the static crystal.</dd>
+<dt>y2 <span class="classifier-delimiter">:</span> <span class="classifier">TranslationEcc</span></dt>
+<dd>Y translation for the delay crystal.</dd>
+<dt>chi1 <span class="classifier-delimiter">:</span> <span class="classifier">GoniometerEcc</span></dt>
+<dd>Goniometer on static crystal.</dd>
+<dt>chi2 <span class="classifier-delimiter">:</span> <span class="classifier">GoniometerEcc</span></dt>
+<dd>Goniometer on delay crystal.</dd>
+<dt>dh <span class="classifier-delimiter">:</span> <span class="classifier">DiodeEcc</span></dt>
+<dd>Diode insertion motor.</dd>
+<dt>diode <span class="classifier-delimiter">:</span> <span class="classifier">HamamatsuDiode</span></dt>
+<dd>Diode between the static and delay crystals.</dd>
+<dt>temp <span class="classifier-delimiter">:</span> <span class="classifier">OmegaRTD</span></dt>
+<dd>RTD temperature sensor for the nitrogen.</dd>
+</dl>
+<dl class="attribute">
+<dt id="hxrsnd.tower.DelayTower.L">
+<code class="descname">L</code><a class="headerlink" href="#hxrsnd.tower.DelayTower.L" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">InterLinearAero</span><span class="p">,</span> <span class="s1">&#39;:L&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.DelayTower.chi1">
+<code class="descname">chi1</code><a class="headerlink" href="#hxrsnd.tower.DelayTower.chi1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">GoniometerEcc</span><span class="p">,</span> <span class="s1">&#39;:CHI1&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;CHI1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.DelayTower.chi2">
+<code class="descname">chi2</code><a class="headerlink" href="#hxrsnd.tower.DelayTower.chi2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">GoniometerEcc</span><span class="p">,</span> <span class="s1">&#39;:CHI2&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;CHI2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.DelayTower.dh">
+<code class="descname">dh</code><a class="headerlink" href="#hxrsnd.tower.DelayTower.dh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">DiodeEcc</span><span class="p">,</span> <span class="s1">&#39;:DH&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;DH&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.DelayTower.length">
+<code class="descname">length</code><a class="headerlink" href="#hxrsnd.tower.DelayTower.length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the position of the linear delay stage (L) in mm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>position</strong> – Position in mm of the linear delay stage.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.DelayTower.position">
+<code class="descname">position</code><a class="headerlink" href="#hxrsnd.tower.DelayTower.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the theta position of the arm (tth) in degrees.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>position</strong> – Position of the arm in degrees.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.tower.DelayTower.set_energy">
+<code class="descname">set_energy</code><span class="sig-paren">(</span><em>E</em>, <em>wait=False</em>, <em>check_status=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.DelayTower.set_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the angles of the crystals in the delay line to maximize the
+inputted energy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>E</strong> (<em>float</em>) – Energy to use for the system.</li>
+<li><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – Wait for each motor to complete the motion.</li>
+<li><strong>check_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Check if the motors are in a valid state to move.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.tower.DelayTower.set_length">
+<code class="descname">set_length</code><span class="sig-paren">(</span><em>position</em>, <em>wait=False</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.DelayTower.set_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the position of the linear delay stage in mm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>position</strong> (<em>float</em>) – Position to move the delay motor to.</li>
+<li><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – Wait for motion to complete before returning the console.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>status</strong> – Status object of the move.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">MoveStatus</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.DelayTower.th1">
+<code class="descname">th1</code><a class="headerlink" href="#hxrsnd.tower.DelayTower.th1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">RotationAero</span><span class="p">,</span> <span class="s1">&#39;:TH1&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;TH1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.DelayTower.th2">
+<code class="descname">th2</code><a class="headerlink" href="#hxrsnd.tower.DelayTower.th2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">RotationAero</span><span class="p">,</span> <span class="s1">&#39;:TH2&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;TH2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.DelayTower.theta">
+<code class="descname">theta</code><a class="headerlink" href="#hxrsnd.tower.DelayTower.theta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bragg angle the tower is currently set to maximize.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>position</strong> – Current position of the tower.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.DelayTower.tth">
+<code class="descname">tth</code><a class="headerlink" href="#hxrsnd.tower.DelayTower.tth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">InterRotationAero</span><span class="p">,</span> <span class="s1">&#39;:TTH&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;TTH&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.DelayTower.x">
+<code class="descname">x</code><a class="headerlink" href="#hxrsnd.tower.DelayTower.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">InterLinearAero</span><span class="p">,</span> <span class="s1">&#39;:X&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.DelayTower.y1">
+<code class="descname">y1</code><a class="headerlink" href="#hxrsnd.tower.DelayTower.y1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">TranslationEcc</span><span class="p">,</span> <span class="s1">&#39;:Y1&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Y1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.DelayTower.y2">
+<code class="descname">y2</code><a class="headerlink" href="#hxrsnd.tower.DelayTower.y2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">TranslationEcc</span><span class="p">,</span> <span class="s1">&#39;:Y2&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Y2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="channel-cut-tower">
+<h2>Channel Cut Tower<a class="headerlink" href="#channel-cut-tower" title="Permalink to this headline">¶</a></h2>
+<p>Channel cut towers <code class="docutils literal notranslate"><span class="pre">snd.t2</span></code> and <code class="docutils literal notranslate"><span class="pre">snd.t3</span></code>.</p>
+<dl class="class">
+<dt id="hxrsnd.tower.ChannelCutTower">
+<em class="property">class </em><code class="descclassname">hxrsnd.tower.</code><code class="descname">ChannelCutTower</code><span class="sig-paren">(</span><em>prefix</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.ChannelCutTower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hxrsnd.tower.TowerBase" title="hxrsnd.tower.TowerBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.tower.TowerBase</span></code></a></p>
+<p>Channel Cut tower.</p>
+<p>Components</p>
+<dl class="docutils">
+<dt>th <span class="classifier-delimiter">:</span> <span class="classifier">RotationAero</span></dt>
+<dd>Rotation stage of the channel cut crystal</dd>
+<dt>x <span class="classifier-delimiter">:</span> <span class="classifier">LinearAero</span></dt>
+<dd>Translation stage of the tower</dd>
+</dl>
+<dl class="attribute">
+<dt id="hxrsnd.tower.ChannelCutTower.position">
+<code class="descname">position</code><a class="headerlink" href="#hxrsnd.tower.ChannelCutTower.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the theta position of the crystal (th) in degrees.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>position</strong> – Position of the arm in degrees.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.tower.ChannelCutTower.set_energy">
+<code class="descname">set_energy</code><span class="sig-paren">(</span><em>E</em>, <em>wait=False</em>, <em>check_status=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.ChannelCutTower.set_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the angles of the crystals in the channel cut line to maximize the
+inputted energy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>E</strong> (<em>float</em>) – Energy to use for the system.</li>
+<li><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – Wait for motion to complete before returning the console.</li>
+<li><strong>check_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Check if the motors are in a valid state to move.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.ChannelCutTower.th">
+<code class="descname">th</code><a class="headerlink" href="#hxrsnd.tower.ChannelCutTower.th" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">RotationAero</span><span class="p">,</span> <span class="s1">&#39;:TH&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;TH&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.tower.ChannelCutTower.x">
+<code class="descname">x</code><a class="headerlink" href="#hxrsnd.tower.ChannelCutTower.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">LinearAero</span><span class="p">,</span> <span class="s1">&#39;:X&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="aerotech.html" class="btn btn-neutral float-right" title="Aerotech Motors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="macromotor.html" class="btn btn-neutral" title="Macromotors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, SLAC National Accelerator Laboratory.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1+128.ge3f26f4',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

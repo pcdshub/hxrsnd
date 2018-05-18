@@ -1,0 +1,985 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Aerotech Motors &mdash; HXRSnD 0.0.1+128.ge3f26f4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Attocube Motors" href="attocube.html" />
+    <link rel="prev" title="Towers" href="tower.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> HXRSnD
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1+128.ge3f26f4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripting.html">Adding Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">EDM Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_scans.html">Running Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_daq_scans.html">Running DAQ Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibrating_delay_scans.html">Calibrating Delay Scans</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Devices</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sndsystem.html">Split and Delay System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macromotor.html">Macromotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tower.html">Towers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Aerotech Motors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#base-class">Base Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subclasses">Subclasses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="attocube.html">Attocube Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diode.html">Wave-8 Diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pneumatic.html">Pneumatics and Air Bearings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rtd.html">Temperature Sensors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Plans</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="alignment.html">Alignment Plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">Delay Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scans.html">General Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc_plans.html">Miscellaneous</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bragg.html">Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utility Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Core SnD Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pswalker/">pswalker</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pcds-devices/">pcds-devices</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://slaclab.github.io/pydm/">pydm</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Related Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/bluesky">bluesky</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/ophyd">ophyd</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GitHub Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab/">SLAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/pcdshub/">PCDS</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">HXRSnD</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Aerotech Motors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/aerotech.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aerotech-motors">
+<h1>Aerotech Motors<a class="headerlink" href="#aerotech-motors" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="base-class">
+<h2>Base Class<a class="headerlink" href="#base-class" title="Permalink to this headline">¶</a></h2>
+<p>The base aerotech class is where all of the core functionality is implemented.</p>
+<dl class="class">
+<dt id="hxrsnd.aerotech.AeroBase">
+<em class="property">class </em><code class="descclassname">hxrsnd.aerotech.</code><code class="descname">AeroBase</code><span class="sig-paren">(</span><em>prefix</em>, <em>name=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.sndmotor.SndEpicsMotor</span></code></p>
+<p>Base Aerotech motor class.</p>
+<p>Components</p>
+<dl class="docutils">
+<dt>power <span class="classifier-delimiter">:</span> <span class="classifier">EpicsSignal, “.CNEN”</span></dt>
+<dd>Enables or disables power to the axis.</dd>
+<dt>retries <span class="classifier-delimiter">:</span> <span class="classifier">EpicsSignalRO, “.RCNT”</span></dt>
+<dd>Number of retries attempted.</dd>
+<dt>retries_max <span class="classifier-delimiter">:</span> <span class="classifier">EpicsSignal, “.RTRY”</span></dt>
+<dd>Maximum number of retries.</dd>
+<dt>retries_deadband <span class="classifier-delimiter">:</span> <span class="classifier">EpicsSignal, “.RDBD”</span></dt>
+<dd>Tolerance of each retry.</dd>
+<dt>axis_fault <span class="classifier-delimiter">:</span> <span class="classifier">EpicsSignalRO, “:AXIS_FAULT”</span></dt>
+<dd>Fault readback for the motor.</dd>
+<dt>axis_status <span class="classifier-delimiter">:</span> <span class="classifier">EpicsSignalRO, “:AXIS_STATUS”</span></dt>
+<dd>Status readback for the motor.</dd>
+<dt>clear_error <span class="classifier-delimiter">:</span> <span class="classifier">EpicsSignal, “:CLEAR”</span></dt>
+<dd>Clear error signal.</dd>
+<dt>config <span class="classifier-delimiter">:</span> <span class="classifier">EpicsSignal, “:CONFIG”</span></dt>
+<dd>Signal to reconfig the motor.</dd>
+</dl>
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.axis_fault">
+<code class="descname">axis_fault</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.axis_fault" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:AXIS_FAULT&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.axis_status">
+<code class="descname">axis_status</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.axis_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:AXIS_STATUS&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.aerotech.AeroBase.check_status">
+<code class="descname">check_status</code><span class="sig-paren">(</span><em>position=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.check_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the status of the motor to make sure it is ready to move. Checks
+the current position of the motor, and if a position is provided it also
+checks that position.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>position</strong> (<em>float</em><em>, </em><em>optional</em>) – Position to check for validity.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">MotorDisabled</span></code> – If the motor is disabled.</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">MotorFaulted</span></code> – If the motor is faulted.</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">MotorStopped</span></code> – If the motor is stopped.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.aerotech.AeroBase.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><em>ret_status=False</em>, <em>print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears the motor error.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the set.</li>
+<li><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the set.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The status object for setting the clear_error signal.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Status</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.clear_error">
+<code class="descname">clear_error</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.clear_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CLEAR&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.config">
+<code class="descname">config</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CONFIG&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.dial">
+<code class="descname">dial</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.dial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;.DRBV&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.aerotech.AeroBase.disable">
+<code class="descname">disable</code><span class="sig-paren">(</span><em>ret_status=False</em>, <em>print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disables the motor power.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the set.</li>
+<li><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the set.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The status object for setting the power signal.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Status</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.aerotech.AeroBase.enable">
+<code class="descname">enable</code><span class="sig-paren">(</span><em>ret_status=False</em>, <em>print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables the motor power.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the set.</li>
+<li><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the set.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The status object for setting the power signal.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Status</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.enabled">
+<code class="descname">enabled</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns if the motor is curently enabled.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>enabled</strong> – True if the motor is powered, False if not.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.aerotech.AeroBase.expert_screen">
+<code class="descname">expert_screen</code><span class="sig-paren">(</span><em>print_msg=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.expert_screen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launches the expert screen for the motor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>print_msg</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints that the screen is being launched.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.faulted">
+<code class="descname">faulted</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.faulted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current fault with the motor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Fault enumeration.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">faulted</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.high_limit_switch">
+<code class="descname">high_limit_switch</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.high_limit_switch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">Signal</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.home_forward">
+<code class="descname">home_forward</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.home_forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;.HOMF&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.home_reverse">
+<code class="descname">home_reverse</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.home_reverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;.HOMR&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.aerotech.AeroBase.homf">
+<code class="descname">homf</code><span class="sig-paren">(</span><em>ret_status=False</em>, <em>print_set=True</em>, <em>check_status=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.homf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Home the motor forward.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the set.</li>
+<li><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the set.</li>
+<li><strong>check_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Check if the motors are in a valid state to move.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Status</strong> – Status of the set.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">StatusObject</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.aerotech.AeroBase.homr">
+<code class="descname">homr</code><span class="sig-paren">(</span><em>ret_status=False</em>, <em>print_set=True</em>, <em>check_status=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.homr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Home the motor in reverse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the set.</li>
+<li><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the set.</li>
+<li><strong>check_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Check if the motors are in a valid state to move.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Status</strong> – Status of the set.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">StatusObject</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.low_limit_switch">
+<code class="descname">low_limit_switch</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.low_limit_switch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">Signal</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.aerotech.AeroBase.move">
+<code class="descname">move</code><span class="sig-paren">(</span><em>position</em>, <em>wait=False</em>, <em>check_status=True</em>, <em>timeout=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move to a specified position, optionally waiting for motion to
+complete.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>position</strong> – Position to move to.</li>
+<li><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – Wait for the motor to complete the motion.</li>
+<li><strong>check_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Check if the motors are in a valid state to move.</li>
+<li><strong>moved_cb</strong> (<em>callable</em>) – Call this callback when movement has finished. This callback must
+accept one keyword argument: ‘obj’ which will be set to this
+positioner instance.</li>
+<li><strong>timeout</strong> (<em>float</em><em>, </em><em>optional</em>) – Maximum time to wait for the motion. If None, the default timeout
+for this positioner is used.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>status</strong> – Status object for the move.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">MoveStatus</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">TimeoutError</span></code> – When motion takes longer than <cite>timeout</cite></li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – On invalid positions</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code> – If motion fails other than timing out</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.aerotech.AeroBase.mv">
+<code class="descname">mv</code><span class="sig-paren">(</span><em>position</em>, <em>wait=True</em>, <em>print_move=True</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.mv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move to a specified position, optionally waiting for motion to
+complete. mv() is different from move() by catching all the common
+exceptions that this motor can raise and just raises a logger
+warning. Therefore if building higher level functionality, do not
+use this method and use move() instead otherwise none of these
+exceptions will propagate to it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>position</strong> – Position to move to.</li>
+<li><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – Wait for the motor to complete the motion.</li>
+<li><strong>check_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Check if the motors are in a valid state to move.</li>
+<li><strong>print_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the move.</li>
+<li><strong>Caught</strong> (<em>Exceptions</em>) – </li>
+<li><strong>-----------------</strong> – </li>
+<li><strong>LimitError</strong> – Error raised when the inputted position is beyond the soft limits.</li>
+<li><strong>MotorDisabled</strong> – Error raised if the motor is disabled and move is requested.</li>
+<li><strong>MotorFaulted</strong> – Error raised if the motor is disabled and the move is requested.</li>
+<li><strong>MotorStopped</strong> – Error raised if the motor is stopped and the move is requested.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>status</strong> – Status object for the move.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">MoveStatus</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.power">
+<code class="descname">power</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.power" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;.CNEN&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.aerotech.AeroBase.ready_motor">
+<code class="descname">ready_motor</code><span class="sig-paren">(</span><em>ret_status=False</em>, <em>print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.ready_motor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the motor to the ready state by clearing any errors, enabling it,
+and setting the state to be ‘Go’.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the set.</li>
+<li><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the set.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The status object for all the sets.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Status</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.aerotech.AeroBase.reconfig">
+<code class="descname">reconfig</code><span class="sig-paren">(</span><em>ret_status=False</em>, <em>print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.reconfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Re-configures the motor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the set.</li>
+<li><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the set.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The status object for setting the config signal.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Status</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.retries">
+<code class="descname">retries</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.retries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;.RCNT&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.retries_deadband">
+<code class="descname">retries_deadband</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.retries_deadband" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;.RDBD&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.retries_max">
+<code class="descname">retries_max</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.retries_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;.RTRY&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.aerotech.AeroBase.set_position">
+<code class="descname">set_position</code><span class="sig-paren">(</span><em>position_des</em>, <em>print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.set_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current position to be the inputted position by changing the
+offset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>position_des</strong> (<em>float</em>) – The desired current position.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.aerotech.AeroBase.set_state">
+<code class="descname">set_state</code><span class="sig-paren">(</span><em>state</em>, <em>ret_status=True</em>, <em>print_set=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.set_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the state of the motor. Inputted state can be one of the following
+states or the index of the desired state:</p>
+<blockquote>
+<div>‘Stop’, ‘Pause’, ‘Move’, ‘Go’</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>val</strong> (<em>int</em><em> or </em><em>str</em>) – </li>
+<li><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the set.</li>
+<li><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the set.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The status object for setting the state signal.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Status</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.state">
+<code class="descname">state</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.state" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Returns the state of the motor. State can be one of the following</em> –     ‘Stop’, ‘Pause’, ‘Move’, ‘Go’</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>state</strong> – The current state of the motor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.state_component">
+<code class="descname">state_component</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.state_component" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;.SPMG&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.aerotech.AeroBase.status">
+<code class="descname">status</code><span class="sig-paren">(</span><em>status=''</em>, <em>offset=0</em>, <em>print_status=True</em>, <em>newline=False</em>, <em>short=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the status of the device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>status</strong> (<em>str</em><em>, </em><em>optional</em>) – The string to append the status to.</li>
+<li><strong>offset</strong> (<em>int</em><em>, </em><em>optional</em>) – Amount to offset each line of the status.</li>
+<li><strong>print_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Determines whether the string is printed or returned.</li>
+<li><strong>newline</strong> (<em>bool</em><em>, </em><em>optional</em>) – Adds a new line to the end of the string.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>status</strong> – Status string.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.aerotech.AeroBase.zero_all">
+<code class="descname">zero_all</code><span class="sig-paren">(</span><em>ret_status=False</em>, <em>print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.zero_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current position to be the zero position of the motor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the set.</li>
+<li><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the set.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>status</strong> – Status object for the set.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">StatusObject</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hxrsnd.aerotech.AeroBase.zero_all_proc">
+<code class="descname">zero_all_proc</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.zero_all_proc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:ZERO_P.PROC&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="subclasses">
+<h2>Subclasses<a class="headerlink" href="#subclasses" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="hxrsnd.aerotech.InterlockedAero">
+<em class="property">class </em><code class="descclassname">hxrsnd.aerotech.</code><code class="descname">InterlockedAero</code><span class="sig-paren">(</span><em>prefix</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.InterlockedAero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hxrsnd.aerotech.AeroBase" title="hxrsnd.aerotech.AeroBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.aerotech.AeroBase</span></code></a></p>
+<p>Linear Aerotech stage that has the additional move check for the pressure
+status.</p>
+<dl class="method">
+<dt id="hxrsnd.aerotech.InterlockedAero.check_status">
+<code class="descname">check_status</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.InterlockedAero.check_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Status check that also checks if the pressure measured by the pressure
+switch is good.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>position</strong> (<em>float</em>) – Position to check for validity.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">MotorDisabled</span></code> – If the motor is disabled.</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">MotorFaulted</span></code> – If the motor is faulted.</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">MotorStopped</span></code> – If the motor is stopped.</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">BadN2Pressure</span></code> – If the pressure in the tower is bad.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hxrsnd.aerotech.InterlockedAero.mv">
+<code class="descname">mv</code><span class="sig-paren">(</span><em>position</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.InterlockedAero.mv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move to a specified position, optionally waiting for motion to
+complete. mv() is different from move() by catching all the common
+exceptions that this motor can raise and just raises a logger
+warning. Therefore if building higher level functionality, do not
+use this method and use move() instead otherwise none of these
+exceptions will propagate to it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>position</strong> – Position to move to.</li>
+<li><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – Wait for the motor to complete the motion.</li>
+<li><strong>check_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Check if the motors are in a valid state to move.</li>
+<li><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the move.</li>
+<li><strong>print_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the move.</li>
+<li><strong>Caught</strong> (<em>Exceptions</em>) – </li>
+<li><strong>-----------------</strong> – </li>
+<li><strong>LimitError</strong> – Error raised when the inputted position is beyond the soft limits.</li>
+<li><strong>MotorDisabled</strong> – Error raised if the motor is disabled and move is requested.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>MotorFaulted</dt>
+<dd>Error raised if the motor is disabled and the move is requested.</dd>
+<dt>MotorStopped</dt>
+<dd>Error raised If the motor is stopped and a move is requested.</dd>
+<dt>BadN2Pressure</dt>
+<dd>Error raised if the pressure in the tower is bad.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>status</strong> – Status object for the move.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">MoveStatus</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="hxrsnd.aerotech.LinearAero">
+<em class="property">class </em><code class="descclassname">hxrsnd.aerotech.</code><code class="descname">LinearAero</code><span class="sig-paren">(</span><em>prefix</em>, <em>name=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.LinearAero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hxrsnd.aerotech.AeroBase" title="hxrsnd.aerotech.AeroBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.aerotech.AeroBase</span></code></a></p>
+<p>Class for the aerotech linear stage.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="hxrsnd.aerotech.InterLinearAero">
+<em class="property">class </em><code class="descclassname">hxrsnd.aerotech.</code><code class="descname">InterLinearAero</code><span class="sig-paren">(</span><em>prefix</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.InterLinearAero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hxrsnd.aerotech.InterlockedAero" title="hxrsnd.aerotech.InterlockedAero"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.aerotech.InterlockedAero</span></code></a>, <a class="reference internal" href="#hxrsnd.aerotech.LinearAero" title="hxrsnd.aerotech.LinearAero"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.aerotech.LinearAero</span></code></a></p>
+<p>Class for the interlocked aerotech linear stage.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="hxrsnd.aerotech.RotationAero">
+<em class="property">class </em><code class="descclassname">hxrsnd.aerotech.</code><code class="descname">RotationAero</code><span class="sig-paren">(</span><em>prefix</em>, <em>name=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.RotationAero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hxrsnd.aerotech.AeroBase" title="hxrsnd.aerotech.AeroBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.aerotech.AeroBase</span></code></a></p>
+<p>Class for the aerotech rotation stage.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="hxrsnd.aerotech.InterRotationAero">
+<em class="property">class </em><code class="descclassname">hxrsnd.aerotech.</code><code class="descname">InterRotationAero</code><span class="sig-paren">(</span><em>prefix</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.InterRotationAero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hxrsnd.aerotech.InterlockedAero" title="hxrsnd.aerotech.InterlockedAero"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.aerotech.InterlockedAero</span></code></a>, <a class="reference internal" href="#hxrsnd.aerotech.RotationAero" title="hxrsnd.aerotech.RotationAero"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.aerotech.RotationAero</span></code></a></p>
+<p>Class for the interlocked aerotech rotation stage.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="hxrsnd.aerotech.DiodeAero">
+<em class="property">class </em><code class="descclassname">hxrsnd.aerotech.</code><code class="descname">DiodeAero</code><span class="sig-paren">(</span><em>prefix</em>, <em>name=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.DiodeAero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hxrsnd.aerotech.AeroBase" title="hxrsnd.aerotech.AeroBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.aerotech.AeroBase</span></code></a></p>
+<p>VT50 Micronix Motor of the diodes</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="attocube.html" class="btn btn-neutral float-right" title="Attocube Motors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tower.html" class="btn btn-neutral" title="Towers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, SLAC National Accelerator Laboratory.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1+128.ge3f26f4',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>
