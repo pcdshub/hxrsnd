@@ -480,6 +480,8 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
     #                        "t4: {1:.3f}ps".format(t1_delay, t4_delay))
     #     return is_aligned
 
+    calib_detector = Cmp(PCDSDetector, 'XCS:USR:O1000:01')
+
     def __init__(self, prefix, name=None, *args, **kwargs):
         super().__init__(prefix, name=name, *args, **kwargs)
         if self.parent:
@@ -487,7 +489,6 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
             self.calib_motors=[self.parent.t1.chi1, self.parent.t1.y1]
             self.calib_fields=[field_prepend('user_readback', calib_motor)
                                for calib_motor in self.calib_motors]
-            self.calib_detector=PCDSDetector('XCS:USR:O1000:01', name='Opal 1')
             self.detector_fields=['stats2_centroid_x', 'stats2_centroid_y',]
 
     def _length_to_delay(self, L=None, theta1=None, theta2=None):
