@@ -17,7 +17,6 @@ from ophyd.device import Device
 ########
 # SLAC #
 ########
-from pcdsdevices.sim.pv import  using_fake_epics_pv
 
 ##########
 # Module #
@@ -28,7 +27,6 @@ from hxrsnd.aerotech import (AeroBase, MotorDisabled, MotorFaulted)
 
 logger = logging.getLogger(__name__)
 
-@using_fake_epics_pv
 @pytest.mark.parametrize("dev", get_classes_in_module(aerotech, Device))
 def test_aerotech_devices_instantiate_and_run_ophyd_functions(dev):
     motor = fake_device(dev, "TEST:SND:T1")
@@ -37,7 +35,6 @@ def test_aerotech_devices_instantiate_and_run_ophyd_functions(dev):
     assert(isinstance(motor.describe_configuration(), OrderedDict))
     assert(isinstance(motor.read_configuration(), OrderedDict))
 
-@using_fake_epics_pv
 def test_AeroBase_raises_MotorDisabled_if_moved_while_disabled():
     motor = fake_device(AeroBase, "TEST:SND:T1")
     motor.axis_fault._read_pv._value = 0
@@ -47,7 +44,6 @@ def test_AeroBase_raises_MotorDisabled_if_moved_while_disabled():
     with pytest.raises(MotorDisabled):
         motor.move(10)
 
-# @using_fake_epics_pv
 # @pytest.mark.parametrize("position", [1])
 # def test_AeroBase_callable_moves_the_motor(position):
 #     motor = fake_device(AeroBase)
@@ -63,7 +59,6 @@ def test_AeroBase_raises_MotorDisabled_if_moved_while_disabled():
 #     assert motor.user_setpoint.value == position
 
 # Commented out for now because it causes travis to seg fault sometimes
-# @using_fake_epics_pv
 # def test_AeroBase_raises_MotorFaulted_if_moved_while_faulted():
 #     motor = AeroBase("TEST")
 #     motor.enable()

@@ -17,7 +17,6 @@ from ophyd.device import Device
 ########
 # SLAC #
 ########
-from pcdsdevices.sim.pv import  using_fake_epics_pv
 
 ##########
 # Module #
@@ -27,7 +26,6 @@ from hxrsnd import rtd
 
 logger = logging.getLogger(__name__)
 
-@using_fake_epics_pv
 @pytest.mark.parametrize("dev", get_classes_in_module(rtd, Device))
 def test_rtd_devices_instantiate_and_run_ophyd_functions(dev):
     device = fake_device(dev)
