@@ -28,7 +28,7 @@ requirements:
     - super_state_machine
     - pswalker >=1.0.0
     - pcdsdevices >0.6.0
-    - ophyd >=1.1.0
+    - ophyd >=1.2.0
 
 test:
   imports:
