@@ -37,11 +37,11 @@ def test_ProportionalValve_opens_and_closes_correctly():
 
 def test_PressureSwitch_reads_correctly():
     press = fake_device(PressureSwitch)
-    press.pressure._read_pv._value = 0
+    press.pressure.sim_put(0)
     assert press.position == "GOOD"
     assert press.good is True
     assert press.bad is False
-    press.pressure._read_pv._value = 1
+    press.pressure.sim_put(1)
     assert press.position == "BAD"
     assert press.good is False
     assert press.bad is True    

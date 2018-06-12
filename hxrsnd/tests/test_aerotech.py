@@ -37,7 +37,7 @@ def test_aerotech_devices_instantiate_and_run_ophyd_functions(dev):
 
 def test_AeroBase_raises_MotorDisabled_if_moved_while_disabled():
     motor = fake_device(AeroBase, "TEST:SND:T1")
-    motor.axis_fault._read_pv._value = 0
+    motor.axis_fault.sim_put(0)
     assert not motor.faulted
     motor.disable()
     assert not motor.enabled
@@ -47,7 +47,7 @@ def test_AeroBase_raises_MotorDisabled_if_moved_while_disabled():
 # @pytest.mark.parametrize("position", [1])
 # def test_AeroBase_callable_moves_the_motor(position):
 #     motor = fake_device(AeroBase)
-#     motor.axis_fault._read_pv._value = 0
+#     motor.axis_fault.sim_put(0)
 #     assert not motor.faulted
 #     motor.enable()
 #     assert motor.enabled
@@ -63,7 +63,7 @@ def test_AeroBase_raises_MotorDisabled_if_moved_while_disabled():
 #     motor = AeroBase("TEST")
 #     motor.enable()
 #     time.sleep(.1)
-#     motor.axis_fault._read_pv._value = 1
+#     motor.axis_fault.sim_put(1)
 #     with pytest.raises(MotorFaulted):
 #         motor.move(10)
         

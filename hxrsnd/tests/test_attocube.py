@@ -37,7 +37,7 @@ def test_attocube_devices_instantiate_and_run_ophyd_functions(dev):
 
 def test_EccBase_raises_MotorDisabled_if_moved_while_disabled():
     motor = fake_device(EccBase)
-    motor.motor_error._read_pv._value = 0
+    motor.motor_error.sim_put(0)
     assert not motor.error
     motor.disable()
     assert not motor.enabled
@@ -46,12 +46,12 @@ def test_EccBase_raises_MotorDisabled_if_moved_while_disabled():
 
 def test_EccBase_raises_MotorError_if_moved_while_faulted():
     motor = fake_device(EccBase)
-    motor.motor_error._read_pv._value = 0
+    motor.motor_error.sim_put(0)
     assert not motor.error
     motor.enable()
     time.sleep(.5)
     assert motor.enabled
-    motor.motor_error._read_pv._value = 1
+    motor.motor_error.sim_put(1)
     with pytest.raises(MotorError):
         motor.move(10)
 

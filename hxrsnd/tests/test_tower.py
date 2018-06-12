@@ -51,7 +51,7 @@ def test_DelayTower_does_not_move_if_motors_not_ready():
     with pytest.raises(MotorDisabled):
         tower.energy = 10
     tower.enable()
-    tower.tth.axis_fault._read_pv._value = True
+    tower.tth.axis_fault.sim_put(True)
     with pytest.raises(MotorFaulted):
         tower.energy = 10
 
@@ -65,6 +65,6 @@ def test_ChannelCutTower_does_not_move_if_motors_not_ready():
     with pytest.raises(MotorDisabled):
         tower.energy = 10
     tower.enable()
-    tower.th.axis_fault._read_pv._value = True
+    tower.th.axis_fault.sim_put(True)
     with pytest.raises(MotorFaulted):
         tower.energy = 10

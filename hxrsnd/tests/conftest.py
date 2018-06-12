@@ -15,7 +15,9 @@ import numpy as np
 import pandas as pd
 import epics
 from ophyd.signal import Signal
-from ophyd.sim import SynSignal, SynAxis, make_fake_device
+from ophyd.sim import (SynSignal, SynAxis, make_fake_device, fake_device_cache,
+                       FakeEpicsSignal)
+from ophyd.areadetector.base import EpicsSignalWithRBV
 from ophyd.device import Component as Cmp, Device
 from bluesky.run_engine import RunEngine
 from bluesky.tests.conftest import RE
@@ -241,6 +243,9 @@ def fake_detector(detector, name="TEST"):
 for comp in (PCDSDetector.image, PCDSDetector.stats):
     plugin_class = comp.cls
     plugin_class.plugin_type = Cmp(Signal, value=plugin_class._plugin_type)
+
+# Hotfix make_fake_device for ophyd=1.2.0
+fake_device_cache[EpicsSignalWithRBV] = FakeEpicsSignal
 
 test_df_scan = pd.DataFrame(
     [[  -1,  0,  0,   -0.25,    0.25],
