@@ -15,9 +15,8 @@ import numpy as np
 import pandas as pd
 import epics
 from ophyd.signal import Signal
-from ophyd.sim import SynSignal, SynAxis
+from ophyd.sim import SynSignal, SynAxis, make_fake_device
 from ophyd.device import Component as Cmp, Device
-from ophyd.tests.conftest import using_fake_epics_pv
 from bluesky.run_engine import RunEngine
 from bluesky.tests.conftest import RE
 from lmfit.models import LorentzianModel
@@ -218,11 +217,10 @@ def get_classes_in_module(module, subcls=None, blacklist=None):
     return classes
 
 # Create a fake epics device
-@using_fake_epics_pv
 def fake_device(device, name="TEST"):
+    device = make_fake_device(device)
     return device(name, name=name)
 
-@using_fake_epics_pv
 def fake_detector(detector, name="TEST"):
     """Set the plugin_type signal to be _plugin_type for all plugins."""
     def change_all_plugin_types(comp):
@@ -236,6 +234,7 @@ def fake_detector(detector, name="TEST"):
                         sub_comp = change_all_plugin_types(sub_comp.cls)
         return comp
     detector = change_all_plugin_types(detector)
+    detector = make_fake_device(detector)
     return detector(name, name=name)
 
 # Hotfix area detector plugins for tests
