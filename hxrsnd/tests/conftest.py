@@ -113,7 +113,7 @@ class SynCentroid(SynSignal):
                 
         def func():
             # Evaluate the positions of each motor
-            pos = [m.position for m in self.motors]
+            pos = [m.position for m in self.motors] or [0, 0]
             # Get the centroid position
             cent = np.dot(pos, self.weights)
             # Add uniform noise
@@ -128,15 +128,16 @@ class SynCamera(Device):
     """
     Simulated camera that has centroids as components. 
     """
+    centroid_x = Cmp(SynCentroid, motors=[], weights=[1, 0.25])
+    centroid_y = Cmp(SynCentroid, motors=[], weights=[1, -0.25])
+
     def __init__(self, motor1, motor2, delay, name=None, *args, **kwargs):
         # Create the base class
         super().__init__("SYN:CAMERA", name=name, *args, **kwargs)
         
         # Define the centroid components using the inputted motors
-        self.centroid_x = SynCentroid(name="_".join([self.name, "centroid_x"]), 
-                                      motors=[motor1, delay], weights=[1,.25])
-        self.centroid_y = SynCentroid(name="_".join([self.name, "centroid_y"]), 
-                                      motors=[motor2, delay], weights=[1,-.25])
+        self.centroid_x.motors = [motor1, delay]
+        self.centroid_y.motors = [motor2, delay]
         
         # Add them to _signals
         self._signals['centroid_x'] = self.centroid_x
