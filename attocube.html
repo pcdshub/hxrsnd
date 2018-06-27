@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Attocube Motors &mdash; HXRSnD 0.0.1+128.ge3f26f4 documentation</title>
+  <title>Attocube Motors &mdash; HXRSnD 0.1.0+12.g9a109f3 documentation</title>
   
 
   
@@ -24,8 +24,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -59,7 +58,7 @@
             
             
               <div class="version">
-                0.0.1+128.ge3f26f4
+                0.1.0+12.g9a109f3
               </div>
             
           
@@ -400,7 +399,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.high_limit_switch">
 <code class="descname">high_limit_switch</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.high_limit_switch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:ST_EOT_FWD&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:ST_EOT_FWD&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -441,7 +440,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.low_limit_switch">
 <code class="descname">low_limit_switch</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.low_limit_switch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:ST_EOT_BWD&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:ST_EOT_BWD&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -450,7 +449,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.lower_ctrl_limit">
 <code class="descname">lower_ctrl_limit</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.lower_ctrl_limit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:TARGET.LOPR&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:TARGET.LOPR&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -459,7 +458,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.motor_amplitude">
 <code class="descname">motor_amplitude</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_amplitude" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:AMPL&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:AMPL&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -468,7 +467,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.motor_connected">
 <code class="descname">motor_connected</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_connected" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:ST_CONNECT&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:ST_CONNECT&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -477,7 +476,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.motor_dc">
 <code class="descname">motor_dc</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_dc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:DC&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:DC&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -486,7 +485,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.motor_done_move">
 <code class="descname">motor_done_move</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_done_move" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:RD_INRANGE&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:RD_INRANGE&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -495,7 +494,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.motor_egu">
 <code class="descname">motor_egu</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_egu" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:UNIT&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:UNIT&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -504,7 +503,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.motor_enable">
 <code class="descname">motor_enable</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_enable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:ENABLE&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:ENABLE&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -513,7 +512,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.motor_enabled">
 <code class="descname">motor_enabled</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_enabled" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:ST_ENABLED&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:ST_ENABLED&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -522,7 +521,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.motor_error">
 <code class="descname">motor_error</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_error" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:ST_ERROR&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:ST_ERROR&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -531,7 +530,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.motor_frequency">
 <code class="descname">motor_frequency</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_frequency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:FREQ&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:FREQ&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -540,7 +539,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.motor_is_moving">
 <code class="descname">motor_is_moving</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_is_moving" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:RD_MOVING&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:RD_MOVING&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -549,7 +548,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.motor_reference_position">
 <code class="descname">motor_reference_position</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_reference_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:REF_POSITION&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:REF_POSITION&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -558,7 +557,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.motor_referenced">
 <code class="descname">motor_referenced</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_referenced" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:ST_REFVAL&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:ST_REFVAL&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -567,7 +566,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.motor_reset">
 <code class="descname">motor_reset</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:RESET.PROC&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:RESET.PROC&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -576,7 +575,7 @@ checks that position.</p>
 <dt id="hxrsnd.attocube.EccBase.motor_stop">
 <code class="descname">motor_stop</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:STOP&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:STOP&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -782,7 +781,7 @@ exceptions will propagate to it.</p>
 <dt id="hxrsnd.attocube.EccBase.upper_ctrl_limit">
 <code class="descname">upper_ctrl_limit</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.upper_ctrl_limit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:TARGET.HOPR&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:TARGET.HOPR&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -791,7 +790,7 @@ exceptions will propagate to it.</p>
 <dt id="hxrsnd.attocube.EccBase.user_readback">
 <code class="descname">user_readback</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.user_readback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:POSITION&#39;</span><span class="p">,</span> <span class="n">auto_monitor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:POSITION&#39;</span><span class="p">,</span> <span class="n">auto_monitor</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -800,7 +799,7 @@ exceptions will propagate to it.</p>
 <dt id="hxrsnd.attocube.EccBase.user_setpoint">
 <code class="descname">user_setpoint</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.user_setpoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:TARGET&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:TARGET&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -875,7 +874,7 @@ exceptions will propagate to it.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.1+128.ge3f26f4',
+            VERSION:'0.1.0+12.g9a109f3',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -889,16 +888,11 @@ exceptions will propagate to it.</p>
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script> 
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Macromotors &mdash; HXRSnD 0.0.1+128.ge3f26f4 documentation</title>
+  <title>Macromotors &mdash; HXRSnD 0.1.0+12.g9a109f3 documentation</title>
   
 
   
@@ -24,8 +24,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -59,7 +58,7 @@
             
             
               <div class="version">
-                0.0.1+128.ge3f26f4
+                0.1.0+12.g9a109f3
               </div>
             
           
@@ -318,7 +317,7 @@ system.</li>
 <dt id="hxrsnd.macromotor.MacroBase.readback">
 <code class="descname">readback</code><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.readback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">AttributeSignal</span><span class="p">,</span> <span class="s1">&#39;position&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">AttributeSignal</span><span class="p">,</span> <span class="s1">&#39;position&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -424,6 +423,15 @@ following motors:</p>
 <em class="property">class </em><code class="descclassname">hxrsnd.macromotor.</code><code class="descname">DelayMacro</code><span class="sig-paren">(</span><em>prefix</em>, <em>name=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.sndmotor.CalibMotor</span></code>, <a class="reference internal" href="#hxrsnd.macromotor.DelayTowerMacro" title="hxrsnd.macromotor.DelayTowerMacro"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.macromotor.DelayTowerMacro</span></code></a></p>
 <p>Macro-motor for the delay macro-motor.</p>
+<dl class="attribute">
+<dt id="hxrsnd.macromotor.DelayMacro.calib_detector">
+<code class="descname">calib_detector</code><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro.calib_detector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component attribute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">PCDSDetector</span><span class="p">,</span> <span class="s1">&#39;XCS:USR:O1000:01&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="hxrsnd.macromotor.DelayMacro.position">
 <code class="descname">position</code><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro.position" title="Permalink to this definition">¶</a></dt>
@@ -662,7 +670,7 @@ system.</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.1+128.ge3f26f4',
+            VERSION:'0.1.0+12.g9a109f3',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -676,16 +684,11 @@ system.</li>
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script> 
 
