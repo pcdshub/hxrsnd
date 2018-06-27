@@ -17,7 +17,6 @@ from ophyd.device import Device
 ########
 # SLAC #
 ########
-from pcdsdevices.sim.pv import using_fake_epics_pv
 
 ##########
 # Module #
@@ -29,7 +28,6 @@ from hxrsnd.exceptions import MotorDisabled, MotorFaulted
 
 logger = logging.getLogger(__name__)
 
-@using_fake_epics_pv
 @pytest.mark.parametrize("dev", get_classes_in_module(tower, Device))
 def test_devices_instantiate_and_run_ophyd_functions(dev):
     device = fake_device(dev, "TEST:SND:T1")
@@ -38,7 +36,6 @@ def test_devices_instantiate_and_run_ophyd_functions(dev):
     assert(isinstance(device.describe_configuration(), OrderedDict))
     assert(isinstance(device.read_configuration(), OrderedDict))
 
-@using_fake_epics_pv
 def test_DelayTower_does_not_move_if_motors_not_ready():
     tower = fake_device(DelayTower, "TEST:SND:T1")
     tower.disable()
@@ -54,11 +51,10 @@ def test_DelayTower_does_not_move_if_motors_not_ready():
     with pytest.raises(MotorDisabled):
         tower.energy = 10
     tower.enable()
-    tower.tth.axis_fault._read_pv._value = True
+    tower.tth.axis_fault.sim_put(True)
     with pytest.raises(MotorFaulted):
         tower.energy = 10
 
-@using_fake_epics_pv
 def test_ChannelCutTower_does_not_move_if_motors_not_ready():
     tower = fake_device(ChannelCutTower, "TEST:SND:T1")
     tower.disable()
@@ -69,6 +65,6 @@ def test_ChannelCutTower_does_not_move_if_motors_not_ready():
     with pytest.raises(MotorDisabled):
         tower.energy = 10
     tower.enable()
-    tower.th.axis_fault._read_pv._value = True
+    tower.th.axis_fault.sim_put(True)
     with pytest.raises(MotorFaulted):
         tower.energy = 10

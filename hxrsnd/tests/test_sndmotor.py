@@ -9,7 +9,6 @@ import numpy as np
 import pandas as pd
 from ophyd.device import Device
 from ophyd.sim import SynAxis
-from ophyd.tests.conftest import using_fake_epics_pv
 from bluesky.preprocessors  import run_wrapper
 
 from hxrsnd import sndmotor
@@ -21,7 +20,6 @@ from ..exceptions import InputError
 logger = logging.getLogger(__name__)
 rtol = 1e-6                             # Numpy relative tolerance
 
-@using_fake_epics_pv
 @pytest.mark.parametrize("dev", get_classes_in_module(sndmotor, Device))
 def test_sndmotor_devices_instantiate_and_run_ophyd_functions(dev):
     device = fake_device(dev)

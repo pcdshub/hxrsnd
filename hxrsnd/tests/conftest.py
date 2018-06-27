@@ -15,9 +15,10 @@ import numpy as np
 import pandas as pd
 import epics
 from ophyd.signal import Signal
-from ophyd.sim import SynSignal, SynAxis
+from ophyd.sim import (SynSignal, SynAxis, make_fake_device, fake_device_cache,
+                       FakeEpicsSignal)
+from ophyd.areadetector.base import EpicsSignalWithRBV
 from ophyd.device import Component as Cmp, Device
-from ophyd.tests.conftest import using_fake_epics_pv
 from bluesky.run_engine import RunEngine
 from bluesky.tests.conftest import RE
 from lmfit.models import LorentzianModel
@@ -112,7 +113,7 @@ class SynCentroid(SynSignal):
                 
         def func():
             # Evaluate the positions of each motor
-            pos = [m.position for m in self.motors]
+            pos = [m.position for m in self.motors] or [0, 0]
             # Get the centroid position
             cent = np.dot(pos, self.weights)
             # Add uniform noise
@@ -127,15 +128,16 @@ class SynCamera(Device):
     """
     Simulated camera that has centroids as components. 
     """
+    centroid_x = Cmp(SynCentroid, motors=[], weights=[1, 0.25])
+    centroid_y = Cmp(SynCentroid, motors=[], weights=[1, -0.25])
+
     def __init__(self, motor1, motor2, delay, name=None, *args, **kwargs):
         # Create the base class
         super().__init__("SYN:CAMERA", name=name, *args, **kwargs)
         
         # Define the centroid components using the inputted motors
-        self.centroid_x = SynCentroid(name="_".join([self.name, "centroid_x"]), 
-                                      motors=[motor1, delay], weights=[1,.25])
-        self.centroid_y = SynCentroid(name="_".join([self.name, "centroid_y"]), 
-                                      motors=[motor2, delay], weights=[1,-.25])
+        self.centroid_x.motors = [motor1, delay]
+        self.centroid_y.motors = [motor2, delay]
         
         # Add them to _signals
         self._signals['centroid_x'] = self.centroid_x
@@ -218,11 +220,10 @@ def get_classes_in_module(module, subcls=None, blacklist=None):
     return classes
 
 # Create a fake epics device
-@using_fake_epics_pv
 def fake_device(device, name="TEST"):
+    device = make_fake_device(device)
     return device(name, name=name)
 
-@using_fake_epics_pv
 def fake_detector(detector, name="TEST"):
     """Set the plugin_type signal to be _plugin_type for all plugins."""
     def change_all_plugin_types(comp):
@@ -236,12 +237,16 @@ def fake_detector(detector, name="TEST"):
                         sub_comp = change_all_plugin_types(sub_comp.cls)
         return comp
     detector = change_all_plugin_types(detector)
+    detector = make_fake_device(detector)
     return detector(name, name=name)
 
 # Hotfix area detector plugins for tests
 for comp in (PCDSDetector.image, PCDSDetector.stats):
     plugin_class = comp.cls
     plugin_class.plugin_type = Cmp(Signal, value=plugin_class._plugin_type)
+
+# Hotfix make_fake_device for ophyd=1.2.0
+fake_device_cache[EpicsSignalWithRBV] = FakeEpicsSignal
 
 test_df_scan = pd.DataFrame(
     [[  -1,  0,  0,   -0.25,    0.25],
