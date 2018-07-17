@@ -2,11 +2,7 @@
 Utility Functions
 =================
 
-.. autoclass:: hxrsnd.utils.RotatingFileHandlerRelativePath
-
 .. autofunction:: hxrsnd.utils.absolute_submodule_path
-
-.. autofunction:: hxrsnd.utils.setup_logging
 
 .. autofunction:: hxrsnd.utils.as_list
 

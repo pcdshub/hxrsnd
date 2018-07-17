@@ -7,14 +7,10 @@ import logging
 from imp import reload
 from pathlib import Path
 import warnings
-from hxrsnd.utils import setup_logging
 
 # Ignore python warnings (Remove when ophyd stops warning about 'signal_names')
 warnings.filterwarnings('ignore')
 
-# Logging
-setup_logging()
-logger = logging.getLogger("hxrsnd")
 
 try:
     from snd_devices import *
