@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Utility Functions &mdash; HXRSnD 0.1.1+2.g5bd445c documentation</title>
+  <title>Utility Functions &mdash; HXRSnD 0.1.2+4.g0f7f51e documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                0.1.1+2.g5bd445c
+                0.1.2+4.g0f7f51e
               </div>
             
           
@@ -197,14 +197,6 @@
             
   <div class="section" id="utility-functions">
 <h1>Utility Functions<a class="headerlink" href="#utility-functions" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="hxrsnd.utils.RotatingFileHandlerRelativePath">
-<em class="property">class </em><code class="descclassname">hxrsnd.utils.</code><code class="descname">RotatingFileHandlerRelativePath</code><span class="sig-paren">(</span><em>filename</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.utils.RotatingFileHandlerRelativePath" title="Permalink to this definition">¶</a></dt>
-<dd><p>Extension of the filehandler class that appends the current directory to the
-inputted filename. This is so the log files can be found relative to this
-file rather than from wherever the script is run.</p>
-</dd></dl>
-
 <dl class="function">
 <dt id="hxrsnd.utils.absolute_submodule_path">
 <code class="descclassname">hxrsnd.utils.</code><code class="descname">absolute_submodule_path</code><span class="sig-paren">(</span><em>submodule</em>, <em>cur_dir='/home/travis/build/pcdshub/hxrsnd/docs/source/../../hxrsnd/utils.py'</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.utils.absolute_submodule_path" title="Permalink to this definition">¶</a></dt>
@@ -224,29 +216,6 @@ absolute path, or the absolute path of this file.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="hxrsnd.utils.setup_logging">
-<code class="descclassname">hxrsnd.utils.</code><code class="descname">setup_logging</code><span class="sig-paren">(</span><em>path_yaml=None</em>, <em>dir_logs=None</em>, <em>default_level=20</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.utils.setup_logging" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets up the logging module to make a properly configured logger.</p>
-<p>This will go into the <code class="docutils literal notranslate"><span class="pre">logging.yaml</span></code> file in the top level directory, and
-try to load the logging configuration. If it fails for any reason, it will
-just use the default configuration. For more details on how the logger will
-be configured, see the <code class="docutils literal notranslate"><span class="pre">logging.yaml</span></code> file.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>path_yaml</strong> (<em>str</em><em> or </em><em>Path</em><em>, </em><em>optional</em>) – Path to the yaml file.</li>
-<li><strong>dir_logs</strong> (<em>str</em><em> or </em><em>Path</em><em>, </em><em>optional</em>) – Path to the log directory.</li>
-<li><strong>default_level</strong> (<em>logging.LEVEL</em><em>, </em><em>optional</em>) – Logging level for the default logging setup if the yaml fails.</li>
-</ul>
 </td>
 </tr>
 </tbody>
@@ -381,7 +350,7 @@ str.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.1.1+2.g5bd445c',
+            VERSION:'0.1.2+4.g0f7f51e',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
