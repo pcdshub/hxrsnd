@@ -8,6 +8,7 @@ from functools import reduce
 
 import numpy as np
 from ophyd.signal import AttributeSignal
+from ophyd.sim import NullStatus
 from ophyd.device import Component as Cmp
 from ophyd.utils import LimitError
 from ophyd.status import wait as status_wait
@@ -40,6 +41,7 @@ class MacroBase(SndMotor):
         read_attrs = read_attrs or ["readback"]
         super().__init__(prefix, name=name, read_attrs=read_attrs, *args, 
                          **kwargs)
+        self._status = NullStatus()
 
         # Make sure this is used
         if not self.parent:
@@ -123,8 +125,7 @@ class MacroBase(SndMotor):
         """
         status = status or self._status
         logger.info("Waiting for the motors to finish moving...")
-        for s in list(status):
-            status_wait(s)
+        status_wait(status)
         logger.info("Move completed.")
 
     def set(self, position, wait=True, verify_move=True, ret_status=True, 
@@ -165,7 +166,8 @@ class MacroBase(SndMotor):
                          ret_status=ret_status, use_diag=use_diag,
                          use_calib=use_calib)
 
-    def move(self, position, wait=True, verify_move=True, use_diag=True):
+    def move(self, position, wait=True, verify_move=True, use_diag=True,
+             *args, **kwargs):
         """
         Moves the macro-motor to the inputted position, optionally waiting for
         the motors to complete their moves. Alias for set().
@@ -212,6 +214,7 @@ class MacroBase(SndMotor):
 
         # Aggregate the status objects
         status = reduce(lambda x, y: x & y, status_list)
+        self._status = status
 
         # Wait for all the motors to finish moving
         if wait:
@@ -219,8 +222,8 @@ class MacroBase(SndMotor):
             
         return status
 
-    def mv(self, position, wait=True, verify_move=True, use_diag=True, *args, 
-           **kwargs):
+    def mv(self, position, wait=True, verify_move=True, use_diag=True,
+           *args, **kwargs):
         """
         Moves the macro parameters to the inputted positions. For energy, this 
         moves the energies of both lines, energy1 moves just the delay line, 
@@ -276,7 +279,7 @@ class MacroBase(SndMotor):
             List of status objects for each motor that was involved in the move.
         """
         try:
-            return super().mv(position, wait=wait, verify_move=verify_move, 
+            return self.move(position, wait=wait, verify_move=verify_move, 
                               use_diag=use_diag, *args, **kwargs)
         # Catch all the common motor exceptions        
         except LimitError:
