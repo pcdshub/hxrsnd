@@ -13,7 +13,7 @@ from ophyd.status import wait as status_wait
 
 from .sndmotor import SndMotor
 from .snddevice import SndDevice
-from .exceptions import MotorDisabled, MotorError
+from .exceptions import MotorDisabled, MotorError, MotorFaulted
 from .utils import absolute_submodule_path, as_list
 
 logger = logging.getLogger(__name__)
@@ -306,7 +306,8 @@ class EccBase(SndMotor, PositionerBase):
         # Begin the move process
         return self.user_setpoint.set(position, timeout=timeout)
 
-    def mv(self, position, print_move=True, *args, **kwargs):
+    def mv(self, position, print_move=True, wait=None,
+           *args, **kwargs):
         """
         Move to a specified position, optionally waiting for motion to
         complete. mv() is different from move() by catching all the common
@@ -340,7 +341,7 @@ class EccBase(SndMotor, PositionerBase):
             Status object for the move.
         """
         try:
-            status =  super().mv(position, *args, **kwargs)
+            status = self.move(position, *args, **kwargs)
 
             # Notify the user that a motor has completed or the command is sent
             if print_move:

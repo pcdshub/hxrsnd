@@ -39,6 +39,7 @@ class SndEpicsMotor(PCDSMotorBase, SndMotor):
     signals
     """
     direction_of_travel = Cmp(Signal)
+    motor_spg = Cmp(Signal, value=2)
 
 
 class SamMotor(SndMotor):
