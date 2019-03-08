@@ -31,8 +31,6 @@ logger = logging.getLogger(__name__)
 def test_aerotech_devices_instantiate_and_run_ophyd_functions(dev):
     motor = fake_device(dev, "TEST:SND:T1")
     assert(isinstance(motor.read(), OrderedDict))
-    assert(isinstance(motor.describe(), OrderedDict))
-    assert(isinstance(motor.describe_configuration(), OrderedDict))
     assert(isinstance(motor.read_configuration(), OrderedDict))
 
 def test_AeroBase_raises_MotorDisabled_if_moved_while_disabled():

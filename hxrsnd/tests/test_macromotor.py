@@ -15,6 +15,4 @@ def test_devices_instantiate_and_run_ophyd_functions(dev):
     device = fake_device(dev)
     device
     assert(isinstance(device.read(), dict))
-    assert(isinstance(device.describe(), dict))
-    assert(isinstance(device.describe_configuration(), dict))
     assert(isinstance(device.read_configuration(), dict))
