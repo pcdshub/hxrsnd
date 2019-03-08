@@ -20,7 +20,7 @@ from ophyd.sim import (SynSignal, SynAxis, make_fake_device, fake_device_cache,
 from ophyd.areadetector.base import EpicsSignalWithRBV
 from ophyd.device import Component as Cmp, Device
 from bluesky.run_engine import RunEngine
-from bluesky.tests.conftest import RE
+from bluesky.tests.conftest import RE as fresh_RE
 from lmfit.models import LorentzianModel
 from pcdsdevices.areadetector.detectors import PCDSDetector
 
@@ -189,10 +189,6 @@ def set_level(pytestconfig):
     #Create basic configuration
     logging.basicConfig(level=log_level,
                         filename=pytestconfig.getoption('--logfile'))
-
-@pytest.fixture(scope='function')
-def fresh_RE(request):
-    return RE(request)
 
 @pytest.fixture(scope='function')
 def get_calib_motor(request):
