@@ -241,7 +241,7 @@ def fake_detector(detector, name="TEST"):
     return detector(name, name=name)
 
 # Hotfix area detector plugins for tests
-for comp in (PCDSDetector.image, PCDSDetector.stats):
+for comp in (PCDSDetector.image1, PCDSDetector.stats2):
     plugin_class = comp.cls
     plugin_class.plugin_type = Cmp(Signal, value=plugin_class._plugin_type)
 
