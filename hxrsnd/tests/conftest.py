@@ -20,7 +20,7 @@ from ophyd.sim import (SynSignal, SynAxis, make_fake_device, fake_device_cache,
 from ophyd.areadetector.base import EpicsSignalWithRBV
 from ophyd.device import Component as Cmp, Device
 from bluesky.run_engine import RunEngine
-from bluesky.tests.conftest import RE
+from bluesky.tests.conftest import RE as fresh_RE
 from lmfit.models import LorentzianModel
 from pcdsdevices.areadetector.detectors import PCDSDetector
 
@@ -191,10 +191,6 @@ def set_level(pytestconfig):
                         filename=pytestconfig.getoption('--logfile'))
 
 @pytest.fixture(scope='function')
-def fresh_RE(request):
-    return RE(request)
-
-@pytest.fixture(scope='function')
 def get_calib_motor(request):
     m1 = SynAxis(name="m1")
     m2 = SynAxis(name="m2")
@@ -241,7 +237,7 @@ def fake_detector(detector, name="TEST"):
     return detector(name, name=name)
 
 # Hotfix area detector plugins for tests
-for comp in (PCDSDetector.image, PCDSDetector.stats):
+for comp in (PCDSDetector.image1, PCDSDetector.stats2):
     plugin_class = comp.cls
     plugin_class.plugin_type = Cmp(Signal, value=plugin_class._plugin_type)
 

@@ -18,8 +18,6 @@ logger = logging.getLogger(__name__)
 def test_devices_instantiate_and_run_ophyd_functions(dev):
     device = fake_device(dev)
     assert(isinstance(device.read(), OrderedDict))
-    assert(isinstance(device.describe(), OrderedDict))
-    assert(isinstance(device.describe_configuration(), OrderedDict))
     assert(isinstance(device.read_configuration(), OrderedDict))
 
 def test_ProportionalValve_opens_and_closes_correctly():
