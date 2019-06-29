@@ -12,7 +12,7 @@ from ophyd.device import Component as Cmp
 from ophyd.utils import LimitError
 from ophyd.status import wait as status_wait
 
-from pcdsdevices.areadetector.detectors import PCDSDetector
+from pcdsdevices.areadetector.detectors import PCDSAreaDetector
 from pswalker.utils import field_prepend
 
 from .snddevice import SndDevice
@@ -480,7 +480,7 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
     #                        "t4: {1:.3f}ps".format(t1_delay, t4_delay))
     #     return is_aligned
 
-    calib_detector = Cmp(PCDSDetector, 'XCS:USR:O1000:01', add_prefix=[])
+    calib_detector = Cmp(PCDSAreaDetector, 'XCS:USR:O1000:01', add_prefix=[])
 
     def __init__(self, prefix, name=None, *args, **kwargs):
         super().__init__(prefix, name=name, *args, **kwargs)

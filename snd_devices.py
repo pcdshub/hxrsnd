@@ -1,6 +1,6 @@
 # from bluesky import RunEngine
 
-from pcdsdevices.areadetector.detectors import PCDSDetector
+from pcdsdevices.areadetector.detectors import PCDSAreaDetector
 from hxrsnd.sndmotor import SamMotor
 from hxrsnd.sequencer import SeqBase
 from hxrsnd.sndsystem import SplitAndDelay
@@ -16,4 +16,4 @@ daq = snd.daq
 seq = SeqBase("ECS:SYS0:4", desc="Sequencer Channel 4")
 sam_x = SamMotor("XCS:USR:MMN:01", name="sam_x")
 sam_y = SamMotor("XCS:USR:MMN:02", name="sam_y")
-opal_1 = PCDSDetector("XCS:USR:O1000:01", name="Opal 1")
+opal_1 = PCDSAreaDetector("XCS:USR:O1000:01", name="Opal 1")

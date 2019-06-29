@@ -22,7 +22,7 @@ from ophyd.device import Component as Cmp, Device
 from bluesky.run_engine import RunEngine
 from bluesky.tests.conftest import RE as fresh_RE
 from lmfit.models import LorentzianModel
-from pcdsdevices.areadetector.detectors import PCDSDetector
+from pcdsdevices.areadetector.detectors import PCDSAreaDetector
 
 from ..sndmotor import CalibMotor
 
@@ -237,7 +237,7 @@ def fake_detector(detector, name="TEST"):
     return detector(name, name=name)
 
 # Hotfix area detector plugins for tests
-for comp in (PCDSDetector.image1, PCDSDetector.stats2):
+for comp in (PCDSAreaDetector.image1, PCDSAreaDetector.stats2):
     plugin_class = comp.cls
     plugin_class.plugin_type = Cmp(Signal, value=plugin_class._plugin_type)
 
