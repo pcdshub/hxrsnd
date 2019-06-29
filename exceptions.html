@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Exceptions &mdash; HXRSnD 0.1.3 documentation</title>
+  <title>Exceptions &mdash; HXRSnD 0.1.4 documentation</title>
   
 
   
@@ -17,33 +17,35 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Utility Functions" href="utils.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -57,7 +59,7 @@
             
             
               <div class="version">
-                0.1.3
+                0.1.4
               </div>
             
           
@@ -198,33 +200,33 @@
 <h1>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="hxrsnd.exceptions.SndException">
-<em class="property">class </em><code class="descclassname">hxrsnd.exceptions.</code><code class="descname">SndException</code><a class="headerlink" href="#hxrsnd.exceptions.SndException" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.exceptions.</code><code class="sig-name descname">SndException</code><a class="headerlink" href="#hxrsnd.exceptions.SndException" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base aerotech motor exceptions.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="hxrsnd.exceptions.MotorDisabled">
-<em class="property">class </em><code class="descclassname">hxrsnd.exceptions.</code><code class="descname">MotorDisabled</code><a class="headerlink" href="#hxrsnd.exceptions.MotorDisabled" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.exceptions.</code><code class="sig-name descname">MotorDisabled</code><a class="headerlink" href="#hxrsnd.exceptions.MotorDisabled" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exception raised when an action requiring the motor be enabled is requested.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="hxrsnd.exceptions.MotorFaulted">
-<em class="property">class </em><code class="descclassname">hxrsnd.exceptions.</code><code class="descname">MotorFaulted</code><a class="headerlink" href="#hxrsnd.exceptions.MotorFaulted" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.exceptions.</code><code class="sig-name descname">MotorFaulted</code><a class="headerlink" href="#hxrsnd.exceptions.MotorFaulted" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exception raised when an action requiring the motor not be faulted is
 requested.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="hxrsnd.exceptions.MotorError">
-<em class="property">class </em><code class="descclassname">hxrsnd.exceptions.</code><code class="descname">MotorError</code><a class="headerlink" href="#hxrsnd.exceptions.MotorError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.exceptions.</code><code class="sig-name descname">MotorError</code><a class="headerlink" href="#hxrsnd.exceptions.MotorError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exception raised when an action requiring the motor not have an error is
 requested.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="hxrsnd.exceptions.BadN2Pressure">
-<em class="property">class </em><code class="descclassname">hxrsnd.exceptions.</code><code class="descname">BadN2Pressure</code><a class="headerlink" href="#hxrsnd.exceptions.BadN2Pressure" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.exceptions.</code><code class="sig-name descname">BadN2Pressure</code><a class="headerlink" href="#hxrsnd.exceptions.BadN2Pressure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exception raised when an action requiring the N2 pressure be good is
 requested with a bad pressure.</p>
 </dd></dl>
@@ -240,7 +242,7 @@ requested with a bad pressure.</p>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="utils.html" class="btn btn-neutral" title="Utility Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="utils.html" class="btn btn-neutral float-left" title="Utility Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -266,26 +268,16 @@ requested with a bad pressure.</p>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

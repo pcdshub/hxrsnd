@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>General Scans &mdash; HXRSnD 0.1.3 documentation</title>
+  <title>General Scans &mdash; HXRSnD 0.1.4 documentation</title>
   
 
   
@@ -17,34 +17,36 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Miscellaneous" href="misc_plans.html" />
     <link rel="prev" title="Delay Calibration" href="calibration.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -58,7 +60,7 @@
             
             
               <div class="version">
-                0.1.3
+                0.1.4
               </div>
             
           
@@ -199,68 +201,60 @@
 <h1>General Scans<a class="headerlink" href="#general-scans" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="hxrsnd.plans.scans.linear_scan">
-<code class="descclassname">hxrsnd.plans.scans.</code><code class="descname">linear_scan</code><span class="sig-paren">(</span><em>motor</em>, <em>start</em>, <em>stop</em>, <em>num</em>, <em>use_diag=True</em>, <em>return_to_start=True</em>, <em>md=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.scans.linear_scan" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.scans.</code><code class="sig-name descname">linear_scan</code><span class="sig-paren">(</span><em class="sig-param">motor</em>, <em class="sig-param">start</em>, <em class="sig-param">stop</em>, <em class="sig-param">num</em>, <em class="sig-param">use_diag=True</em>, <em class="sig-param">return_to_start=True</em>, <em class="sig-param">md=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.scans.linear_scan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Linear scan of a motor without a detector.</p>
 <p>Performs a linear scan using the inputted motor, optionally using the
 diagnostics, and optionally moving the motor back to the original start
 position. This scan is different from the regular scan because it does not
 take a detector, and simply scans the motor.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>motor</strong> (<em>object</em>) – any ‘setable’ object (motor, temp controller, etc.)</li>
-<li><strong>start</strong> (<em>float</em>) – starting position of motor</li>
-<li><strong>stop</strong> (<em>float</em>) – ending position of motor</li>
-<li><strong>num</strong> (<em>int</em>) – number of steps</li>
-<li><strong>use_diag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Include the diagnostic motors in the scan.</li>
-<li><strong>md</strong> (<em>dict</em><em>, </em><em>optional</em>) – metadata</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>motor</strong> (<em>object</em>) – any ‘setable’ object (motor, temp controller, etc.)</p></li>
+<li><p><strong>start</strong> (<em>float</em>) – starting position of motor</p></li>
+<li><p><strong>stop</strong> (<em>float</em>) – ending position of motor</p></li>
+<li><p><strong>num</strong> (<em>int</em>) – number of steps</p></li>
+<li><p><strong>use_diag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Include the diagnostic motors in the scan.</p></li>
+<li><p><strong>md</strong> (<em>dict</em><em>, </em><em>optional</em>) – metadata</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="hxrsnd.plans.scans.centroid_scan">
-<code class="descclassname">hxrsnd.plans.scans.</code><code class="descname">centroid_scan</code><span class="sig-paren">(</span><em>detector, motor, start, stop, steps, average=None, detector_fields=['stats2_centroid_x', 'stats2_centroid_y'], motor_fields=None, system=None, system_fields=None, filters=None, return_to_start=True, *args, **kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.scans.centroid_scan" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.scans.</code><code class="sig-name descname">centroid_scan</code><span class="sig-paren">(</span><em class="sig-param">detector, motor, start, stop, steps, average=None, detector_fields=['stats2_centroid_x', 'stats2_centroid_y'], motor_fields=None, system=None, system_fields=None, filters=None, return_to_start=True, *args, **kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.scans.centroid_scan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a scan and returns the centroids of the inputted detector.</p>
 <p>The returned centroids can be absolute or relative to the initial value. The
 values are returned in a pandas DataFrame where the indices are the target
 motor positions.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>detector</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">BeamDetector</span></code>) – Detector from which to take the value measurements</li>
-<li><strong>motor</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Motor</span></code>) – Main motor to perform the scan</li>
-<li><strong>start</strong> (<em>float</em>) – Starting position of motor</li>
-<li><strong>stop</strong> (<em>float</em>) – Ending position of motor</li>
-<li><strong>steps</strong> (<em>int</em>) – Number of steps to take</li>
-<li><strong>average</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of averages to take for each measurement</li>
-<li><strong>detector_fields</strong> (<em>iterable</em><em>, </em><em>optional</em>) – Fields of the detector to add to the returned dataframe</li>
-<li><strong>motor_fields</strong> (<em>iterable</em><em>, </em><em>optional</em>) – Fields of the motor to add to the returned dataframe</li>
-<li><strong>system</strong> (<em>list</em><em>, </em><em>optional</em>) – Extra devices to include in the datastream as we measure the average</li>
-<li><strong>system_fields</strong> (<em>list</em><em>, </em><em>optional</em>) – Fields of the extra devices to add to the returned dataframe</li>
-<li><strong>filters</strong> (<em>dict</em><em>, </em><em>optional</em>) – Key, callable pairs of event keys and single input functions that
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>detector</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">BeamDetector</span></code>) – Detector from which to take the value measurements</p></li>
+<li><p><strong>motor</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Motor</span></code>) – Main motor to perform the scan</p></li>
+<li><p><strong>start</strong> (<em>float</em>) – Starting position of motor</p></li>
+<li><p><strong>stop</strong> (<em>float</em>) – Ending position of motor</p></li>
+<li><p><strong>steps</strong> (<em>int</em>) – Number of steps to take</p></li>
+<li><p><strong>average</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of averages to take for each measurement</p></li>
+<li><p><strong>detector_fields</strong> (<em>iterable</em><em>, </em><em>optional</em>) – Fields of the detector to add to the returned dataframe</p></li>
+<li><p><strong>motor_fields</strong> (<em>iterable</em><em>, </em><em>optional</em>) – Fields of the motor to add to the returned dataframe</p></li>
+<li><p><strong>system</strong> (<em>list</em><em>, </em><em>optional</em>) – Extra devices to include in the datastream as we measure the average</p></li>
+<li><p><strong>system_fields</strong> (<em>list</em><em>, </em><em>optional</em>) – Fields of the extra devices to add to the returned dataframe</p></li>
+<li><p><strong>filters</strong> (<em>dict</em><em>, </em><em>optional</em>) – Key, callable pairs of event keys and single input functions that
 evaluate to True or False. For more infromation see
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">apply_filters()</span></code></li>
-<li><strong>return_to_start</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move the scan motor back to its initial position after the scan</li>
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">apply_filters()</span></code></p></li>
+<li><p><strong>return_to_start</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move the scan motor back to its initial position after the scan</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>df</strong> – DataFrame containing the detector, motor, and system fields at every
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>df</strong> – DataFrame containing the detector, motor, and system fields at every
 step of the scan.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">pd.DataFrame</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -276,7 +270,7 @@ step of the scan.</p>
         <a href="misc_plans.html" class="btn btn-neutral float-right" title="Miscellaneous" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="calibration.html" class="btn btn-neutral" title="Delay Calibration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="calibration.html" class="btn btn-neutral float-left" title="Delay Calibration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -302,26 +296,16 @@ step of the scan.</p>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

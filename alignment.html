@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Alignment Plans &mdash; HXRSnD 0.1.3 documentation</title>
+  <title>Alignment Plans &mdash; HXRSnD 0.1.4 documentation</title>
   
 
   
@@ -17,34 +17,36 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Delay Calibration" href="calibration.html" />
     <link rel="prev" title="Temperature Sensors" href="rtd.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -58,7 +60,7 @@
             
             
               <div class="version">
-                0.1.3
+                0.1.4
               </div>
             
           
@@ -206,7 +208,7 @@
 <p>The rocking curve does two successive step scans, using the maximum of the
 first to center the finer scan on the second. There are a number of fields to
 configure and play with but lets start simple:</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rock</span> <span class="o">=</span> <span class="n">rocking_curve</span><span class="p">(</span><span class="n">wave8</span><span class="o">.</span><span class="n">diode_1</span><span class="p">,</span> <span class="n">hxrsnd</span><span class="o">.</span><span class="n">th2</span><span class="p">,</span> <span class="s1">&#39;peakT&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rock</span> <span class="o">=</span> <span class="n">rocking_curve</span><span class="p">(</span><span class="n">wave8</span><span class="o">.</span><span class="n">diode_1</span><span class="p">,</span> <span class="n">hxrsnd</span><span class="o">.</span><span class="n">th2</span><span class="p">,</span> <span class="s1">&#39;peakT&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span>
                      <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">average</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="n">RE</span><span class="p">(</span><span class="n">rock</span><span class="p">)</span>
@@ -227,7 +229,7 @@ parameter would look like:</p>
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="hxrsnd.plans.alignment.rocking_curve">
-<code class="descclassname">hxrsnd.plans.alignment.</code><code class="descname">rocking_curve</code><span class="sig-paren">(</span><em>detector</em>, <em>motor</em>, <em>read_field</em>, <em>coarse_step</em>, <em>fine_step</em>, <em>bounds=None</em>, <em>average=None</em>, <em>fine_space=5</em>, <em>initial_guess=None</em>, <em>position_field='user_readback'</em>, <em>show_plot=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.alignment.rocking_curve" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.alignment.</code><code class="sig-name descname">rocking_curve</code><span class="sig-paren">(</span><em class="sig-param">detector</em>, <em class="sig-param">motor</em>, <em class="sig-param">read_field</em>, <em class="sig-param">coarse_step</em>, <em class="sig-param">fine_step</em>, <em class="sig-param">bounds=None</em>, <em class="sig-param">average=None</em>, <em class="sig-param">fine_space=5</em>, <em class="sig-param">initial_guess=None</em>, <em class="sig-param">position_field='user_readback'</em>, <em class="sig-param">show_plot=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.alignment.rocking_curve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Travel to the maxima of a bell curve</p>
 <p>The rocking curve scan is two repeated calls of <a class="reference internal" href="#hxrsnd.plans.alignment.maximize_lorentz" title="hxrsnd.plans.alignment.maximize_lorentz"><code class="xref py py-func docutils literal notranslate"><span class="pre">maximize_lorentz()</span></code></a>.
 The first is a rough step scan which searches the area given by <code class="docutils literal notranslate"><span class="pre">bounds</span></code>
@@ -237,68 +239,60 @@ space. Once the rough scan is completed, the maxima of the fit is used as
 the center of the new fine scan that probes a region of space with a region
 twice as large as the <code class="docutils literal notranslate"><span class="pre">fine_space</span></code> parameter. After this, the motor is
 translated to the calculated maxima of the model</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>detector</strong> (<em>obj</em>) – The object to be read during the plan</li>
-<li><strong>motor</strong> (<em>obj</em>) – The object to be moved via the plan.</li>
-<li><strong>read_field</strong> (<em>str</em>) – Field of detector to maximize</li>
-<li><strong>coarse_step</strong> (<em>float</em>) – Step size for the initial rough scan</li>
-<li><strong>fine_step</strong> (<em>float</em>) – Step size for the fine scan</li>
-<li><strong>bounds</strong> (<em>tuple</em><em>, </em><em>optional</em>) – Bounds for the original rough scan. If not provided, the soft limits of
-the motor are used</li>
-<li><strong>average</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of shots to average at each step</li>
-<li><strong>fine_space</strong> (<em>float</em><em>, </em><em>optional</em>) – The amount to scan on either side of the rough scan result. Note that
-the rocking_curve will never tell the secondary scan to travel outside</li>
-<li><strong>position_field</strong> (<em>str</em><em>, </em><em>optional</em>) – Motor field that will have the Lorentzian relationship with the given
-signal</li>
-<li><strong>initial_guess</strong> (<em>dict</em><em>, </em><em>optional</em>) – Initial guess to the Lorentz model parameters of <cite>sigma</cite> <cite>center</cite>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>detector</strong> (<em>obj</em>) – The object to be read during the plan</p></li>
+<li><p><strong>motor</strong> (<em>obj</em>) – The object to be moved via the plan.</p></li>
+<li><p><strong>read_field</strong> (<em>str</em>) – Field of detector to maximize</p></li>
+<li><p><strong>coarse_step</strong> (<em>float</em>) – Step size for the initial rough scan</p></li>
+<li><p><strong>fine_step</strong> (<em>float</em>) – Step size for the fine scan</p></li>
+<li><p><strong>bounds</strong> (<em>tuple</em><em>, </em><em>optional</em>) – Bounds for the original rough scan. If not provided, the soft limits of
+the motor are used</p></li>
+<li><p><strong>average</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of shots to average at each step</p></li>
+<li><p><strong>fine_space</strong> (<em>float</em><em>, </em><em>optional</em>) – The amount to scan on either side of the rough scan result. Note that
+the rocking_curve will never tell the secondary scan to travel outside</p></li>
+<li><p><strong>position_field</strong> (<em>str</em><em>, </em><em>optional</em>) – Motor field that will have the Lorentzian relationship with the given
+signal</p></li>
+<li><p><strong>initial_guess</strong> (<em>dict</em><em>, </em><em>optional</em>) – Initial guess to the Lorentz model parameters of <cite>sigma</cite> <cite>center</cite>
 <cite>amplitude</cite>
-of the <code class="docutils literal notranslate"><span class="pre">bounds</span></code>, so this region may be truncated.</li>
-<li><strong>show_plot</strong> (<em>bool</em><em>, </em><em>optional</em>) – Create a plot displaying the progress of the <cite>rocking_curve</cite></li>
+of the <code class="docutils literal notranslate"><span class="pre">bounds</span></code>, so this region may be truncated.</p></li>
+<li><p><strong>show_plot</strong> (<em>bool</em><em>, </em><em>optional</em>) – Create a plot displaying the progress of the <cite>rocking_curve</cite></p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="hxrsnd.plans.alignment.maximize_lorentz">
-<code class="descclassname">hxrsnd.plans.alignment.</code><code class="descname">maximize_lorentz</code><span class="sig-paren">(</span><em>detector</em>, <em>motor</em>, <em>read_field</em>, <em>step_size=1</em>, <em>bounds=None</em>, <em>average=None</em>, <em>filters=None</em>, <em>position_field='user_readback'</em>, <em>initial_guess=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.alignment.maximize_lorentz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.alignment.</code><code class="sig-name descname">maximize_lorentz</code><span class="sig-paren">(</span><em class="sig-param">detector</em>, <em class="sig-param">motor</em>, <em class="sig-param">read_field</em>, <em class="sig-param">step_size=1</em>, <em class="sig-param">bounds=None</em>, <em class="sig-param">average=None</em>, <em class="sig-param">filters=None</em>, <em class="sig-param">position_field='user_readback'</em>, <em class="sig-param">initial_guess=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.alignment.maximize_lorentz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximize a signal with a Lorentzian relationship to a motor</p>
 <p>The following plan does a linear step scan through the parameter space
 while collecting information to create a Lorentzian model. After the scan
 has completed, the created model will be queried to find the estimated
 motor position that will yield the absolute maximum of the Lorentz equation</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>detector</strong> (<em>obj</em>) – The object to be read during the plan</li>
-<li><strong>motor</strong> (<em>obj</em>) – The object to be moved via the plan.</li>
-<li><strong>read_field</strong> (<em>str</em>) – Field of detector to maximize</li>
-<li><strong>nsteps</strong> (<em>int</em><em>, </em><em>optional</em>) – The step size used by the initial linear scan to create the Lorentzian
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>detector</strong> (<em>obj</em>) – The object to be read during the plan</p></li>
+<li><p><strong>motor</strong> (<em>obj</em>) – The object to be moved via the plan.</p></li>
+<li><p><strong>read_field</strong> (<em>str</em>) – Field of detector to maximize</p></li>
+<li><p><strong>nsteps</strong> (<em>int</em><em>, </em><em>optional</em>) – The step size used by the initial linear scan to create the Lorentzian
 model. A smaller step size will create a more accurate model, while a
-larger step size will increase the speed of the entire operation.</li>
-<li><strong>bounds</strong> (<em>tuple</em><em>, </em><em>optional</em>) – The lower and higher limit of the search space. If no value is given
-the <a class="reference internal" href="attocube.html#hxrsnd.attocube.EccBase.limits" title="hxrsnd.attocube.EccBase.limits"><code class="xref py py-attr docutils literal notranslate"><span class="pre">limits</span></code></a> property of the motor will be queried next. If this
-does not yield anything useful an exception will be raised</li>
-<li><strong>average</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of shots to average at every step of the scan. If left as
-None, no average will be used</li>
-<li><strong>filters</strong> (<em>dict</em><em>, </em><em>optional</em>) – Filters used to drop shots from the analysis</li>
-<li><strong>position_field</strong> (<em>str</em><em>, </em><em>optional</em>) – Motor field that will have the Lorentzian relationship with the given
-signal</li>
-<li><strong>initial_guess</strong> (<em>dict</em><em>, </em><em>optional</em>) – Initial guess to the Lorentz model parameters of <cite>sigma</cite> <cite>center</cite>
-<cite>amplitude</cite></li>
+larger step size will increase the speed of the entire operation.</p></li>
+<li><p><strong>bounds</strong> (<em>tuple</em><em>, </em><em>optional</em>) – The lower and higher limit of the search space. If no value is given
+the <code class="xref py py-attr docutils literal notranslate"><span class="pre">limits</span></code> property of the motor will be queried next. If this
+does not yield anything useful an exception will be raised</p></li>
+<li><p><strong>average</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of shots to average at every step of the scan. If left as
+None, no average will be used</p></li>
+<li><p><strong>filters</strong> (<em>dict</em><em>, </em><em>optional</em>) – Filters used to drop shots from the analysis</p></li>
+<li><p><strong>position_field</strong> (<em>str</em><em>, </em><em>optional</em>) – Motor field that will have the Lorentzian relationship with the given
+signal</p></li>
+<li><p><strong>initial_guess</strong> (<em>dict</em><em>, </em><em>optional</em>) – Initial guess to the Lorentz model parameters of <cite>sigma</cite> <cite>center</cite>
+<cite>amplitude</cite></p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -315,7 +309,7 @@ signal</li>
         <a href="calibration.html" class="btn btn-neutral float-right" title="Delay Calibration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="rtd.html" class="btn btn-neutral" title="Temperature Sensors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rtd.html" class="btn btn-neutral float-left" title="Temperature Sensors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -341,26 +335,16 @@ signal</li>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

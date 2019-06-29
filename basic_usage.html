@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Basic Usage &mdash; HXRSnD 0.1.3 documentation</title>
+  <title>Basic Usage &mdash; HXRSnD 0.1.4 documentation</title>
   
 
   
@@ -17,34 +17,36 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Adding Scripts" href="scripting.html" />
     <link rel="prev" title="Installation" href="installation.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -58,7 +60,7 @@
             
             
               <div class="version">
-                0.1.3
+                0.1.4
               </div>
             
           
@@ -221,21 +223,21 @@ simply run the shell script in the <code class="docutils literal notranslate"><s
 <p>The <code class="docutils literal notranslate"><span class="pre">snd</span></code> object is where most if not all of the interfacing with the system
 should be done. It has the following devices as attributes:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">t1</span></code> - Tower 1 in the split and delay system</li>
-<li><code class="docutils literal notranslate"><span class="pre">t4</span></code> - Tower 4 in the split and delay system</li>
-<li><code class="docutils literal notranslate"><span class="pre">t2</span></code> - Tower 2 in the split and delay system</li>
-<li><code class="docutils literal notranslate"><span class="pre">t3</span></code> - Tower 3 in the split and delay system</li>
-<li><code class="docutils literal notranslate"><span class="pre">di</span></code> - Input diode for the system</li>
-<li><code class="docutils literal notranslate"><span class="pre">dd</span></code> - Diode between the two delay towers</li>
-<li><code class="docutils literal notranslate"><span class="pre">do</span></code> - Output diode for the system</li>
-<li><code class="docutils literal notranslate"><span class="pre">dci</span></code> - Input diode for the channel cut line</li>
-<li><code class="docutils literal notranslate"><span class="pre">dcc</span></code> - Diode between the two channel cut towers</li>
-<li><code class="docutils literal notranslate"><span class="pre">dco</span></code> - Input diode for the channel cut line</li>
-<li><code class="docutils literal notranslate"><span class="pre">E1</span></code> - Macromotor for the delay line energy</li>
-<li><code class="docutils literal notranslate"><span class="pre">E2</span></code> - Macromotor for the channel cut energy</li>
-<li><code class="docutils literal notranslate"><span class="pre">delay</span></code> - Macromotor for the delay</li>
-<li><code class="docutils literal notranslate"><span class="pre">ab</span></code> - Air bearings of the system</li>
-<li><code class="docutils literal notranslate"><span class="pre">daq</span></code> - Object that interfaces with the DAQ</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t1</span></code> - Tower 1 in the split and delay system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t4</span></code> - Tower 4 in the split and delay system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t2</span></code> - Tower 2 in the split and delay system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t3</span></code> - Tower 3 in the split and delay system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di</span></code> - Input diode for the system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dd</span></code> - Diode between the two delay towers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">do</span></code> - Output diode for the system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dci</span></code> - Input diode for the channel cut line</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dcc</span></code> - Diode between the two channel cut towers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dco</span></code> - Input diode for the channel cut line</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">E1</span></code> - Macromotor for the delay line energy</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">E2</span></code> - Macromotor for the channel cut energy</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delay</span></code> - Macromotor for the delay</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ab</span></code> - Air bearings of the system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">daq</span></code> - Object that interfaces with the DAQ</p></li>
 </ul>
 <p>Each of the devices has an assortment of motors that can be viewed from the
 ‘Component’ section of the object’s docstring. The easiest way to so is by using
@@ -257,39 +259,39 @@ my idea are) the more useful methods and attributes.</p>
 <div class="section" id="methods-and-properties-common-to-all-motors">
 <h3>Methods and Properties Common to All Motors:<a class="headerlink" href="#methods-and-properties-common-to-all-motors" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">motor.move()</span></code>, <code class="docutils literal notranslate"><span class="pre">motor.mv()</span></code> - Moves the motor to the inputted position.</li>
-<li><code class="docutils literal notranslate"><span class="pre">motor.move_rel()</span></code>, <code class="docutils literal notranslate"><span class="pre">motor.mvr()</span></code> - Moves the motor by the inputted value.</li>
-<li><code class="docutils literal notranslate"><span class="pre">motor.position</span></code>, <code class="docutils literal notranslate"><span class="pre">motor.wm()</span></code> - Returns the current position of the motor.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.move()</span></code>, <code class="docutils literal notranslate"><span class="pre">motor.mv()</span></code> - Moves the motor to the inputted position.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.move_rel()</span></code>, <code class="docutils literal notranslate"><span class="pre">motor.mvr()</span></code> - Moves the motor by the inputted value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.position</span></code>, <code class="docutils literal notranslate"><span class="pre">motor.wm()</span></code> - Returns the current position of the motor.</p></li>
 </ul>
 </div>
 <div class="section" id="methods-and-properties-common-to-aerotech-and-attocube-motors">
 <h3>Methods and Properties Common to Aerotech and Attocube Motors<a class="headerlink" href="#methods-and-properties-common-to-aerotech-and-attocube-motors" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">motor.enable()</span></code>, <code class="docutils literal notranslate"><span class="pre">motor.disable()</span></code> - Enables or disables the motor.</li>
-<li><code class="docutils literal notranslate"><span class="pre">motor.enabled</span></code> - Returns whether the motor is enabled.</li>
-<li><code class="docutils literal notranslate"><span class="pre">motor.stop()</span></code> - Stops the current motor move.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.enable()</span></code>, <code class="docutils literal notranslate"><span class="pre">motor.disable()</span></code> - Enables or disables the motor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.enabled</span></code> - Returns whether the motor is enabled.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.stop()</span></code> - Stops the current motor move.</p></li>
 </ul>
 </div>
 <div class="section" id="aerotech-methods-and-properties">
 <h3>Aerotech Methods and Properties<a class="headerlink" href="#aerotech-methods-and-properties" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">motor.offset</span></code> - Current offset of the motor.</li>
-<li><code class="docutils literal notranslate"><span class="pre">motor.offset_position()</span></code> - Sets the current position to be the inputted position by changing the <code class="docutils literal notranslate"><span class="pre">motor.offset</span></code> value.</li>
-<li><code class="docutils literal notranslate"><span class="pre">motor.homf()</span></code>, <code class="docutils literal notranslate"><span class="pre">motor.homr()</span></code> - Homes the motor forward or in reverse.</li>
-<li><code class="docutils literal notranslate"><span class="pre">motor.reconfig()</span></code> - Pulls the motor parameters from the controller.</li>
-<li><code class="docutils literal notranslate"><span class="pre">motor.faulted</span></code> - Returns whether the motor is faulted.</li>
-<li><code class="docutils literal notranslate"><span class="pre">motor.clear()</span></code> - Clears the motor from the faulted state.</li>
-<li><code class="docutils literal notranslate"><span class="pre">motor.state</span></code> - Returns the state PV of the motor (Go, Stop).</li>
-<li><code class="docutils literal notranslate"><span class="pre">motor.ready</span></code> - Returns whether the motor is ready for a motion.</li>
-<li><code class="docutils literal notranslate"><span class="pre">motor.ready_motor()</span></code> - Clears, enabled and changes the state of the motor to “Go”.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.offset</span></code> - Current offset of the motor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.offset_position()</span></code> - Sets the current position to be the inputted position by changing the <code class="docutils literal notranslate"><span class="pre">motor.offset</span></code> value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.homf()</span></code>, <code class="docutils literal notranslate"><span class="pre">motor.homr()</span></code> - Homes the motor forward or in reverse.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.reconfig()</span></code> - Pulls the motor parameters from the controller.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.faulted</span></code> - Returns whether the motor is faulted.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.clear()</span></code> - Clears the motor from the faulted state.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.state</span></code> - Returns the state PV of the motor (Go, Stop).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.ready</span></code> - Returns whether the motor is ready for a motion.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.ready_motor()</span></code> - Clears, enabled and changes the state of the motor to “Go”.</p></li>
 </ul>
 </div>
 <div class="section" id="attocube-methods-and-properties">
 <h3>Attocube Methods and Properties<a class="headerlink" href="#attocube-methods-and-properties" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">motor.connected</span></code> - Returns whether the motor is connected.</li>
-<li><code class="docutils literal notranslate"><span class="pre">motor.refereced</span></code> - Returns whether the motor is referenced.</li>
-<li><code class="docutils literal notranslate"><span class="pre">motor.error</span></code> - Returns whether the motor has an error.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.connected</span></code> - Returns whether the motor is connected.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.refereced</span></code> - Returns whether the motor is referenced.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.error</span></code> - Returns whether the motor has an error.</p></li>
 </ul>
 </div>
 </div>
@@ -298,11 +300,11 @@ my idea are) the more useful methods and attributes.</p>
 <p>The towers themselves have some methods and attributes that may be useful for
 general usage. Below is a list of some of them.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">tower.enable()</span></code>, <code class="docutils literal notranslate"><span class="pre">tower.disable()</span></code>, <code class="docutils literal notranslate"><span class="pre">tower.clear()</span></code> - Enables, disables or clears all the (aerotech and attocube) motors in this tower.</li>
-<li><code class="docutils literal notranslate"><span class="pre">tower.pos_inserted</span></code>, <code class="docutils literal notranslate"><span class="pre">tower.pos_removed</span></code> - Attributes that hold the x values that correspond to the inserted and removed positions of the tower.</li>
-<li><code class="docutils literal notranslate"><span class="pre">tower.insert()</span></code>, <code class="docutils literal notranslate"><span class="pre">tower.remove()</span></code> - Moves the tower to the <code class="docutils literal notranslate"><span class="pre">pos_inserted</span></code> or <code class="docutils literal notranslate"><span class="pre">pos_removed</span></code> positions. <em>Note</em>: this only works if <code class="docutils literal notranslate"><span class="pre">pos_inserted</span></code> or <code class="docutils literal notranslate"><span class="pre">pos_removed</span></code> are set.</li>
-<li><code class="docutils literal notranslate"><span class="pre">tower.energy</span></code> - Sets or returns the energy the tower is currently tuned for based on the angle of the theta motor. <em>Note</em>: This is not guaranteed to be correct for now.</li>
-<li><code class="docutils literal notranslate"><span class="pre">tower.theta</span></code> - The bragg angle the tower is currently set to maximize. This is computed using the overall theta motor of the tower (<code class="docutils literal notranslate"><span class="pre">tower.tth</span></code> for delay towers and <code class="docutils literal notranslate"><span class="pre">tower.th</span></code> for the channel cut tower). <em>Note</em>: This is not guaranteed to be correct for now.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower.enable()</span></code>, <code class="docutils literal notranslate"><span class="pre">tower.disable()</span></code>, <code class="docutils literal notranslate"><span class="pre">tower.clear()</span></code> - Enables, disables or clears all the (aerotech and attocube) motors in this tower.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower.pos_inserted</span></code>, <code class="docutils literal notranslate"><span class="pre">tower.pos_removed</span></code> - Attributes that hold the x values that correspond to the inserted and removed positions of the tower.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower.insert()</span></code>, <code class="docutils literal notranslate"><span class="pre">tower.remove()</span></code> - Moves the tower to the <code class="docutils literal notranslate"><span class="pre">pos_inserted</span></code> or <code class="docutils literal notranslate"><span class="pre">pos_removed</span></code> positions. <em>Note</em>: this only works if <code class="docutils literal notranslate"><span class="pre">pos_inserted</span></code> or <code class="docutils literal notranslate"><span class="pre">pos_removed</span></code> are set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower.energy</span></code> - Sets or returns the energy the tower is currently tuned for based on the angle of the theta motor. <em>Note</em>: This is not guaranteed to be correct for now.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower.theta</span></code> - The bragg angle the tower is currently set to maximize. This is computed using the overall theta motor of the tower (<code class="docutils literal notranslate"><span class="pre">tower.tth</span></code> for delay towers and <code class="docutils literal notranslate"><span class="pre">tower.th</span></code> for the channel cut tower). <em>Note</em>: This is not guaranteed to be correct for now.</p></li>
 </ul>
 </div>
 <div class="section" id="bragg-calculations">
@@ -320,9 +322,9 @@ quick testing.</p>
 present in the environment. These can be used to perform any quick calculations
 and are listed below:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">snd_L</span></code> - Calculates the bragg angles for the delay and channel cut branches, in addition to the delay.</li>
-<li><code class="docutils literal notranslate"><span class="pre">snd_diag</span></code> - Calculates the positions of the diagnostic motors in the middle of the system to intersect with the beam at the inputted energies and delay.</li>
-<li><code class="docutils literal notranslate"><span class="pre">snd_delay</span></code> - Calculates the delay of the system based on the length of the delay arm.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd_L</span></code> - Calculates the bragg angles for the delay and channel cut branches, in addition to the delay.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd_diag</span></code> - Calculates the positions of the diagnostic motors in the middle of the system to intersect with the beam at the inputted energies and delay.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd_delay</span></code> - Calculates the delay of the system based on the length of the delay arm.</p></li>
 </ul>
 </div>
 </div>
@@ -338,7 +340,7 @@ and are listed below:</p>
         <a href="scripting.html" class="btn btn-neutral float-right" title="Adding Scripts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="installation.html" class="btn btn-neutral" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -364,26 +366,16 @@ and are listed below:</p>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Macromotors &mdash; HXRSnD 0.1.3 documentation</title>
+  <title>Macromotors &mdash; HXRSnD 0.1.4 documentation</title>
   
 
   
@@ -17,34 +17,36 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Towers" href="tower.html" />
     <link rel="prev" title="Split and Delay System" href="sndsystem.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -58,7 +60,7 @@
             
             
               <div class="version">
-                0.1.3
+                0.1.4
               </div>
             
           
@@ -211,50 +213,46 @@
 the high level interface for each of the macromotors.</p>
 <dl class="class">
 <dt id="hxrsnd.macromotor.MacroBase">
-<em class="property">class </em><code class="descclassname">hxrsnd.macromotor.</code><code class="descname">MacroBase</code><span class="sig-paren">(</span><em>prefix</em>, <em>name=None</em>, <em>read_attrs=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">MacroBase</code><span class="sig-paren">(</span><em class="sig-param">prefix</em>, <em class="sig-param">name=None</em>, <em class="sig-param">read_attrs=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base pseudo-motor class for the SnD macro-motions.</p>
-<dl class="attribute">
+<dl class="method">
 <dt id="hxrsnd.macromotor.MacroBase.aligned">
-<code class="descname">aligned</code><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.aligned" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">aligned</code><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.aligned" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks to see if the towers are in aligned in energy and delay. To be
 overrided in subclasses.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hxrsnd.macromotor.MacroBase.move">
-<code class="descname">move</code><span class="sig-paren">(</span><em>position</em>, <em>wait=True</em>, <em>verify_move=True</em>, <em>use_diag=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.move" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">move</code><span class="sig-paren">(</span><em class="sig-param">position</em>, <em class="sig-param">wait=True</em>, <em class="sig-param">verify_move=True</em>, <em class="sig-param">use_diag=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.move" title="Permalink to this definition">¶</a></dt>
 <dd><p>Moves the macro-motor to the inputted position, optionally waiting for
 the motors to complete their moves. Alias for set().</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>position</strong> (<em>float</em>) – Position to move the macro-motor to.</li>
-<li><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – Wait for each motor to complete the motion before returning the
-console.</li>
-<li><strong>verify_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints the current system state and a proposed system state and
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position</strong> (<em>float</em>) – Position to move the macro-motor to.</p></li>
+<li><p><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – Wait for each motor to complete the motion before returning the
+console.</p></li>
+<li><p><strong>verify_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints the current system state and a proposed system state and
 then prompts the user to accept the proposal before changing the
-system.</li>
-<li><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the move.</li>
-<li><strong>use_diag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move the daignostic motors to align with the beam.</li>
-<li><strong>use_calib</strong> (<em>bool</em><em>, </em><em>optional</em>) – Use the configurated calibration parameters</li>
+system.</p></li>
+<li><p><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the move.</p></li>
+<li><p><strong>use_diag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move the daignostic motors to align with the beam.</p></li>
+<li><p><strong>use_calib</strong> (<em>bool</em><em>, </em><em>optional</em>) – Use the configurated calibration parameters</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>status</strong> – List of status objects for each motor that was involved in the move.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>status</strong> – List of status objects for each motor that was involved in the move.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hxrsnd.macromotor.MacroBase.mv">
-<code class="descname">mv</code><span class="sig-paren">(</span><em>position</em>, <em>wait=True</em>, <em>verify_move=True</em>, <em>use_diag=True</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.mv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">mv</code><span class="sig-paren">(</span><em class="sig-param">position</em>, <em class="sig-param">wait=True</em>, <em class="sig-param">verify_move=True</em>, <em class="sig-param">use_diag=True</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.mv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Moves the macro parameters to the inputted positions. For energy, this
 moves the energies of both lines, energy1 moves just the delay line,
 energy2 moves just the channel cut line, and delay moves just the delay
@@ -264,58 +262,52 @@ this motor can raise and just raises a logger warning. Therefore if
 building higher level functionality, do not use this method and use
 move() instead, otherwise none of the exceptions will propagate beyond
 this method.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>position</strong> (<em>float</em>) – Position to move the motor to.</li>
-<li><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – Wait for each motor to complete the motion before returning the
-console.</li>
-<li><strong>verify_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints the current system state and a proposed system state and
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position</strong> (<em>float</em>) – Position to move the motor to.</p></li>
+<li><p><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – Wait for each motor to complete the motion before returning the
+console.</p></li>
+<li><p><strong>verify_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints the current system state and a proposed system state and
 then prompts the user to accept the proposal before changing the
-system.</li>
-<li><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the move.</li>
-<li><strong>use_diag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move the daignostic motors to align with the beam.</li>
-<li><strong>Caught</strong> (<em>Exceptions</em>) – </li>
-<li><strong>-----------------</strong> – </li>
-<li><strong>LimitError</strong> – Error raised when the inputted position is beyond the soft limits.</li>
-<li><strong>MotorDisabled</strong> – Error raised if the motor is disabled and move is requested.</li>
-<li><strong>MotorFaulted</strong> – Error raised if the motor is disabled and the move is requested.</li>
-<li><strong>MotorStopped</strong> – Error raised If the motor is stopped and a move is requested.</li>
-<li><strong>BadN2Pressure</strong> – Error raised if the pressure in the tower is bad.</li>
+system.</p></li>
+<li><p><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the move.</p></li>
+<li><p><strong>use_diag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move the daignostic motors to align with the beam.</p></li>
+<li><p><strong>Caught</strong> (<em>Exceptions</em>) – </p></li>
+<li><p><strong>-----------------</strong> – </p></li>
+<li><p><strong>LimitError</strong> – Error raised when the inputted position is beyond the soft limits.</p></li>
+<li><p><strong>MotorDisabled</strong> – Error raised if the motor is disabled and move is requested.</p></li>
+<li><p><strong>MotorFaulted</strong> – Error raised if the motor is disabled and the move is requested.</p></li>
+<li><p><strong>MotorStopped</strong> – Error raised If the motor is stopped and a move is requested.</p></li>
+<li><p><strong>BadN2Pressure</strong> – Error raised if the pressure in the tower is bad.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>status</strong> – List of status objects for each motor that was involved in the move.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>status</strong> – List of status objects for each motor that was involved in the move.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hxrsnd.macromotor.MacroBase.position">
-<code class="descname">position</code><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.position" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">position</code><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current position</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>energy</strong> – Energy the channel cut line is set to in eV.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>energy</strong> – Energy the channel cut line is set to in eV.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="hxrsnd.macromotor.MacroBase.readback">
-<code class="descname">readback</code><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.readback" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">readback</code><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.readback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">AttributeSignal</span><span class="p">,</span> <span class="s1">&#39;position&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -324,39 +316,35 @@ system.</li>
 
 <dl class="method">
 <dt id="hxrsnd.macromotor.MacroBase.set">
-<code class="descname">set</code><span class="sig-paren">(</span><em>position</em>, <em>wait=True</em>, <em>verify_move=True</em>, <em>ret_status=True</em>, <em>use_diag=True</em>, <em>use_calib=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.set" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param">position</em>, <em class="sig-param">wait=True</em>, <em class="sig-param">verify_move=True</em>, <em class="sig-param">ret_status=True</em>, <em class="sig-param">use_diag=True</em>, <em class="sig-param">use_calib=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Moves the macro-motor to the inputted position, optionally waiting for
 the motors to complete their moves.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>position</strong> (<em>float</em>) – Position to move the macro-motor to.</li>
-<li><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – Wait for each motor to complete the motion before returning the
-console.</li>
-<li><strong>verify_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints the current system state and a proposed system state and
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position</strong> (<em>float</em>) – Position to move the macro-motor to.</p></li>
+<li><p><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – Wait for each motor to complete the motion before returning the
+console.</p></li>
+<li><p><strong>verify_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints the current system state and a proposed system state and
 then prompts the user to accept the proposal before changing the
-system.</li>
-<li><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the move.</li>
-<li><strong>use_diag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move the daignostic motors to align with the beam.</li>
-<li><strong>use_calib</strong> (<em>bool</em><em>, </em><em>optional</em>) – Use the configurated calibration parameters</li>
+system.</p></li>
+<li><p><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the move.</p></li>
+<li><p><strong>use_diag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move the daignostic motors to align with the beam.</p></li>
+<li><p><strong>use_calib</strong> (<em>bool</em><em>, </em><em>optional</em>) – Use the configurated calibration parameters</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>status</strong> – List of status objects for each motor that was involved in the move.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>status</strong> – List of status objects for each motor that was involved in the move.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hxrsnd.macromotor.MacroBase.set_position">
-<code class="descname">set_position</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.set_position" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_position</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.set_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the current positions of the motors in the towers to be the
 calculated positions based on the inputted energies or delay. To be
 overrided in subclasses.</p>
@@ -364,36 +352,29 @@ overrided in subclasses.</p>
 
 <dl class="method">
 <dt id="hxrsnd.macromotor.MacroBase.status">
-<code class="descname">status</code><span class="sig-paren">(</span><em>status=''</em>, <em>offset=0</em>, <em>print_status=True</em>, <em>newline=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param">status=''</em>, <em class="sig-param">offset=0</em>, <em class="sig-param">print_status=True</em>, <em class="sig-param">newline=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the status of the device.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>status</strong> (<em>str</em><em>, </em><em>optional</em>) – The string to append the status to.</li>
-<li><strong>offset</strong> (<em>int</em><em>, </em><em>optional</em>) – Amount to offset each line of the status.</li>
-<li><strong>print_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Determines whether the string is printed or returned.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status</strong> (<em>str</em><em>, </em><em>optional</em>) – The string to append the status to.</p></li>
+<li><p><strong>offset</strong> (<em>int</em><em>, </em><em>optional</em>) – Amount to offset each line of the status.</p></li>
+<li><p><strong>print_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Determines whether the string is printed or returned.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hxrsnd.macromotor.MacroBase.wait">
-<code class="descname">wait</code><span class="sig-paren">(</span><em>status=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.wait" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">wait</code><span class="sig-paren">(</span><em class="sig-param">status=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.wait" title="Permalink to this definition">¶</a></dt>
 <dd><p>Waits for the status objects to complete the motions.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>status</strong> (<em>list</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – List of status objects to wait on. If None, will wait on the
-internal status list.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>status</strong> (<em>list</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – List of status objects to wait on. If None, will wait on the
+internal status list.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -404,7 +385,7 @@ internal status list.</td>
 <p>All delay macromotors inherit from this abstract class.</p>
 <dl class="class">
 <dt id="hxrsnd.macromotor.DelayTowerMacro">
-<em class="property">class </em><code class="descclassname">hxrsnd.macromotor.</code><code class="descname">DelayTowerMacro</code><span class="sig-paren">(</span><em>prefix</em>, <em>name=None</em>, <em>read_attrs=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.DelayTowerMacro" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">DelayTowerMacro</code><span class="sig-paren">(</span><em class="sig-param">prefix</em>, <em class="sig-param">name=None</em>, <em class="sig-param">read_attrs=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.DelayTowerMacro" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hxrsnd.macromotor.MacroBase" title="hxrsnd.macromotor.MacroBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.macromotor.MacroBase</span></code></a></p>
 <p>Class for the delay tower macros</p>
 </dd></dl>
@@ -415,59 +396,53 @@ internal status list.</td>
 <p>Macromotor <code class="docutils literal notranslate"><span class="pre">snd.Delay</span></code> that controls the system delay by manipulating the
 following motors:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">snd.t1.L</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">snd.t4.L</span></code></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t1.L</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t4.L</span></code></p></li>
 </ul>
 <dl class="class">
 <dt id="hxrsnd.macromotor.DelayMacro">
-<em class="property">class </em><code class="descclassname">hxrsnd.macromotor.</code><code class="descname">DelayMacro</code><span class="sig-paren">(</span><em>prefix</em>, <em>name=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">DelayMacro</code><span class="sig-paren">(</span><em class="sig-param">prefix</em>, <em class="sig-param">name=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.sndmotor.CalibMotor</span></code>, <a class="reference internal" href="#hxrsnd.macromotor.DelayTowerMacro" title="hxrsnd.macromotor.DelayTowerMacro"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.macromotor.DelayTowerMacro</span></code></a></p>
 <p>Macro-motor for the delay macro-motor.</p>
 <dl class="attribute">
 <dt id="hxrsnd.macromotor.DelayMacro.calib_detector">
-<code class="descname">calib_detector</code><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro.calib_detector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">calib_detector</code><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro.calib_detector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">PCDSDetector</span><span class="p">,</span> <span class="s1">&#39;XCS:USR:O1000:01&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">PCDSAreaDetector</span><span class="p">,</span> <span class="s1">&#39;XCS:USR:O1000:01&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hxrsnd.macromotor.DelayMacro.position">
-<code class="descname">position</code><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro.position" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">position</code><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro.position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current energy of the channel cut line.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>energy</strong> – Energy the channel cut line is set to in eV.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>energy</strong> – Energy the channel cut line is set to in eV.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hxrsnd.macromotor.DelayMacro.set_position">
-<code class="descname">set_position</code><span class="sig-paren">(</span><em>delay=None</em>, <em>print_set=True</em>, <em>use_diag=True</em>, <em>verify_move=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro.set_position" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_position</code><span class="sig-paren">(</span><em class="sig-param">delay=None</em>, <em class="sig-param">print_set=True</em>, <em class="sig-param">use_diag=True</em>, <em class="sig-param">verify_move=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro.set_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the current positions of the motors in the towers to be the
 calculated positions based on the inputted energies or delay.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>delay</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Delay to set the delay stages to.</li>
-<li><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a message to the console that the set has been made.</li>
-<li><strong>verify_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints the current system state and a proposed system state and
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>delay</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Delay to set the delay stages to.</p></li>
+<li><p><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a message to the console that the set has been made.</p></li>
+<li><p><strong>verify_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints the current system state and a proposed system state and
 then prompts the user to accept the proposal before changing the
-system.</li>
+system.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -478,55 +453,49 @@ system.</li>
 <p>Macromotor <code class="docutils literal notranslate"><span class="pre">snd.E1</span></code> that controls the delay branch energy by manipulating the
 following motors:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">snd.t1.tth</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">snd.t1.th1</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">snd.t1.th2</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">snd.t4.tth</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">snd.t4.th1</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">snd.t4.th2</span></code></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t1.tth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t1.th1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t1.th2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t4.tth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t4.th1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t4.th2</span></code></p></li>
 </ul>
 <dl class="class">
 <dt id="hxrsnd.macromotor.Energy1Macro">
-<em class="property">class </em><code class="descclassname">hxrsnd.macromotor.</code><code class="descname">Energy1Macro</code><span class="sig-paren">(</span><em>prefix</em>, <em>name=None</em>, <em>read_attrs=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy1Macro" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">Energy1Macro</code><span class="sig-paren">(</span><em class="sig-param">prefix</em>, <em class="sig-param">name=None</em>, <em class="sig-param">read_attrs=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy1Macro" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hxrsnd.macromotor.DelayTowerMacro" title="hxrsnd.macromotor.DelayTowerMacro"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.macromotor.DelayTowerMacro</span></code></a></p>
 <p>Macro-motor for the energy 1 macro-motor.</p>
-<dl class="attribute">
+<dl class="method">
 <dt id="hxrsnd.macromotor.Energy1Macro.position">
-<code class="descname">position</code><a class="headerlink" href="#hxrsnd.macromotor.Energy1Macro.position" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">position</code><a class="headerlink" href="#hxrsnd.macromotor.Energy1Macro.position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current energy of the delay line.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>energy</strong> – Energy the channel cut line is set to in eV.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>energy</strong> – Energy the channel cut line is set to in eV.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hxrsnd.macromotor.Energy1Macro.set_position">
-<code class="descname">set_position</code><span class="sig-paren">(</span><em>E1=None</em>, <em>print_set=True</em>, <em>verify_move=True</em>, <em>use_diag=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy1Macro.set_position" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_position</code><span class="sig-paren">(</span><em class="sig-param">E1=None</em>, <em class="sig-param">print_set=True</em>, <em class="sig-param">verify_move=True</em>, <em class="sig-param">use_diag=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy1Macro.set_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the current positions of the motors in the towers to be the
 calculated positions based on the inputted energies or delay.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>E1</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Energy to set the delay line to.</li>
-<li><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a message to the console that the set has been made.</li>
-<li><strong>verify_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints the current system state and a proposed system state and
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>E1</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Energy to set the delay line to.</p></li>
+<li><p><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a message to the console that the set has been made.</p></li>
+<li><p><strong>verify_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints the current system state and a proposed system state and
 then prompts the user to accept the proposal before changing the
-system.</li>
-<li><strong>use_diag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move the daignostic motors to align with the beam.</li>
+system.</p></li>
+<li><p><strong>use_diag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move the daignostic motors to align with the beam.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -537,35 +506,31 @@ system.</li>
 <p>Macromotor <code class="docutils literal notranslate"><span class="pre">snd.E1_cc</span></code> that controls the delay branch energy by manipulating
 the following motors:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">snd.t1.tth</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">snd.t4.tth</span></code></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t1.tth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t4.tth</span></code></p></li>
 </ul>
 <dl class="class">
 <dt id="hxrsnd.macromotor.Energy1CCMacro">
-<em class="property">class </em><code class="descclassname">hxrsnd.macromotor.</code><code class="descname">Energy1CCMacro</code><span class="sig-paren">(</span><em>prefix</em>, <em>name=None</em>, <em>read_attrs=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy1CCMacro" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">Energy1CCMacro</code><span class="sig-paren">(</span><em class="sig-param">prefix</em>, <em class="sig-param">name=None</em>, <em class="sig-param">read_attrs=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy1CCMacro" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hxrsnd.macromotor.Energy1Macro" title="hxrsnd.macromotor.Energy1Macro"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.macromotor.Energy1Macro</span></code></a></p>
 <p>Macro-motor for the energy 1 channel cut macro-motor.</p>
 <dl class="method">
 <dt id="hxrsnd.macromotor.Energy1CCMacro.set_position">
-<code class="descname">set_position</code><span class="sig-paren">(</span><em>E1=None</em>, <em>print_set=True</em>, <em>verify_move=True</em>, <em>use_diag=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy1CCMacro.set_position" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_position</code><span class="sig-paren">(</span><em class="sig-param">E1=None</em>, <em class="sig-param">print_set=True</em>, <em class="sig-param">verify_move=True</em>, <em class="sig-param">use_diag=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy1CCMacro.set_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the current positions of the motors in the towers to be the
 calculated positions based on the inputted energies or delay.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>E1</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Energy to set the delay line to.</li>
-<li><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a message to the console that the set has been made.</li>
-<li><strong>verify_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints the current system state and a proposed system state and
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>E1</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Energy to set the delay line to.</p></li>
+<li><p><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a message to the console that the set has been made.</p></li>
+<li><p><strong>verify_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints the current system state and a proposed system state and
 then prompts the user to accept the proposal before changing the
-system.</li>
-<li><strong>use_diag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move the daignostic motors to align with the beam.</li>
+system.</p></li>
+<li><p><strong>use_diag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move the daignostic motors to align with the beam.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -576,51 +541,45 @@ system.</li>
 <p>Macromotor <code class="docutils literal notranslate"><span class="pre">snd.E2</span></code> that controls the channel cut branch energy by
 manipulating the following motors:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">snd.t2.th</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">snd.t3.th</span></code></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t2.th</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t3.th</span></code></p></li>
 </ul>
 <dl class="class">
 <dt id="hxrsnd.macromotor.Energy2Macro">
-<em class="property">class </em><code class="descclassname">hxrsnd.macromotor.</code><code class="descname">Energy2Macro</code><span class="sig-paren">(</span><em>prefix</em>, <em>name=None</em>, <em>read_attrs=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy2Macro" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">Energy2Macro</code><span class="sig-paren">(</span><em class="sig-param">prefix</em>, <em class="sig-param">name=None</em>, <em class="sig-param">read_attrs=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy2Macro" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hxrsnd.macromotor.MacroBase" title="hxrsnd.macromotor.MacroBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.macromotor.MacroBase</span></code></a></p>
 <p>Macro-motor for the energy 2 macro-motor.</p>
-<dl class="attribute">
+<dl class="method">
 <dt id="hxrsnd.macromotor.Energy2Macro.position">
-<code class="descname">position</code><a class="headerlink" href="#hxrsnd.macromotor.Energy2Macro.position" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">position</code><a class="headerlink" href="#hxrsnd.macromotor.Energy2Macro.position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current energy of the channel cut line.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>energy</strong> – Energy the channel cut line is set to in eV.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>energy</strong> – Energy the channel cut line is set to in eV.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hxrsnd.macromotor.Energy2Macro.set_position">
-<code class="descname">set_position</code><span class="sig-paren">(</span><em>E2=None</em>, <em>print_set=True</em>, <em>verify_move=True</em>, <em>use_diag=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy2Macro.set_position" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_position</code><span class="sig-paren">(</span><em class="sig-param">E2=None</em>, <em class="sig-param">print_set=True</em>, <em class="sig-param">verify_move=True</em>, <em class="sig-param">use_diag=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy2Macro.set_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the current positions of the motors in the towers to be the
 calculated positions based on the inputted energies or delay.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>E2</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Energy to set the channel cut line to.</li>
-<li><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a message to the console that the set has been made.</li>
-<li><strong>verify_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints the current system state and a proposed system state and
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>E2</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Energy to set the channel cut line to.</p></li>
+<li><p><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a message to the console that the set has been made.</p></li>
+<li><p><strong>verify_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints the current system state and a proposed system state and
 then prompts the user to accept the proposal before changing the
-system.</li>
-<li><strong>use_diag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move the daignostic motors to align with the beam.</li>
+system.</p></li>
+<li><p><strong>use_diag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move the daignostic motors to align with the beam.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -639,7 +598,7 @@ system.</li>
         <a href="tower.html" class="btn btn-neutral float-right" title="Towers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="sndsystem.html" class="btn btn-neutral" title="Split and Delay System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sndsystem.html" class="btn btn-neutral float-left" title="Split and Delay System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -665,26 +624,16 @@ system.</li>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

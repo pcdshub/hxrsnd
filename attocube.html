@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Attocube Motors &mdash; HXRSnD 0.1.3 documentation</title>
+  <title>Attocube Motors &mdash; HXRSnD 0.1.4 documentation</title>
   
 
   
@@ -17,34 +17,36 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Wave-8 Diodes" href="diode.html" />
     <link rel="prev" title="Aerotech Motors" href="aerotech.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -58,7 +60,7 @@
             
             
               <div class="version">
-                0.1.3
+                0.1.4
               </div>
             
           
@@ -206,239 +208,206 @@
 <p>The base attocube class is where all of the core functionality is implemented.</p>
 <dl class="class">
 <dt id="hxrsnd.attocube.EccBase">
-<em class="property">class </em><code class="descclassname">hxrsnd.attocube.</code><code class="descname">EccBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.attocube.</code><code class="sig-name descname">EccBase</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.sndmotor.SndMotor</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ophyd.positioner.PositionerBase</span></code></p>
 <p>ECC Motor Class</p>
 <dl class="method">
 <dt id="hxrsnd.attocube.EccBase.check_status">
-<code class="descname">check_status</code><span class="sig-paren">(</span><em>position=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.check_status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">check_status</code><span class="sig-paren">(</span><em class="sig-param">position=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.check_status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks the status of the motor to make sure it is ready to move. Checks
 the current position of the motor, and if a position is provided it also
 checks that position.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>position</strong> (<em>float</em>) – Position to check for validity.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">MotorDisabled</span></code> – If the motor is disabled.</li>
-<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">MotorError</span></code> – If the motor has an error.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>position</strong> (<em>float</em>) – Position to check for validity.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#hxrsnd.exceptions.MotorDisabled" title="hxrsnd.exceptions.MotorDisabled"><strong>MotorDisabled</strong></a> – If the motor is disabled.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#hxrsnd.exceptions.MotorError" title="hxrsnd.exceptions.MotorError"><strong>MotorError</strong></a> – If the motor has an error.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hxrsnd.attocube.EccBase.check_value">
-<code class="descname">check_value</code><span class="sig-paren">(</span><em>position</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.check_value" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">check_value</code><span class="sig-paren">(</span><em class="sig-param">position</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.check_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks to make sure the inputted value is valid.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>position</strong> (<em>float</em>) – Position to check for validity</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – If position is None, NaN or Inf</li>
-<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">LimitError</span></code> – If the position is outside the soft limits.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>position</strong> (<em>float</em>) – Position to check for validity</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – If position is None, NaN or Inf</p></li>
+<li><p><strong>LimitError</strong> – If the position is outside the soft limits.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hxrsnd.attocube.EccBase.connected">
-<code class="descname">connected</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.connected" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">connected</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.connected" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns if the motor is curently connected.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>connected</strong> – True if the motor is connected, False if not.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>connected</strong> – True if the motor is connected, False if not.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hxrsnd.attocube.EccBase.disable">
-<code class="descname">disable</code><span class="sig-paren">(</span><em>ret_status=False</em>, <em>print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.disable" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">disable</code><span class="sig-paren">(</span><em class="sig-param">ret_status=False</em>, <em class="sig-param">print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.disable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Disables the motor power.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the set.</li>
-<li><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the set.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the set.</p></li>
+<li><p><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the set.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The status object for setting the power signal.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Status</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The status object for setting the power signal.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Status</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hxrsnd.attocube.EccBase.egu">
-<code class="descname">egu</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.egu" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">egu</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.egu" title="Permalink to this definition">¶</a></dt>
 <dd><p>The engineering units (EGU) for a position</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>Units</strong> – Engineering units for the position.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>Units</strong> – Engineering units for the position.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hxrsnd.attocube.EccBase.enable">
-<code class="descname">enable</code><span class="sig-paren">(</span><em>ret_status=False</em>, <em>print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.enable" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">enable</code><span class="sig-paren">(</span><em class="sig-param">ret_status=False</em>, <em class="sig-param">print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.enable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Enables the motor power.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the set.</li>
-<li><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the set.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the set.</p></li>
+<li><p><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the set.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The status object for setting the power signal.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Status</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The status object for setting the power signal.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Status</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hxrsnd.attocube.EccBase.enabled">
-<code class="descname">enabled</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.enabled" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">enabled</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.enabled" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns if the motor is curently enabled.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>enabled</strong> – True if the motor is powered, False if not.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>enabled</strong> – True if the motor is powered, False if not.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hxrsnd.attocube.EccBase.error">
-<code class="descname">error</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.error" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">error</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.error" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current error with the motor.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>error</strong> – Error enumeration.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>error</strong> – Error enumeration.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hxrsnd.attocube.EccBase.expert_screen">
-<code class="descname">expert_screen</code><span class="sig-paren">(</span><em>print_msg=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.expert_screen" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">expert_screen</code><span class="sig-paren">(</span><em class="sig-param">print_msg=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.expert_screen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Launches the expert screen for the motor.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>print_msg</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints that the screen is being launched.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>print_msg</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prints that the screen is being launched.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hxrsnd.attocube.EccBase.high_limit">
-<code class="descname">high_limit</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.high_limit" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">high_limit</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.high_limit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the upper limit fot the user setpoint.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>high_limit</strong></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>high_limit</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.high_limit_switch">
-<code class="descname">high_limit_switch</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.high_limit_switch" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">high_limit_switch</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.high_limit_switch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:ST_EOT_FWD&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hxrsnd.attocube.EccBase.limits">
-<code class="descname">limits</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.limits" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">limits</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.limits" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the limits of the motor.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>limits</strong></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>limits</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hxrsnd.attocube.EccBase.low_limit">
-<code class="descname">low_limit</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.low_limit" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">low_limit</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.low_limit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the lower limit fot the user setpoint.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>low_limit</strong></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>low_limit</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.low_limit_switch">
-<code class="descname">low_limit_switch</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.low_limit_switch" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">low_limit_switch</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.low_limit_switch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:ST_EOT_BWD&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -447,7 +416,7 @@ checks that position.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.lower_ctrl_limit">
-<code class="descname">lower_ctrl_limit</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.lower_ctrl_limit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lower_ctrl_limit</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.lower_ctrl_limit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:TARGET.LOPR&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -456,7 +425,7 @@ checks that position.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.motor_amplitude">
-<code class="descname">motor_amplitude</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_amplitude" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">motor_amplitude</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_amplitude" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:AMPL&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -465,7 +434,7 @@ checks that position.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.motor_connected">
-<code class="descname">motor_connected</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_connected" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">motor_connected</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_connected" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:ST_CONNECT&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -474,7 +443,7 @@ checks that position.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.motor_dc">
-<code class="descname">motor_dc</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_dc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">motor_dc</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_dc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:DC&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -483,7 +452,7 @@ checks that position.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.motor_done_move">
-<code class="descname">motor_done_move</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_done_move" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">motor_done_move</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_done_move" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:RD_INRANGE&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -492,7 +461,7 @@ checks that position.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.motor_egu">
-<code class="descname">motor_egu</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_egu" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">motor_egu</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_egu" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:UNIT&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -501,7 +470,7 @@ checks that position.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.motor_enable">
-<code class="descname">motor_enable</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_enable" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">motor_enable</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_enable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:ENABLE&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -510,7 +479,7 @@ checks that position.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.motor_enabled">
-<code class="descname">motor_enabled</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_enabled" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">motor_enabled</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_enabled" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:ST_ENABLED&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -519,7 +488,7 @@ checks that position.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.motor_error">
-<code class="descname">motor_error</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_error" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">motor_error</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_error" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:ST_ERROR&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -528,7 +497,7 @@ checks that position.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.motor_frequency">
-<code class="descname">motor_frequency</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_frequency" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">motor_frequency</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_frequency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:FREQ&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -537,7 +506,7 @@ checks that position.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.motor_is_moving">
-<code class="descname">motor_is_moving</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_is_moving" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">motor_is_moving</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_is_moving" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:RD_MOVING&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -546,7 +515,7 @@ checks that position.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.motor_reference_position">
-<code class="descname">motor_reference_position</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_reference_position" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">motor_reference_position</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_reference_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:REF_POSITION&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -555,7 +524,7 @@ checks that position.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.motor_referenced">
-<code class="descname">motor_referenced</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_referenced" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">motor_referenced</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_referenced" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:ST_REFVAL&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -564,7 +533,7 @@ checks that position.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.motor_reset">
-<code class="descname">motor_reset</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_reset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">motor_reset</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:RESET.PROC&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -573,7 +542,7 @@ checks that position.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.motor_stop">
-<code class="descname">motor_stop</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_stop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">motor_stop</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.motor_stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:STOP&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -582,204 +551,176 @@ checks that position.</p>
 
 <dl class="method">
 <dt id="hxrsnd.attocube.EccBase.move">
-<code class="descname">move</code><span class="sig-paren">(</span><em>position</em>, <em>check_status=True</em>, <em>timeout=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.move" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">move</code><span class="sig-paren">(</span><em class="sig-param">position</em>, <em class="sig-param">check_status=True</em>, <em class="sig-param">timeout=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.move" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move to a specified position.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>position</strong> – Position to move to</li>
-<li><strong>check_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Check if the motors are in a valid state to move.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position</strong> – Position to move to</p></li>
+<li><p><strong>check_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Check if the motors are in a valid state to move.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>status</strong> – Status object for the move.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">MoveStatus</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">TimeoutError</span></code> – When motion takes longer than <cite>timeout</cite></li>
-<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – On invalid positions</li>
-<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code> – If motion fails other than timing out</li>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>status</strong> – Status object for the move.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveStatus</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>TimeoutError</strong> – When motion takes longer than <cite>timeout</cite></p></li>
+<li><p><strong>ValueError</strong> – On invalid positions</p></li>
+<li><p><strong>RuntimeError</strong> – If motion fails other than timing out</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hxrsnd.attocube.EccBase.mv">
-<code class="descname">mv</code><span class="sig-paren">(</span><em>position</em>, <em>print_move=True</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.mv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">mv</code><span class="sig-paren">(</span><em class="sig-param">position</em>, <em class="sig-param">print_move=True</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.mv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move to a specified position, optionally waiting for motion to
 complete. mv() is different from move() by catching all the common
 exceptions that this motor can raise and just raises a logger
 warning. Therefore if building higher level functionality, do not
 use this method and use move() instead otherwise none of these
 exceptions will propagate to it.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>position</strong> – Position to move to.</li>
-<li><strong>print_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the move.</li>
-<li><strong>Caught</strong> (<em>Exceptions</em>) – </li>
-<li><strong>-----------------</strong> – </li>
-<li><strong>LimitError</strong> – Error raised when the inputted position is beyond the soft limits.</li>
-<li><strong>MotorDisabled</strong> – Error raised if the motor is disabled and move is requested.</li>
-<li><strong>MotorFaulted</strong> – Error raised if the motor is disabled and the move is requested.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position</strong> – Position to move to.</p></li>
+<li><p><strong>print_move</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the move.</p></li>
+<li><p><strong>Caught</strong> (<em>Exceptions</em>) – </p></li>
+<li><p><strong>-----------------</strong> – </p></li>
+<li><p><strong>LimitError</strong> – Error raised when the inputted position is beyond the soft limits.</p></li>
+<li><p><strong>MotorDisabled</strong> – Error raised if the motor is disabled and move is requested.</p></li>
+<li><p><strong>MotorFaulted</strong> – Error raised if the motor is disabled and the move is requested.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>status</strong> – Status object for the move.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">MoveStatus</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>status</strong> – Status object for the move.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>MoveStatus</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hxrsnd.attocube.EccBase.position">
-<code class="descname">position</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.position" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">position</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current position of the motor.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>position</strong> – Current position of the motor.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>position</strong> – Current position of the motor.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hxrsnd.attocube.EccBase.reference">
-<code class="descname">reference</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.reference" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">reference</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.reference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the reference position of the motor.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>position</strong> – Reference position of the motor.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>position</strong> – Reference position of the motor.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hxrsnd.attocube.EccBase.referenced">
-<code class="descname">referenced</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.referenced" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">referenced</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.referenced" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns if the motor is curently referenced.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>referenced</strong> – True if the motor is referenced, False if not.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>referenced</strong> – True if the motor is referenced, False if not.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hxrsnd.attocube.EccBase.reset">
-<code class="descname">reset</code><span class="sig-paren">(</span><em>ret_status=False</em>, <em>print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.reset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><em class="sig-param">ret_status=False</em>, <em class="sig-param">print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the current position to be the zero position of the motor.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>status</strong> – Status object for the set.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">StatusObject</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>status</strong> – Status object for the set.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>StatusObject</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hxrsnd.attocube.EccBase.set_limits">
-<code class="descname">set_limits</code><span class="sig-paren">(</span><em>llm</em>, <em>hlm</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.set_limits" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_limits</code><span class="sig-paren">(</span><em class="sig-param">llm</em>, <em class="sig-param">hlm</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.set_limits" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the limits of the motor. Alias for limits = (llm, hlm).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>llm</strong> (<em>float</em>) – Desired low limit.</li>
-<li><strong>hlm</strong> (<em>float</em>) – Desired low limit.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>llm</strong> (<em>float</em>) – Desired low limit.</p></li>
+<li><p><strong>hlm</strong> (<em>float</em>) – Desired low limit.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hxrsnd.attocube.EccBase.status">
-<code class="descname">status</code><span class="sig-paren">(</span><em>status=''</em>, <em>offset=0</em>, <em>print_status=True</em>, <em>newline=False</em>, <em>short=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param">status=''</em>, <em class="sig-param">offset=0</em>, <em class="sig-param">print_status=True</em>, <em class="sig-param">newline=False</em>, <em class="sig-param">short=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the status of the device.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>status</strong> (<em>str</em><em>, </em><em>optional</em>) – The string to append the status to.</li>
-<li><strong>offset</strong> (<em>int</em><em>, </em><em>optional</em>) – Amount to offset each line of the status.</li>
-<li><strong>print_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Determines whether the string is printed or returned.</li>
-<li><strong>newline</strong> (<em>bool</em><em>, </em><em>optional</em>) – Adds a new line to the end of the string.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status</strong> (<em>str</em><em>, </em><em>optional</em>) – The string to append the status to.</p></li>
+<li><p><strong>offset</strong> (<em>int</em><em>, </em><em>optional</em>) – Amount to offset each line of the status.</p></li>
+<li><p><strong>print_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Determines whether the string is printed or returned.</p></li>
+<li><p><strong>newline</strong> (<em>bool</em><em>, </em><em>optional</em>) – Adds a new line to the end of the string.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>status</strong> – Status string.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>status</strong> – Status string.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hxrsnd.attocube.EccBase.stop">
-<code class="descname">stop</code><span class="sig-paren">(</span><em>success=False</em>, <em>ret_status=False</em>, <em>print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.stop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><em class="sig-param">success=False</em>, <em class="sig-param">ret_status=False</em>, <em class="sig-param">print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stops the motor.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the set.</li>
-<li><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the set.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ret_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Return the status object of the set.</p></li>
+<li><p><strong>print_set</strong> (<em>bool</em><em>, </em><em>optional</em>) – Print a short statement about the set.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Status</strong> – Status of the set.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">StatusObject</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Status</strong> – Status of the set.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>StatusObject</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.upper_ctrl_limit">
-<code class="descname">upper_ctrl_limit</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.upper_ctrl_limit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">upper_ctrl_limit</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.upper_ctrl_limit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:TARGET.HOPR&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -788,7 +729,7 @@ exceptions will propagate to it.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.user_readback">
-<code class="descname">user_readback</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.user_readback" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">user_readback</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.user_readback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:POSITION&#39;</span><span class="p">,</span> <span class="n">auto_monitor</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -797,7 +738,7 @@ exceptions will propagate to it.</p>
 
 <dl class="attribute">
 <dt id="hxrsnd.attocube.EccBase.user_setpoint">
-<code class="descname">user_setpoint</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.user_setpoint" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">user_setpoint</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.user_setpoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component attribute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CMD:TARGET&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -811,21 +752,21 @@ exceptions will propagate to it.</p>
 <h2>Subclasses<a class="headerlink" href="#subclasses" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="hxrsnd.attocube.TranslationEcc">
-<em class="property">class </em><code class="descclassname">hxrsnd.attocube.</code><code class="descname">TranslationEcc</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.TranslationEcc" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.attocube.</code><code class="sig-name descname">TranslationEcc</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.TranslationEcc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hxrsnd.attocube.EccBase" title="hxrsnd.attocube.EccBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.attocube.EccBase</span></code></a></p>
 <p>Class for the translation ecc motor</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="hxrsnd.attocube.GoniometerEcc">
-<em class="property">class </em><code class="descclassname">hxrsnd.attocube.</code><code class="descname">GoniometerEcc</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.GoniometerEcc" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.attocube.</code><code class="sig-name descname">GoniometerEcc</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.GoniometerEcc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hxrsnd.attocube.EccBase" title="hxrsnd.attocube.EccBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.attocube.EccBase</span></code></a></p>
 <p>Class for the goniometer ecc motor</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="hxrsnd.attocube.DiodeEcc">
-<em class="property">class </em><code class="descclassname">hxrsnd.attocube.</code><code class="descname">DiodeEcc</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.DiodeEcc" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.attocube.</code><code class="sig-name descname">DiodeEcc</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.DiodeEcc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for the diode insertion ecc motor</p>
 </dd></dl>
 
@@ -843,7 +784,7 @@ exceptions will propagate to it.</p>
         <a href="diode.html" class="btn btn-neutral float-right" title="Wave-8 Diodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="aerotech.html" class="btn btn-neutral" title="Aerotech Motors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="aerotech.html" class="btn btn-neutral float-left" title="Aerotech Motors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -869,26 +810,16 @@ exceptions will propagate to it.</p>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

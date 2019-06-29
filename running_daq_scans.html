@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Running DAQ Scans &mdash; HXRSnD 0.1.3 documentation</title>
+  <title>Running DAQ Scans &mdash; HXRSnD 0.1.4 documentation</title>
   
 
   
@@ -17,34 +17,36 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Calibrating Delay Scans" href="calibrating_delay_scans.html" />
     <link rel="prev" title="Running Scans" href="running_scans.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -58,7 +60,7 @@
             
             
               <div class="version">
-                0.1.3
+                0.1.4
               </div>
             
           
@@ -215,11 +217,9 @@ EDM screens, and the python DAQ object.</p>
 <h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
 <p>Below is a quick list of what must be done to ensure the scan can work properly:</p>
 <ul>
-<li><p class="first">Restart the DAQ and ensure it is opened properly.</p>
-</li>
-<li><p class="first">Select the proper configuration type and select all desired devices.</p>
-</li>
-<li><p class="first">Configure the DAQ from python using the following command:</p>
+<li><p>Restart the DAQ and ensure it is opened properly.</p></li>
+<li><p>Select the proper configuration type and select all desired devices.</p></li>
+<li><p>Configure the DAQ from python using the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">snd</span><span class="o">.</span><span class="n">daq</span><span class="o">.</span><span class="n">configure</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -228,17 +228,17 @@ EDM screens, and the python DAQ object.</p>
 <p>Below is a list of the basic arguments that can be passed to change the behavior
 of the scan:</p>
 <ul>
-<li><p class="first">To change the number of events taken at each step in the scan, pass the keyword argument <code class="docutils literal notranslate"><span class="pre">events</span></code> to the configure method. For example, the following will set the DAQ to take 1000 events at each step:</p>
+<li><p>To change the number of events taken at each step in the scan, pass the keyword argument <code class="docutils literal notranslate"><span class="pre">events</span></code> to the configure method. For example, the following will set the DAQ to take 1000 events at each step:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">snd</span><span class="o">.</span><span class="n">daq</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">events</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">To add a python value to be recorded in the DAQ, pass the keyword argument <code class="docutils literal notranslate"><span class="pre">controls</span></code> along with a <code class="docutils literal notranslate"><span class="pre">dict</span></code> that has a mapping from name to <code class="docutils literal notranslate"><span class="pre">obj</span></code>. For example, the following will create DAQ source named “E2” which will contain the channel cut energy:</p>
+<li><p>To add a python value to be recorded in the DAQ, pass the keyword argument <code class="docutils literal notranslate"><span class="pre">controls</span></code> along with a <code class="docutils literal notranslate"><span class="pre">dict</span></code> that has a mapping from name to <code class="docutils literal notranslate"><span class="pre">obj</span></code>. For example, the following will create DAQ source named “E2” which will contain the channel cut energy:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">snd</span><span class="o">.</span><span class="n">daq</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">controls</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;E2&quot;</span> <span class="p">:</span> <span class="n">snd</span><span class="o">.</span><span class="n">E2</span><span class="p">})</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">To record data, pass the keyword argument <code class="docutils literal notranslate"><span class="pre">record</span></code> along with <code class="docutils literal notranslate"><span class="pre">True</span></code>. For example, to record the data for this run:</p>
+<li><p>To record data, pass the keyword argument <code class="docutils literal notranslate"><span class="pre">record</span></code> along with <code class="docutils literal notranslate"><span class="pre">True</span></code>. For example, to record the data for this run:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">snd</span><span class="o">.</span><span class="n">daq</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">record</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -256,8 +256,8 @@ execution:</p>
 </div>
 <p>This should cause the daq to begin taking events at every scan step.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Once a plan has been run, it must be redeclared to be run again since
+<p class="admonition-title">Note</p>
+<p>Once a plan has been run, it must be redeclared to be run again since
 the contents have been consumed.</p>
 </div>
 </div>
@@ -274,7 +274,7 @@ the contents have been consumed.</p>
         <a href="calibrating_delay_scans.html" class="btn btn-neutral float-right" title="Calibrating Delay Scans" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="running_scans.html" class="btn btn-neutral" title="Running Scans" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="running_scans.html" class="btn btn-neutral float-left" title="Running Scans" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -300,26 +300,16 @@ the contents have been consumed.</p>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
