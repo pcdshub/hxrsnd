@@ -26,8 +26,8 @@ requirements:
     - pyyaml
     - coloredlogs
     - super_state_machine
-    - pswalker >=1.0.0
-    - pcdsdevices >=2.0.0
+    - pswalker >=1.0.2
+    - pcdsdevices >=2.3.0
     - pyepics
 
 test:
