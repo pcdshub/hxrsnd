@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Split and Delay System &mdash; HXRSnD 0.1.4 documentation</title>
+  <title>Split and Delay System &mdash; HXRSnD 0.1.4+3.gaa78f3c documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.1.4
+                0.1.4+3.gaa78f3c
               </div>
             
           
@@ -236,110 +236,11 @@ object.</p>
 <dt>delay<span class="classifier">DelayMacro</span></dt><dd><p>Delay pseudomotor.</p>
 </dd>
 </dl>
-<dl class="attribute">
-<dt id="hxrsnd.sndsystem.SplitAndDelay.E1">
-<code class="sig-name descname">E1</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.E1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">Energy1Macro</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Delay Energy&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.sndsystem.SplitAndDelay.E1_cc">
-<code class="sig-name descname">E1_cc</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.E1_cc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">Energy1CCMacro</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;CC Delay Energy&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.sndsystem.SplitAndDelay.E2">
-<code class="sig-name descname">E2</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.E2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">Energy2Macro</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;CC Energy&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.sndsystem.SplitAndDelay.ab">
-<code class="sig-name descname">ab</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.ab" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">SndPneumatics</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.sndsystem.SplitAndDelay.dcc">
-<code class="sig-name descname">dcc</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.dcc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">HamamatsuXYMotionCamDiode</span><span class="p">,</span> <span class="s1">&#39;:DIA:DCC&#39;</span><span class="p">,</span> <span class="n">block_pos</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;DCC&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.sndsystem.SplitAndDelay.dci">
-<code class="sig-name descname">dci</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.dci" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">HamamatsuXMotionDiode</span><span class="p">,</span> <span class="s1">&#39;:DIA:DCI&#39;</span><span class="p">,</span> <span class="n">block_pos</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;DCI&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.sndsystem.SplitAndDelay.dco">
-<code class="sig-name descname">dco</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.dco" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">HamamatsuXMotionDiode</span><span class="p">,</span> <span class="s1">&#39;:DIA:DCO&#39;</span><span class="p">,</span> <span class="n">block_pos</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;DCO&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.sndsystem.SplitAndDelay.dd">
-<code class="sig-name descname">dd</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.dd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">HamamatsuXYMotionCamDiode</span><span class="p">,</span> <span class="s1">&#39;:DIA:DD&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;DD&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.sndsystem.SplitAndDelay.delay">
-<code class="sig-name descname">delay</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.delay" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">DelayMacro</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Delay&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.sndsystem.SplitAndDelay.di">
-<code class="sig-name descname">di</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.di" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">HamamatsuXMotionDiode</span><span class="p">,</span> <span class="s1">&#39;:DIA:DI&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;DI&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
 <dl class="method">
 <dt id="hxrsnd.sndsystem.SplitAndDelay.diag_status">
 <code class="sig-name descname">diag_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.diag_status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints a string containing the blocking status and the position of the
 motor.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.sndsystem.SplitAndDelay.do">
-<code class="sig-name descname">do</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.do" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">HamamatsuXMotionDiode</span><span class="p">,</span> <span class="s1">&#39;:DIA:DO&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;DO&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="method">
@@ -360,42 +261,6 @@ motor.</p>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.sndsystem.SplitAndDelay.t1">
-<code class="sig-name descname">t1</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.t1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">DelayTower</span><span class="p">,</span> <span class="s1">&#39;:T1&#39;</span><span class="p">,</span> <span class="n">pos_inserted</span><span class="o">=</span><span class="mf">21.1</span><span class="p">,</span> <span class="n">pos_removed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Tower 1&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.sndsystem.SplitAndDelay.t2">
-<code class="sig-name descname">t2</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.t2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">ChannelCutTower</span><span class="p">,</span> <span class="s1">&#39;:T2&#39;</span><span class="p">,</span> <span class="n">pos_inserted</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pos_removed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Tower 2&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.sndsystem.SplitAndDelay.t3">
-<code class="sig-name descname">t3</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.t3" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">ChannelCutTower</span><span class="p">,</span> <span class="s1">&#39;:T3&#39;</span><span class="p">,</span> <span class="n">pos_inserted</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pos_removed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Tower 3&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.sndsystem.SplitAndDelay.t4">
-<code class="sig-name descname">t4</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.t4" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">DelayTower</span><span class="p">,</span> <span class="s1">&#39;:T4&#39;</span><span class="p">,</span> <span class="n">pos_inserted</span><span class="o">=</span><span class="mf">21.1</span><span class="p">,</span> <span class="n">pos_removed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Tower 4&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="method">

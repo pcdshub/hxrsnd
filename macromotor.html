@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Macromotors &mdash; HXRSnD 0.1.4 documentation</title>
+  <title>Macromotors &mdash; HXRSnD 0.1.4+3.gaa78f3c documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.1.4
+                0.1.4+3.gaa78f3c
               </div>
             
           
@@ -305,15 +305,6 @@ system.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="hxrsnd.macromotor.MacroBase.readback">
-<code class="sig-name descname">readback</code><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.readback" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">AttributeSignal</span><span class="p">,</span> <span class="s1">&#39;position&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
 <dl class="method">
 <dt id="hxrsnd.macromotor.MacroBase.set">
 <code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param">position</em>, <em class="sig-param">wait=True</em>, <em class="sig-param">verify_move=True</em>, <em class="sig-param">ret_status=True</em>, <em class="sig-param">use_diag=True</em>, <em class="sig-param">use_calib=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.set" title="Permalink to this definition">¶</a></dt>
@@ -404,15 +395,6 @@ following motors:</p>
 <em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">DelayMacro</code><span class="sig-paren">(</span><em class="sig-param">prefix</em>, <em class="sig-param">name=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.sndmotor.CalibMotor</span></code>, <a class="reference internal" href="#hxrsnd.macromotor.DelayTowerMacro" title="hxrsnd.macromotor.DelayTowerMacro"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.macromotor.DelayTowerMacro</span></code></a></p>
 <p>Macro-motor for the delay macro-motor.</p>
-<dl class="attribute">
-<dt id="hxrsnd.macromotor.DelayMacro.calib_detector">
-<code class="sig-name descname">calib_detector</code><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro.calib_detector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">PCDSAreaDetector</span><span class="p">,</span> <span class="s1">&#39;XCS:USR:O1000:01&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
 <dl class="method">
 <dt id="hxrsnd.macromotor.DelayMacro.position">
 <em class="property">property </em><code class="sig-name descname">position</code><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro.position" title="Permalink to this definition">¶</a></dt>

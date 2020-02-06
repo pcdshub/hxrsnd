@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Aerotech Motors &mdash; HXRSnD 0.1.4 documentation</title>
+  <title>Aerotech Motors &mdash; HXRSnD 0.1.4+3.gaa78f3c documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.1.4
+                0.1.4+3.gaa78f3c
               </div>
             
           
@@ -230,24 +230,6 @@
 <dt>config<span class="classifier">EpicsSignal, “:CONFIG”</span></dt><dd><p>Signal to reconfig the motor.</p>
 </dd>
 </dl>
-<dl class="attribute">
-<dt id="hxrsnd.aerotech.AeroBase.axis_fault">
-<code class="sig-name descname">axis_fault</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.axis_fault" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:AXIS_FAULT&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.aerotech.AeroBase.axis_status">
-<code class="sig-name descname">axis_status</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.axis_status" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;:AXIS_STATUS&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
 <dl class="method">
 <dt id="hxrsnd.aerotech.AeroBase.check_status">
 <code class="sig-name descname">check_status</code><span class="sig-paren">(</span><em class="sig-param">position=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.check_status" title="Permalink to this definition">¶</a></dt>
@@ -286,33 +268,6 @@ checks that position.</p>
 <dd class="field-odd"><p>Status</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.aerotech.AeroBase.clear_error">
-<code class="sig-name descname">clear_error</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.clear_error" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CLEAR&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.aerotech.AeroBase.config">
-<code class="sig-name descname">config</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:CONFIG&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.aerotech.AeroBase.dial">
-<code class="sig-name descname">dial</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.dial" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;.DRBV&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="method">
@@ -394,33 +349,6 @@ checks that position.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="hxrsnd.aerotech.AeroBase.high_limit_switch">
-<code class="sig-name descname">high_limit_switch</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.high_limit_switch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">Signal</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.aerotech.AeroBase.home_forward">
-<code class="sig-name descname">home_forward</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.home_forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;.HOMF&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.aerotech.AeroBase.home_reverse">
-<code class="sig-name descname">home_reverse</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.home_reverse" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;.HOMR&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
 <dl class="method">
 <dt id="hxrsnd.aerotech.AeroBase.homf">
 <code class="sig-name descname">homf</code><span class="sig-paren">(</span><em class="sig-param">ret_status=False</em>, <em class="sig-param">print_set=True</em>, <em class="sig-param">check_status=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.homf" title="Permalink to this definition">¶</a></dt>
@@ -461,15 +389,6 @@ checks that position.</p>
 <dd class="field-odd"><p>StatusObject</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.aerotech.AeroBase.low_limit_switch">
-<code class="sig-name descname">low_limit_switch</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.low_limit_switch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">Signal</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="method">
@@ -539,15 +458,6 @@ exceptions will propagate to it.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="hxrsnd.aerotech.AeroBase.power">
-<code class="sig-name descname">power</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.power" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;.CNEN&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
 <dl class="method">
 <dt id="hxrsnd.aerotech.AeroBase.ready_motor">
 <code class="sig-name descname">ready_motor</code><span class="sig-paren">(</span><em class="sig-param">ret_status=False</em>, <em class="sig-param">print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.ready_motor" title="Permalink to this definition">¶</a></dt>
@@ -587,33 +497,6 @@ and setting the state to be ‘Go’.</p>
 <dd class="field-odd"><p>Status</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.aerotech.AeroBase.retries">
-<code class="sig-name descname">retries</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.retries" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignalRO</span><span class="p">,</span> <span class="s1">&#39;.RCNT&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.aerotech.AeroBase.retries_deadband">
-<code class="sig-name descname">retries_deadband</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.retries_deadband" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;.RDBD&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.aerotech.AeroBase.retries_max">
-<code class="sig-name descname">retries_max</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.retries_max" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;.RTRY&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="method">
@@ -670,15 +553,6 @@ states or the index of the desired state:</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="hxrsnd.aerotech.AeroBase.state_component">
-<code class="sig-name descname">state_component</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.state_component" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;.SPMG&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
 <dl class="method">
 <dt id="hxrsnd.aerotech.AeroBase.status">
 <code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param">status=''</em>, <em class="sig-param">offset=0</em>, <em class="sig-param">print_status=True</em>, <em class="sig-param">newline=False</em>, <em class="sig-param">short=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.status" title="Permalink to this definition">¶</a></dt>
@@ -719,15 +593,6 @@ states or the index of the desired state:</p>
 <dd class="field-odd"><p>StatusObject</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hxrsnd.aerotech.AeroBase.zero_all_proc">
-<code class="sig-name descname">zero_all_proc</code><a class="headerlink" href="#hxrsnd.aerotech.AeroBase.zero_all_proc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Component attribute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Component</span><span class="p">(</span><span class="n">EpicsSignal</span><span class="p">,</span> <span class="s1">&#39;:ZERO_P.PROC&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
 </dd></dl>
 
 </dd></dl>
