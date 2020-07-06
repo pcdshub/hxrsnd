@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Alignment Plans &mdash; HXRSnD 0.1.5+2.ge83f171 documentation</title>
+  <title>Alignment Plans &mdash; HXRSnD 0.1.6+2.g8f566f9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.1.5+2.ge83f171
+                0.1.6+2.g8f566f9
               </div>
             
           
@@ -227,9 +227,9 @@ parameter would look like:</p>
 </div>
 <div class="section" id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt id="hxrsnd.plans.alignment.rocking_curve">
-<code class="sig-prename descclassname">hxrsnd.plans.alignment.</code><code class="sig-name descname">rocking_curve</code><span class="sig-paren">(</span><em class="sig-param">detector</em>, <em class="sig-param">motor</em>, <em class="sig-param">read_field</em>, <em class="sig-param">coarse_step</em>, <em class="sig-param">fine_step</em>, <em class="sig-param">bounds=None</em>, <em class="sig-param">average=None</em>, <em class="sig-param">fine_space=5</em>, <em class="sig-param">initial_guess=None</em>, <em class="sig-param">position_field='user_readback'</em>, <em class="sig-param">show_plot=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.alignment.rocking_curve" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.alignment.</code><code class="sig-name descname">rocking_curve</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">read_field</span></em>, <em class="sig-param"><span class="n">coarse_step</span></em>, <em class="sig-param"><span class="n">fine_step</span></em>, <em class="sig-param"><span class="n">bounds</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">average</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fine_space</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">initial_guess</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">position_field</span><span class="o">=</span><span class="default_value">'user_readback'</span></em>, <em class="sig-param"><span class="n">show_plot</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.alignment.rocking_curve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Travel to the maxima of a bell curve</p>
 <p>The rocking curve scan is two repeated calls of <a class="reference internal" href="#hxrsnd.plans.alignment.maximize_lorentz" title="hxrsnd.plans.alignment.maximize_lorentz"><code class="xref py py-func docutils literal notranslate"><span class="pre">maximize_lorentz()</span></code></a>.
 The first is a rough step scan which searches the area given by <code class="docutils literal notranslate"><span class="pre">bounds</span></code>
@@ -263,9 +263,9 @@ of the <code class="docutils literal notranslate"><span class="pre">bounds</span
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="hxrsnd.plans.alignment.maximize_lorentz">
-<code class="sig-prename descclassname">hxrsnd.plans.alignment.</code><code class="sig-name descname">maximize_lorentz</code><span class="sig-paren">(</span><em class="sig-param">detector</em>, <em class="sig-param">motor</em>, <em class="sig-param">read_field</em>, <em class="sig-param">step_size=1</em>, <em class="sig-param">bounds=None</em>, <em class="sig-param">average=None</em>, <em class="sig-param">filters=None</em>, <em class="sig-param">position_field='user_readback'</em>, <em class="sig-param">initial_guess=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.alignment.maximize_lorentz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.alignment.</code><code class="sig-name descname">maximize_lorentz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">read_field</span></em>, <em class="sig-param"><span class="n">step_size</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">bounds</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">average</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filters</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">position_field</span><span class="o">=</span><span class="default_value">'user_readback'</span></em>, <em class="sig-param"><span class="n">initial_guess</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.alignment.maximize_lorentz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximize a signal with a Lorentzian relationship to a motor</p>
 <p>The following plan does a linear step scan through the parameter space
 while collecting information to create a Lorentzian model. After the scan

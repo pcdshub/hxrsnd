@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Split and Delay System &mdash; HXRSnD 0.1.5+2.ge83f171 documentation</title>
+  <title>Split and Delay System &mdash; HXRSnD 0.1.6+2.g8f566f9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.1.5+2.ge83f171
+                0.1.6+2.g8f566f9
               </div>
             
           
@@ -201,9 +201,9 @@
 <h1>Split and Delay System<a class="headerlink" href="#split-and-delay-system" title="Permalink to this headline">¶</a></h1>
 <p>The main object that is interacted with in the <code class="docutils literal notranslate"><span class="pre">IPython</span></code> shell is the <code class="docutils literal notranslate"><span class="pre">snd</span></code>
 object.</p>
-<dl class="class">
+<dl class="py class">
 <dt id="hxrsnd.sndsystem.SplitAndDelay">
-<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.sndsystem.</code><code class="sig-name descname">SplitAndDelay</code><span class="sig-paren">(</span><em class="sig-param">prefix</em>, <em class="sig-param">name=None</em>, <em class="sig-param">daq=None</em>, <em class="sig-param">RE=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.sndsystem.</code><code class="sig-name descname">SplitAndDelay</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prefix</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">daq</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">RE</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay" title="Permalink to this definition">¶</a></dt>
 <dd><p>Hard X-Ray Split and Delay System.</p>
 <p>Components</p>
 <dl class="simple">
@@ -236,22 +236,22 @@ object.</p>
 <dt>delay<span class="classifier">DelayMacro</span></dt><dd><p>Delay pseudomotor.</p>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.sndsystem.SplitAndDelay.diag_status">
 <code class="sig-name descname">diag_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.diag_status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints a string containing the blocking status and the position of the
 motor.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.sndsystem.SplitAndDelay.main_screen">
-<code class="sig-name descname">main_screen</code><span class="sig-paren">(</span><em class="sig-param">print_msg=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.main_screen" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">main_screen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">print_msg</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.main_screen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Launches the main SnD screen.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.sndsystem.SplitAndDelay.status">
-<code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param">print_status=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">print_status</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the status of the split and delay system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -263,7 +263,7 @@ motor.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.sndsystem.SplitAndDelay.theta1">
 <em class="property">property </em><code class="sig-name descname">theta1</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.theta1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the bragg angle the the delay line is currently set to
@@ -279,7 +279,7 @@ in degrees.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.sndsystem.SplitAndDelay.theta2">
 <em class="property">property </em><code class="sig-name descname">theta2</code><a class="headerlink" href="#hxrsnd.sndsystem.SplitAndDelay.theta2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the bragg angle the the delay line is currently set to

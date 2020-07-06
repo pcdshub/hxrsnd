@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Calculations &mdash; HXRSnD 0.1.5+2.ge83f171 documentation</title>
+  <title>Calculations &mdash; HXRSnD 0.1.6+2.g8f566f9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.1.5+2.ge83f171
+                0.1.6+2.g8f566f9
               </div>
             
           
@@ -212,9 +212,9 @@ are in following script:</p>
 <h2>Bragg Calculations<a class="headerlink" href="#bragg-calculations" title="Permalink to this headline">¶</a></h2>
 <p>Both the angle and energy calculations were  pulled from <code class="docutils literal notranslate"><span class="pre">blutil</span></code> and the
 script should contain all the necessary components to perform the calculation.</p>
-<dl class="function">
+<dl class="py function">
 <dt id="hxrsnd.bragg.bragg_angle">
-<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">bragg_angle</code><span class="sig-paren">(</span><em class="sig-param">E=None</em>, <em class="sig-param">ID='Si'</em>, <em class="sig-param">hkl=(2</em>, <em class="sig-param">2</em>, <em class="sig-param">0)</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.bragg.bragg_angle" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">bragg_angle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ID</span><span class="o">=</span><span class="default_value">'Si'</span></em>, <em class="sig-param"><span class="n">hkl</span><span class="o">=</span><span class="default_value">2, 2, 0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.bragg.bragg_angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the Bragg angle (deg) of the specified material, reflection and
 photon energy.</p>
 <dl class="field-list simple">
@@ -234,9 +234,9 @@ photon energy.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="hxrsnd.bragg.bragg_energy">
-<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">bragg_energy</code><span class="sig-paren">(</span><em class="sig-param">theta</em>, <em class="sig-param">ID='Si'</em>, <em class="sig-param">hkl=(2</em>, <em class="sig-param">2</em>, <em class="sig-param">0)</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.bragg.bragg_energy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">bragg_energy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theta</span></em>, <em class="sig-param"><span class="n">ID</span><span class="o">=</span><span class="default_value">'Si'</span></em>, <em class="sig-param"><span class="n">hkl</span><span class="o">=</span><span class="default_value">2, 2, 0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.bragg.bragg_energy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the photon energy that satisfies the Bragg condition of the
 specified material, reflection and theta angle.</p>
 <dl class="field-list simple">
@@ -261,9 +261,9 @@ specified material, reflection and theta angle.</p>
 <h2>Macro-motion Calculations<a class="headerlink" href="#macro-motion-calculations" title="Permalink to this headline">¶</a></h2>
 <p>There are three functions that perform the same calculations used in for the
 macromotors. These were used to used to perform quick position verification.</p>
-<dl class="function">
+<dl class="py function">
 <dt id="hxrsnd.bragg.snd_L">
-<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">snd_L</code><span class="sig-paren">(</span><em class="sig-param">E1</em>, <em class="sig-param">E2</em>, <em class="sig-param">delay</em>, <em class="sig-param">gap=55</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.bragg.snd_L" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">snd_L</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E1</span></em>, <em class="sig-param"><span class="n">E2</span></em>, <em class="sig-param"><span class="n">delay</span></em>, <em class="sig-param"><span class="n">gap</span><span class="o">=</span><span class="default_value">55</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.bragg.snd_L" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the theta angles of the towers and the delay length based on the
 desired energy and delay.</p>
 <dl class="field-list simple">
@@ -286,9 +286,9 @@ desired energy and delay.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="hxrsnd.bragg.snd_diag">
-<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">snd_diag</code><span class="sig-paren">(</span><em class="sig-param">E1</em>, <em class="sig-param">E2</em>, <em class="sig-param">delay</em>, <em class="sig-param">gap=55</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.bragg.snd_diag" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">snd_diag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E1</span></em>, <em class="sig-param"><span class="n">E2</span></em>, <em class="sig-param"><span class="n">delay</span></em>, <em class="sig-param"><span class="n">gap</span><span class="o">=</span><span class="default_value">55</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.bragg.snd_diag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the positions of the middle diagnostics of the system based on
 the inputted energy and delay.</p>
 <dl class="field-list simple">
@@ -310,9 +310,9 @@ the inputted energy and delay.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="hxrsnd.bragg.snd_delay">
-<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">snd_delay</code><span class="sig-paren">(</span><em class="sig-param">E1</em>, <em class="sig-param">E2</em>, <em class="sig-param">L</em>, <em class="sig-param">gap=55</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.bragg.snd_delay" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">snd_delay</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E1</span></em>, <em class="sig-param"><span class="n">E2</span></em>, <em class="sig-param"><span class="n">L</span></em>, <em class="sig-param"><span class="n">gap</span><span class="o">=</span><span class="default_value">55</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.bragg.snd_delay" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the delay of the system based on the inputted energies and the
 delay length.</p>
 <dl class="field-list simple">

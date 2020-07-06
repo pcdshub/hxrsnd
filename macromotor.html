@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Macromotors &mdash; HXRSnD 0.1.5+2.ge83f171 documentation</title>
+  <title>Macromotors &mdash; HXRSnD 0.1.6+2.g8f566f9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.1.5+2.ge83f171
+                0.1.6+2.g8f566f9
               </div>
             
           
@@ -211,20 +211,20 @@
 <h2>Base Class<a class="headerlink" href="#base-class" title="Permalink to this headline">¶</a></h2>
 <p>All of the macromotors inherit fromt the <code class="docutils literal notranslate"><span class="pre">MacroBase</span></code> class, which implements
 the high level interface for each of the macromotors.</p>
-<dl class="class">
+<dl class="py class">
 <dt id="hxrsnd.macromotor.MacroBase">
-<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">MacroBase</code><span class="sig-paren">(</span><em class="sig-param">prefix</em>, <em class="sig-param">name=None</em>, <em class="sig-param">read_attrs=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">MacroBase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prefix</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">read_attrs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base pseudo-motor class for the SnD macro-motions.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.macromotor.MacroBase.aligned">
 <em class="property">property </em><code class="sig-name descname">aligned</code><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.aligned" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks to see if the towers are in aligned in energy and delay. To be
 overrided in subclasses.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.macromotor.MacroBase.move">
-<code class="sig-name descname">move</code><span class="sig-paren">(</span><em class="sig-param">position</em>, <em class="sig-param">wait=True</em>, <em class="sig-param">verify_move=True</em>, <em class="sig-param">use_diag=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.move" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">move</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span></em>, <em class="sig-param"><span class="n">wait</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">verify_move</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">use_diag</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.move" title="Permalink to this definition">¶</a></dt>
 <dd><p>Moves the macro-motor to the inputted position, optionally waiting for
 the motors to complete their moves. Alias for set().</p>
 <dl class="field-list simple">
@@ -250,9 +250,9 @@ system.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.macromotor.MacroBase.mv">
-<code class="sig-name descname">mv</code><span class="sig-paren">(</span><em class="sig-param">position</em>, <em class="sig-param">wait=True</em>, <em class="sig-param">verify_move=True</em>, <em class="sig-param">use_diag=True</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.mv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">mv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span></em>, <em class="sig-param"><span class="n">wait</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">verify_move</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">use_diag</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.mv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Moves the macro parameters to the inputted positions. For energy, this
 moves the energies of both lines, energy1 moves just the delay line,
 energy2 moves just the channel cut line, and delay moves just the delay
@@ -291,7 +291,7 @@ system.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.macromotor.MacroBase.position">
 <em class="property">property </em><code class="sig-name descname">position</code><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current position</p>
@@ -305,9 +305,9 @@ system.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.macromotor.MacroBase.set">
-<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param">position</em>, <em class="sig-param">wait=True</em>, <em class="sig-param">verify_move=True</em>, <em class="sig-param">ret_status=True</em>, <em class="sig-param">use_diag=True</em>, <em class="sig-param">use_calib=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.set" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span></em>, <em class="sig-param"><span class="n">wait</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">verify_move</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">ret_status</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">use_diag</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">use_calib</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Moves the macro-motor to the inputted position, optionally waiting for
 the motors to complete their moves.</p>
 <dl class="field-list simple">
@@ -333,17 +333,17 @@ system.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.macromotor.MacroBase.set_position">
-<code class="sig-name descname">set_position</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.set_position" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_position</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.set_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the current positions of the motors in the towers to be the
 calculated positions based on the inputted energies or delay. To be
 overrided in subclasses.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.macromotor.MacroBase.status">
-<code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param">status=''</em>, <em class="sig-param">offset=0</em>, <em class="sig-param">print_status=True</em>, <em class="sig-param">newline=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">offset</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">print_status</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">newline</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the status of the device.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -356,9 +356,9 @@ overrided in subclasses.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.macromotor.MacroBase.wait">
-<code class="sig-name descname">wait</code><span class="sig-paren">(</span><em class="sig-param">status=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.wait" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">wait</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.MacroBase.wait" title="Permalink to this definition">¶</a></dt>
 <dd><p>Waits for the status objects to complete the motions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -374,9 +374,9 @@ internal status list.</p>
 <div class="section" id="base-delay-class">
 <h2>Base Delay Class<a class="headerlink" href="#base-delay-class" title="Permalink to this headline">¶</a></h2>
 <p>All delay macromotors inherit from this abstract class.</p>
-<dl class="class">
+<dl class="py class">
 <dt id="hxrsnd.macromotor.DelayTowerMacro">
-<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">DelayTowerMacro</code><span class="sig-paren">(</span><em class="sig-param">prefix</em>, <em class="sig-param">name=None</em>, <em class="sig-param">read_attrs=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.DelayTowerMacro" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">DelayTowerMacro</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prefix</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">read_attrs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.DelayTowerMacro" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hxrsnd.macromotor.MacroBase" title="hxrsnd.macromotor.MacroBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.macromotor.MacroBase</span></code></a></p>
 <p>Class for the delay tower macros</p>
 </dd></dl>
@@ -390,12 +390,12 @@ following motors:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">snd.t1.L</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">snd.t4.L</span></code></p></li>
 </ul>
-<dl class="class">
+<dl class="py class">
 <dt id="hxrsnd.macromotor.DelayMacro">
-<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">DelayMacro</code><span class="sig-paren">(</span><em class="sig-param">prefix</em>, <em class="sig-param">name=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">DelayMacro</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prefix</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.sndmotor.CalibMotor</span></code>, <a class="reference internal" href="#hxrsnd.macromotor.DelayTowerMacro" title="hxrsnd.macromotor.DelayTowerMacro"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.macromotor.DelayTowerMacro</span></code></a></p>
 <p>Macro-motor for the delay macro-motor.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.macromotor.DelayMacro.position">
 <em class="property">property </em><code class="sig-name descname">position</code><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro.position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current energy of the channel cut line.</p>
@@ -409,9 +409,9 @@ following motors:</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.macromotor.DelayMacro.set_position">
-<code class="sig-name descname">set_position</code><span class="sig-paren">(</span><em class="sig-param">delay=None</em>, <em class="sig-param">print_set=True</em>, <em class="sig-param">use_diag=True</em>, <em class="sig-param">verify_move=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro.set_position" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_position</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">delay</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">print_set</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">use_diag</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">verify_move</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.DelayMacro.set_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the current positions of the motors in the towers to be the
 calculated positions based on the inputted energies or delay.</p>
 <dl class="field-list simple">
@@ -442,12 +442,12 @@ following motors:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">snd.t4.th1</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">snd.t4.th2</span></code></p></li>
 </ul>
-<dl class="class">
+<dl class="py class">
 <dt id="hxrsnd.macromotor.Energy1Macro">
-<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">Energy1Macro</code><span class="sig-paren">(</span><em class="sig-param">prefix</em>, <em class="sig-param">name=None</em>, <em class="sig-param">read_attrs=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy1Macro" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">Energy1Macro</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prefix</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">read_attrs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy1Macro" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hxrsnd.macromotor.DelayTowerMacro" title="hxrsnd.macromotor.DelayTowerMacro"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.macromotor.DelayTowerMacro</span></code></a></p>
 <p>Macro-motor for the energy 1 macro-motor.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.macromotor.Energy1Macro.position">
 <em class="property">property </em><code class="sig-name descname">position</code><a class="headerlink" href="#hxrsnd.macromotor.Energy1Macro.position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current energy of the delay line.</p>
@@ -461,9 +461,9 @@ following motors:</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.macromotor.Energy1Macro.set_position">
-<code class="sig-name descname">set_position</code><span class="sig-paren">(</span><em class="sig-param">E1=None</em>, <em class="sig-param">print_set=True</em>, <em class="sig-param">verify_move=True</em>, <em class="sig-param">use_diag=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy1Macro.set_position" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_position</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E1</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">print_set</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">verify_move</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">use_diag</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy1Macro.set_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the current positions of the motors in the towers to be the
 calculated positions based on the inputted energies or delay.</p>
 <dl class="field-list simple">
@@ -491,14 +491,14 @@ the following motors:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">snd.t1.tth</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">snd.t4.tth</span></code></p></li>
 </ul>
-<dl class="class">
+<dl class="py class">
 <dt id="hxrsnd.macromotor.Energy1CCMacro">
-<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">Energy1CCMacro</code><span class="sig-paren">(</span><em class="sig-param">prefix</em>, <em class="sig-param">name=None</em>, <em class="sig-param">read_attrs=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy1CCMacro" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">Energy1CCMacro</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prefix</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">read_attrs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy1CCMacro" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hxrsnd.macromotor.Energy1Macro" title="hxrsnd.macromotor.Energy1Macro"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.macromotor.Energy1Macro</span></code></a></p>
 <p>Macro-motor for the energy 1 channel cut macro-motor.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.macromotor.Energy1CCMacro.set_position">
-<code class="sig-name descname">set_position</code><span class="sig-paren">(</span><em class="sig-param">E1=None</em>, <em class="sig-param">print_set=True</em>, <em class="sig-param">verify_move=True</em>, <em class="sig-param">use_diag=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy1CCMacro.set_position" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_position</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E1</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">print_set</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">verify_move</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">use_diag</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy1CCMacro.set_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the current positions of the motors in the towers to be the
 calculated positions based on the inputted energies or delay.</p>
 <dl class="field-list simple">
@@ -526,12 +526,12 @@ manipulating the following motors:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">snd.t2.th</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">snd.t3.th</span></code></p></li>
 </ul>
-<dl class="class">
+<dl class="py class">
 <dt id="hxrsnd.macromotor.Energy2Macro">
-<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">Energy2Macro</code><span class="sig-paren">(</span><em class="sig-param">prefix</em>, <em class="sig-param">name=None</em>, <em class="sig-param">read_attrs=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy2Macro" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.macromotor.</code><code class="sig-name descname">Energy2Macro</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prefix</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">read_attrs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy2Macro" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hxrsnd.macromotor.MacroBase" title="hxrsnd.macromotor.MacroBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.macromotor.MacroBase</span></code></a></p>
 <p>Macro-motor for the energy 2 macro-motor.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.macromotor.Energy2Macro.position">
 <em class="property">property </em><code class="sig-name descname">position</code><a class="headerlink" href="#hxrsnd.macromotor.Energy2Macro.position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current energy of the channel cut line.</p>
@@ -545,9 +545,9 @@ manipulating the following motors:</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.macromotor.Energy2Macro.set_position">
-<code class="sig-name descname">set_position</code><span class="sig-paren">(</span><em class="sig-param">E2=None</em>, <em class="sig-param">print_set=True</em>, <em class="sig-param">verify_move=True</em>, <em class="sig-param">use_diag=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy2Macro.set_position" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_position</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E2</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">print_set</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">verify_move</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">use_diag</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.macromotor.Energy2Macro.set_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the current positions of the motors in the towers to be the
 calculated positions based on the inputted energies or delay.</p>
 <dl class="field-list simple">

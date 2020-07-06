@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Attocube Motors &mdash; HXRSnD 0.1.5+2.ge83f171 documentation</title>
+  <title>Attocube Motors &mdash; HXRSnD 0.1.6+2.g8f566f9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.1.5+2.ge83f171
+                0.1.6+2.g8f566f9
               </div>
             
           
@@ -206,14 +206,14 @@
 <div class="section" id="base-class">
 <h2>Base Class<a class="headerlink" href="#base-class" title="Permalink to this headline">¶</a></h2>
 <p>The base attocube class is where all of the core functionality is implemented.</p>
-<dl class="class">
+<dl class="py class">
 <dt id="hxrsnd.attocube.EccBase">
-<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.attocube.</code><code class="sig-name descname">EccBase</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.attocube.</code><code class="sig-name descname">EccBase</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.sndmotor.SndMotor</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ophyd.positioner.PositionerBase</span></code></p>
 <p>ECC Motor Class</p>
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.check_status">
-<code class="sig-name descname">check_status</code><span class="sig-paren">(</span><em class="sig-param">position=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.check_status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">check_status</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.check_status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks the status of the motor to make sure it is ready to move. Checks
 the current position of the motor, and if a position is provided it also
 checks that position.</p>
@@ -230,9 +230,9 @@ checks that position.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.check_value">
-<code class="sig-name descname">check_value</code><span class="sig-paren">(</span><em class="sig-param">position</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.check_value" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">check_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.check_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks to make sure the inputted value is valid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -247,7 +247,7 @@ checks that position.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.connected">
 <em class="property">property </em><code class="sig-name descname">connected</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.connected" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns if the motor is curently connected.</p>
@@ -261,9 +261,9 @@ checks that position.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.disable">
-<code class="sig-name descname">disable</code><span class="sig-paren">(</span><em class="sig-param">ret_status=False</em>, <em class="sig-param">print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.disable" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">disable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ret_status</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">print_set</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.disable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Disables the motor power.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -281,7 +281,7 @@ checks that position.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.egu">
 <em class="property">property </em><code class="sig-name descname">egu</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.egu" title="Permalink to this definition">¶</a></dt>
 <dd><p>The engineering units (EGU) for a position</p>
@@ -295,9 +295,9 @@ checks that position.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.enable">
-<code class="sig-name descname">enable</code><span class="sig-paren">(</span><em class="sig-param">ret_status=False</em>, <em class="sig-param">print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.enable" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">enable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ret_status</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">print_set</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.enable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Enables the motor power.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -315,7 +315,7 @@ checks that position.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.enabled">
 <em class="property">property </em><code class="sig-name descname">enabled</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.enabled" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns if the motor is curently enabled.</p>
@@ -329,7 +329,7 @@ checks that position.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.error">
 <em class="property">property </em><code class="sig-name descname">error</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.error" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current error with the motor.</p>
@@ -343,9 +343,9 @@ checks that position.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.expert_screen">
-<code class="sig-name descname">expert_screen</code><span class="sig-paren">(</span><em class="sig-param">print_msg=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.expert_screen" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">expert_screen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">print_msg</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.expert_screen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Launches the expert screen for the motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -354,7 +354,7 @@ checks that position.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.high_limit">
 <em class="property">property </em><code class="sig-name descname">high_limit</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.high_limit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the upper limit fot the user setpoint.</p>
@@ -368,7 +368,7 @@ checks that position.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.limits">
 <em class="property">property </em><code class="sig-name descname">limits</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.limits" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the limits of the motor.</p>
@@ -382,7 +382,7 @@ checks that position.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.low_limit">
 <em class="property">property </em><code class="sig-name descname">low_limit</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.low_limit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the lower limit fot the user setpoint.</p>
@@ -396,9 +396,9 @@ checks that position.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.move">
-<code class="sig-name descname">move</code><span class="sig-paren">(</span><em class="sig-param">position</em>, <em class="sig-param">check_status=True</em>, <em class="sig-param">timeout=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.move" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">move</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span></em>, <em class="sig-param"><span class="n">check_status</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">timeout</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.move" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move to a specified position.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -423,9 +423,9 @@ checks that position.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.mv">
-<code class="sig-name descname">mv</code><span class="sig-paren">(</span><em class="sig-param">position</em>, <em class="sig-param">print_move=True</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.mv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">mv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span></em>, <em class="sig-param"><span class="n">print_move</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">wait</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.mv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move to a specified position, optionally waiting for motion to
 complete. mv() is different from move() by catching all the common
 exceptions that this motor can raise and just raises a logger
@@ -453,7 +453,7 @@ exceptions will propagate to it.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.position">
 <em class="property">property </em><code class="sig-name descname">position</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current position of the motor.</p>
@@ -467,7 +467,7 @@ exceptions will propagate to it.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.reference">
 <em class="property">property </em><code class="sig-name descname">reference</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.reference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the reference position of the motor.</p>
@@ -481,7 +481,7 @@ exceptions will propagate to it.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.referenced">
 <em class="property">property </em><code class="sig-name descname">referenced</code><a class="headerlink" href="#hxrsnd.attocube.EccBase.referenced" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns if the motor is curently referenced.</p>
@@ -495,9 +495,9 @@ exceptions will propagate to it.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.reset">
-<code class="sig-name descname">reset</code><span class="sig-paren">(</span><em class="sig-param">ret_status=False</em>, <em class="sig-param">print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.reset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ret_status</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">print_set</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the current position to be the zero position of the motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -509,9 +509,9 @@ exceptions will propagate to it.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.set_limits">
-<code class="sig-name descname">set_limits</code><span class="sig-paren">(</span><em class="sig-param">llm</em>, <em class="sig-param">hlm</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.set_limits" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_limits</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">llm</span></em>, <em class="sig-param"><span class="n">hlm</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.set_limits" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the limits of the motor. Alias for limits = (llm, hlm).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -523,9 +523,9 @@ exceptions will propagate to it.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.status">
-<code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param">status=''</em>, <em class="sig-param">offset=0</em>, <em class="sig-param">print_status=True</em>, <em class="sig-param">newline=False</em>, <em class="sig-param">short=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">offset</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">print_status</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">newline</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">short</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the status of the device.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -545,9 +545,9 @@ exceptions will propagate to it.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="hxrsnd.attocube.EccBase.stop">
-<code class="sig-name descname">stop</code><span class="sig-paren">(</span><em class="sig-param">success=False</em>, <em class="sig-param">ret_status=False</em>, <em class="sig-param">print_set=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.stop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">success</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">ret_status</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">print_set</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.EccBase.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stops the motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -570,23 +570,23 @@ exceptions will propagate to it.</p>
 </div>
 <div class="section" id="subclasses">
 <h2>Subclasses<a class="headerlink" href="#subclasses" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="hxrsnd.attocube.TranslationEcc">
-<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.attocube.</code><code class="sig-name descname">TranslationEcc</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.TranslationEcc" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.attocube.</code><code class="sig-name descname">TranslationEcc</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.TranslationEcc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hxrsnd.attocube.EccBase" title="hxrsnd.attocube.EccBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.attocube.EccBase</span></code></a></p>
 <p>Class for the translation ecc motor</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="hxrsnd.attocube.GoniometerEcc">
-<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.attocube.</code><code class="sig-name descname">GoniometerEcc</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.GoniometerEcc" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.attocube.</code><code class="sig-name descname">GoniometerEcc</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.GoniometerEcc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hxrsnd.attocube.EccBase" title="hxrsnd.attocube.EccBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.attocube.EccBase</span></code></a></p>
 <p>Class for the goniometer ecc motor</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="hxrsnd.attocube.DiodeEcc">
-<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.attocube.</code><code class="sig-name descname">DiodeEcc</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.DiodeEcc" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.attocube.</code><code class="sig-name descname">DiodeEcc</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.attocube.DiodeEcc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for the diode insertion ecc motor</p>
 </dd></dl>
 

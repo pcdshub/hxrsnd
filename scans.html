@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>General Scans &mdash; HXRSnD 0.1.5+2.ge83f171 documentation</title>
+  <title>General Scans &mdash; HXRSnD 0.1.6+2.g8f566f9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.1.5+2.ge83f171
+                0.1.6+2.g8f566f9
               </div>
             
           
@@ -199,9 +199,9 @@
             
   <div class="section" id="general-scans">
 <h1>General Scans<a class="headerlink" href="#general-scans" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="hxrsnd.plans.scans.linear_scan">
-<code class="sig-prename descclassname">hxrsnd.plans.scans.</code><code class="sig-name descname">linear_scan</code><span class="sig-paren">(</span><em class="sig-param">motor</em>, <em class="sig-param">start</em>, <em class="sig-param">stop</em>, <em class="sig-param">num</em>, <em class="sig-param">use_diag=True</em>, <em class="sig-param">return_to_start=True</em>, <em class="sig-param">md=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.scans.linear_scan" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.scans.</code><code class="sig-name descname">linear_scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">num</span></em>, <em class="sig-param"><span class="n">use_diag</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">return_to_start</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">md</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.scans.linear_scan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Linear scan of a motor without a detector.</p>
 <p>Performs a linear scan using the inputted motor, optionally using the
 diagnostics, and optionally moving the motor back to the original start
@@ -221,9 +221,9 @@ take a detector, and simply scans the motor.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="hxrsnd.plans.scans.centroid_scan">
-<code class="sig-prename descclassname">hxrsnd.plans.scans.</code><code class="sig-name descname">centroid_scan</code><span class="sig-paren">(</span><em class="sig-param">detector, motor, start, stop, steps, average=None, detector_fields=['stats2_centroid_x', 'stats2_centroid_y'], motor_fields=None, system=None, system_fields=None, filters=None, return_to_start=True, *args, **kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.scans.centroid_scan" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.scans.</code><code class="sig-name descname">centroid_scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">steps</span></em>, <em class="sig-param"><span class="n">average</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">detector_fields</span><span class="o">=</span><span class="default_value">['stats2_centroid_x', 'stats2_centroid_y']</span></em>, <em class="sig-param"><span class="n">motor_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">system</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">system_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filters</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">return_to_start</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.scans.centroid_scan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a scan and returns the centroids of the inputted detector.</p>
 <p>The returned centroids can be absolute or relative to the initial value. The
 values are returned in a pandas DataFrame where the indices are the target

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Delay Calibration &mdash; HXRSnD 0.1.5+2.ge83f171 documentation</title>
+  <title>Delay Calibration &mdash; HXRSnD 0.1.6+2.g8f566f9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.1.5+2.ge83f171
+                0.1.6+2.g8f566f9
               </div>
             
           
@@ -199,9 +199,9 @@
             
   <div class="section" id="delay-calibration">
 <h1>Delay Calibration<a class="headerlink" href="#delay-calibration" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="hxrsnd.plans.calibration.calibrate_motor">
-<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">calibrate_motor</code><span class="sig-paren">(</span><em class="sig-param">detector</em>, <em class="sig-param">detector_fields</em>, <em class="sig-param">motor</em>, <em class="sig-param">motor_fields</em>, <em class="sig-param">calib_motors</em>, <em class="sig-param">calib_fields</em>, <em class="sig-param">start</em>, <em class="sig-param">stop</em>, <em class="sig-param">steps</em>, <em class="sig-param">confirm_overwrite=True</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.calibration.calibrate_motor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">calibrate_motor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">detector_fields</span></em>, <em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">motor_fields</span></em>, <em class="sig-param"><span class="n">calib_motors</span></em>, <em class="sig-param"><span class="n">calib_fields</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">steps</span></em>, <em class="sig-param"><span class="n">confirm_overwrite</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.calibration.calibrate_motor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a calibration scan using the inputted detector, motor, and
 calibration motors, then configures the motor using the resulting
 calibration.</p>
@@ -227,9 +227,9 @@ calibration.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="hxrsnd.plans.calibration.calibration_scan">
-<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">calibration_scan</code><span class="sig-paren">(</span><em class="sig-param">detector</em>, <em class="sig-param">detector_fields</em>, <em class="sig-param">motor</em>, <em class="sig-param">motor_fields</em>, <em class="sig-param">calib_motors</em>, <em class="sig-param">calib_fields</em>, <em class="sig-param">start</em>, <em class="sig-param">stop</em>, <em class="sig-param">steps</em>, <em class="sig-param">first_step=0.01</em>, <em class="sig-param">average=None</em>, <em class="sig-param">filters=None</em>, <em class="sig-param">return_to_start=True</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.calibration.calibration_scan" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">calibration_scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">detector_fields</span></em>, <em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">motor_fields</span></em>, <em class="sig-param"><span class="n">calib_motors</span></em>, <em class="sig-param"><span class="n">calib_fields</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">steps</span></em>, <em class="sig-param"><span class="n">first_step</span><span class="o">=</span><span class="default_value">0.01</span></em>, <em class="sig-param"><span class="n">average</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filters</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">return_to_start</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.calibration.calibration_scan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a calibration scan for the main motor and returns a correction
 table for the calibration motors.</p>
 <p>This adds to <code class="docutils literal notranslate"><span class="pre">calibration_scan</span></code> by moving the motors to their original
@@ -274,9 +274,9 @@ to calculate the calibration.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="hxrsnd.plans.calibration.calibration_centroid_scan">
-<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">calibration_centroid_scan</code><span class="sig-paren">(</span><em class="sig-param">detector</em>, <em class="sig-param">motor</em>, <em class="sig-param">calib_motors</em>, <em class="sig-param">start</em>, <em class="sig-param">stop</em>, <em class="sig-param">steps</em>, <em class="sig-param">calib_fields=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.calibration.calibration_centroid_scan" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">calibration_centroid_scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">calib_motors</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">steps</span></em>, <em class="sig-param"><span class="n">calib_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.calibration.calibration_centroid_scan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a centroid scan producing a dataframe with the values of the
 detector, motor, and calibration motor fields.</p>
 <dl class="field-list simple">
@@ -308,9 +308,9 @@ at every step of the scan.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="hxrsnd.plans.calibration.detector_scaling_walk">
-<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">detector_scaling_walk</code><span class="sig-paren">(</span><em class="sig-param">df_scan</em>, <em class="sig-param">detector</em>, <em class="sig-param">calib_motors</em>, <em class="sig-param">first_step=0.01</em>, <em class="sig-param">average=None</em>, <em class="sig-param">filters=None</em>, <em class="sig-param">tolerance=1</em>, <em class="sig-param">delay=None</em>, <em class="sig-param">max_steps=5</em>, <em class="sig-param">system=None</em>, <em class="sig-param">drop_missing=True</em>, <em class="sig-param">gradients=None</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.calibration.detector_scaling_walk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">detector_scaling_walk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df_scan</span></em>, <em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">calib_motors</span></em>, <em class="sig-param"><span class="n">first_step</span><span class="o">=</span><span class="default_value">0.01</span></em>, <em class="sig-param"><span class="n">average</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filters</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tolerance</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">delay</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_steps</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">system</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">drop_missing</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">gradients</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.calibration.detector_scaling_walk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a walk to to the detector value farthest from the current value
 using each of calibration motors, and then determines the motor to detector
 scaling</p>
@@ -348,9 +348,9 @@ and calibration motor position</p></li>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="hxrsnd.plans.calibration.build_calibration_df">
-<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">build_calibration_df</code><span class="sig-paren">(</span><em class="sig-param">df_scan</em>, <em class="sig-param">scaling</em>, <em class="sig-param">start_positions</em>, <em class="sig-param">detector</em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.calibration.build_calibration_df" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">build_calibration_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df_scan</span></em>, <em class="sig-param"><span class="n">scaling</span></em>, <em class="sig-param"><span class="n">start_positions</span></em>, <em class="sig-param"><span class="n">detector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.calibration.build_calibration_df" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes the scan dataframe, scaling, and starting positions to build a
 calibration table for the calibration motors.</p>
 <p>The resulting dataframe will contain all the scan motor read fields as well
