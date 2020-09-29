@@ -31,7 +31,7 @@ logger = logging.getLogger(__name__)
 def test_attocube_devices_instantiate_and_run_ophyd_functions(dev):
     motor = fake_device(dev)
     assert(isinstance(motor.read(), OrderedDict))
-    assert(isinstance(motor.read_configuration(), OrderedDict))    
+    assert(isinstance(motor.read_configuration(), OrderedDict))
 
 def test_EccBase_raises_MotorDisabled_if_moved_while_disabled():
     motor = fake_device(EccBase)
@@ -58,8 +58,8 @@ def test_EccBase_raises_MotorError_if_moved_while_faulted():
 #     motor = EccBase("TEST")
 #     motor.enable()
 #     motor.limits = (0, 1)
-#     assert motor.user_setpoint.value != position
+#     assert motor.user_setpoint.get() != position
 #     time.sleep(0.25)
 #     motor(position, wait=False)
 #     time.sleep(0.1)
-#     assert motor.user_setpoint.value == position
+#     assert motor.user_setpoint.get() == position

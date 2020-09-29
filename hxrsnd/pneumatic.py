@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 class PneuBase(SndDevice):
     """
     Base class for the penumatics.
-    """    
+    """
     def status(self, status="", offset=0, print_status=True, newline=False):
         """
         Returns the status of the device.
@@ -23,7 +23,7 @@ class PneuBase(SndDevice):
         ----------
         status : str, optional
             The string to append the status to.
-            
+
         offset : int, optional
             Amount to offset each line of the status.
 
@@ -38,7 +38,7 @@ class PneuBase(SndDevice):
         status : str
             Status string.
         """
-        status += "{0}{1:<16}|{2:^16}\n".format(" "*offset, self.desc+"", 
+        status += "{0}{1:<16}|{2:^16}\n".format(" "*offset, self.desc+"",
                                                 self.position)
         if newline:
             status += "\n"
@@ -78,7 +78,7 @@ class ProportionalValve(PneuBase):
             logger.info("Valve currently open.")
         else:
             return self.valve.set(1, timeout=self.set_timeout)
-    
+
     def close(self):
         """
         Closes the valve.
@@ -87,7 +87,7 @@ class ProportionalValve(PneuBase):
             logger.info("Valve currently closed.")
         else:
             return self.valve.set(0, timeout=self.set_timeout)
-        
+
     @property
     def position(self):
         """
@@ -97,11 +97,11 @@ class ProportionalValve(PneuBase):
         -------
         position : str
             String saying the current position of the valve. Can be "OPEN" or
-            "CLOSED". 
+            "CLOSED".
         """
-        if self.valve.value == 1:
+        if self.valve.get() == 1:
             return "OPEN"
-        elif self.valve.value == 0:
+        elif self.valve.get() == 0:
             return "CLOSED"
         else:
             return "UNKNOWN"
@@ -129,7 +129,7 @@ class ProportionalValve(PneuBase):
             True if the valve is currently in the 'closed' position.
         """
         return (self.position == "CLOSED")
-    
+
 
 class PressureSwitch(PneuBase):
     """
@@ -141,7 +141,7 @@ class PressureSwitch(PneuBase):
         Pressure readbac signal.
     """
     pressure = Cmp(EpicsSignalRO, ":GPS")
-        
+
     @property
     def position(self):
         """
@@ -151,11 +151,11 @@ class PressureSwitch(PneuBase):
         -------
         position : str
             String saying the current position of the valve. Can be "OPEN" or
-            "CLOSED". 
+            "CLOSED".
         """
-        if self.pressure.value == 0:
+        if self.pressure.get() == 0:
             return "GOOD"
-        elif self.pressure.value == 1:
+        elif self.pressure.get() == 1:
             return "BAD"
         else:
             return "UNKNOWN"
@@ -231,7 +231,7 @@ class SndPneumatics(SndDevice):
         ----------
         status : str, optional
             The string to append the status to.
-            
+
         offset : int, optional
             Amount to offset each line of the status.
 
@@ -253,7 +253,7 @@ class SndPneumatics(SndDevice):
             status += valve.status(offset=offset+2, print_status=False)
         for pressure in self._pressure_switches:
             status += pressure.status(offset=offset+2, print_status=False)
-                    
+
         if newline:
             status += "\n"
         if print_status is True:

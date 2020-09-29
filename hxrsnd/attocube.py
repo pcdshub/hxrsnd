@@ -27,15 +27,15 @@ class EccController(SndDevice):
     _firm_month = Cmp(EpicsSignalRO, ":CALC:FIRMMONTH")
     _firm_year = Cmp(EpicsSignalRO, ":CALC:FIRMYEAR")
     _flash = Cmp(EpicsSignal, ":RDB:FLASH", write_pv=":CMD:FLASH")
-    
-    @property 
+
+    @property
     def firmware(self):
         """
         Returns the firmware in the same date format as the EDM screen.
         """
         return "{0}/{1}/{2}".format(
-            self._firm_day.value, self._firm_month.value, self._firm_year.value)
-    
+            self._firm_day.get(), self._firm_month.get(), self._firm_year.get())
+
     @property
     def flash(self):
         """
@@ -88,19 +88,19 @@ class EccBase(SndMotor, PositionerBase):
         position : float
             Current position of the motor.
         """
-        return self.user_readback.value
+        return self.user_readback.get()
 
     @property
     def reference(self):
         """
         Returns the reference position of the motor.
-        
+
         Returns
         -------
         position : float
             Reference position of the motor.
         """
-        return self.motor_reference_position.value
+        return self.motor_reference_position.get()
 
     @property
     def egu(self):
@@ -125,7 +125,7 @@ class EccBase(SndMotor, PositionerBase):
         ----------
         status : StatusObject or list
             The inputted status object.
-        
+
         msg : str or None, optional
             Message to print if print_set is True.
 
@@ -144,7 +144,7 @@ class EccBase(SndMotor, PositionerBase):
         Returns
         -------
         Status
-            Inputted status object.        
+            Inputted status object.
         """
         try:
             # Wait for the status to complete
@@ -220,7 +220,7 @@ class EccBase(SndMotor, PositionerBase):
         enabled : bool
             True if the motor is powered, False if not.
         """
-        return bool(self.motor_enable.value)
+        return bool(self.motor_enable.get())
 
     @property
     def connected(self):
@@ -232,7 +232,7 @@ class EccBase(SndMotor, PositionerBase):
         connected : bool
             True if the motor is connected, False if not.
         """
-        return bool(self.motor_connected.value)
+        return bool(self.motor_connected.get())
 
     @property
     def referenced(self):
@@ -244,19 +244,19 @@ class EccBase(SndMotor, PositionerBase):
         referenced : bool
             True if the motor is referenced, False if not.
         """
-        return bool(self.motor_referenced.value)
-    
+        return bool(self.motor_referenced.get())
+
     @property
     def error(self):
         """
         Returns the current error with the motor.
-        
+
         Returns
         -------
         error : bool
             Error enumeration.
         """
-        return bool(self.motor_error.value)
+        return bool(self.motor_error.get())
 
     def reset(self, ret_status=False, print_set=True):
         """
@@ -264,13 +264,13 @@ class EccBase(SndMotor, PositionerBase):
 
         Returns
         -------
-        status : StatusObject        
+        status : StatusObject
             Status object for the set.
         """
         status = self.motor_reset.set(1, timeout=self.set_timeout)
         return self._status_print(status, "Reset motor '{0}'".format(
             self.desc), ret_status=ret_status, print_set=print_set)
-    
+
     def move(self, position, check_status=True, timeout=None, *args, **kwargs):
         """
         Move to a specified position.
@@ -285,17 +285,17 @@ class EccBase(SndMotor, PositionerBase):
 
         Returns
         -------
-        status : MoveStatus        
+        status : MoveStatus
             Status object for the move.
-        
+
         Raises
         ------
         TimeoutError
             When motion takes longer than `timeout`
-        
+
         ValueError
             On invalid positions
-        
+
         RuntimeError
             If motion fails other than timing out
         """
@@ -328,7 +328,7 @@ class EccBase(SndMotor, PositionerBase):
         -----------------
         LimitError
             Error raised when the inputted position is beyond the soft limits.
-        
+
         MotorDisabled
             Error raised if the motor is disabled and move is requested.
 
@@ -337,7 +337,7 @@ class EccBase(SndMotor, PositionerBase):
 
         Returns
         -------
-        status : MoveStatus        
+        status : MoveStatus
             Status object for the move.
         """
         try:
@@ -361,7 +361,7 @@ class EccBase(SndMotor, PositionerBase):
             logger.warning("Cannot move - motor {0} is currently faulted. Try "
                            "running 'motor.clear()'.".format(self.desc))
 
-    
+
     def check_status(self, position=None):
         """
         Checks the status of the motor to make sure it is ready to move. Checks
@@ -394,7 +394,7 @@ class EccBase(SndMotor, PositionerBase):
         # Check if the current position is valid
         self.check_value(self.position)
         # Check if the move position is valid
-        if position: 
+        if position:
             self.check_value(position)
 
     def check_value(self, position):
@@ -444,7 +444,7 @@ class EccBase(SndMotor, PositionerBase):
         status = self.motor_stop.set(1, wait=False, timeout=self.set_timeout)
         super().stop(success=success)
         return self._status_print(status, "Stopped motor '{0}'".format(
-            self.desc), ret_status=ret_status, print_set=print_set)        
+            self.desc), ret_status=ret_status, print_set=print_set)
 
     def expert_screen(self, print_msg=True):
         """
@@ -464,15 +464,15 @@ class EccBase(SndMotor, PositionerBase):
     def set_limits(self, llm, hlm):
         """
         Sets the limits of the motor. Alias for limits = (llm, hlm).
-        
+
         Parameters
         ----------
         llm : float
             Desired low limit.
-            
+
         hlm : float
             Desired low limit.
-        """        
+        """
         self.limits = (llm, hlm)
 
     @property
@@ -484,7 +484,7 @@ class EccBase(SndMotor, PositionerBase):
         -------
         high_limit : float
         """
-        return self.upper_ctrl_limit.value
+        return self.upper_ctrl_limit.get()
 
     @high_limit.setter
     def high_limit(self, value):
@@ -502,7 +502,7 @@ class EccBase(SndMotor, PositionerBase):
         -------
         low_limit : float
         """
-        return self.lower_ctrl_limit.value
+        return self.lower_ctrl_limit.get()
 
     @low_limit.setter
     def low_limit(self, value):
@@ -530,16 +530,16 @@ class EccBase(SndMotor, PositionerBase):
         self.low_limit = value[0]
         self.high_limit = value[1]
 
-    def status(self, status="", offset=0, print_status=True, newline=False, 
+    def status(self, status="", offset=0, print_status=True, newline=False,
                short=False):
         """
         Returns the status of the device.
-        
+
         Parameters
         ----------
         status : str, optional
             The string to append the status to.
-            
+
         offset : int, optional
             Amount to offset each line of the status.
 
@@ -560,11 +560,11 @@ class EccBase(SndMotor, PositionerBase):
         else:
             status += "{0}{1}\n".format(" "*offset, self.desc)
             status += "{0}PV: {1:>25}\n".format(" "*(offset+2), self.prefix)
-            status += "{0}Enabled: {1:>20}\n".format(" "*(offset+2), 
+            status += "{0}Enabled: {1:>20}\n".format(" "*(offset+2),
                                                      str(self.enabled))
-            status += "{0}Faulted: {1:>20}\n".format(" "*(offset+2), 
+            status += "{0}Faulted: {1:>20}\n".format(" "*(offset+2),
                                                      str(self.error))
-            status += "{0}Position: {1:>19}\n".format(" "*(offset+2), 
+            status += "{0}Position: {1:>19}\n".format(" "*(offset+2),
                                                       np.round(self.wm(), 6))
             status += "{0}Limits: {1:>21}\n".format(
                 " "*(offset+2), str((int(self.low_limit), int(self.high_limit))))

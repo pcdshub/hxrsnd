@@ -50,11 +50,11 @@ def test_AeroBase_raises_MotorDisabled_if_moved_while_disabled():
 #     motor.enable()
 #     assert motor.enabled
 #     motor.limits = (0, 1)
-#     assert motor.user_setpoint.value != position
+#     assert motor.user_setpoint.get() != position
 #     time.sleep(0.5)
 #     motor(position, wait=False)
 #     time.sleep(0.1)
-#     assert motor.user_setpoint.value == position
+#     assert motor.user_setpoint.get() == position
 
 # Commented out for now because it causes travis to seg fault sometimes
 # def test_AeroBase_raises_MotorFaulted_if_moved_while_faulted():
@@ -64,4 +64,4 @@ def test_AeroBase_raises_MotorDisabled_if_moved_while_disabled():
 #     motor.axis_fault.sim_put(1)
 #     with pytest.raises(MotorFaulted):
 #         motor.move(10)
-        
+
