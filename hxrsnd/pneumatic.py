@@ -15,6 +15,9 @@ class PneuBase(SndDevice):
     """
     Base class for the penumatics.
     """
+    tab_component_names = True
+    tab_whitelist = ['status']
+
     def status(self, status="", offset=0, print_status=True, newline=False):
         """
         Returns the status of the device.
@@ -68,6 +71,7 @@ class ProportionalValve(PneuBase):
     valve : EpicsSignal
         Valve control and readback pv.
     """
+    tab_whitelist = ['close', 'closed', 'open', 'opened', 'position']
     valve = Cmp(EpicsSignal, ":VGP")
 
     def open(self):
@@ -140,6 +144,7 @@ class PressureSwitch(PneuBase):
     pressure : EpicsSignalRO
         Pressure readbac signal.
     """
+    tab_whitelist = ['bad', 'good', 'position']
     pressure = Cmp(EpicsSignalRO, ":GPS")
 
     @property
@@ -209,6 +214,8 @@ class SndPneumatics(SndDevice):
     vac_pressure : PressureSwitch
         Pressure switch on the overall system.
     """
+    tab_whitelist = ['close', 'open', 'pressures', 'status', 'valves']
+
     t1_valve = Cmp(ProportionalValve, ":N2:T1", desc="T1 Valve")
     t4_valve = Cmp(ProportionalValve, ":N2:T4", desc="T4 Valve")
     vac_valve = Cmp(ProportionalValve, ":VAC", desc="Vacuum Valve")

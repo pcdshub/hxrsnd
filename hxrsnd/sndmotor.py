@@ -1,24 +1,24 @@
 """
 Script for abstract motor classes used in the SnD.
 """
-import time
 import logging
-from functools import reduce
+import time
 from collections import OrderedDict
+from functools import reduce
 
 import pandas as pd
+from bluesky.preprocessors import run_wrapper
 from ophyd.device import Component as Cmp
 from ophyd.signal import Signal
 from ophyd.utils import LimitError
 from pcdsdevices.epics_motor import PCDSMotorBase
 from pcdsdevices.mv_interface import FltMvInterface
-from bluesky.preprocessors  import run_wrapper
 from pcdsdevices.signal import Signal
 
-from .snddevice import SndDevice
+from .exceptions import InputError
 from .plans.calibration import calibrate_motor
 from .plans.preprocessors import return_to_start as _return_to_start
-from .exceptions import InputError
+from .snddevice import SndDevice
 from .utils import as_list
 
 logger = logging.getLogger(__name__)
@@ -35,7 +35,7 @@ class SndMotor(FltMvInterface, SndDevice):
 
 class SndEpicsMotor(PCDSMotorBase, SndMotor):
     """
-    SnD motor that inherits from EpicsMotor, therefore having all the relevant 
+    SnD motor that inherits from EpicsMotor, therefore having all the relevant
     signals
     """
     direction_of_travel = Cmp(Signal)
@@ -57,7 +57,7 @@ class SamMotor(SndMotor):
         """
         if value is None:
             raise ValueError('Cannot write None to epics PVs')
-            
+
         for i in range(retries):
             try:
                 low_limit, high_limit = self.limits
@@ -75,14 +75,16 @@ class SamMotor(SndMotor):
 # TODO: Add ability to save caibrations to disk
 # TODO: Add ability to load calibrations from disk
 # TODO: Add ability to display calibrations
-# TODO: Add ability to change post-processing done to scan. 
+# TODO: Add ability to change post-processing done to scan.
 # TODO: Add ability to redo scaling on scan
 class CalibMotor(SndDevice):
     """
     Provides the calibration macro methods.
     """
-    def __init__(self, prefix, name=None, calib_detector=None, 
-                 calib_motors=None, calib_fields=None, motor_fields=None, 
+    tab_whitelist = ['calibrate', 'calibration', 'has_calib', 'use_calib']
+
+    def __init__(self, prefix, name=None, calib_detector=None,
+                 calib_motors=None, calib_fields=None, motor_fields=None,
                  *args, **kwargs):
         super().__init__(prefix, name=name, *args, **kwargs)
         self.calib_motors = calib_motors
@@ -95,7 +97,7 @@ class CalibMotor(SndDevice):
     def calibrate(self, start, stop, steps, average=100, confirm_overwrite=True,
                   detector=None, detector_fields=None, RE=None,
                   return_to_start=True, *args, **kwargs):
-        """Performs a calibration scan for this motor and updates the 
+        """Performs a calibration scan for this motor and updates the
         configuration.
 
         Warning: This has not been commissioned.
@@ -128,7 +130,7 @@ class CalibMotor(SndDevice):
 
         return_to_start : bool, optional
             Move all the motors to their original positions after the scan has been
-            completed        
+            completed
         """
         # Remove this once the calibration routine has been tested
         logger.warning('Calibration functionality has not been commissioned.')
@@ -144,7 +146,7 @@ class CalibMotor(SndDevice):
             _, _ = yield from calibrate_motor(
                 detector,
                 detector_fields,
-                self, 
+                self,
                 self.motor_fields,
                 self.calib_motors,
                 self.calib_fields,
@@ -153,7 +155,7 @@ class CalibMotor(SndDevice):
                 confirm_overwrite=confirm_overwrite,
                 return_to_start=False,
                 *args, **kwargs)
-            
+
         # Run the inner plan
         RE(run_wrapper(inner()))
 
@@ -161,30 +163,30 @@ class CalibMotor(SndDevice):
     def calibration(self):
         """
         Returns the current calibration of the motor as a dictionary.
-        
+
         Returns
         -------
         calibration : dict
-            Dictionary containing calib, motors, scan, scale, and start 
+            Dictionary containing calib, motors, scan, scale, and start
             calibration parameters.
         """
         if self.has_calib:
             config = self.read_configuration()
             # Grab the values of each of the calibration parameters
-            calib = {fld : config[fld]['value'] 
+            calib = {fld : config[fld]['value']
                      for fld in ['calib', 'scan', 'scale', 'start']}
             # Make sure there are motors before we iterate through the list
             if config['motors']['value']:
                 # If the motors have name attributes, just return those
-                calib['motors'] = [mot.name if hasattr(mot, 'name') else mot 
+                calib['motors'] = [mot.name if hasattr(mot, 'name') else mot
                                    for mot in config['motors']['value']]
             else:
                 calib['motors'] = None
             return calib
-        else: 
+        else:
             return None
 
-    def configure(self, *, calib=None, motors=None, scan=None, scale=None, 
+    def configure(self, *, calib=None, motors=None, scan=None, scale=None,
                   start=None):
         """
         Configure the calib-motor's move parameters.
@@ -205,8 +207,8 @@ class CalibMotor(SndDevice):
             List of scales in the units of motor egu / detector value
 
         start : list, optional
-            List of the initial positions of the motors before the walk        
-        
+            List of the initial positions of the motors before the walk
+
         Returns
         -------
         configs : tuple of dict
@@ -244,20 +246,20 @@ class CalibMotor(SndDevice):
             List of scales in the units of motor egu / detector value
 
         start : list
-            List of the initial positions of the motors before the walk        
+            List of the initial positions of the motors before the walk
         """
         # Start with all the previous calibration parameters
         save_calib = OrderedDict(self._calib)
         motors = as_list(motors) or None
 
         # Add in the new parameters if they are not None or empty. If they are,
-        # None or empty, check if they already exist as keys in the dict and 
+        # None or empty, check if they already exist as keys in the dict and
         # only add them if they do not.
-        for key, value in {'calib': calib, 'motors': motors, 'scan': scan, 
+        for key, value in {'calib': calib, 'motors': motors, 'scan': scan,
                            'scale': scale, 'start': start}.items():
             if value is not None or (value is None and key not in save_calib):
                 save_calib[key] = {'value': value, 'timestamp': time.time()}
-                
+
         # Now check all those changes, raising errors if needed
         self._check_calib(save_calib)
         # We made it through the check, therefore it is safe to use
@@ -276,7 +278,7 @@ class CalibMotor(SndDevice):
             table and motors have a mismatched number of columns and motors.
 
         TypeError
-            If a correction table is passed that is not a dataframe.        
+            If a correction table is passed that is not a dataframe.
         """
         # Let's get all the values we will update the calibration with
         calib = save_calib['calib']['value']
@@ -320,7 +322,7 @@ class CalibMotor(SndDevice):
         and the user has indicated that they want to perform them.
 
         Parameters
-        ---------- 
+        ----------
         position
             Position to move to.
 
@@ -337,7 +339,7 @@ class CalibMotor(SndDevice):
         # Only perform the compensation if there is a valid calibration and we
         # want to use the calibration
         if not self.has_calib or not self.use_calib:
-            return 
+            return
 
         # Grab the two rows where the main motor position (column 0) is
         # closest to the inputted position
@@ -365,16 +367,16 @@ class CalibMotor(SndDevice):
         """
         Indicator if there is a valid calibration that can be used to perform
         correction moves.
-        
+
         Because the only requirements to perform a corrected move are the
         correction table and the calibration motors, they are the only
         calibration parameters that must be defines. These parameters must also
         pass ``_check_calib`` without raising any exceptions.
-        
+
         Returns
         -------
         has_calib : bool
-            True if there is a calibration that can be used for correction 
+            True if there is a calibration that can be used for correction
             motion, False otherwise.
         """
         # Grab the current correction table and calibration motors
@@ -395,22 +397,22 @@ class CalibMotor(SndDevice):
     @property
     def use_calib(self):
         """
-        Returns whether the user indicated that corrected motions should be 
+        Returns whether the user indicated that corrected motions should be
         used.
-        
+
         Returns
         -------
         use_calib : bool
             Internal indicator if the user wants to perform correction motions.
         """
         return self._use_calib
-    
+
     @use_calib.setter
     def use_calib(self, indicator):
         """
-        Setter for use_calib. Will warn the user if corrected motions are 
+        Setter for use_calib. Will warn the user if corrected motions are
         desired but there is no valid configuration to use.
-        
+
         Parameters
         ----------
         indicator : bool
@@ -420,7 +422,7 @@ class CalibMotor(SndDevice):
         if self._use_calib is True and not self.has_calib:
             logger.warning("use_calib is currently set to True but there is "
                            "no valid calibration to use")
-    
+
     def read_configuration(self):
         return self._calib
 
@@ -431,7 +433,6 @@ class CalibMotor(SndDevice):
             shape = self._calib['calib']['value'].shape
         else:
             shape = [len(self._calib)]
-        return OrderedDict(**dict(calib=dict(source='calibrate', dtype='array', 
-                                  shape=shape)), 
+        return OrderedDict(**dict(calib=dict(source='calibrate', dtype='array',
+                                  shape=shape)),
                            **super().describe_configuration())
-

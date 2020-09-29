@@ -3,17 +3,17 @@ Script to hold the split and delay class.
 
 All units of time are in picoseconds, units of length are in mm.
 """
-import os
 import logging
+import os
 
 from ophyd import Component as Cmp
 
-from .snddevice import SndDevice
-from .pneumatic import SndPneumatics
-from .utils import absolute_submodule_path
-from .tower import DelayTower, ChannelCutTower
 from .diode import HamamatsuXMotionDiode, HamamatsuXYMotionCamDiode
-from .macromotor import Energy1Macro, Energy1CCMacro, Energy2Macro, DelayMacro
+from .macromotor import DelayMacro, Energy1CCMacro, Energy1Macro, Energy2Macro
+from .pneumatic import SndPneumatics
+from .snddevice import SndDevice
+from .tower import ChannelCutTower, DelayTower
+from .utils import absolute_submodule_path
 
 logger = logging.getLogger(__name__)
 
@@ -41,7 +41,7 @@ class SplitAndDelay(SndDevice):
 
     di : HamamatsuXYMotionCamDiode
         Input diode for the system.
-    
+
     dd : HamamatsuXYMotionCamDiode
         Diode between the two delay towers.
 
@@ -50,10 +50,10 @@ class SplitAndDelay(SndDevice):
 
     dci : HamamatsuXMotionDiode
         Input diode for the channel cut line.
-    
+
     dcc : HamamatsuXMotionDiode
         Diode between the two channel cut towers.
-    
+
     dco : HamamatsuXMotionDiode
         Input diode for the channel cut line.
 
@@ -66,16 +66,19 @@ class SplitAndDelay(SndDevice):
     delay : DelayMacro
         Delay pseudomotor.
     """
+    tab_component_names = True
+    tab_whitelist = ['st', 'status', 'diag_status', 'theta1', 'theta2',
+                     'main_screen', 'status']
     # Delay Towers
-    t1 = Cmp(DelayTower, ":T1", pos_inserted=21.1, pos_removed=0, 
+    t1 = Cmp(DelayTower, ":T1", pos_inserted=21.1, pos_removed=0,
                    desc="Tower 1")
-    t4 = Cmp(DelayTower, ":T4", pos_inserted=21.1, pos_removed=0, 
+    t4 = Cmp(DelayTower, ":T4", pos_inserted=21.1, pos_removed=0,
                    desc="Tower 4")
 
     # Channel Cut Towers
-    t2 = Cmp(ChannelCutTower, ":T2", pos_inserted=None, pos_removed=0, 
+    t2 = Cmp(ChannelCutTower, ":T2", pos_inserted=None, pos_removed=0,
              desc="Tower 2")
-    t3 = Cmp(ChannelCutTower, ":T3", pos_inserted=None, pos_removed=0, 
+    t3 = Cmp(ChannelCutTower, ":T3", pos_inserted=None, pos_removed=0,
              desc="Tower 3")
 
     # Pneumatic Air Bearings
@@ -96,7 +99,7 @@ class SplitAndDelay(SndDevice):
     E1_cc = Cmp(Energy1CCMacro, "", desc="CC Delay Energy")
     E2 = Cmp(Energy2Macro, "", desc="CC Energy")
     delay = Cmp(DelayMacro, "", desc="Delay")
-    
+
     def __init__(self, prefix, name=None, daq=None, RE=None, *args, **kwargs):
         super().__init__(prefix, name=name, *args, **kwargs)
         self.daq = daq
@@ -113,7 +116,7 @@ class SplitAndDelay(SndDevice):
           self.E1._get_delay_diagnostic_position()
         self.dcc.pos_func = lambda : \
           self.E2._get_channelcut_diagnostic_position()
-          
+
     def diag_status(self):
         """
         Prints a string containing the blocking status and the position of the
@@ -135,7 +138,7 @@ class SplitAndDelay(SndDevice):
         Returns
         -------
         theta1 : float
-            The bragg angle the delay line is currently set to maximize 
+            The bragg angle the delay line is currently set to maximize
             in degrees.
         """
         return self.t1.theta
@@ -149,10 +152,10 @@ class SplitAndDelay(SndDevice):
         Returns
         -------
         theta2 : float
-            The bragg angle the channel cut line is currently set to maximize 
+            The bragg angle the channel cut line is currently set to maximize
             in degrees.
         """
-        return self.t2.theta    
+        return self.t2.theta
 
     def main_screen(self, print_msg=True):
         """
@@ -163,14 +166,14 @@ class SplitAndDelay(SndDevice):
         if print_msg:
             logger.info("Launching expert screen.")
         os.system("{0} {1} {2} &".format(path, p, axis))
-        
+
     def status(self, print_status=True):
         """
         Returns the status of the split and delay system.
-        
+
         Returns
         -------
-        Status : str            
+        Status : str
         """
         status =  "Split and Delay System Status\n"
         status += "-----------------------------"

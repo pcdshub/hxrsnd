@@ -1,19 +1,19 @@
 """
 Attocube devices
 """
-import os
 import logging
+import os
 
 import numpy as np
-from ophyd import PositionerBase
 from ophyd import Component as Cmp
-from ophyd.utils import LimitError
+from ophyd import PositionerBase
 from ophyd.signal import EpicsSignal, EpicsSignalRO
 from ophyd.status import wait as status_wait
+from ophyd.utils import LimitError
 
-from .sndmotor import SndMotor
-from .snddevice import SndDevice
 from .exceptions import MotorDisabled, MotorError, MotorFaulted
+from .snddevice import SndDevice
+from .sndmotor import SndMotor
 from .utils import absolute_submodule_path, as_list
 
 logger = logging.getLogger(__name__)
@@ -48,6 +48,31 @@ class EccBase(SndMotor, PositionerBase):
     """
     ECC Motor Class
     """
+    tab_component_names = True
+    tab_whitelist = [
+        'check_status',
+        # 'check_value',
+        'connected',
+        'disable',
+        'egu',
+        'enable',
+        'enabled',
+        'error',
+        'expert_screen',
+        'high_limit',
+        'limits',
+        'low_limit',
+        'move',
+        'mv',
+        'position',
+        'reference',
+        'referenced',
+        'reset',
+        'set_limits',
+        'status',
+        'stop',
+    ]
+
     # position
     user_readback = Cmp(EpicsSignalRO, ":POSITION", auto_monitor=True)
     user_setpoint = Cmp(EpicsSignal, ":CMD:TARGET")
