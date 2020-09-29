@@ -84,7 +84,7 @@ class AeroBase(SndEpicsMotor):
         ----------
         status : StatusObject or list
             The inputted status object.
-        
+
         msg : str or None, optional
             Message to print if print_set is True.
 
@@ -103,7 +103,7 @@ class AeroBase(SndEpicsMotor):
         Returns
         -------
         Status
-            Inputted status object.        
+            Inputted status object.
         """
         try:
             # Wait for the status to complete
@@ -139,7 +139,7 @@ class AeroBase(SndEpicsMotor):
 
         print_set : bool, optional
             Print a short statement about the set.
-        
+
         check_status : bool, optional
             Check if the motors are in a valid state to move.
 
@@ -147,7 +147,7 @@ class AeroBase(SndEpicsMotor):
         -------
         Status : StatusObject
             Status of the set.
-        """        
+        """
         # Check the motor status
         if check_status:
             self.check_status()
@@ -159,7 +159,7 @@ class AeroBase(SndEpicsMotor):
     def homr(self, ret_status=False, print_set=True, check_status=True):
         """
         Home the motor in reverse.
-        
+
         Parameters
         ----------
         ret_status : bool, optional
@@ -183,7 +183,7 @@ class AeroBase(SndEpicsMotor):
         return self._status_print(status, "Homing '{0}' in reverse.".format(
             self.desc), print_set=print_set, ret_status=ret_status)
 
-    def move(self, position, wait=False, check_status=True, timeout=None, *args, 
+    def move(self, position, wait=False, check_status=True, timeout=None, *args,
              **kwargs):
         """
         Move to a specified position, optionally waiting for motion to
@@ -211,17 +211,17 @@ class AeroBase(SndEpicsMotor):
 
         Returns
         -------
-        status : MoveStatus        
+        status : MoveStatus
             Status object for the move.
-        
+
         Raises
         ------
         TimeoutError
             When motion takes longer than `timeout`
-        
+
         ValueError
             On invalid positions
-        
+
         RuntimeError
             If motion fails other than timing out
         """
@@ -229,7 +229,7 @@ class AeroBase(SndEpicsMotor):
         if check_status:
             self.check_status(position)
         logger.debug("Moving {0} to {1}".format(self.name, position))
-        return super().move(position, wait=wait, timeout=timeout, *args, 
+        return super().move(position, wait=wait, timeout=timeout, *args,
                             **kwargs)
 
     def mv(self, position, wait=True, print_move=True,
@@ -260,7 +260,7 @@ class AeroBase(SndEpicsMotor):
         -----------------
         LimitError
             Error raised when the inputted position is beyond the soft limits.
-        
+
         MotorDisabled
             Error raised if the motor is disabled and move is requested.
 
@@ -272,7 +272,7 @@ class AeroBase(SndEpicsMotor):
 
         Returns
         -------
-        status : MoveStatus        
+        status : MoveStatus
             Status object for the move.
         """
         try:
@@ -286,7 +286,7 @@ class AeroBase(SndEpicsMotor):
                     logger.info("Move command sent to '{0}'.".format(self.desc))
             return status
 
-        # Catch all the common motor exceptions        
+        # Catch all the common motor exceptions
         except LimitError:
             logger.warning("Requested move '{0}' is outside the soft limits "
                            "{1} for motor {2}".format(position, self.limits,
@@ -316,7 +316,7 @@ class AeroBase(SndEpicsMotor):
         ------
         MotorDisabled
             If the motor is disabled.
-        
+
         MotorFaulted
             If the motor is faulted.
 
@@ -337,18 +337,18 @@ class AeroBase(SndEpicsMotor):
             err = "Motor '{0}' is currently stopped.".format(self.desc)
             logger.error(err)
             raise MotorStopped(err)
-        
+
         # Check if the current position is valid
         self.check_value(self.position)
         # Check if the move position is valid
-        if position: 
+        if position:
             self.check_value(position)
-        
+
     def set_position(self, position_des, print_set=True):
         """
-        Sets the current position to be the inputted position by changing the 
+        Sets the current position to be the inputted position by changing the
         offset.
-        
+
         Parameters
         ----------
         position_des : float
@@ -359,7 +359,7 @@ class AeroBase(SndEpicsMotor):
             log_level = logger.info
         else:
             log_level = logger.debug
-        
+
         log_level("'{0}' previous position: {0}, offset: {1}".format(
             self.position, self.offset))
         self.offset += position_des - self.position
@@ -418,7 +418,7 @@ class AeroBase(SndEpicsMotor):
         enabled : bool
             True if the motor is powered, False if not.
         """
-        return bool(self.power.value)
+        return bool(self.power.get())
 
     def clear(self, ret_status=False, print_set=True):
         """
@@ -466,17 +466,17 @@ class AeroBase(SndEpicsMotor):
     def faulted(self):
         """
         Returns the current fault with the motor.
-        
+
         Returns
         -------
         faulted
             Fault enumeration.
         """
         if self.axis_fault.connected:
-            return bool(self.axis_fault.value)
+            return bool(self.axis_fault.get())
         else:
             return None
-    
+
     def zero_all(self, ret_status=False, print_set=True):
         """
         Sets the current position to be the zero position of the motor.
@@ -491,7 +491,7 @@ class AeroBase(SndEpicsMotor):
 
         Returns
         -------
-        status : StatusObject        
+        status : StatusObject
             Status object for the set.
         """
         status = self.zero_all_proc.set(1, timeout=self.set_timeout)
@@ -516,13 +516,13 @@ class AeroBase(SndEpicsMotor):
         """
         Sets the state of the motor. Inputted state can be one of the following
         states or the index of the desired state:
-            'Stop', 'Pause', 'Move', 'Go'            
+            'Stop', 'Pause', 'Move', 'Go'
         Alias for set_state((val, False, True)
-        
+
         Parameters
         ----------
         val : int or str
-        
+
         ret_status : bool, optional
             Return the status object of the set.
 
@@ -532,7 +532,7 @@ class AeroBase(SndEpicsMotor):
         Returns
         -------
         Status
-            The status object for setting the state signal.        
+            The status object for setting the state signal.
         """
         try:
             return self.set_state(val, ret_status, print_set)
@@ -544,12 +544,12 @@ class AeroBase(SndEpicsMotor):
         """
         Sets the state of the motor. Inputted state can be one of the following
         states or the index of the desired state:
-            'Stop', 'Pause', 'Move', 'Go'            
-        
+            'Stop', 'Pause', 'Move', 'Go'
+
         Parameters
         ----------
         val : int or str
-        
+
         ret_status : bool, optional
             Return the status object of the set.
 
@@ -559,7 +559,7 @@ class AeroBase(SndEpicsMotor):
         Returns
         -------
         Status
-            The status object for setting the state signal.        
+            The status object for setting the state signal.
         """
         # Make sure it is in title case if it's a string
         val = state
@@ -571,12 +571,12 @@ class AeroBase(SndEpicsMotor):
             error = "Invalid state inputted: '{0}'.".format(val)
             logger.error(error)
             raise ValueError(error)
-        
+
         # Lets enforce it's a string or value
         status = self.state_component.set(val, timeout=self.set_timeout)
 
         return self._status_print(
-            status, "Changed state of '{0} to '{1}'.".format(self.desc, val), 
+            status, "Changed state of '{0} to '{1}'.".format(self.desc, val),
             print_set=print_set, ret_status=ret_status)
 
     def ready_motor(self, ret_status=False, print_set=True):
@@ -595,13 +595,13 @@ class AeroBase(SndEpicsMotor):
         Returns
         -------
         Status
-            The status object for all the sets.        
+            The status object for all the sets.
         """
         status = [self.clear(ret_status=True, print_set=False)]
         status.append(self.enable(ret_status=True, print_set=False))
         status.append(self.set_state("Go", ret_status=True, print_set=False))
         return self._status_print(
-            status, "Motor '{0}' is now ready to move.".format(self.desc), 
+            status, "Motor '{0}' is now ready to move.".format(self.desc),
             print_set=print_set, ret_status=ret_status)
 
     def expert_screen(self, print_msg=True):
@@ -617,17 +617,17 @@ class AeroBase(SndEpicsMotor):
         if print_msg:
             logger.info("Launching expert screen.")
         os.system("{0} {1} {2} &".format(path, self.prefix, "aerotech"))
-     
-    def status(self, status="", offset=0, print_status=True, newline=False, 
+
+    def status(self, status="", offset=0, print_status=True, newline=False,
                short=False):
         """
         Returns the status of the device.
-        
+
         Parameters
         ----------
         status : str, optional
             The string to append the status to.
-            
+
         offset : int, optional
             Amount to offset each line of the status.
 
@@ -644,23 +644,23 @@ class AeroBase(SndEpicsMotor):
         """
         if short:
             status += "\n{0}{1:<16}|{2:^16.3f}|{3:^16.3f}".format(
-                " "*offset, self.desc, self.position, self.dial.value)
+                " "*offset, self.desc, self.position, self.dial.get())
         else:
             status += "{0}{1}\n".format(" "*offset, self.desc)
             status += "{0}PV: {1:>25}\n".format(" "*(offset+2), self.prefix)
-            status += "{0}Enabled: {1:>20}\n".format(" "*(offset+2), 
+            status += "{0}Enabled: {1:>20}\n".format(" "*(offset+2),
                                                      str(self.enabled))
-            status += "{0}Faulted: {1:>20}\n".format(" "*(offset+2), 
+            status += "{0}Faulted: {1:>20}\n".format(" "*(offset+2),
                                                      str(self.faulted))
-            status += "{0}State: {1:>22}\n".format(" "*(offset+2), 
+            status += "{0}State: {1:>22}\n".format(" "*(offset+2),
                                                      str(self.state))
-            status += "{0}Position: {1:>19}\n".format(" "*(offset+2), 
+            status += "{0}Position: {1:>19}\n".format(" "*(offset+2),
                                                       np.round(self.wm(), 6))
-            status += "{0}Dial: {1:>23}\n".format(" "*(offset+2), 
-                                                      np.round(self.dial.value,
+            status += "{0}Dial: {1:>23}\n".format(" "*(offset+2),
+                                                      np.round(self.dial.get(),
                                                                6))
             status += "{0}Limits: {1:>21}\n".format(
-                " "*(offset+2), str((int(self.low_limit), 
+                " "*(offset+2), str((int(self.low_limit),
                                      int(self.high_limit))))
 
         if newline:
@@ -688,7 +688,7 @@ class InterlockedAero(AeroBase):
         """
         Status check that also checks if the pressure measured by the pressure
         switch is good.
-        
+
         Parameters
         ----------
         position : float
@@ -698,7 +698,7 @@ class InterlockedAero(AeroBase):
         ------
         MotorDisabled
             If the motor is disabled.
-        
+
         MotorFaulted
             If the motor is faulted.
 
@@ -744,7 +744,7 @@ class InterlockedAero(AeroBase):
         -----------------
         LimitError
             Error raised when the inputted position is beyond the soft limits.
-        
+
         MotorDisabled
             Error raised if the motor is disabled and move is requested.
 
@@ -760,7 +760,7 @@ class InterlockedAero(AeroBase):
 
         Returns
         -------
-        status : MoveStatus        
+        status : MoveStatus
             Status object for the move.
         """
         try:
@@ -769,8 +769,8 @@ class InterlockedAero(AeroBase):
         except BadN2Pressure:
             logger.warning("Cannot move - pressure in tower {0} is bad.".format(
                 self._tower))
-            
-            
+
+
 class LinearAero(AeroBase):
     """
     Class for the aerotech linear stage.
@@ -798,7 +798,7 @@ class InterRotationAero(InterlockedAero, RotationAero):
     """
     pass
 
-    
+
 class DiodeAero(AeroBase):
     """
     VT50 Micronix Motor of the diodes

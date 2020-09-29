@@ -20,11 +20,11 @@ from ..utils import as_list
 
 logger = logging.getLogger(__name__)
 
-def linear_scan(motor, start, stop, num, use_diag=True, return_to_start=True, 
+def linear_scan(motor, start, stop, num, use_diag=True, return_to_start=True,
                 md=None, *args, **kwargs):
     """
     Linear scan of a motor without a detector.
-    
+
     Performs a linear scan using the inputted motor, optionally using the
     diagnostics, and optionally moving the motor back to the original start
     position. This scan is different from the regular scan because it does not
@@ -43,7 +43,7 @@ def linear_scan(motor, start, stop, num, use_diag=True, return_to_start=True,
 
     num : int
         number of steps
-        
+
     use_diag : bool, optional
         Include the diagnostic motors in the scan.
 
@@ -56,7 +56,7 @@ def linear_scan(motor, start, stop, num, use_diag=True, return_to_start=True,
            'num_intervals': num - 1,
            'plan_args': {'num': num,
                          'motor': repr(motor),
-                         'start': start, 
+                         'start': start,
                          'stop': stop},
            'plan_name': 'daq_scan',
            'plan_pattern': 'linspace',
@@ -68,15 +68,15 @@ def linear_scan(motor, start, stop, num, use_diag=True, return_to_start=True,
 
     # Build the list of steps
     steps = np.linspace(**_md['plan_pattern_args'])
-    
+
     # Let's store this for now
     start = motor.position
-    
+
     # Define the inner scan
     # @stage_decorator([motor])
     @run_decorator(md=_md)
     def inner_scan():
-        
+
         for i, step in enumerate(steps):
             logger.info("\nStep {0}: Moving to {1}".format(i+1, step))
             grp = _short_uid('set')
@@ -92,10 +92,10 @@ def linear_scan(motor, start, stop, num, use_diag=True, return_to_start=True,
             yield Msg('set', motor, start, group=grp, *args, **kwargs)
             yield Msg('wait', None, group=grp)
 
-    return (yield from inner_scan())    
+    return (yield from inner_scan())
 
-def centroid_scan(detector, motor, start, stop, steps, average=None, 
-                  detector_fields=['stats2_centroid_x', 'stats2_centroid_y'], 
+def centroid_scan(detector, motor, start, stop, steps, average=None,
+                  detector_fields=['stats2_centroid_x', 'stats2_centroid_y'],
                   motor_fields=None, system=None, system_fields=None,
                   filters=None, return_to_start=True, *args, **kwargs):
     """
@@ -109,7 +109,7 @@ def centroid_scan(detector, motor, start, stop, steps, average=None,
     ----------
     detector : :class:`.BeamDetector`
         Detector from which to take the value measurements
-    
+
     motor : :class:`.Motor`
         Main motor to perform the scan
 
@@ -121,7 +121,7 @@ def centroid_scan(detector, motor, start, stop, steps, average=None,
 
     steps : int
         Number of steps to take
-    
+
     average : int, optional
         Number of averages to take for each measurement
 
@@ -133,7 +133,7 @@ def centroid_scan(detector, motor, start, stop, steps, average=None,
 
     system : list, optional
         Extra devices to include in the datastream as we measure the average
-        
+
     system_fields : list, optional
         Fields of the extra devices to add to the returned dataframe
 
@@ -143,8 +143,8 @@ def centroid_scan(detector, motor, start, stop, steps, average=None,
         :meth:`.apply_filters`
 
     return_to_start : bool, optional
-        Move the scan motor back to its initial position after the scan     
-    
+        Move the scan motor back to its initial position after the scan
+
     Returns
     -------
     df : pd.DataFrame
@@ -190,4 +190,4 @@ def centroid_scan(detector, motor, start, stop, steps, average=None,
 
     # Return the filled dataframe
     return df
-    
+
