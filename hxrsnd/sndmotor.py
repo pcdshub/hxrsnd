@@ -13,7 +13,6 @@ from ophyd.signal import Signal
 from ophyd.utils import LimitError
 from pcdsdevices.epics_motor import PCDSMotorBase
 from pcdsdevices.mv_interface import FltMvInterface
-from pcdsdevices.signal import Signal
 
 from .exceptions import InputError
 from .plans.calibration import calibrate_motor
@@ -173,7 +172,7 @@ class CalibMotor(SndDevice):
         if self.has_calib:
             config = self.read_configuration()
             # Grab the values of each of the calibration parameters
-            calib = {fld : config[fld]['value']
+            calib = {fld: config[fld]['value']
                      for fld in ['calib', 'scan', 'scale', 'start']}
             # Make sure there are motors before we iterate through the list
             if config['motors']['value']:
@@ -288,7 +287,8 @@ class CalibMotor(SndDevice):
         start = save_calib['start']['value']
 
         # If no correction table is passed, then there isn't anything to check
-        if calib is None: pass
+        if calib is None:
+            pass
 
         # We have a correction table but it isnt a Dataframe
         elif not isinstance(calib, pd.DataFrame):
@@ -306,7 +306,7 @@ class CalibMotor(SndDevice):
         elif len(calib.columns) != len(motors):
             raise InputError("Mismatched calibration size and number of "
                              "motors. Got {0} columns for {1} motors.".format(
-                                len(calib.columns),len(motors)))
+                                 len(calib.columns), len(motors)))
 
         # We have the correct correction table and motors but one of the of the
         # extra parameters were not passed, which is critical for corrected
@@ -343,7 +343,7 @@ class CalibMotor(SndDevice):
 
         # Grab the two rows where the main motor position (column 0) is
         # closest to the inputted position
-        top = calib.iloc[(calib.iloc[:,0] - position).abs().argsort().iloc[:2]]
+        top = calib.iloc[(calib.iloc[:, 0] - position).abs().argsort().iloc[:2]]
         first, second = top.iloc[0], top.iloc[1]
 
         # Get the slope between the lines between each of the motor values using
@@ -381,7 +381,7 @@ class CalibMotor(SndDevice):
         """
         # Grab the current correction table and calibration motors
         calib = self._calib['calib']['value']
-        motors = self._calib['motors']['value']
+        _ = self._calib['motors']['value']
 
         # Return False if we dont have a correction table
         if calib is None:
@@ -390,7 +390,7 @@ class CalibMotor(SndDevice):
             # If we make it through the check, we have a valid calibration
             self._check_calib(self._calib)
             return True
-        except:
+        except Exception:
             # An exception was raised, the config is somehow invalid
             return False
 
@@ -434,5 +434,5 @@ class CalibMotor(SndDevice):
         else:
             shape = [len(self._calib)]
         return OrderedDict(**dict(calib=dict(source='calibrate', dtype='array',
-                                  shape=shape)),
+                                             shape=shape)),
                            **super().describe_configuration())

@@ -6,7 +6,6 @@ All units of time are in picoseconds, units of length are in mm.
 import logging
 from functools import reduce
 
-import numpy as np
 from ophyd.device import Component as Cmp
 from ophyd.signal import AttributeSignal
 from ophyd.sim import NullStatus
@@ -111,7 +110,8 @@ class MacroBase(SndMotor):
         string : str
             String with the header added to it.
         """
-        header = "\n{:^15}|{:^15}|{:^15}".format("Motor", "Current", "Proposed")
+        header = "\n{:^15}|{:^15}|{:^15}".format(
+            "Motor", "Current", "Proposed")
         header += "\n" + "-"*len(header)
         return string + header
 
@@ -282,7 +282,7 @@ class MacroBase(SndMotor):
         """
         try:
             return self.move(position, wait=wait, verify_move=verify_move,
-                              use_diag=use_diag, *args, **kwargs)
+                             use_diag=use_diag, *args, **kwargs)
         # Catch all the common motor exceptions
         except LimitError:
             logger.warning("Requested move is outside the soft limits")
@@ -376,6 +376,7 @@ class DelayTowerMacro(MacroBase):
     """
     Class for the delay tower macros
     """
+
     def _delay_to_length(self, delay, theta1=None, theta2=None):
         """
         Converts the inputted delay to the lengths on the delay arm linear
@@ -403,8 +404,7 @@ class DelayTowerMacro(MacroBase):
         theta2 = theta2 or self.parent.theta2
 
         # Length calculation
-        length = ((delay*self.c/2 + self.gap*(1 - cosd(2*theta2)) /
-                   sind(theta2)) / (1 - cosd(2*theta1)))
+        length = ((delay*self.c/2 + self.gap*(1 - cosd(2*theta2)) / sind(theta2)) / (1 - cosd(2*theta1)))
         return length
 
     def _get_delay_diagnostic_position(self, E1=None, E2=None, delay=None):
@@ -490,11 +490,11 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
     def __init__(self, prefix, name=None, *args, **kwargs):
         super().__init__(prefix, name=name, *args, **kwargs)
         if self.parent:
-            self.motor_fields=['readback']
-            self.calib_motors=[self.parent.t1.chi1, self.parent.t1.y1]
-            self.calib_fields=[field_prepend('user_readback', calib_motor)
-                               for calib_motor in self.calib_motors]
-            self.detector_fields=['stats2_centroid_x', 'stats2_centroid_y',]
+            self.motor_fields = ['readback']
+            self.calib_motors = [self.parent.t1.chi1, self.parent.t1.y1]
+            self.calib_fields = [field_prepend('user_readback', calib_motor)
+                                 for calib_motor in self.calib_motors]
+            self.detector_fields = ['stats2_centroid_x', 'stats2_centroid_y', ]
 
     def _length_to_delay(self, L=None, theta1=None, theta2=None):
         """
@@ -524,8 +524,7 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
         theta2 = theta2 or self.parent.theta2
 
         # Delay calculation
-        delay = (2*(L*(1 - cosd(2*theta1)) - self.gap*(1 - cosd(2*theta2)) /
-                    sind(theta2))/self.c)
+        delay = (2*(L*(1 - cosd(2*theta1)) - self.gap*(1 - cosd(2*theta2)) / sind(theta2))/self.c)
         return delay
 
     def _verify_move(self, delay, string="", use_header=True, confirm_move=True,
@@ -653,7 +652,7 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
 
         # Move the delay stages
         status = [tower.set_length(length, wait=False, check_status=False)
-                   for tower in self._delay_towers]
+                  for tower in self._delay_towers]
         # Log the delay change
         logger.debug("Setting delay to {0}.".format(delay))
 
@@ -776,8 +775,7 @@ class Energy1Macro(DelayTowerMacro):
         theta2 = theta2 or self.parent.theta2
 
         # Delay calculation
-        delay = (2*(L*(1 - cosd(2*theta1)) - self.gap*(1 - cosd(2*theta2)) /
-                    sind(theta2))/self.c)
+        delay = (2*(L*(1 - cosd(2*theta1)) - self.gap*(1 - cosd(2*theta2)) / sind(theta2))/self.c)
         return delay
 
     def _verify_move(self, E1, string="", use_header=True, confirm_move=True,
@@ -899,7 +897,7 @@ class Energy1Macro(DelayTowerMacro):
         """
         # Move the towers to the specified energy
         status = [tower.set_energy(E1, wait=False, check_status=False) for
-                   tower in self._delay_towers]
+                  tower in self._delay_towers]
         # Log the energy change
         logger.debug("Setting E1 to {0}.".format(E1))
 
@@ -988,6 +986,7 @@ class Energy1CCMacro(Energy1Macro):
     """
     Macro-motor for the energy 1 channel cut macro-motor.
     """
+
     def _verify_move(self, E1, string="", use_header=True, confirm_move=True,
                      use_diag=True):
         """
@@ -1024,7 +1023,7 @@ class Energy1CCMacro(Energy1Macro):
         # Get move for each motor in the delay towers
         for tower in self._delay_towers:
             string += "\n{:<15}|{:^15.4f}|{:^15.4f}".format(
-                    tower.tth.desc, tower.tth.position, 2*bragg_angle(E1))
+                tower.tth.desc, tower.tth.position, 2*bragg_angle(E1))
 
         if use_diag:
             position_dd = self._get_delay_diagnostic_position(E1)
@@ -1160,6 +1159,7 @@ class Energy2Macro(MacroBase):
     """
     Macro-motor for the energy 2 macro-motor.
     """
+
     def _get_channelcut_diagnostic_position(self, E2=None):
         """
         Gets the position the channel cut diagnostic needs to move to based on

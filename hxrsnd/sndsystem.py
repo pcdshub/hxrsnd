@@ -4,7 +4,6 @@ Script to hold the split and delay class.
 All units of time are in picoseconds, units of length are in mm.
 """
 import logging
-import os
 
 from ophyd import Component as Cmp
 
@@ -71,9 +70,9 @@ class SplitAndDelay(SndDevice):
                      'main_screen', 'status']
     # Delay Towers
     t1 = Cmp(DelayTower, ":T1", pos_inserted=21.1, pos_removed=0,
-                   desc="Tower 1")
+             desc="Tower 1")
     t4 = Cmp(DelayTower, ":T4", pos_inserted=21.1, pos_removed=0,
-                   desc="Tower 4")
+             desc="Tower 4")
 
     # Channel Cut Towers
     t2 = Cmp(ChannelCutTower, ":T2", pos_inserted=None, pos_removed=0,
@@ -92,7 +91,7 @@ class SplitAndDelay(SndDevice):
     # Channel Cut Diagnostics
     dci = Cmp(HamamatsuXMotionDiode, ":DIA:DCI", block_pos=-5, desc="DCI")
     dcc = Cmp(HamamatsuXYMotionCamDiode, ":DIA:DCC", block_pos=-5, desc="DCC")
-    dco = Cmp(HamamatsuXMotionDiode, ":DIA:DCO",  block_pos=-5, desc="DCO")
+    dco = Cmp(HamamatsuXMotionDiode, ":DIA:DCO", block_pos=-5, desc="DCO")
 
     # Macro motors
     E1 = Cmp(Energy1Macro, "", desc="Delay Energy")
@@ -112,10 +111,10 @@ class SplitAndDelay(SndDevice):
         self._diagnostics = self._delay_diagnostics+self._channelcut_diagnostics
 
         # Set the position calculators of dd and dcc
-        self.dd.pos_func = lambda : \
-          self.E1._get_delay_diagnostic_position()
-        self.dcc.pos_func = lambda : \
-          self.E2._get_channelcut_diagnostic_position()
+        self.dd.pos_func = lambda: \
+            self.E1._get_delay_diagnostic_position()
+        self.dcc.pos_func = lambda: \
+            self.E2._get_channelcut_diagnostic_position()
 
     def diag_status(self):
         """
@@ -165,7 +164,9 @@ class SplitAndDelay(SndDevice):
         path = absolute_submodule_path("hxrsnd/screens/snd_main")
         if print_msg:
             logger.info("Launching expert screen.")
-        os.system("{0} {1} {2} &".format(path, p, axis))
+        logger.error('TODO - not yet implemented (path: %s)', path)
+        # NOTE: this was the command ,where `p` and `axis` were not defined:
+        # os.system("{0} {1} {2} &".format(path, p, axis))
 
     def status(self, print_status=True):
         """
@@ -175,7 +176,7 @@ class SplitAndDelay(SndDevice):
         -------
         Status : str
         """
-        status =  "Split and Delay System Status\n"
+        status = "Split and Delay System Status\n"
         status += "-----------------------------"
         status = self.E1.status(status, 0, print_status=False)
         status = self.E2.status(status, 0, print_status=False)

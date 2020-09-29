@@ -5,15 +5,17 @@ import logging
 import os
 
 import numpy as np
-from ophyd import Component as Cmp, FormattedComponent as FrmCmp
-from ophyd.utils import LimitError
+from ophyd import Component as Cmp
+from ophyd import FormattedComponent as FrmCmp
 from ophyd.signal import EpicsSignal, EpicsSignalRO, Signal
 from ophyd.status import wait as status_wait
+from ophyd.utils import LimitError
 
-from .sndmotor import SndEpicsMotor
+from .exceptions import (BadN2Pressure, MotorDisabled, MotorFaulted,
+                         MotorStopped)
 from .pneumatic import PressureSwitch
+from .sndmotor import SndEpicsMotor
 from .utils import absolute_submodule_path, as_list, stop_on_keyboardinterrupt
-from .exceptions import MotorDisabled, MotorFaulted, MotorStopped, BadN2Pressure
 
 logger = logging.getLogger(__name__)
 
@@ -283,7 +285,8 @@ class AeroBase(SndEpicsMotor):
                 if wait:
                     logger.info("Move completed for '{0}'.".format(self.desc))
                 else:
-                    logger.info("Move command sent to '{0}'.".format(self.desc))
+                    logger.info(
+                        "Move command sent to '{0}'.".format(self.desc))
             return status
 
         # Catch all the common motor exceptions
@@ -613,7 +616,8 @@ class AeroBase(SndEpicsMotor):
         print_msg : bool, optional
             Prints that the screen is being launched.
         """
-        path = absolute_submodule_path("hxrsnd/screens/motor_expert_screens.sh")
+        path = absolute_submodule_path(
+            "hxrsnd/screens/motor_expert_screens.sh")
         if print_msg:
             logger.info("Launching expert screen.")
         os.system("{0} {1} {2} &".format(path, self.prefix, "aerotech"))
@@ -653,12 +657,12 @@ class AeroBase(SndEpicsMotor):
             status += "{0}Faulted: {1:>20}\n".format(" "*(offset+2),
                                                      str(self.faulted))
             status += "{0}State: {1:>22}\n".format(" "*(offset+2),
-                                                     str(self.state))
+                                                   str(self.state))
             status += "{0}Position: {1:>19}\n".format(" "*(offset+2),
                                                       np.round(self.wm(), 6))
             status += "{0}Dial: {1:>23}\n".format(" "*(offset+2),
-                                                      np.round(self.dial.get(),
-                                                               6))
+                                                  np.round(self.dial.get(),
+                                                           6))
             status += "{0}Limits: {1:>21}\n".format(
                 " "*(offset+2), str((int(self.low_limit),
                                      int(self.high_limit))))

@@ -69,7 +69,7 @@ class TowerBase(SndDevice):
         E : float
             Desired energy to set the tower to.
         """
-        status = self.set_energy(E)
+        _ = self.set_energy(E)
 
     @property
     def position(self):
@@ -187,7 +187,7 @@ class TowerBase(SndDevice):
         # Get all the energy parameters
         if energy is not None:
             motors += self._energy_motors
-            theta = bragg_angle(energy)
+            _ = bragg_angle(energy)
             positions += self._get_move_positions(energy)
 
         # Get the delay parameters
@@ -267,9 +267,11 @@ class TowerBase(SndDevice):
                 short=True)
             if status_list_aero:
                 # Aerotech header
-                status += "\n{0}{1:<16}|{2:^16}|{3:^16}\n{4}{5}".format(
-                    " "*(offset+2), "Motor", "Position", "Dial", " "*(offset+2),
-                    "-"*50)
+                status += (
+                    "\n{0}{1:<16}|{2:^16}|{3:^16}\n{4}{5}".format(
+                        " "*(offset+2), "Motor", "Position", "Dial", " "*(offset+2), "-"*50
+                    )
+                )
                 status += "".join(status_list_aero)
 
             # Attocube body
@@ -278,14 +280,17 @@ class TowerBase(SndDevice):
                 short=True)
             if status_list_atto:
                 # Attocube Header
-                status += "\n{0}{1}\n{2}{3:<16}|{4:^16}|{5:^16}\n{6}{7}".format(
-                    " "*(offset+2), "-"*50, " "*(offset+2), "Motor", "Position",
-                    "Reference", " "*(offset+2), "-"*50)
+                status += (
+                    "\n{0}{1}\n{2}{3:<16}|{4:^16}|{5:^16}\n{6}{7}".format(
+                        " "*(offset+2), "-"*50, " " * (offset+2),
+                        "Motor", "Position", "Reference", " "*(offset+2), "-"*50)
+                )
                 status += "".join(status_list_atto)
 
         else:
             status += "{0}{1}:\n{2}{3}\n".format(
-                " "*offset, self.desc, " "*offset, "-"*(len(self.desc)+1))
+                " "*offset, self.desc, " "*offset, "-"*(len(self.desc)+1)
+            )
             status_list = self._apply_all("status", (AeroBase, EccBase),
                                           offset=offset+2, print_status=False)
             status += "".join(status_list)
@@ -487,7 +492,7 @@ class DelayTower(TowerBase):
         position : float
             Position to move the delay motor to.
         """
-        status = self.L.mv(position)
+        _ = self.L.mv(position)
 
     @property
     def theta(self):

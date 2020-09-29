@@ -386,7 +386,6 @@ class EccBase(SndMotor, PositionerBase):
             logger.warning("Cannot move - motor {0} is currently faulted. Try "
                            "running 'motor.clear()'.".format(self.desc))
 
-
     def check_status(self, position=None):
         """
         Checks the status of the motor to make sure it is ready to move. Checks
@@ -481,7 +480,8 @@ class EccBase(SndMotor, PositionerBase):
             Prints that the screen is being launched.
         """
         # Get the absolute path to the screen
-        path = absolute_submodule_path("hxrsnd/screens/motor_expert_screens.sh")
+        path = absolute_submodule_path(
+            "hxrsnd/screens/motor_expert_screens.sh")
         if print_msg:
             logger.info("Launching expert screen.")
         os.system("{0} {1} {2} &".format(path, self.prefix, "attocube"))
