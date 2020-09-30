@@ -27,32 +27,33 @@ logger = logging.getLogger(__name__)
 _manual_energy = None
 
 # Chemical Formula Aliases
-alias={'Air':'N1.562O.42C.0003Ar.0094',
-       'air':'N1.562O.42C.0003Ar.0094',
-       'YAG':'Y3Al5O12',
-       'yag':'Y3Al5O12',
-       'Sapphire':'Al2O3',
-       'sapphire':'Al2O3',
-}
+alias = {'Air': 'N1.562O.42C.0003Ar.0094',
+         'air': 'N1.562O.42C.0003Ar.0094',
+         'YAG': 'Y3Al5O12',
+         'yag': 'Y3Al5O12',
+         'Sapphire': 'Al2O3',
+         'sapphire': 'Al2O3',
+         }
 
 # Crystal Lattice parameters (a, b, c, alpha, beta, gamma)
 # a,b,c in angstroms
 # alpha, beta, gamma in degrees
 lattice_parameters = {
-     'Si':(5.4310205,5.4310205,5.4310205,90,90,90),
+    'Si': (5.4310205, 5.4310205, 5.4310205, 90, 90, 90),
 }
 
-#define units and constants
+# define units and constants
 u = {
     'ang': 1e10,
 }
 
 # Trigonometric Functions
 
+
 def sind(A):
-    """ 
+    """
     Sin of an angle specified in degrees.
-    
+
     Parameters
     ----------
     A : float
@@ -64,13 +65,14 @@ def sind(A):
         Sin of the angle.
     """
     Arad = np.deg2rad(A)
-    x = np.sin(Arad) 
+    x = np.sin(Arad)
     return x
- 
+
+
 def cosd(A):
-    """ 
+    """
     Cos of an angle specified in degrees.
-    
+
     Parameters
     ----------
     A : float
@@ -82,13 +84,14 @@ def cosd(A):
         Cos of the angle.
     """
     Arad = np.deg2rad(A)
-    x = np.cos(Arad) 
+    x = np.cos(Arad)
     return x
 
+
 def tand(A):
-    """ 
+    """
     Tan of an angle specified in degrees.
-    
+
     Parameters
     ----------
     A : float
@@ -100,11 +103,12 @@ def tand(A):
         Tan of the angle.
     """
     Arad = np.deg2rad(A)
-    x = np.tan(Arad) 
+    x = np.tan(Arad)
     return x
- 
+
+
 def asind(x):
-    """ 
+    """
     Calculates the arcsin in degrees.
 
     Parameters
@@ -118,11 +122,12 @@ def asind(x):
         Arcsin of the value in degrees.
     """
     A = np.arcsin(x)
-    A = np.rad2deg(A) 
+    A = np.rad2deg(A)
     return A
- 
+
+
 def acosd(x):
-    """ 
+    """
     Calculates the arccos in degrees.
 
     Parameters
@@ -134,13 +139,14 @@ def acosd(x):
     -------
     A : float
         Arccos of the value in degrees.
-    """    
+    """
     A = np.arccos(x)
-    A = np.rad2deg(A) 
+    A = np.rad2deg(A)
     return A
 
+
 def atand(x):
-    """ 
+    """
     Calculates the arctan in degrees.
 
     Parameters
@@ -152,22 +158,23 @@ def atand(x):
     -------
     A : float
         Arctan of the value in degrees.
-    """    
+    """
     A = np.arctan(x)
-    A = np.rad2deg(A) 
+    A = np.rad2deg(A)
     return A
 
 # Frequency, wavelength and energy conversions
 
+
 def lam(E, o=0):
-    """ 
+    """
     Computes photon wavelength in m
-    
+
     Parameters
     ----------
     E : float
         The input energy in eV or KeV
-    
+
     o : float, optional
         Set o to 0 if working at sub-100 eV energies
 
@@ -177,21 +184,22 @@ def lam(E, o=0):
         Input energy converted to wavelength
     """
     if o:
-        E=E
+        E = E
     else:
-        E=eV(E)
-    lam=(12398.4/E)/u['ang']
+        E = eV(E)
+    lam = (12398.4/E)/u['ang']
     return lam
+
 
 def lam2E(l):
     """
     Computes photon energy in eV
 
     Parameters
-    ----------    
+    ----------
     l : float
         Photon wavelength in m
-    
+
     Returns
     -------
     E : float
@@ -200,24 +208,26 @@ def lam2E(l):
     E = 12398.4/(l*u['ang'])
     return E
 
+
 def lam2f(l):
     """
     Computes the photon frequency in Hz
 
     Parameters
-    ----------    
+    ----------
     l : float
         Photon wavelength in m
-    
+
     Returns
     -------
     f : float
         Frequency in Hz
     """
     f = 299792458/l
-    return f    
+    return f
 
 # Higher level functions
+
 
 def eV(E):
     """
@@ -232,11 +242,12 @@ def eV(E):
     Returns
     -------
     E : float
-        Energy converted to eV from KeV    
+        Energy converted to eV from KeV
     """
     if E < 100:
         E *= 1000.0
     return float(E)
+
 
 def check_id(ID):
     """
@@ -255,6 +266,7 @@ def check_id(ID):
         return alias[ID]
     except KeyError:
         return ID
+
 
 def get_e(energy=None, correct_ev=True):
     """
@@ -283,9 +295,10 @@ def get_e(energy=None, correct_ev=True):
         en = eV(en)
     return en
 
+
 def d_space(ID, hkl):
     """
-    Computes the d spacing (m) of the specified material and reflection 
+    Computes the d spacing (m) of the specified material and reflection
 
     Parameters
     ----------
@@ -321,13 +334,14 @@ def d_space(ID, hkl):
     sg = sind(gamma)
 
     invdsqr = 1 / (1.+2.*ca*cb*cg-ca**2.-cb**2.-cg**2.) * \
-      (h**2.*sa**2./a**2. + k**2.*sb**2./b**2. + l**2.*sg**2./c**2. +
-       2.*h*k*(ca*cb-cg)/a/b+2.*k*l*(cb*cg-ca)/b/c+2.*h*l*(ca*cg-cb)/a/c)
-      
+        (h**2.*sa**2./a**2. + k**2.*sb**2./b**2. + l**2.*sg**2./c**2. +
+         2.*h*k*(ca*cb-cg)/a/b+2.*k*l*(cb*cg-ca)/b/c+2.*h*l*(ca*cg-cb)/a/c)
+
     d = invdsqr**-0.5
     return d
 
-def bragg_angle(E=None, ID="Si", hkl=(2,2,0)):
+
+def bragg_angle(E=None, ID="Si", hkl=(2, 2, 0)):
     """
     Computes the Bragg angle (deg) of the specified material, reflection and
     photon energy.
@@ -354,7 +368,8 @@ def bragg_angle(E=None, ID="Si", hkl=(2,2,0)):
     two_theta = asind(lam(E)/2/d)
     return two_theta
 
-def bragg_energy(theta, ID="Si", hkl=(2,2,0)):
+
+def bragg_energy(theta, ID="Si", hkl=(2, 2, 0)):
     """
     Computes the photon energy that satisfies the Bragg condition of the
     specified material, reflection and theta angle.
@@ -363,7 +378,7 @@ def bragg_energy(theta, ID="Si", hkl=(2,2,0)):
     ----------
     theta : float, optional
         The scattering angle in degrees
-    
+
     ID : str, optional
         Chemical fomula : 'Si'
 
@@ -381,6 +396,7 @@ def bragg_energy(theta, ID="Si", hkl=(2,2,0)):
     E = lam2E(l)
     return E
 
+
 def snd_L(E1, E2, delay, gap=55):
     """
     Calculates the theta angles of the towers and the delay length based on the
@@ -390,7 +406,7 @@ def snd_L(E1, E2, delay, gap=55):
     ----------
     E1 : float
         Energy of the delay branch in eV
-    
+
     E2 : float
         Energy of the channel-cut branch in eV
 
@@ -404,7 +420,7 @@ def snd_L(E1, E2, delay, gap=55):
     -------
     theta_L : float
         The necessary angle of the delay branch in degrees.
-        
+
     theta_cc : float
         The necessary angle of the channel-cut branch in degrees.
 
@@ -412,8 +428,8 @@ def snd_L(E1, E2, delay, gap=55):
         The necessary length of the delay crystals in mm.
     """
     cl = 0.3
-    theta_L = bragg_angle('Si',(2,2,0),E1)
-    theta_cc= bragg_angle('Si',(2,2,0),E2)
+    theta_L = bragg_angle('Si', (2, 2, 0), E1)
+    theta_cc = bragg_angle('Si', (2, 2, 0), E2)
     # gap is the distance between the two faces of the channel cut crystal
     L = (delay*cl/2.+gap*(1-cosd(2*theta_cc))/sind(theta_cc))/(1-cosd(
         2*theta_L))
@@ -422,6 +438,7 @@ def snd_L(E1, E2, delay, gap=55):
     logger.info("t1.th1=t1.th2=t4.th1=t4.th2 = {} degree".format(theta_L))
     logger.info("t2.th=t3.th = {} degree".format(theta_cc))
     return theta_L, theta_cc, L
+
 
 def snd_diag(E1, E2, delay, gap=55):
     """
@@ -432,7 +449,7 @@ def snd_diag(E1, E2, delay, gap=55):
     ----------
     E1 : float
         Energy of the delay branch in eV
-    
+
     E2 : float
         Energy of the channel-cut branch in eV
 
@@ -446,14 +463,14 @@ def snd_diag(E1, E2, delay, gap=55):
     -------
     dd_x : float
         The necessary position of the middle delay diagnostic in mm
-        
+
     dcc_x : float
         The necessary position of the middle channel-cut diagnostic in mm
     """
     cl = 0.3
     # speed of light
-    theta_L = bragg_angle('Si',(2,2,0),E1)
-    theta_cc= bragg_angle('Si',(2,2,0),E2)
+    theta_L = bragg_angle('Si', (2, 2, 0), E1)
+    theta_cc = bragg_angle('Si', (2, 2, 0), E2)
     dcc_x = 2*cosd(theta_cc)*gap
     L = (delay*cl/2.+gap*(1-cosd(2*theta_cc))/sind(theta_cc))/(1-cosd(
         2*theta_L))
@@ -461,6 +478,7 @@ def snd_diag(E1, E2, delay, gap=55):
     logger.info("dd.x = {}".format(dd_x))
     logger.info("dcc.x = {}".format(dcc_x))
     return dd_x, dcc_x
+
 
 def snd_delay(E1, E2, L, gap=55):
     """
@@ -471,7 +489,7 @@ def snd_delay(E1, E2, L, gap=55):
     ----------
     E1 : float
         Energy of the delay branch in eV
-    
+
     E2 : float
         Energy of the channel-cut branch in eV
 
@@ -484,9 +502,8 @@ def snd_delay(E1, E2, L, gap=55):
         The delay of the system in picoseconds
     """
     cl = 0.3
-    theta_L = bragg_angle('Si',(2,2,0),E1)
-    theta_cc= bragg_angle('Si',(2,2,0),E2)
+    theta_L = bragg_angle('Si', (2, 2, 0), E1)
+    theta_cc = bragg_angle('Si', (2, 2, 0), E2)
     delay = 2*(L*(1-cosd(2*theta_L)) - gap*(1-cosd(2*theta_cc))/sind(
-        theta_cc))/cl 
+        theta_cc))/cl
     return delay
-

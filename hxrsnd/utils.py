@@ -3,11 +3,10 @@ Script for small utility functions used in HXRSnD
 """
 import inspect
 import logging
+from collections.abc import Iterable
+from functools import wraps
 from math import nan
 from pathlib import Path
-from functools import wraps
-from collections.abc import Iterable
-
 
 logger = logging.getLogger(__name__)
 
@@ -70,7 +69,7 @@ def as_list(obj, length=None, tp=None, iter_to_list=True):
         if length is None:
             return []
         return [None] * length
-    
+
     # If it is already a list do nothing
     elif isinstance(obj, list):
         pass
@@ -78,22 +77,23 @@ def as_list(obj, length=None, tp=None, iter_to_list=True):
     # If it is an iterable (and not str), convert it to a list
     elif isiterable(obj) and iter_to_list:
         obj = list(obj)
-        
+
     # Otherwise, just enclose in a list making it the inputted length
     else:
         try:
             obj = [obj] * length
         except TypeError:
             obj = [obj]
-        
+
     # Cast to type; Let exceptions here bubble up to the top.
     if tp is not None:
         obj = [tp(o) for o in obj]
     return obj
 
+
 def isiterable(obj):
     """
-    Function that determines if an object is an iterable, not including 
+    Function that determines if an object is an iterable, not including
     str.
 
     Parameters
@@ -110,6 +110,7 @@ def isiterable(obj):
         return False
     else:
         return isinstance(obj, Iterable)
+
 
 def _flatten(inp_iter):
     """
@@ -131,7 +132,8 @@ def _flatten(inp_iter):
                 yield ival
         else:
             yield val
-            
+
+
 def flatten(inp_iter):
     """
     Returns a flattened list of the inputted iterable.
@@ -148,10 +150,11 @@ def flatten(inp_iter):
     """
     return list(_flatten(inp_iter))
 
+
 def stop_on_keyboardinterrupt(func):
     """
     Decorator that runs the object's `stop` method if a keyboard interrupt is
-    raised. This is meant to be used on ophyd device methods and expects the 
+    raised. This is meant to be used on ophyd device methods and expects the
     first argument to be `self`.
     """
     @wraps(func)
@@ -168,6 +171,7 @@ def stop_on_keyboardinterrupt(func):
                                  "stop_on_keyboardinterrupt decorator.".format(
                                      obj))
     return stop_dev_on_keyboardinterrupt
+
 
 def nan_if_no_parent(method):
     """

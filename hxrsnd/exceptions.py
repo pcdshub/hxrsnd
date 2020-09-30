@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 # Exceptions
 
+
 class InputError(Exception):
     """
     Exception when the inputs to a function or method are invalid.
@@ -40,7 +41,7 @@ class MotorDisabled(SndException):
 
 class MotorFaulted(SndException):
     """
-    Exception raised when an action requiring the motor not be faulted is 
+    Exception raised when an action requiring the motor not be faulted is
     requested.
     """
     pass
@@ -48,7 +49,7 @@ class MotorFaulted(SndException):
 
 class MotorError(SndException):
     """
-    Exception raised when an action requiring the motor not have an error is 
+    Exception raised when an action requiring the motor not have an error is
     requested.
     """
     pass
@@ -56,7 +57,7 @@ class MotorError(SndException):
 
 class MotorStopped(SndException):
     """
-    Exception raised when an action requiring the motor to not be stopped is 
+    Exception raised when an action requiring the motor to not be stopped is
     requested.
     """
     pass
@@ -64,7 +65,7 @@ class MotorStopped(SndException):
 
 class BadN2Pressure(SndException):
     """
-    Exception raised when an action requiring the N2 pressure be good is 
+    Exception raised when an action requiring the N2 pressure be good is
     requested with a bad pressure.
     """
     pass

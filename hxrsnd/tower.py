@@ -7,31 +7,36 @@ import numpy as np
 from ophyd import Component as Cmp
 from ophyd.status import wait as status_wait
 
-from .snddevice import SndDevice
+from .aerotech import (AeroBase, InterLinearAero, InterRotationAero,
+                       LinearAero, RotationAero)
+from .attocube import DiodeEcc, EccBase, GoniometerEcc, TranslationEcc
 from .bragg import bragg_angle, bragg_energy
-from .attocube import EccBase, TranslationEcc, GoniometerEcc, DiodeEcc
-from .aerotech import (AeroBase, RotationAero, InterRotationAero,
-                       LinearAero, InterLinearAero)
+from .snddevice import SndDevice
 
 logger = logging.getLogger(__name__)
+
 
 class TowerBase(SndDevice):
     """
     Base tower class.
     """
-    def __init__(self, prefix, name=None, pos_inserted=None, pos_removed=None, 
+    tab_whitelist = ['check_status', 'clear', 'disable', 'enable', 'energy',
+                     'insert', 'inserted', 'position', 'remove', 'set_energy',
+                     'status', 'stop', 'theta']
+
+    def __init__(self, prefix, name=None, pos_inserted=None, pos_removed=None,
                  *args, **kwargs):
         super().__init__(prefix, name=name, *args, **kwargs)
         self.pos_inserted = pos_inserted
         self.pos_removed = pos_removed
         self.desc_short = "".join([s[0] for s in self.desc.split(" ")])
-        
+
         # Add Tower short name to desc
         for sig_name in self.component_names:
             signal = getattr(self, sig_name)
             if hasattr(signal, "desc"):
                 signal.desc = "{0} {1}".format(self.desc_short, signal.desc)
-        
+
     def set_energy(self, E, *args, **kwargs):
         """
         Placeholder for the energy setter. Implement for each TowerBase
@@ -56,7 +61,7 @@ class TowerBase(SndDevice):
     @energy.setter
     def energy(self, E):
         """
-        Sets the theta of the tower to the desired energy. Alias for 
+        Sets the theta of the tower to the desired energy. Alias for
         set_energy(E).
 
         Parameters
@@ -64,8 +69,8 @@ class TowerBase(SndDevice):
         E : float
             Desired energy to set the tower to.
         """
-        status = self.set_energy(E)
-    
+        _ = self.set_energy(E)
+
     @property
     def position(self):
         """
@@ -119,7 +124,7 @@ class TowerBase(SndDevice):
             If pos_removed is set to None and remove() is called.
         """
         if self.pos_removed is None:
-            raise ValueError("Must set pos_removed to use remove method.")        
+            raise ValueError("Must set pos_removed to use remove method.")
         return self.x.move(self.pos_removed, *args, **kwargs)
 
     @property
@@ -135,7 +140,7 @@ class TowerBase(SndDevice):
         Raises
         ------
         ValueError
-            If pos_inserted is set to None and inserted is called.        
+            If pos_inserted is set to None and inserted is called.
         """
         if self.pos_inserted is None:
             raise ValueError("Must set pos_inserted to check if inserted.")
@@ -161,7 +166,7 @@ class TowerBase(SndDevice):
 
     def check_status(self, energy=None, length=None, no_raise=False):
         """
-        Checks to make sure that all the energy motors are not in a bad state. 
+        Checks to make sure that all the energy motors are not in a bad state.
         Will include the delay motor if the delay argument is True.
 
         Parameters
@@ -182,9 +187,9 @@ class TowerBase(SndDevice):
         # Get all the energy parameters
         if energy is not None:
             motors += self._energy_motors
-            theta = bragg_angle(energy)
+            _ = bragg_angle(energy)
             positions += self._get_move_positions(energy)
-            
+
         # Get the delay parameters
         try:
             if length is not None:
@@ -193,7 +198,7 @@ class TowerBase(SndDevice):
         except AttributeError:
             if not no_raise:
                 raise
-        
+
         # Check that we can move all the motors
         for motor, position in zip(motors, positions):
             try:
@@ -208,7 +213,7 @@ class TowerBase(SndDevice):
         Stops the motions of all the motors.
         """
         self._apply_all("stop", (AeroBase, EccBase), print_set=False)
-    
+
     def enable(self):
         """
         Enables all the aerotech motors.
@@ -227,16 +232,16 @@ class TowerBase(SndDevice):
         """
         self._apply_all("clear", AeroBase, print_set=False)
 
-    def status(self, status="", offset=0, print_status=True, newline=False, 
+    def status(self, status="", offset=0, print_status=True, newline=False,
                short=True):
         """
         Returns the status of the tower.
-        
+
         Parameters
         ----------
         status : str, optional
             The string to append the status to.
-            
+
         offset : int, optional
             Amount to offset each line of the status.
 
@@ -258,30 +263,35 @@ class TowerBase(SndDevice):
 
             # Aerotech body
             status_list_aero = self._apply_all(
-                "status", AeroBase, offset=offset+2, print_status=False, 
+                "status", AeroBase, offset=offset+2, print_status=False,
                 short=True)
             if status_list_aero:
                 # Aerotech header
-                status += "\n{0}{1:<16}|{2:^16}|{3:^16}\n{4}{5}".format(
-                    " "*(offset+2), "Motor", "Position", "Dial", " "*(offset+2),
-                    "-"*50)
+                status += (
+                    "\n{0}{1:<16}|{2:^16}|{3:^16}\n{4}{5}".format(
+                        " "*(offset+2), "Motor", "Position", "Dial", " "*(offset+2), "-"*50
+                    )
+                )
                 status += "".join(status_list_aero)
 
             # Attocube body
             status_list_atto = self._apply_all(
-                "status", EccBase, offset=offset+2, print_status=False, 
+                "status", EccBase, offset=offset+2, print_status=False,
                 short=True)
             if status_list_atto:
                 # Attocube Header
-                status += "\n{0}{1}\n{2}{3:<16}|{4:^16}|{5:^16}\n{6}{7}".format(
-                    " "*(offset+2), "-"*50, " "*(offset+2), "Motor", "Position",
-                    "Reference", " "*(offset+2), "-"*50)
+                status += (
+                    "\n{0}{1}\n{2}{3:<16}|{4:^16}|{5:^16}\n{6}{7}".format(
+                        " "*(offset+2), "-"*50, " " * (offset+2),
+                        "Motor", "Position", "Reference", " "*(offset+2), "-"*50)
+                )
                 status += "".join(status_list_atto)
 
         else:
             status += "{0}{1}:\n{2}{3}\n".format(
-                " "*offset, self.desc, " "*offset, "-"*(len(self.desc)+1))
-            status_list = self._apply_all("status", (AeroBase, EccBase), 
+                " "*offset, self.desc, " "*offset, "-"*(len(self.desc)+1)
+            )
+            status_list = self._apply_all("status", (AeroBase, EccBase),
                                           offset=offset+2, print_status=False)
             status += "".join(status_list)
 
@@ -292,11 +302,11 @@ class TowerBase(SndDevice):
         else:
             return status
 
-        
+
 class DelayTower(TowerBase):
     """
     Delay Tower
-    
+
     Components
 
     tth : RotationAeroInterlocked
@@ -335,6 +345,8 @@ class DelayTower(TowerBase):
     temp : OmegaRTD
         RTD temperature sensor for the nitrogen.
     """
+    tab_whitelist = ['length', 'position', 'set_energy', 'set_length', 'theta']
+
     # Rotation stages
     tth = Cmp(InterRotationAero, ":TTH", desc="TTH")
     th1 = Cmp(RotationAero, ":TH1", desc="TH1")
@@ -354,13 +366,13 @@ class DelayTower(TowerBase):
 
     # Diode motion
     dh = Cmp(DiodeEcc, ":DH", desc="DH")
-    
+
     # # Diode
     # diode = Cmp(HamamatsuDiode, ":DIODE", desc="Tower Diode")
 
     # # Temperature monitor
     # temp = Cmp(OmegaRTD, ":TEMP", desc="Tower RTD")
-    
+
     def __init__(self, prefix, *args, **kwargs):
         super().__init__(prefix, *args, **kwargs)
         self._energy_motors = [self.tth, self.th1, self.th2]
@@ -408,8 +420,8 @@ class DelayTower(TowerBase):
     def set_energy(self, E, wait=False, check_status=True):
         """
         Sets the angles of the crystals in the delay line to maximize the
-        inputted energy.        
-    
+        inputted energy.
+
         Parameters
         ---------
         E : float
@@ -424,10 +436,10 @@ class DelayTower(TowerBase):
         # Check to make sure the motors are in a valid state to move
         if check_status:
             self.check_status(energy=E)
-        
+
         # Perform the move
         status = [motor.move(pos, wait=False, check_status=False) for
-                  motor, pos in zip(self._energy_motors, 
+                  motor, pos in zip(self._energy_motors,
                                     self._get_move_positions(E))]
 
         # Wait for the motions to finish
@@ -436,7 +448,7 @@ class DelayTower(TowerBase):
                 logger.info("Waiting for {} to finish move ...".format(
                     s.device.name))
                 status_wait(s)
-                
+
         return status
 
     def set_length(self, position, wait=False, *args, **kwargs):
@@ -480,7 +492,7 @@ class DelayTower(TowerBase):
         position : float
             Position to move the delay motor to.
         """
-        status = self.L.mv(position)
+        _ = self.L.mv(position)
 
     @property
     def theta(self):
@@ -492,8 +504,8 @@ class DelayTower(TowerBase):
         position : float
             Current position of the tower.
         """
-        return self.position/2    
-        
+        return self.position/2
+
 
 class ChannelCutTower(TowerBase):
     """
@@ -507,6 +519,8 @@ class ChannelCutTower(TowerBase):
     x : LinearAero
         Translation stage of the tower
     """
+    tab_whitelist = ['position', 'set_energy']
+
     # Rotation
     th = Cmp(RotationAero, ":TH", desc="TH")
 
@@ -532,8 +546,8 @@ class ChannelCutTower(TowerBase):
     def set_energy(self, E, wait=False, check_status=True):
         """
         Sets the angles of the crystals in the channel cut line to maximize the
-        inputted energy.        
-    
+        inputted energy.
+
         Parameters
         ---------
         E : float
@@ -547,7 +561,7 @@ class ChannelCutTower(TowerBase):
         """
         # Convert to theta
         theta = bragg_angle(E=E)
-        
+
         # Check to make sure the motors are in a valid state to move
         if check_status:
             self.check_status(E)

@@ -16,18 +16,19 @@ class SeqBase(SndDevice):
     """
     Base sequencer class.
     """
+    tab_whitelist = ['start', 'stop']
     state_control = Cmp(EpicsSignal, ":PLYCTL")
-    
+
     def start(self):
         """
         Start the sequencer.
         """
         status = self.state_control.set(1, timeout=self.timeout)
         status_wait(status)
-        
+
     def stop(self):
         """
         Stop the sequencer.
         """
         status = self.state_control.set(0, timeout=self.timeout)
-        status_wait(status)        
+        status_wait(status)
