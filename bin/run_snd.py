@@ -5,7 +5,7 @@ import logging
 import os  # noqa
 import socket
 import warnings
-from imp import reload  # noqa
+from importlib import reload  # noqa
 from pathlib import Path  # noqa
 
 # Ignore python warnings (Remove when ophyd stops warning about 'signal_names')
