@@ -16,5 +16,4 @@ To launch from the released area: ::
 
   $ /reg/neh/operator/xcsopr/bin/snd/snd_main
 
-This will launch the EDM screen that looks like the following: 
-
+This will launch the EDM screen that looks like the following:

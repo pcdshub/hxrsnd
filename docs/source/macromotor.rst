@@ -66,8 +66,8 @@ the following motors:
 .. autoclass:: hxrsnd.macromotor.Energy1CCMacro
    :members:
    :show-inheritance:
-       
-      
+
+
 Channel Cut Energy
 ==================
 

@@ -1,14 +1,14 @@
 import logging
 
-import pytest
-from numpy import linspace
 import pandas as pd
-from bluesky.preprocessors  import run_wrapper
+import pytest
+from bluesky.preprocessors import run_wrapper
+from numpy import linspace
 from ophyd.sim import SynAxis
 
-from .conftest import SynCamera
 from ..plans.scans import centroid_scan
 from ..utils import as_list
+from .conftest import SynCamera
 
 logger = logging.getLogger(__name__)
 
@@ -16,15 +16,17 @@ m1 = SynAxis(name="m1")
 m2 = SynAxis(name="m2")
 delay = SynAxis(name="delay")
 
+
 def test_centroid_scan_returns_df(fresh_RE):
     # Simulated camera
     camera = SynCamera(m1, m2, delay, name="camera")
     # Create the plan
+
     def test_plan():
         delay_scan = (yield from centroid_scan(camera, delay, -1, 1, 3,
                                                detector_fields=[
                                                    'camera_centroid_x',
-                                                   'camera_centroid_y']))        
+                                                   'camera_centroid_y']))
         # Check that we got dataframe
         assert isinstance(delay_scan, pd.DataFrame)
         # Check that all the entries were written to and none are nans
@@ -32,13 +34,15 @@ def test_centroid_scan_returns_df(fresh_RE):
     # Run the plan
     fresh_RE(run_wrapper(test_plan()))
 
+
 @pytest.mark.parametrize("steps", [3, 11])
-@pytest.mark.parametrize("stop", [5, 10])    
+@pytest.mark.parametrize("stop", [5, 10])
 @pytest.mark.parametrize("start", [-5, -10])
 def test_centroid_scan_returns_correct_df_index(fresh_RE, start, stop, steps):
     # Simulated camera
     camera = SynCamera(m1, m2, delay, name="camera")
     # Create the plan
+
     def test_plan():
         delay_scan = (yield from centroid_scan(camera, delay, start, stop,
                                                steps, detector_fields=[
@@ -50,6 +54,7 @@ def test_centroid_scan_returns_correct_df_index(fresh_RE, start, stop, steps):
         assert (delay_scan.index.values == linspace(start, stop, steps)).all()
     # Run the plan
     fresh_RE(run_wrapper(test_plan()))
+
 
 @pytest.mark.parametrize("system_attrs", [([], []),
                                           (m1, m1.name),
@@ -65,6 +70,7 @@ def test_centroid_scan_returns_correct_columns(fresh_RE, mot_fields, det_fields,
     # Simulated camera
     camera = SynCamera(m1, m2, delay, name="camera")
     # Create the plan
+
     def test_plan():
         steps = 2               # Start and stop position
         delay_scan = (yield from centroid_scan(camera, delay, -1, 1, steps,
@@ -74,16 +80,16 @@ def test_centroid_scan_returns_correct_columns(fresh_RE, mot_fields, det_fields,
                                                system_fields=system_attrs[1]))
 
         expected_length = (len(as_list(mot_fields)) or 1) \
-                           + len(as_list(det_fields)) \
-                           + len(as_list(system_attrs[1]))
+            + len(as_list(det_fields)) \
+            + len(as_list(system_attrs[1]))
         # Check the number of columns based in the inputs
         assert delay_scan.shape[1] == expected_length
-        
+
         expected_columns = as_list(mot_fields or delay.name) \
-                            + as_list(system_attrs[1]) \
-                            + ["_".join([camera.name, fld]) for fld in as_list(
-                                det_fields)]
-        # Check the columns are all what we expect them to be 
+            + as_list(system_attrs[1]) \
+            + ["_".join([camera.name, fld]) for fld in as_list(
+                det_fields)]
+        # Check the columns are all what we expect them to be
         assert (delay_scan.columns == expected_columns).all()
     # Run the plan
     fresh_RE(run_wrapper(test_plan()))

@@ -26,7 +26,7 @@ Subclasses
 .. autoclass:: hxrsnd.aerotech.InterLinearAero
    :members:
    :show-inheritance:
-      
+
 .. autoclass:: hxrsnd.aerotech.RotationAero
    :members:
    :show-inheritance:
@@ -38,4 +38,3 @@ Subclasses
 .. autoclass:: hxrsnd.aerotech.DiodeAero
    :members:
    :show-inheritance:
-

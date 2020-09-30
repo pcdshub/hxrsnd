@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 @requires_epics
 @pytest.mark.skipif(sys.version_info < (3, 6), reason="requires python3.6")
 def test_snd_devices_import_with_epics():
-    import snd_devices
+    import snd_devices  # noqa
 
 
 # I couldn't quickly get this to pass with ophyd 1.2.0 (zlentz)

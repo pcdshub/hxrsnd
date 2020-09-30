@@ -45,13 +45,12 @@ There is a system level EDM screen that has all the motors and pneumatics. To
 launch the screen, run the following launcher sript from the directory listed
 above: ::
 
-  $ ./snd_main  
+  $ ./snd_main
 
 .. note:: This is a softlink to the launcher script which lives in
           ``hxrsnd/screens/``
-  
+
 To view diode correlation plots, run the following launcher script from the
 directory listed above: ::
 
   $ ./show_diodes.sh
-

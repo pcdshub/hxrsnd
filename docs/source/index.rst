@@ -1,6 +1,6 @@
 .. include:: ../../README.rst
 
-             
+
 .. toctree::
    :maxdepth: 2
    :caption: Getting Started
@@ -27,7 +27,7 @@
    pneumatic.rst
    rtd.rst
 
-   
+
 .. toctree::
    :maxdepth: 2
    :caption: Plans
@@ -37,16 +37,16 @@
    scans.rst
    misc_plans.rst
 
-   
+
 .. toctree::
    :maxdepth: 2
    :caption: Miscellaneous
-             
+
    bragg.rst
    utils.rst
    exceptions.rst
 
-             
+
 .. toctree::
    :hidden:
    :caption: Core SnD Packages
@@ -54,7 +54,7 @@
    pswalker <https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pswalker/>
    pcds-devices <https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pcds-devices/>
    pydm <https://slaclab.github.io/pydm/>
-   
+
 .. toctree::
    :hidden:
    :caption: Related Software
@@ -62,14 +62,14 @@
    bluesky <https://nsls-ii.github.io/bluesky>
    ophyd <https://nsls-ii.github.io/ophyd>
 
-    
+
 .. toctree::
    :hidden:
    :caption: GitHub Links
 
    SLAC <https://github.com/slaclab/>
    PCDS <https://github.com/pcdshub/>
-   
+
 
 Indices and tables
 ==================
@@ -77,4 +77,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-   

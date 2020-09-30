@@ -1,31 +1,21 @@
 """
 Small plans used in HXRSnD
 """
-############
-# Standard #
-############
+
 import logging
-import math 
+import math
 
-###############
-# Third Party #
-###############
+from pswalker.plans import measure_average
+from pswalker.utils import field_prepend
 
-########
-# SLAC #
-########
-from pswalker.utils             import field_prepend
-from pswalker.plans             import measure_average
-
-##########
-# Module #
-##########
 from ..utils import as_list
 
 logger = logging.getLogger(__name__)
 
 # Used to strip `run_wrapper` off of plan
 # Should probably be added as bluesky PR
+
+
 def block_run_control(msg):
     """
     Block open and close run messages
@@ -33,6 +23,7 @@ def block_run_control(msg):
     if msg.command in ['open_run', 'close_run']:
         return None
     return msg
+
 
 def euclidean_distance(device, device_fields, targets, average=None,
                        filters=None):
@@ -52,7 +43,7 @@ def euclidean_distance(device, device_fields, targets, average=None,
 
     average : int, optional
         Number of averages to take for each measurement
-    
+
     Returns
     -------
     distance : float
@@ -67,10 +58,11 @@ def euclidean_distance(device, device_fields, targets, average=None,
     prep_dev_fields = [field_prepend(fld, device) for fld in device_fields]
 
     # Make sure the number of device fields and targets is the same
-    if len(device_fields) != len(targets): 
-        raise ValueError("Number of device fields and targets must be the same."
-                         "Got {0} and {1}".format(len(device_fields, 
-                                                      len(targets))))
+    if len(device_fields) != len(targets):
+        raise ValueError(
+            "Number of device fields and targets must be the same."
+            "Got {0} and {1}".format(len(device_fields), len(targets))
+        )
     # Measure the average
     read = (yield from measure_average([device], num=average, filters=filters))
     # Get the squared differences between the centroids

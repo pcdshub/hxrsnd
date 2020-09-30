@@ -19,10 +19,13 @@
 #
 import os
 import sys
-import sphinx_rtd_theme
-module_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),'../../')
-sys.path.insert(0,module_path)
 
+import sphinx_rtd_theme  # noqa: F401
+
+module_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../')
+sys.path.insert(0, module_path)
+
+import hxrsnd  # noqa: E402
 
 # -- General configuration ------------------------------------------------
 
@@ -52,7 +55,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'HXRSnD'
-copyright = '2017, SLAC National Accelerator Laboratory'
+copyright = '2020, SLAC National Accelerator Laboratory'
 author = 'SLAC National Accelerator Laboratory'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -60,7 +63,7 @@ author = 'SLAC National Accelerator Laboratory'
 # built documents.
 #
 # The short X.Y version.
-import hxrsnd
+
 version = hxrsnd.__version__
 # The full version, including alpha/beta/rc tags.
 release = hxrsnd.__version__
@@ -173,6 +176,3 @@ texinfo_documents = [
      author, 'HXRSnD', 'One line description of project.',
      'Miscellaneous'),
 ]
-
-
-

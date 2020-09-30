@@ -29,6 +29,3 @@ Channel cut towers ``snd.t2`` and ``snd.t3``.
 .. autoclass:: hxrsnd.tower.ChannelCutTower
    :members:
    :show-inheritance:
-
-      
-

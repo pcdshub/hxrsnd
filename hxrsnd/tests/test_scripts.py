@@ -4,15 +4,15 @@ Tests for the scripts file in the top level directory
 import logging
 
 import pytest
-import numpy as np
 
 from .conftest import requires_epics
-from hxrsnd.utils import absolute_submodule_path
 
 logger = logging.getLogger(__name__)
 
+
 def scripts_import():
-    import scripts
+    import scripts  # noqa
+
 
 @pytest.mark.timeout(60)
 @requires_epics

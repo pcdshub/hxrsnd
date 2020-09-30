@@ -1,1 +1,3 @@
-from .conftest  import crystal, Diode
+from .conftest import Diode, crystal
+
+__all__ = ['Diode', 'crystal']

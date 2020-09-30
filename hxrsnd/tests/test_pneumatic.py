@@ -1,24 +1,26 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import time
-import pytest
 import logging
+import time
 from collections import OrderedDict
 
-import numpy as np
+import pytest
 from ophyd.device import Device
 
 from hxrsnd import pneumatic
-from hxrsnd.pneumatic import ProportionalValve, PressureSwitch, SndPneumatics
-from .conftest import get_classes_in_module, fake_device
+from hxrsnd.pneumatic import PressureSwitch, ProportionalValve, SndPneumatics
+
+from .conftest import fake_device, get_classes_in_module
 
 logger = logging.getLogger(__name__)
+
 
 @pytest.mark.parametrize("dev", get_classes_in_module(pneumatic, Device))
 def test_devices_instantiate_and_run_ophyd_functions(dev):
     device = fake_device(dev)
     assert(isinstance(device.read(), OrderedDict))
     assert(isinstance(device.read_configuration(), OrderedDict))
+
 
 def test_ProportionalValve_opens_and_closes_correctly():
     valve = fake_device(ProportionalValve)
@@ -33,6 +35,7 @@ def test_ProportionalValve_opens_and_closes_correctly():
     assert valve.opened is False
     assert valve.closed is True
 
+
 def test_PressureSwitch_reads_correctly():
     press = fake_device(PressureSwitch)
     press.pressure.sim_put(0)
@@ -42,7 +45,8 @@ def test_PressureSwitch_reads_correctly():
     press.pressure.sim_put(1)
     assert press.position == "BAD"
     assert press.good is False
-    assert press.bad is True    
+    assert press.bad is True
+
 
 def test_SndPneumatics_open_and_close_methods():
     vac = fake_device(SndPneumatics)

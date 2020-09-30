@@ -6,19 +6,18 @@ import logging
 import numpy as np
 import pandas as pd
 from bluesky import Msg
+from bluesky.plan_stubs import abs_set, checkpoint, trigger_and_read
 from bluesky.plans import scan
+from bluesky.preprocessors import run_decorator, stub_wrapper
 from bluesky.utils import short_uid as _short_uid
-from bluesky.plan_stubs import checkpoint, trigger_and_read, abs_set
-from bluesky.preprocessors import (stage_decorator, run_decorator, msg_mutator,
-                                   stub_wrapper)
-
-from pswalker.utils import field_prepend
 from pswalker.plans import measure_average
+from pswalker.utils import field_prepend
 
-from .preprocessors import return_to_start as _return_to_start
 from ..utils import as_list
+from .preprocessors import return_to_start as _return_to_start
 
 logger = logging.getLogger(__name__)
+
 
 def linear_scan(motor, start, stop, num, use_diag=True, return_to_start=True,
                 md=None, *args, **kwargs):
@@ -63,7 +62,7 @@ def linear_scan(motor, start, stop, num, use_diag=True, return_to_start=True,
            'plan_pattern_module': 'numpy',
            'plan_pattern_args': dict(start=start, stop=stop, num=num),
            'hints': {},
-          }
+           }
     _md.update(md or {})
 
     # Build the list of steps
@@ -93,6 +92,7 @@ def linear_scan(motor, start, stop, num, use_diag=True, return_to_start=True,
             yield Msg('wait', None, group=grp)
 
     return (yield from inner_scan())
+
 
 def centroid_scan(detector, motor, start, stop, steps, average=None,
                   detector_fields=['stats2_centroid_x', 'stats2_centroid_y'],
@@ -190,4 +190,3 @@ def centroid_scan(detector, motor, start, stop, steps, average=None,
 
     # Return the filled dataframe
     return df
-

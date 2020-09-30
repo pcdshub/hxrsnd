@@ -25,14 +25,16 @@ import logging
 
 # Imports from the third-party modules go here
 import numpy as np
-from ophyd import Device, EpicsSignal, Component as Cmp
+from ophyd import Component as Cmp
+from ophyd import Device, EpicsSignal
 from ophyd.sim import hw
 from ophyd.status import wait as status_wait
 
-# Imports from other SLAC modules go here
-
 # Imports from the HXRSnD module go here
 import snd_devices
+
+# Imports from other SLAC modules go here
+
 
 # Default logger
 logger = logging.getLogger(__name__)
