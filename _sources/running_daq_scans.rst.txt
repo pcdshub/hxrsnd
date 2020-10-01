@@ -53,4 +53,3 @@ This should cause the daq to begin taking events at every scan step.
 
 .. note:: Once a plan has been run, it must be redeclared to be run again since
           the contents have been consumed.
-
