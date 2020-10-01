@@ -3,11 +3,11 @@ sudo: false
 
 env:
   global:
-    - OFFICIAL_REPO="pcdshub/hxrsnd"    
+    - OFFICIAL_REPO="pcdshub/hxrsnd"
     - secure: "jEGneicPLd/a1M7p+7l/AB6LknxVtWnzndbcKLB9Mr4dAqw9YkElMcxhjr2JYuNehFtX/iL+k+wpcvJoLE1OXnZisT9HjAzVbV3mioro6EJwiJtGnPoeh0vSjhiRsG7GbHVcg/iFzZvRmzqLOFZKfsxdXXMUM67PlDk2+8CnZYD+AfZfbvhg79n99TtEMwk9Af27AxjeiUnlp1bWFg+z8CD8v1+yk+/OmG0rT7bppcqpdyO6uDVW8OSivqfTPSacCo7lYACUfA19lPjWmTpJLbs/4ja4pOh6fzIv5jZR6aW88TwsRXhSnntAIcIw+i4XN9e9qXXR1dU65Rab5/KgmUlcOGIsLrf62UsP59nLXpLjPaxsDKUOy+VjQLWh4xMf+e94E46Kqf4CGaGTlyqiDerWuJFBn3dQeeNv0qiPhdQRLGBdGJYBa5p/cvt4SIPkX784TKQQBRs/NnxoUTHvivtxg6Kzy5mYw5iIGuIOtla+h1tjNRmLCEb15XSl6fxKxutCvL2XxnkXADq/BcB1QjZVf6ijPmjCil6ire/QXjUoz3sMTZsifDkdwS2DsspgbP54Vru+2BAEaAZuFblpsYiomhk6V1AKX1TU1SdTdkqLY/hkuUnt0RuxjdDVTpO6KHUODgRFveSMU7KhM/L0KFqeDBYFKPZa98o2fFKo1Ks="
 
 matrix:
-  include: 
+  include:
     - python: 3.6
       env:
         - PCDS_CHANNEL=pcds-tag

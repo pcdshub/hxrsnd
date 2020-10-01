@@ -26,7 +26,7 @@ source activate $conda_env
 
 # resolve $FILE until the file is no longer a symlink
 FILE="${BASH_SOURCE[0]}"
-while [ -h "$FILE" ]; do 
+while [ -h "$FILE" ]; do
   SCRIPTPATH="$( cd -P "$( dirname "$FILE" )" && pwd )"
   FILE="$(readlink "$FILE")"
   # if $FILE was a relative symlink, we need to resolve it relative to the path

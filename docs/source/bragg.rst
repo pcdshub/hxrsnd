@@ -4,7 +4,7 @@ Calculations
 
 The bragg angle and energy calculations used to perform the energy macro-motions
 are in following script: ::
-  
+
   HXRSnD/hxrsnd/bragg.py
 
 Bragg Calculations
@@ -16,7 +16,7 @@ script should contain all the necessary components to perform the calculation.
 .. autofunction:: hxrsnd.bragg.bragg_angle
 
 .. autofunction:: hxrsnd.bragg.bragg_energy
-                  
+
 
 Macro-motion Calculations
 -------------------------
@@ -28,4 +28,4 @@ macromotors. These were used to used to perform quick position verification.
 
 .. autofunction:: hxrsnd.bragg.snd_diag
 
-.. autofunction:: hxrsnd.bragg.snd_delay             
+.. autofunction:: hxrsnd.bragg.snd_delay

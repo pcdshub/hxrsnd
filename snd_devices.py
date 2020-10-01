@@ -1,8 +1,9 @@
 # from bluesky import RunEngine
 
 from pcdsdevices.areadetector.detectors import PCDSAreaDetector
-from hxrsnd.sndmotor import SamMotor
+
 from hxrsnd.sequencer import SeqBase
+from hxrsnd.sndmotor import SamMotor
 from hxrsnd.sndsystem import SplitAndDelay
 
 # Base PV

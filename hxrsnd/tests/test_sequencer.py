@@ -1,30 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-############
-# Standard #
-############
 import logging
-import time
 from collections import OrderedDict
-import pytest
 
-###############
-# Third Party #
-###############
-import numpy as np
+import pytest
 from ophyd.device import Device
 
-########
-# SLAC #
-########
-
-##########
-# Module #
-##########
-from .conftest import get_classes_in_module, fake_device
 from hxrsnd import sequencer
 
+from .conftest import fake_device, get_classes_in_module
+
 logger = logging.getLogger(__name__)
+
 
 @pytest.mark.parametrize("dev", get_classes_in_module(sequencer, Device))
 def test_sequencer_devices_instantiate_and_run_ophyd_functions(dev):

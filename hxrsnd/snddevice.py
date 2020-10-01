@@ -80,5 +80,5 @@ class SndDevice(BaseInterface, Device):
         try:
             return self.status(print_status=False)
         # There is no scenario where we would want to know of an error here
-        except:
+        except Exception:
             return super().__repr__()

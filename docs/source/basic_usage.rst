@@ -106,7 +106,7 @@ general usage. Below is a list of some of them.
 - ``tower.enable()``, ``tower.disable()``, ``tower.clear()`` - Enables, disables or clears all the (aerotech and attocube) motors in this tower.
 
 - ``tower.pos_inserted``, ``tower.pos_removed`` - Attributes that hold the x values that correspond to the inserted and removed positions of the tower.
- 
+
 - ``tower.insert()``, ``tower.remove()`` - Moves the tower to the ``pos_inserted`` or ``pos_removed`` positions. *Note*: this only works if ``pos_inserted`` or ``pos_removed`` are set.
 
 - ``tower.energy`` - Sets or returns the energy the tower is currently tuned for based on the angle of the theta motor. *Note*: This is not guaranteed to be correct for now.
@@ -117,7 +117,7 @@ Bragg Calculations
 ==================
 The bragg angle and energy calculations used to perform the energy macro-motions
 are in following script: ::
-  
+
   HXRSnD/hxrsnd/bragg.py
 
 They were both pulled from ``blutil`` and the script should contain all the

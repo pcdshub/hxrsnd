@@ -30,5 +30,3 @@ object. In the SnD ``IPython`` shell, there is a ``RunEngine`` object defined as
 ``RE``. So to run the aforementioned scan: ::
 
   In [2]: RE(plan)
-
-

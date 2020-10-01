@@ -3,17 +3,17 @@ Alignment plans for the HXRSnD
 """
 
 import logging
+
 import numpy as np
-from lmfit.models import LorentzianModel
-from bluesky import Msg
-from bluesky.plans import scan, list_scan
-from bluesky.utils import short_uid as _short_uid
-from bluesky.plan_stubs import abs_set, checkpoint, trigger_and_read
+from bluesky.plan_stubs import abs_set, checkpoint
+from bluesky.plans import list_scan
 from bluesky.preprocessors import msg_mutator, subs_decorator
-from pswalker.plans import measure_average
+from lmfit.models import LorentzianModel
 from pswalker.callbacks import LiveBuild
-from .plan_stubs import block_run_control
+from pswalker.plans import measure_average
+
 from ..exceptions import UndefinedBounds
+from .plan_stubs import block_run_control
 
 logger = logging.getLogger(__name__)
 
@@ -81,11 +81,11 @@ def maximize_lorentz(detector, motor, read_field, step_size=1,
     # Include the last step even if this is smaller than the step_size
     steps = np.append(steps, bounds[1])
     # Create Lorentz fit and live model build
-    fit    = LorentzianModel(missing='drop')
-    i_vars = {'x' : position_field}
-    model  = LiveBuild(fit, read_field, i_vars, filters=filters,
-                       average=average, init_guess=initial_guess)#,
-                       # update_every=len(steps)) # Set to fit only on last step
+    fit = LorentzianModel(missing='drop')
+    i_vars = {'x': position_field}
+    model = LiveBuild(fit, read_field, i_vars, filters=filters,
+                      average=average, init_guess=initial_guess)
+    # update_every=len(steps)) # Set to fit only on last step
 
     # Create per_step plan
     def measure(detectors, motor, step):
@@ -110,7 +110,7 @@ def maximize_lorentz(detector, motor, read_field, step_size=1,
         max_position = model.result.values['center']
 
         # Check that the estimated position is reasonable
-        if not bounds[0] < max_position  < bounds[1]:
+        if not bounds[0] < max_position < bounds[1]:
             raise ValueError("Predicted maximum position of {} is outside the "
                              "bounds {}".format(max_position, bounds))
         # Order move to maximum position
@@ -119,7 +119,7 @@ def maximize_lorentz(detector, motor, read_field, step_size=1,
 
     # Run the assembled plan
     yield from inner()
-    # Return the fit 
+    # Return the fit
     return model
 
 

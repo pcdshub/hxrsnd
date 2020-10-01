@@ -12,7 +12,7 @@ from ophyd.device import Component as Cmp
 from ophyd.signal import Signal
 from ophyd.utils import LimitError
 from pcdsdevices.epics_motor import PCDSMotorBase
-from pcdsdevices.mv_interface import FltMvInterface
+from pcdsdevices.interface import FltMvInterface
 
 from .exceptions import InputError
 from .plans.calibration import calibrate_motor

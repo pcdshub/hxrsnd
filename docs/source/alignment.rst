@@ -19,7 +19,7 @@ The code above runs a step scan from 0 to 20 in steps of 1, reading the diode
 at each point. A fit is processed at the end and a second scan is started 5
 units to the left of the calculated center and runs using 0.1 as the step size
 until we reach 5 units greater than our first result. Finally, the rotation
-axis is centered with our new maximum. 
+axis is centered with our new maximum.
 
 If you want to use change the range of the second finer scan, you can use the
 `fine_space` keyword. In addition, the `lmfit` model that does our fitting

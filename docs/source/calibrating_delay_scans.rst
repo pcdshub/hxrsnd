@@ -95,7 +95,7 @@ path. Running, ::
   In [1]: snd.delay.save_calibration('my_calibration')
 
 Will save the current calibration as
-``HXRSnD/calibrations/my_calibration.json``. 
+``HXRSnD/calibrations/my_calibration.json``.
 
 To load this configuration, the ``load_calibration`` method takes calibration
 names, searches the ``HXRSnD/calibrations`` directory, and then applies the
@@ -126,7 +126,7 @@ dictionary with five keys:
 
 .. note:: ``calibration`` is a read-only property and cannot be used to modify
           the live calibration.
-  
+
 Modifying Calibrations
 ======================
 
@@ -135,7 +135,7 @@ the ``configure`` method. This is done by running ``configure`` and passing the
 desired change as a keyword argument.
 
 .. warning:: It is not advisable to change the the calibration in ways not
-             listed below. 
+             listed below.
 
 Correction Table Post-Processing
 --------------------------------
@@ -156,7 +156,7 @@ details), ::
 And then configure the motor to use this new correction table, ::
 
   In [3]: snd.delay.configure(calib=df_savgol)
-  
+
 .. note:: Whenever the correction table is modified using ``configure``, the
           number of columns must equal the number of motors listed in
           ``snd.delay.calibration['motors']``.

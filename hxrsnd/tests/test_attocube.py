@@ -1,37 +1,26 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-############
-# Standard #
-############
 import logging
 import time
 from collections import OrderedDict
-import pytest
 
-###############
-# Third Party #
-###############
-import numpy as np
+import pytest
 from ophyd.device import Device
 
-########
-# SLAC #
-########
-
-##########
-# Module #
-##########
-from .conftest import get_classes_in_module, fake_device
 from hxrsnd import attocube
-from hxrsnd.attocube import (EccBase, MotorDisabled, MotorError)
+from hxrsnd.attocube import EccBase, MotorDisabled, MotorError
+
+from .conftest import fake_device, get_classes_in_module
 
 logger = logging.getLogger(__name__)
+
 
 @pytest.mark.parametrize("dev", get_classes_in_module(attocube, Device))
 def test_attocube_devices_instantiate_and_run_ophyd_functions(dev):
     motor = fake_device(dev)
     assert(isinstance(motor.read(), OrderedDict))
     assert(isinstance(motor.read_configuration(), OrderedDict))
+
 
 def test_EccBase_raises_MotorDisabled_if_moved_while_disabled():
     motor = fake_device(EccBase)
@@ -41,6 +30,7 @@ def test_EccBase_raises_MotorDisabled_if_moved_while_disabled():
     assert not motor.enabled
     with pytest.raises(MotorDisabled):
         motor.move(10)
+
 
 def test_EccBase_raises_MotorError_if_moved_while_faulted():
     motor = fake_device(EccBase)

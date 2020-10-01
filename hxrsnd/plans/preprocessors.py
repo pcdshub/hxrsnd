@@ -1,8 +1,9 @@
-import logging
 from functools import wraps
 
+from bluesky.plan_stubs import abs_set
+from bluesky.plan_stubs import wait as plan_wait
 from bluesky.utils import short_uid
-from bluesky.plan_stubs import wait as plan_wait, abs_set, checkpoint
+
 
 def return_to_start(*devices, perform=True):
     """
@@ -13,7 +14,7 @@ def return_to_start(*devices, perform=True):
         @wraps(func)
         def wrapper(*args, **kwargs):
             # Get the initial positions of all the inputted devices
-            initial_positions = {dev : dev.position for dev in devices}
+            initial_positions = {dev: dev.position for dev in devices}
             try:
                 return (yield from func(*args, **kwargs))
             finally:

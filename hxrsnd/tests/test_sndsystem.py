@@ -1,28 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-############
-# Standard #
-############
 import logging
-import time
-from collections import OrderedDict
-import pytest
-
-###############
-# Third Party #
-###############
-import numpy as np
-from ophyd.device import Device
-
-########
-# SLAC #
-########
-
-##########
-# Module #
-##########
-from .conftest import get_classes_in_module, fake_device
-from hxrsnd import sndsystem
 
 logger = logging.getLogger(__name__)
 

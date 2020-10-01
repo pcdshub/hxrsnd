@@ -1,27 +1,18 @@
-import sys
-import time
-import math
-import copy
-import random
-import logging
 import inspect
-import asyncio
-import threading
-from functools import wraps
+import logging
+import math
 
-import pytest
-import epics
 import numpy as np
 import pandas as pd
-import epics
-from ophyd.signal import Signal
-from ophyd.sim import (SynSignal, SynAxis, make_fake_device, fake_device_cache,
-                       FakeEpicsSignal)
-from ophyd.areadetector.base import EpicsSignalWithRBV
-from ophyd.device import Component as Cmp, Device
-from bluesky.run_engine import RunEngine
-from bluesky.tests.conftest import RE as fresh_RE
+import pytest
+from bluesky.tests.conftest import RE as fresh_RE  # noqa
 from lmfit.models import LorentzianModel
+from ophyd.areadetector.base import EpicsSignalWithRBV
+from ophyd.device import Component as Cmp
+from ophyd.device import Device
+from ophyd.signal import Signal
+from ophyd.sim import (FakeEpicsSignal, SynAxis, SynSignal, fake_device_cache,
+                       make_fake_device)
 from pcdsdevices.areadetector.detectors import PCDSAreaDetector
 
 from ..sndmotor import CalibMotor
@@ -34,20 +25,24 @@ try:
     pv = epics.PV("XCS:USR:MMS:01")
     try:
         val = pv.get()
-    except:
+    except Exception:
         val = None
-except:
+except Exception:
     val = None
+
+
 epics_subnet = val is not None
 requires_epics = pytest.mark.skipif(not epics_subnet,
                                     reason="Could not connect to sample PV")
 
-#Enable the logging level to be set from the command line
+
+# Enable the logging level to be set from the command line
 def pytest_addoption(parser):
     parser.addoption("--log", action="store", default="INFO",
                      help="Set the level of the log")
     parser.addoption("--logfile", action="store", default=None,
                      help="Write the log output to specified file path")
+
 
 class Diode(SynSignal):
     """
@@ -110,7 +105,7 @@ class SynCentroid(SynSignal):
         self.motors = motors
         self.weights = weights
         self.noise = noise_multiplier or 0.
-                
+
         def func():
             # Evaluate the positions of each motor
             pos = [m.position for m in self.motors] or [0, 0]
@@ -119,14 +114,14 @@ class SynCentroid(SynSignal):
             # Add uniform noise
             cent += int(np.round(np.random.uniform(-1, 1) * self.noise))
             return cent
-        
+
         # Instantiate the synsignal
         super().__init__(name=name, func=func, **kwargs)
-            
+
 
 class SynCamera(Device):
     """
-    Simulated camera that has centroids as components. 
+    Simulated camera that has centroids as components.
     """
     centroid_x = Cmp(SynCentroid, motors=[], weights=[1, 0.25])
     centroid_y = Cmp(SynCentroid, motors=[], weights=[1, -0.25])
@@ -134,11 +129,11 @@ class SynCamera(Device):
     def __init__(self, motor1, motor2, delay, name=None, *args, **kwargs):
         # Create the base class
         super().__init__("SYN:CAMERA", name=name, *args, **kwargs)
-        
+
         # Define the centroid components using the inputted motors
         self.centroid_x.motors = [motor1, delay]
         self.centroid_y.motors = [motor2, delay]
-        
+
         # Add them to _signals
         self._signals['centroid_x'] = self.centroid_x
         self._signals['centroid_y'] = self.centroid_y
@@ -151,44 +146,50 @@ class SynCamera(Device):
 
 class CalibTest(CalibMotor):
     motor = Cmp(SynAxis, name="test_axis")
+
     def __init__(self, *args, name="calib", m1=None, m2=None, **kwargs):
         super().__init__(*args, name="calib", **kwargs)
-        self.calib_detector=SynCamera(m1, m2, self.motor, name="camera")
-        self.calib_motors=[m1, m2,]
-        self.motor_fields=[self.motor.name]
-        self.detector_fields=['centroid_x', 'centroid_y',]
+        self.calib_detector = SynCamera(m1, m2, self.motor, name="camera")
+        self.calib_motors = [m1, m2]
+        self.motor_fields = [self.motor.name]
+        self.detector_fields = ['centroid_x', 'centroid_y']
         self.set = self.move
         for m in [self.motor] + self.calib_motors:
             m.move = m.set
+
     @property
     def position(self):
         return self.motor.position
+
     def move(self, position, *args, **kwargs):
         # Perform the calibration move
         status = self.motor.set(position, *args, *kwargs)
         if self.has_calib and self.use_calib:
             status = status & self._calib_compensate(position)
         return status
-    
+
+
 # Simulated Crystal motor that goes where you tell it
 crystal = SynAxis(name='angle')
 m1 = SynAxis(name="m1")
 m2 = SynAxis(name="m2")
 delay = SynAxis(name="delay")
 
-#Create a fixture to automatically instantiate logging setup
+
+# Create a fixture to automatically instantiate logging setup
 @pytest.fixture(scope='session', autouse=True)
 def set_level(pytestconfig):
-    #Read user input logging level
+    # Read user input logging level
     log_level = getattr(logging, pytestconfig.getoption('--log'), None)
 
-    #Report invalid logging level
+    # Report invalid logging level
     if not isinstance(log_level, int):
         raise ValueError("Invalid log level : {}".format(log_level))
 
-    #Create basic configuration
+    # Create basic configuration
     logging.basicConfig(level=log_level,
                         filename=pytestconfig.getoption('--logfile'))
+
 
 @pytest.fixture(scope='function')
 def get_calib_motor(request):
@@ -196,10 +197,11 @@ def get_calib_motor(request):
     m2 = SynAxis(name="m2")
     return CalibTest("test", m1=m1, m2=m2)
 
+
 def get_classes_in_module(module, subcls=None, blacklist=None):
     classes = []
     blacklist = blacklist or list()
-    all_classes = [cls for _, cls in inspect.getmembers(module) 
+    all_classes = [cls for _, cls in inspect.getmembers(module)
                    if cls not in blacklist]
     for cls in all_classes:
         try:
@@ -215,10 +217,12 @@ def get_classes_in_module(module, subcls=None, blacklist=None):
             pass
     return classes
 
+
 # Create a fake epics device
 def fake_device(device, name="TEST"):
     device = make_fake_device(device)
     return device(name, name=name)
+
 
 def fake_detector(detector, name="TEST"):
     """Set the plugin_type signal to be _plugin_type for all plugins."""
@@ -236,6 +240,7 @@ def fake_detector(detector, name="TEST"):
     detector = make_fake_device(detector)
     return detector(name, name=name)
 
+
 # Hotfix area detector plugins for tests
 for comp in (PCDSAreaDetector.image1, PCDSAreaDetector.stats2):
     plugin_class = comp.cls
@@ -245,12 +250,13 @@ for comp in (PCDSAreaDetector.image1, PCDSAreaDetector.stats2):
 fake_device_cache[EpicsSignalWithRBV] = FakeEpicsSignal
 
 test_df_scan = pd.DataFrame(
-    [[  -1,  0,  0,   -0.25,    0.25],
-     [-0.5,  0,  0,  -0.125,   0.125],
-     [   0,  0,  0,       0,       0],
-     [ 0.5,  0,  0,   0.125,  -0.125],
-     [   1,  0,  0,    0.25,   -0.25]],
-     index = np.linspace(-1, 1, 5),
-     columns = ["delay", "m1_pre", "m2_pre", "camera_centroid_x", 
-                "camera_centroid_y"]
-    )
+    [[-1, 0, 0, -0.25, 0.25],
+     [-0.5, 0, 0, -0.125, 0.125],
+     [0, 0, 0, 0, 0],
+     [0.5, 0, 0, 0.125, -0.125],
+     [1, 0, 0, 0.25, -0.25]
+     ],
+    index=np.linspace(-1, 1, 5),
+    columns=["delay", "m1_pre", "m2_pre", "camera_centroid_x",
+             "camera_centroid_y"]
+)

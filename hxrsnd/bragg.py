@@ -2,23 +2,9 @@
 Script to hold functions copied over from blutils that pertain to computing
 the bragg angle of the HXRSnD crystals.
 """
-############
-# Standard #
-############
 import logging
 
-###############
-# Third Party #
-###############
 import numpy as np
-
-########
-# SLAC #
-########
-
-##########
-# Module #
-##########
 
 logger = logging.getLogger(__name__)
 
