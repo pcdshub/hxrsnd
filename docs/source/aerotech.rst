@@ -7,34 +7,19 @@ Base Class
 
 The base aerotech class is where all of the core functionality is implemented.
 
-.. autoclass:: hxrsnd.aerotech.AeroBase
-   :members:
-   :show-inheritance:
+.. autosummary::
+
+    ~hxrsnd.aerotech.AeroBase
 
 
 Subclasses
 ==========
 
-.. autoclass:: hxrsnd.aerotech.InterlockedAero
-   :members:
-   :show-inheritance:
+.. autosummary::
 
-.. autoclass:: hxrsnd.aerotech.LinearAero
-   :members:
-   :show-inheritance:
-
-.. autoclass:: hxrsnd.aerotech.InterLinearAero
-   :members:
-   :show-inheritance:
-
-.. autoclass:: hxrsnd.aerotech.RotationAero
-   :members:
-   :show-inheritance:
-
-.. autoclass:: hxrsnd.aerotech.InterRotationAero
-   :members:
-   :show-inheritance:
-
-.. autoclass:: hxrsnd.aerotech.DiodeAero
-   :members:
-   :show-inheritance:
+    ~hxrsnd.aerotech.InterlockedAero
+    ~hxrsnd.aerotech.LinearAero
+    ~hxrsnd.aerotech.InterLinearAero
+    ~hxrsnd.aerotech.RotationAero
+    ~hxrsnd.aerotech.InterRotationAero
+    ~hxrsnd.aerotech.DiodeAero

@@ -7,8 +7,9 @@ Base Tower Class
 
 All the towers inherit fromt the ``TowerBase`` class.
 
-.. autoclass:: hxrsnd.tower.TowerBase
-   :members:
+.. autosummary::
+
+    ~hxrsnd.tower.TowerBase
 
 
 Delay Tower
@@ -16,9 +17,10 @@ Delay Tower
 
 Delay towers ``snd.t1`` and ``snd.t4``.
 
-.. autoclass:: hxrsnd.tower.DelayTower
-   :members:
-   :show-inheritance:
+
+.. autosummary::
+
+    ~hxrsnd.tower.DelayTower
 
 
 Channel Cut Tower
@@ -26,6 +28,7 @@ Channel Cut Tower
 
 Channel cut towers ``snd.t2`` and ``snd.t3``.
 
-.. autoclass:: hxrsnd.tower.ChannelCutTower
-   :members:
-   :show-inheritance:
+
+.. autosummary::
+
+    ~hxrsnd.tower.ChannelCutTower

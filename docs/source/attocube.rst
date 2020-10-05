@@ -7,21 +7,16 @@ Base Class
 
 The base attocube class is where all of the core functionality is implemented.
 
-.. autoclass:: hxrsnd.attocube.EccBase
-   :members:
-   :show-inheritance:
+.. autosummary::
+
+    ~hxrsnd.attocube.EccBase
 
 
 Subclasses
 ==========
 
-.. autoclass:: hxrsnd.attocube.TranslationEcc
-   :members:
-   :show-inheritance:
+.. autosummary::
 
-.. autoclass:: hxrsnd.attocube.GoniometerEcc
-   :members:
-   :show-inheritance:
-
-.. autoclass:: hxrsnd.attocube.DiodeEcc
-   :members:
+    ~hxrsnd.attocube.TranslationEcc
+    ~hxrsnd.attocube.GoniometerEcc
+    ~hxrsnd.attocube.DiodeEcc
