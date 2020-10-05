@@ -1,0 +1,4 @@
+sphinx
+sphinx_rtd_theme
+doctr
+git+https://github.com/bluesky/ophyd.git@e168aea65213cd39bc5266c7b26da7a1c686463d
