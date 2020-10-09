@@ -366,7 +366,7 @@ class EccBase(SndMotor, PositionerBase):
             Status object for the move.
         """
         try:
-            status = self.move(position, *args, **kwargs)
+            status = super().mv(position, *args, **kwargs)
 
             # Notify the user that a motor has completed or the command is sent
             if print_move:
@@ -443,9 +443,11 @@ class EccBase(SndMotor, PositionerBase):
 
         # Check if it is within the soft limits
         if not (self.low_limit <= position <= self.high_limit):
-            err_str = "Requested value {0} outside of range: [{1}, {2}]"
-            logger.warn(err_str.format(position, self.low_limit,
-                                       self.high_limit))
+            err_str = (
+                "Requested value {0} outside of range: [{1}, {2}]"
+                "".format(position, self.low_limit, self.high_limit)
+            )
+            logger.warn(err_str)
             raise LimitError(err_str)
 
     def stop(self, success=False, ret_status=False, print_set=True):
