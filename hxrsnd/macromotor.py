@@ -281,8 +281,8 @@ class MacroBase(SndMotor):
             List of status objects for each motor that was involved in the move.
         """
         try:
-            return self.move(position, wait=wait, verify_move=verify_move,
-                             use_diag=use_diag, *args, **kwargs)
+            return super().mv(position, wait=wait, verify_move=verify_move,
+                              use_diag=use_diag, *args, **kwargs)
         # Catch all the common motor exceptions
         except LimitError:
             logger.warning("Requested move is outside the soft limits")
