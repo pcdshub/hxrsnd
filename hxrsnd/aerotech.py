@@ -234,8 +234,7 @@ class AeroBase(SndEpicsMotor):
         return super().move(position, wait=wait, timeout=timeout, *args,
                             **kwargs)
 
-    def mv(self, position, wait=True, print_move=True,
-           *args, **kwargs):
+    def mv(self, position, wait=True, print_move=True, *args, **kwargs):
         """
         Move to a specified position, optionally waiting for motion to
         complete. mv() is different from move() by catching all the common
@@ -278,7 +277,7 @@ class AeroBase(SndEpicsMotor):
             Status object for the move.
         """
         try:
-            status = self.move(position, wait=wait, *args, **kwargs)
+            status = super().mv(position, wait=wait, *args, **kwargs)
 
             # Notify the user that a motor has completed or the command is sent
             if print_move:
