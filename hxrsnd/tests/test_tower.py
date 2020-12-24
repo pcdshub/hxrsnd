@@ -27,9 +27,9 @@ def test_DelayTower_does_not_move_if_motors_not_ready():
     tower = fake_device(DelayTower, "TEST:SND:T1")
     tower.disable()
     time.sleep(.5)
-    tower.tth.limits = (-100, 100)
-    tower.th1.limits = (-100, 100)
-    tower.th2.limits = (-100, 100)
+    tower.tth.user_setpoint.sim_set_limits((-100, 100))
+    tower.th1.user_setpoint.sim_set_limits((-100, 100))
+    tower.th2.user_setpoint.sim_set_limits((-100, 100))
 
     tower.tth.user_setpoint.check_value = lambda x: None
     tower.th1.user_setpoint.check_value = lambda x: None
@@ -47,7 +47,7 @@ def test_ChannelCutTower_does_not_move_if_motors_not_ready():
     tower = fake_device(ChannelCutTower, "TEST:SND:T1")
     tower.disable()
     time.sleep(.5)
-    tower.th.limits = (-100, 100)
+    tower.th.user_setpoint.sim_set_limits((-100, 100))
     tower.th.user_setpoint.check_value = lambda x: None
 
     with pytest.raises(MotorDisabled):
