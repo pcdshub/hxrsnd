@@ -23,6 +23,9 @@ from .utils import flatten, nan_if_no_parent
 logger = logging.getLogger(__name__)
 
 
+_UNSET = object()
+
+
 class MacroBase(SndMotor):
     """
     Base pseudo-motor class for the SnD macro-motions.
@@ -43,6 +46,8 @@ class MacroBase(SndMotor):
         super().__init__(prefix, name=name, read_attrs=read_attrs, *args,
                          **kwargs)
         self._status = NullStatus()
+        self._use_diag = True
+        self._verify_move_option = False
 
         # Make sure this is used
         if not self.parent:
@@ -52,6 +57,24 @@ class MacroBase(SndMotor):
         else:
             self._delay_towers = [self.parent.t1, self.parent.t4]
             self._channelcut_towers = [self.parent.t2, self.parent.t3]
+
+    @property
+    def verify_move(self):
+        """Verify that motion has completed after each move request."""
+        return self._verify_move_option
+
+    @verify_move.setter
+    def verify_move(self, value):
+        self._verify_move_option = bool(value)
+
+    @property
+    def use_diag(self):
+        """Move the diagnostic motors to align with the beam."""
+        return self._use_diag
+
+    @use_diag.setter
+    def use_diag(self, value):
+        self._use_diag = bool(value)
 
     @property
     @nan_if_no_parent
@@ -130,8 +153,8 @@ class MacroBase(SndMotor):
         status_wait(status)
         logger.info("Move completed.")
 
-    def set(self, position, wait=True, verify_move=True, ret_status=True,
-            use_diag=True, use_calib=True):
+    def set(self, position, wait=True, verify_move=_UNSET, ret_status=True,
+            use_diag=_UNSET):
         """
         Moves the macro-motor to the inputted position, optionally waiting for
         the motors to complete their moves.
@@ -156,19 +179,18 @@ class MacroBase(SndMotor):
         use_diag : bool, optional
             Move the daignostic motors to align with the beam.
 
-        use_calib : bool, optional
-            Use the configurated calibration parameters
-
         Returns
         -------
         status : list
             List of status objects for each motor that was involved in the move.
         """
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
+        verify_move = (verify_move if verify_move is not _UNSET
+                       else self._verify_move_option)
         return self.move(position, wait=wait, verify_move=verify_move,
-                         ret_status=ret_status, use_diag=use_diag,
-                         use_calib=use_calib)
+                         use_diag=use_diag)
 
-    def move(self, position, wait=True, verify_move=True, use_diag=True,
+    def move(self, position, wait=True, verify_move=_UNSET, use_diag=_UNSET,
              *args, **kwargs):
         """
         Moves the macro-motor to the inputted position, optionally waiting for
@@ -188,20 +210,20 @@ class MacroBase(SndMotor):
             then prompts the user to accept the proposal before changing the
             system.
 
-        ret_status : bool, optional
-            Return the status object of the move.
-
         use_diag : bool, optional
             Move the daignostic motors to align with the beam.
-
-        use_calib : bool, optional
-            Use the configurated calibration parameters
 
         Returns
         -------
         status : list
             List of status objects for each motor that was involved in the move.
         """
+        if use_diag is _UNSET:
+            use_diag = self.use_diag
+
+        if verify_move is _UNSET:
+            verify_move = self.verify_move
+
         # Check the towers and diagnostics
         diag_pos = self._check_towers_and_diagnostics(position,
                                                       use_diag=use_diag)
@@ -224,7 +246,7 @@ class MacroBase(SndMotor):
 
         return status
 
-    def mv(self, position, wait=True, verify_move=True, use_diag=True,
+    def mv(self, position, wait=True, verify_move=_UNSET, use_diag=_UNSET,
            *args, **kwargs):
         """
         Moves the macro parameters to the inputted positions. For energy, this
@@ -281,8 +303,15 @@ class MacroBase(SndMotor):
             List of status objects for each motor that was involved in the move.
         """
         try:
-            return self.move(position, wait=wait, verify_move=verify_move,
-                             use_diag=use_diag, *args, **kwargs)
+            if use_diag is not _UNSET:
+                old_use_diag = self.use_diag
+                self.use_diag = use_diag
+
+            if verify_move is not _UNSET:
+                old_verify_move = self.verify_move
+                self.verify_move = verify_move
+
+            return super().mv(position, wait=wait, *args, **kwargs)
         # Catch all the common motor exceptions
         except LimitError:
             logger.warning("Requested move is outside the soft limits")
@@ -298,6 +327,11 @@ class MacroBase(SndMotor):
         except BadN2Pressure:
             logger.warning("Cannot move '{0}' - pressure in a tower is bad."
                            "".format(self.desc))
+        finally:
+            if use_diag is not _UNSET:
+                self.use_diag = old_use_diag
+            if verify_move is not _UNSET:
+                self.verify_move = old_verify_move
 
     def set_position(self, *args, **kwargs):
         """
@@ -528,7 +562,7 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
         return delay
 
     def _verify_move(self, delay, string="", use_header=True, confirm_move=True,
-                     use_diag=True):
+                     use_diag=_UNSET):
         """
         Prints a summary of the current positions and the proposed positions
         of the delay motors based on the inputs. It then prompts the user to
@@ -556,6 +590,7 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
         allowed : bool
             True if the move is approved, False if the move is not.
         """
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
         # Add a header to the output
         if use_header:
             string += self._add_verify_header(string)
@@ -578,7 +613,7 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
         else:
             return string
 
-    def _check_towers_and_diagnostics(self, delay, use_diag=True):
+    def _check_towers_and_diagnostics(self, delay, use_diag=_UNSET):
         """
         Checks the staus of the delay stages on the delay towers. Raises the
         basic motor errors if any of the motors are not ready to be moved.
@@ -613,6 +648,7 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
         position_dd : list
             Position to move the delay diagnostic to.
         """
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
         # Get the desired length for the delay stage
         length = self._delay_to_length(delay)
 
@@ -626,7 +662,7 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
             self.parent.dd.x.check_status(position_dd)
             return position_dd
 
-    def _move_towers_and_diagnostics(self, delay, position_dd, use_diag=True):
+    def _move_towers_and_diagnostics(self, delay, position_dd, use_diag=_UNSET):
         """
         Moves the delay stages and delay diagnostic according to the inputted
         delay and diagnostic position.
@@ -647,6 +683,7 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
         status : list
             Nested list of status objects from each tower.
         """
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
         # Get the desired length for the delay stage
         length = self._delay_to_length(delay)
 
@@ -679,8 +716,8 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
         """
         return self._length_to_delay()
 
-    def set_position(self, delay=None, print_set=True, use_diag=True,
-                     verify_move=True):
+    def set_position(self, delay=None, print_set=True, use_diag=_UNSET,
+                     verify_move=_UNSET):
         """
         Sets the current positions of the motors in the towers to be the
         calculated positions based on the inputted energies or delay.
@@ -698,6 +735,10 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
             then prompts the user to accept the proposal before changing the
             system.
         """
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
+        verify_move = (verify_move if verify_move is not _UNSET
+                       else self._verify_move_option)
+
         # Prompt the user about the move before making it
         if verify_move and self._verify_move(delay, use_diag=use_diag):
             return
@@ -779,7 +820,7 @@ class Energy1Macro(DelayTowerMacro):
         return delay
 
     def _verify_move(self, E1, string="", use_header=True, confirm_move=True,
-                     use_diag=True):
+                     use_diag=_UNSET):
         """
         Prints a summary of the current positions and the proposed positions
         of the motors based on the inputs. It then prompts the user to confirm
@@ -807,6 +848,7 @@ class Energy1Macro(DelayTowerMacro):
         allowed : bool
             True if the move is approved, False if the move is not.
         """
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
         # Add a header to the output
         if use_header:
             string += self._add_verify_header(string)
@@ -829,7 +871,7 @@ class Energy1Macro(DelayTowerMacro):
         else:
             return string
 
-    def _check_towers_and_diagnostics(self, E1, use_diag=True):
+    def _check_towers_and_diagnostics(self, E1, use_diag=_UNSET):
         """
         Checks the staus of the delay tower energy motors. Raises the basic
         motor errors if any of the motors are not ready to be moved
@@ -864,6 +906,9 @@ class Energy1Macro(DelayTowerMacro):
         position_dd : float or None
             Position to move the delay diagnostic to.
         """
+
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
+
         # Check each of the delay towers
         for tower in self._delay_towers:
             tower.check_status(energy=E1)
@@ -874,7 +919,7 @@ class Energy1Macro(DelayTowerMacro):
             self.parent.dd.x.check_status(position_dd)
             return position_dd
 
-    def _move_towers_and_diagnostics(self, E1, position_dd, use_diag=True):
+    def _move_towers_and_diagnostics(self, E1, position_dd, use_diag=_UNSET):
         """
         Moves the delay line energy motors and diagnostic to the inputted energy
         and diagnostic position.
@@ -895,6 +940,8 @@ class Energy1Macro(DelayTowerMacro):
         status : list
             Nested list of status objects from each tower.
         """
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
+
         # Move the towers to the specified energy
         status = [tower.set_energy(E1, wait=False, check_status=False) for
                   tower in self._delay_towers]
@@ -940,8 +987,8 @@ class Energy1Macro(DelayTowerMacro):
         """
         return self.parent.t1.energy
 
-    def set_position(self, E1=None, print_set=True, verify_move=True,
-                     use_diag=True):
+    def set_position(self, E1=None, print_set=True, verify_move=_UNSET,
+                     use_diag=_UNSET):
         """
         Sets the current positions of the motors in the towers to be the
         calculated positions based on the inputted energies or delay.
@@ -962,6 +1009,10 @@ class Energy1Macro(DelayTowerMacro):
         use_diag : bool, optional
             Move the daignostic motors to align with the beam.
         """
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
+        verify_move = (verify_move if verify_move is not _UNSET
+                       else self._verify_move_option)
+
         # Prompt the user about the move before making it
         if verify_move and self._verify_move(E1, use_diag=use_diag):
             return
@@ -988,7 +1039,7 @@ class Energy1CCMacro(Energy1Macro):
     """
 
     def _verify_move(self, E1, string="", use_header=True, confirm_move=True,
-                     use_diag=True):
+                     use_diag=_UNSET):
         """
         Prints a summary of the current positions and the proposed positions
         of the motors based on the inputs. It then prompts the user to confirm
@@ -1016,6 +1067,7 @@ class Energy1CCMacro(Energy1Macro):
         allowed : bool
             True if the move is approved, False if the move is not.
         """
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
         # Add a header to the output
         if use_header:
             string += self._add_verify_header(string)
@@ -1036,7 +1088,7 @@ class Energy1CCMacro(Energy1Macro):
         else:
             return string
 
-    def _check_towers_and_diagnostics(self, E1, use_diag=True):
+    def _check_towers_and_diagnostics(self, E1, use_diag=_UNSET):
         """
         Checks the staus of the delay tower energy motors. Raises the basic
         motor errors if any of the motors are not ready to be moved
@@ -1071,6 +1123,7 @@ class Energy1CCMacro(Energy1Macro):
         position_dd : float or None
             Position to move the delay diagnostic to.
         """
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
         # Check each of the delay towers
         for tower in self._delay_towers:
             tower.tth.check_status(2*bragg_angle(E1))
@@ -1081,7 +1134,7 @@ class Energy1CCMacro(Energy1Macro):
             self.parent.dd.x.check_status(position_dd)
             return position_dd
 
-    def _move_towers_and_diagnostics(self, E1, position_dd, use_diag=True):
+    def _move_towers_and_diagnostics(self, E1, position_dd, use_diag=_UNSET):
         """
         Moves the delay line energy motors and diagnostic to the inputted energy
         and diagnostic position.
@@ -1102,6 +1155,7 @@ class Energy1CCMacro(Energy1Macro):
         status : list
             Nested list of status objects from each tower.
         """
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
         # Move the towers to the specified energy
         status = [tower.tth.move(2*bragg_angle(E1), wait=False,
                                  check_status=False)
@@ -1115,8 +1169,8 @@ class Energy1CCMacro(Energy1Macro):
 
         return status
 
-    def set_position(self, E1=None, print_set=True, verify_move=True,
-                     use_diag=True):
+    def set_position(self, E1=None, print_set=True, verify_move=_UNSET,
+                     use_diag=_UNSET):
         """
         Sets the current positions of the motors in the towers to be the
         calculated positions based on the inputted energies or delay.
@@ -1137,6 +1191,9 @@ class Energy1CCMacro(Energy1Macro):
         use_diag : bool, optional
             Move the daignostic motors to align with the beam.
         """
+        verify_move = (verify_move if verify_move is not _UNSET
+                       else self._verify_move_option)
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
         # Prompt the user about the move before making it
         if verify_move and self._verify_move(E1, use_diag=use_diag):
             return
@@ -1214,7 +1271,7 @@ class Energy2Macro(MacroBase):
     #     return is_aligned
 
     def _verify_move(self, E2, string="", use_header=True, confirm_move=True,
-                     use_diag=True):
+                     use_diag=_UNSET):
         """
         Prints a summary of the current positions and the proposed positions
         of the motors based on the inputs. It then prompts the user to confirm
@@ -1242,6 +1299,8 @@ class Energy2Macro(MacroBase):
         allowed : bool
             True if the move is approved, False if the move is not.
         """
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
+
         # Add a header to the output
         if use_header:
             string += self._add_verify_header(string)
@@ -1266,7 +1325,7 @@ class Energy2Macro(MacroBase):
         else:
             return string
 
-    def _check_towers_and_diagnostics(self, E2, use_diag=True):
+    def _check_towers_and_diagnostics(self, E2, use_diag=_UNSET):
         """
         Checks the staus of the channel cut tower energy motors. Raises the
         basic motor errors if any of the motors are not ready to be moved.
@@ -1301,6 +1360,8 @@ class Energy2Macro(MacroBase):
         position_dcc : float or None
             Position to move the channel cut diagnostic to.
         """
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
+
         # Check each of the channel cut towers
         for tower in self._channelcut_towers:
             tower.check_status(energy=E2)
@@ -1311,7 +1372,7 @@ class Energy2Macro(MacroBase):
             self.parent.dcc.x.check_status(position_dcc)
             return position_dcc
 
-    def _move_towers_and_diagnostics(self, E2, position_dcc, use_diag=True):
+    def _move_towers_and_diagnostics(self, E2, position_dcc, use_diag=_UNSET):
         """
         Moves the channel cut line energy motors and diagnostic to the inputted
         energy and diagnostic position.
@@ -1332,6 +1393,7 @@ class Energy2Macro(MacroBase):
         status : list
             Nested list of status objects from each tower.
         """
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
         status = []
         # Move the channel cut towers
         status += [tower.set_energy(E2, wait=False, check_status=False) for
@@ -1357,8 +1419,8 @@ class Energy2Macro(MacroBase):
         """
         return self.parent.t2.energy
 
-    def set_position(self, E2=None, print_set=True, verify_move=True,
-                     use_diag=True):
+    def set_position(self, E2=None, print_set=True, verify_move=_UNSET,
+                     use_diag=_UNSET):
         """
         Sets the current positions of the motors in the towers to be the
         calculated positions based on the inputted energies or delay.
@@ -1379,6 +1441,9 @@ class Energy2Macro(MacroBase):
         use_diag : bool, optional
             Move the daignostic motors to align with the beam.
         """
+        verify_move = (verify_move if verify_move is not _UNSET
+                       else self._verify_move_option)
+        use_diag = use_diag if use_diag is not _UNSET else self.use_diag
         # Prompt the user about the move before making it
         if verify_move and self._verify_move(E2, use_diag=use_diag):
             return

@@ -19,26 +19,19 @@ env:
     - CONDA_RECIPE_FOLDER="conda-recipe"
     # Extra dependencies needed to run the tests which are not included
     # at the recipe and dev-requirements.txt. E.g. PyQt
-    - CONDA_EXTRAS=""
+    - CONDA_EXTRAS="pip"
     # Requirements file with contents for tests dependencies
-    - CONDA_REQUIREMENTS="dev-requirements.txt"
+    - CONDA_REQUIREMENTS="doc-requirements.txt dev-requirements.txt"
 
     # Extra dependencies needed to run the test with Pip (similar to
     # CONDA_EXTRAS) but for pip
     - PIP_EXTRAS=""
 
-# Uncomment this block if you would like to make the Python PIP test an allowed
-# failure
-#jobs:
-#  allow_failures:
-#    # This makes the PIP based Python 3.6 optional for passing.
-#    # Remove this block if passing tests with PIP is mandatory for your
-#    # package
-#    - name: "Python 3.6 - PIP"
+jobs:
+  allow_failures:
+    - name: "Python 3.6 - PIP"
 
 import:
-  # If your project requires X11 leave the following import
-  - pcdshub/pcds-ci-helpers:travis/shared_configs/setup-env-ui.yml
   # This import enables a set of standard python jobs including:
   # - Build
   #   - Anaconda Package Build

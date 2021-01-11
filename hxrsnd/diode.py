@@ -7,7 +7,6 @@ import numpy as np
 from ophyd import EpicsSignalRO
 from ophyd.device import Component as C
 from ophyd.device import FormattedComponent as FC
-from pcdsdevices.areadetector.detectors import PCDSAreaDetector
 
 from .aerotech import DiodeAero
 from .snddevice import SndDevice
@@ -122,7 +121,6 @@ class HamamatsuXYMotionCamDiode(SndDevice):
     diode = C(HamamatsuDiode, ":DIODE")
     x = C(DiodeAero, ":X")
     y = C(DiodeAero, ":Y")
-    cam = C(PCDSAreaDetector, ":CAM:", lazy=True)
 
     def __init__(self, prefix, name=None, block_pos=5, pos_func=None,
                  block_atol=0.001, desc=None, *args, **kwargs):
