@@ -1,3 +1,11 @@
+master/_modules/hxrsnd/bragg.html
+master/_modules/hxrsnd/exceptions.html
+master/_modules/hxrsnd/plans/alignment.html
+master/_modules/hxrsnd/plans/calibration.html
+master/_modules/hxrsnd/plans/plan_stubs.html
+master/_modules/hxrsnd/plans/scans.html
+master/_modules/hxrsnd/utils.html
+master/_modules/index.html
 master/_sources/aerotech.rst.txt
 master/_sources/alignment.rst.txt
 master/_sources/attocube.rst.txt

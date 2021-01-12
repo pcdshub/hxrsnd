@@ -45,6 +45,7 @@
    bragg.rst
    utils.rst
    exceptions.rst
+   api.rst
 
 
 .. toctree::

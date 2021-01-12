@@ -1,13 +1,13 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="python" >
 <head>
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Calculations &mdash; HXRSnD 0.2.3 documentation</title>
+  <title>Calculations &mdash; HXRSnD  documentation</title>
   
 
   
@@ -61,10 +61,6 @@
 
           
             
-            
-              <div class="version">
-                0.2.3
-              </div>
             
           
 
@@ -221,44 +217,50 @@ are in following script:</p>
 script should contain all the necessary components to perform the calculation.</p>
 <dl class="py function">
 <dt id="hxrsnd.bragg.bragg_angle">
-<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">bragg_angle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ID</span><span class="o">=</span><span class="default_value">'Si'</span></em>, <em class="sig-param"><span class="n">hkl</span><span class="o">=</span><span class="default_value">(2, 2, 0)</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.bragg.bragg_angle" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">bragg_angle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ID</span><span class="o">=</span><span class="default_value">'Si'</span></em>, <em class="sig-param"><span class="n">hkl</span><span class="o">=</span><span class="default_value">(2, 2, 0)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/bragg.html#bragg_angle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.bragg.bragg_angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the Bragg angle (deg) of the specified material, reflection and
 photon energy.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>E</strong> (<em>float</em><em>, </em><em>optional</em>) – Photon energy in eV or keV (default is LCLS value)</p></li>
-<li><p><strong>ID</strong> (<em>str</em><em>, </em><em>optional</em>) – Chemical fomula : ‘Si’</p></li>
-<li><p><strong>hlk</strong> (<em>tuple</em><em>, </em><em>optional</em>) – The reflection : (2,2,0)</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>E</strong><span class="classifier">float, optional</span></dt><dd><p>Photon energy in eV or keV (default is LCLS value)</p>
+</dd>
+<dt><strong>ID</strong><span class="classifier">str, optional</span></dt><dd><p>Chemical fomula : 'Si'</p>
+</dd>
+<dt><strong>hlk</strong><span class="classifier">tuple, optional</span></dt><dd><p>The reflection : (2,2,0)</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>two_theta</strong> – Expected bragg angle</p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>two_theta</strong><span class="classifier">float</span></dt><dd><p>Expected bragg angle</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="hxrsnd.bragg.bragg_energy">
-<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">bragg_energy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theta</span></em>, <em class="sig-param"><span class="n">ID</span><span class="o">=</span><span class="default_value">'Si'</span></em>, <em class="sig-param"><span class="n">hkl</span><span class="o">=</span><span class="default_value">(2, 2, 0)</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.bragg.bragg_energy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">bragg_energy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theta</span></em>, <em class="sig-param"><span class="n">ID</span><span class="o">=</span><span class="default_value">'Si'</span></em>, <em class="sig-param"><span class="n">hkl</span><span class="o">=</span><span class="default_value">(2, 2, 0)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/bragg.html#bragg_energy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.bragg.bragg_energy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the photon energy that satisfies the Bragg condition of the
 specified material, reflection and theta angle.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>theta</strong> (<em>float</em><em>, </em><em>optional</em>) – The scattering angle in degrees</p></li>
-<li><p><strong>ID</strong> (<em>str</em><em>, </em><em>optional</em>) – Chemical fomula : ‘Si’</p></li>
-<li><p><strong>hlk</strong> (<em>tuple</em><em>, </em><em>optional</em>) – The reflection : (2,2,0)</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>theta</strong><span class="classifier">float, optional</span></dt><dd><p>The scattering angle in degrees</p>
+</dd>
+<dt><strong>ID</strong><span class="classifier">str, optional</span></dt><dd><p>Chemical fomula : 'Si'</p>
+</dd>
+<dt><strong>hlk</strong><span class="classifier">tuple, optional</span></dt><dd><p>The reflection : (2,2,0)</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>E</strong> – Photon energy in eV</p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>E</strong><span class="classifier">float, optional</span></dt><dd><p>Photon energy in eV</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float, optional</p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -270,71 +272,85 @@ specified material, reflection and theta angle.</p>
 macromotors. These were used to used to perform quick position verification.</p>
 <dl class="py function">
 <dt id="hxrsnd.bragg.snd_L">
-<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">snd_L</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E1</span></em>, <em class="sig-param"><span class="n">E2</span></em>, <em class="sig-param"><span class="n">delay</span></em>, <em class="sig-param"><span class="n">gap</span><span class="o">=</span><span class="default_value">55</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.bragg.snd_L" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">snd_L</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E1</span></em>, <em class="sig-param"><span class="n">E2</span></em>, <em class="sig-param"><span class="n">delay</span></em>, <em class="sig-param"><span class="n">gap</span><span class="o">=</span><span class="default_value">55</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/bragg.html#snd_L"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.bragg.snd_L" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the theta angles of the towers and the delay length based on the
 desired energy and delay.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>E1</strong> (<em>float</em>) – Energy of the delay branch in eV</p></li>
-<li><p><strong>E2</strong> (<em>float</em>) – Energy of the channel-cut branch in eV</p></li>
-<li><p><strong>delay</strong> (<em>float</em>) – Delay of the system in picoseconds</p></li>
-<li><p><strong>gap</strong> (<em>float</em><em>, </em><em>optional</em>) – Distance between the channel-cut crystals</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>E1</strong><span class="classifier">float</span></dt><dd><p>Energy of the delay branch in eV</p>
+</dd>
+<dt><strong>E2</strong><span class="classifier">float</span></dt><dd><p>Energy of the channel-cut branch in eV</p>
+</dd>
+<dt><strong>delay</strong><span class="classifier">float</span></dt><dd><p>Delay of the system in picoseconds</p>
+</dd>
+<dt><strong>gap</strong><span class="classifier">float, optional</span></dt><dd><p>Distance between the channel-cut crystals</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>theta_L</strong> (<em>float</em>) – The necessary angle of the delay branch in degrees.</p></li>
-<li><p><strong>theta_cc</strong> (<em>float</em>) – The necessary angle of the channel-cut branch in degrees.</p></li>
-<li><p><strong>L</strong> (<em>float</em>) – The necessary length of the delay crystals in mm.</p></li>
-</ul>
-</p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>theta_L</strong><span class="classifier">float</span></dt><dd><p>The necessary angle of the delay branch in degrees.</p>
+</dd>
+<dt><strong>theta_cc</strong><span class="classifier">float</span></dt><dd><p>The necessary angle of the channel-cut branch in degrees.</p>
+</dd>
+<dt><strong>L</strong><span class="classifier">float</span></dt><dd><p>The necessary length of the delay crystals in mm.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="hxrsnd.bragg.snd_diag">
-<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">snd_diag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E1</span></em>, <em class="sig-param"><span class="n">E2</span></em>, <em class="sig-param"><span class="n">delay</span></em>, <em class="sig-param"><span class="n">gap</span><span class="o">=</span><span class="default_value">55</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.bragg.snd_diag" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">snd_diag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E1</span></em>, <em class="sig-param"><span class="n">E2</span></em>, <em class="sig-param"><span class="n">delay</span></em>, <em class="sig-param"><span class="n">gap</span><span class="o">=</span><span class="default_value">55</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/bragg.html#snd_diag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.bragg.snd_diag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the positions of the middle diagnostics of the system based on
 the inputted energy and delay.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>E1</strong> (<em>float</em>) – Energy of the delay branch in eV</p></li>
-<li><p><strong>E2</strong> (<em>float</em>) – Energy of the channel-cut branch in eV</p></li>
-<li><p><strong>delay</strong> (<em>float</em>) – Delay of the system in picoseconds</p></li>
-<li><p><strong>gap</strong> (<em>float</em><em>, </em><em>optional</em>) – Distance between the channel-cut crystals</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>E1</strong><span class="classifier">float</span></dt><dd><p>Energy of the delay branch in eV</p>
+</dd>
+<dt><strong>E2</strong><span class="classifier">float</span></dt><dd><p>Energy of the channel-cut branch in eV</p>
+</dd>
+<dt><strong>delay</strong><span class="classifier">float</span></dt><dd><p>Delay of the system in picoseconds</p>
+</dd>
+<dt><strong>gap</strong><span class="classifier">float, optional</span></dt><dd><p>Distance between the channel-cut crystals</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>dd_x</strong> (<em>float</em>) – The necessary position of the middle delay diagnostic in mm</p></li>
-<li><p><strong>dcc_x</strong> (<em>float</em>) – The necessary position of the middle channel-cut diagnostic in mm</p></li>
-</ul>
-</p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>dd_x</strong><span class="classifier">float</span></dt><dd><p>The necessary position of the middle delay diagnostic in mm</p>
+</dd>
+<dt><strong>dcc_x</strong><span class="classifier">float</span></dt><dd><p>The necessary position of the middle channel-cut diagnostic in mm</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="hxrsnd.bragg.snd_delay">
-<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">snd_delay</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E1</span></em>, <em class="sig-param"><span class="n">E2</span></em>, <em class="sig-param"><span class="n">L</span></em>, <em class="sig-param"><span class="n">gap</span><span class="o">=</span><span class="default_value">55</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.bragg.snd_delay" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">snd_delay</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E1</span></em>, <em class="sig-param"><span class="n">E2</span></em>, <em class="sig-param"><span class="n">L</span></em>, <em class="sig-param"><span class="n">gap</span><span class="o">=</span><span class="default_value">55</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/bragg.html#snd_delay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.bragg.snd_delay" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the delay of the system based on the inputted energies and the
 delay length.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>E1</strong> (<em>float</em>) – Energy of the delay branch in eV</p></li>
-<li><p><strong>E2</strong> (<em>float</em>) – Energy of the channel-cut branch in eV</p></li>
-<li><p><strong>L</strong> (<em>float</em>) – Position of the delay crystals in mm</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>E1</strong><span class="classifier">float</span></dt><dd><p>Energy of the delay branch in eV</p>
+</dd>
+<dt><strong>E2</strong><span class="classifier">float</span></dt><dd><p>Energy of the channel-cut branch in eV</p>
+</dd>
+<dt><strong>L</strong><span class="classifier">float</span></dt><dd><p>Position of the delay crystals in mm</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>delay</strong> – The delay of the system in picoseconds</p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>delay</strong><span class="classifier">float</span></dt><dd><p>The delay of the system in picoseconds</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -356,7 +372,7 @@ delay length.</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, SLAC National Accelerator Laboratory.
+        &#169; Copyright 2021, SLAC National Accelerator Laboratory.
 
     </p>
   </div>

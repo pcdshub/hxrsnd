@@ -1,13 +1,13 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="python" >
 <head>
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Miscellaneous &mdash; HXRSnD 0.2.3 documentation</title>
+  <title>Miscellaneous &mdash; HXRSnD  documentation</title>
   
 
   
@@ -61,10 +61,6 @@
 
           
             
-            
-              <div class="version">
-                0.2.3
-              </div>
             
           
 
@@ -208,22 +204,26 @@
 <h1>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="hxrsnd.plans.plan_stubs.euclidean_distance">
-<code class="sig-prename descclassname">hxrsnd.plans.plan_stubs.</code><code class="sig-name descname">euclidean_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">device</span></em>, <em class="sig-param"><span class="n">device_fields</span></em>, <em class="sig-param"><span class="n">targets</span></em>, <em class="sig-param"><span class="n">average</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filters</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.plan_stubs.euclidean_distance" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.plan_stubs.</code><code class="sig-name descname">euclidean_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">device</span></em>, <em class="sig-param"><span class="n">device_fields</span></em>, <em class="sig-param"><span class="n">targets</span></em>, <em class="sig-param"><span class="n">average</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filters</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/plans/plan_stubs.html#euclidean_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.plans.plan_stubs.euclidean_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the euclidean distance between the device_fields and targets.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>device</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Device</span></code>) – Device from which to take the value measurements</p></li>
-<li><p><strong>device_fields</strong> (<em>iterable</em>) – Fields of the device to measure</p></li>
-<li><p><strong>targets</strong> (<em>iterable</em>) – Target value to calculate the distance from</p></li>
-<li><p><strong>average</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of averages to take for each measurement</p></li>
-</ul>
+<dd class="field-odd"><dl>
+<dt><strong>device</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Device</span></code></span></dt><dd><p>Device from which to take the value measurements</p>
+</dd>
+<dt><strong>device_fields</strong><span class="classifier">iterable</span></dt><dd><p>Fields of the device to measure</p>
+</dd>
+<dt><strong>targets</strong><span class="classifier">iterable</span></dt><dd><p>Target value to calculate the distance from</p>
+</dd>
+<dt><strong>average</strong><span class="classifier">int, optional</span></dt><dd><p>Number of averages to take for each measurement</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>distance</strong> – The euclidean distance between the device fields and the targets.</p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>distance</strong><span class="classifier">float</span></dt><dd><p>The euclidean distance between the device fields and the targets.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -244,7 +244,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, SLAC National Accelerator Laboratory.
+        &#169; Copyright 2021, SLAC National Accelerator Laboratory.
 
     </p>
   </div>

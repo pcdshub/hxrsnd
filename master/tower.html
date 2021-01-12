@@ -1,13 +1,13 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="python" >
 <head>
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Towers &mdash; HXRSnD 0.2.3 documentation</title>
+  <title>Towers &mdash; HXRSnD  documentation</title>
   
 
   
@@ -61,10 +61,6 @@
 
           
             
-            
-              <div class="version">
-                0.2.3
-              </div>
             
           
 
@@ -214,332 +210,38 @@
 <div class="section" id="base-tower-class">
 <h2>Base Tower Class<a class="headerlink" href="#base-tower-class" title="Permalink to this headline">¶</a></h2>
 <p>All the towers inherit fromt the <code class="docutils literal notranslate"><span class="pre">TowerBase</span></code> class.</p>
-<dl class="py class">
-<dt id="hxrsnd.tower.TowerBase">
-<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.tower.</code><code class="sig-name descname">TowerBase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prefix</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pos_inserted</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pos_removed</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Base tower class.</p>
-<dl class="py method">
-<dt id="hxrsnd.tower.TowerBase.check_status">
-<code class="sig-name descname">check_status</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">energy</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">length</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">no_raise</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.check_status" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks to make sure that all the energy motors are not in a bad state.
-Will include the delay motor if the delay argument is True.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>energy</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Energy to set the tower to.</p></li>
-<li><p><strong>length</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Length to set the delay stage to. (Doesnt apply for cc towers)</p></li>
-<li><p><strong>no_raise</strong> (<em>bool</em><em>, </em><em>optional</em>) – Do not re-raise the attribute error for delay parameters.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.TowerBase.clear">
-<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.clear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Disables all the aerotech motors.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.TowerBase.disable">
-<code class="sig-name descname">disable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.disable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Disables all the aerotech motors.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.TowerBase.enable">
-<code class="sig-name descname">enable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.enable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Enables all the aerotech motors.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.TowerBase.energy">
-<em class="property">property </em><code class="sig-name descname">energy</code><a class="headerlink" href="#hxrsnd.tower.TowerBase.energy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the energy of the tower according to the angle of the
-arm.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>E</strong> – Energy of the delay line.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.TowerBase.insert">
-<code class="sig-name descname">insert</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.insert" title="Permalink to this definition">¶</a></dt>
-<dd><p>Moves the tower x motor to <cite>self.pos_inserted</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>status</strong> – Status of the move.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>MoveStatus</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><strong>ValueError</strong> – If pos_inserted is set to None and insert() is called.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.TowerBase.inserted">
-<em class="property">property </em><code class="sig-name descname">inserted</code><a class="headerlink" href="#hxrsnd.tower.TowerBase.inserted" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns whether the tower is in the inserted position (or close to it).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>inserted</strong> – Whether the tower is inserted or not.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>bool</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><strong>ValueError</strong> – If pos_inserted is set to None and inserted is called.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.TowerBase.position">
-<em class="property">property </em><code class="sig-name descname">position</code><a class="headerlink" href="#hxrsnd.tower.TowerBase.position" title="Permalink to this definition">¶</a></dt>
-<dd><p>Current position of the tower. Implment this for each TowerBase
-subclass.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.TowerBase.remove">
-<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.remove" title="Permalink to this definition">¶</a></dt>
-<dd><p>Moves the tower x motor to <cite>self.pos_removed</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>status</strong> – Status of the move.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>MoveStatus</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><strong>ValueError</strong> – If pos_removed is set to None and remove() is called.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.TowerBase.set_energy">
-<code class="sig-name descname">set_energy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.set_energy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Placeholder for the energy setter. Implement for each TowerBase
-subclass.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.TowerBase.status">
-<code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">offset</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">print_status</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">newline</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">short</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the status of the tower.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>status</strong> (<em>str</em><em>, </em><em>optional</em>) – The string to append the status to.</p></li>
-<li><p><strong>offset</strong> (<em>int</em><em>, </em><em>optional</em>) – Amount to offset each line of the status.</p></li>
-<li><p><strong>print_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Determines whether the string is printed or returned.</p></li>
-<li><p><strong>newline</strong> (<em>bool</em><em>, </em><em>optional</em>) – Adds a new line to the end of the string.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>status</strong> – Status string.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.TowerBase.stop">
-<code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.TowerBase.stop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stops the motions of all the motors.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.TowerBase.theta">
-<em class="property">property </em><code class="sig-name descname">theta</code><a class="headerlink" href="#hxrsnd.tower.TowerBase.theta" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bragg angle the tower is currently set to maximize.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>position</strong> – Current position of the tower.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+</tbody>
+</table>
 </div>
 <div class="section" id="delay-tower">
 <h2>Delay Tower<a class="headerlink" href="#delay-tower" title="Permalink to this headline">¶</a></h2>
 <p>Delay towers <code class="docutils literal notranslate"><span class="pre">snd.t1</span></code> and <code class="docutils literal notranslate"><span class="pre">snd.t4</span></code>.</p>
-<dl class="py class">
-<dt id="hxrsnd.tower.DelayTower">
-<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.tower.</code><code class="sig-name descname">DelayTower</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prefix</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.DelayTower" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#hxrsnd.tower.TowerBase" title="hxrsnd.tower.TowerBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.tower.TowerBase</span></code></a></p>
-<p>Delay Tower</p>
-<p>Components</p>
-<dl class="simple">
-<dt>tth<span class="classifier">RotationAeroInterlocked</span></dt><dd><p>Rotation axis of the entire delay arm.</p>
-</dd>
-<dt>th1<span class="classifier">RotationAero</span></dt><dd><p>Rotation axis of the static crystal.</p>
-</dd>
-<dt>th2<span class="classifier">RotationAero</span></dt><dd><p>Rotation axis of the delay crystal.</p>
-</dd>
-<dt>x<span class="classifier">LinearAero</span></dt><dd><p>Linear stage for insertion/bypass of the tower.</p>
-</dd>
-<dt>L<span class="classifier">LinearAero</span></dt><dd><p>Linear stage for the delay crystal.</p>
-</dd>
-<dt>y1<span class="classifier">TranslationEcc</span></dt><dd><p>Y translation for the static crystal.</p>
-</dd>
-<dt>y2<span class="classifier">TranslationEcc</span></dt><dd><p>Y translation for the delay crystal.</p>
-</dd>
-<dt>chi1<span class="classifier">GoniometerEcc</span></dt><dd><p>Goniometer on static crystal.</p>
-</dd>
-<dt>chi2<span class="classifier">GoniometerEcc</span></dt><dd><p>Goniometer on delay crystal.</p>
-</dd>
-<dt>dh<span class="classifier">DiodeEcc</span></dt><dd><p>Diode insertion motor.</p>
-</dd>
-<dt>diode<span class="classifier">HamamatsuDiode</span></dt><dd><p>Diode between the static and delay crystals.</p>
-</dd>
-<dt>temp<span class="classifier">OmegaRTD</span></dt><dd><p>RTD temperature sensor for the nitrogen.</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt id="hxrsnd.tower.DelayTower.length">
-<em class="property">property </em><code class="sig-name descname">length</code><a class="headerlink" href="#hxrsnd.tower.DelayTower.length" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the position of the linear delay stage (L) in mm.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>position</strong> – Position in mm of the linear delay stage.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.DelayTower.position">
-<em class="property">property </em><code class="sig-name descname">position</code><a class="headerlink" href="#hxrsnd.tower.DelayTower.position" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the theta position of the arm (tth) in degrees.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>position</strong> – Position of the arm in degrees.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.DelayTower.set_energy">
-<code class="sig-name descname">set_energy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E</span></em>, <em class="sig-param"><span class="n">wait</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">check_status</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.DelayTower.set_energy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the angles of the crystals in the delay line to maximize the
-inputted energy.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>E</strong> (<em>float</em>) – Energy to use for the system.</p></li>
-<li><p><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – Wait for each motor to complete the motion.</p></li>
-<li><p><strong>check_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Check if the motors are in a valid state to move.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.DelayTower.set_length">
-<code class="sig-name descname">set_length</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span></em>, <em class="sig-param"><span class="n">wait</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.DelayTower.set_length" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the position of the linear delay stage in mm.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>position</strong> (<em>float</em>) – Position to move the delay motor to.</p></li>
-<li><p><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – Wait for motion to complete before returning the console.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>status</strong> – Status object of the move.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>MoveStatus</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.DelayTower.theta">
-<em class="property">property </em><code class="sig-name descname">theta</code><a class="headerlink" href="#hxrsnd.tower.DelayTower.theta" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bragg angle the tower is currently set to maximize.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>position</strong> – Current position of the tower.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+</tbody>
+</table>
 </div>
 <div class="section" id="channel-cut-tower">
 <h2>Channel Cut Tower<a class="headerlink" href="#channel-cut-tower" title="Permalink to this headline">¶</a></h2>
 <p>Channel cut towers <code class="docutils literal notranslate"><span class="pre">snd.t2</span></code> and <code class="docutils literal notranslate"><span class="pre">snd.t3</span></code>.</p>
-<dl class="py class">
-<dt id="hxrsnd.tower.ChannelCutTower">
-<em class="property">class </em><code class="sig-prename descclassname">hxrsnd.tower.</code><code class="sig-name descname">ChannelCutTower</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prefix</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.ChannelCutTower" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#hxrsnd.tower.TowerBase" title="hxrsnd.tower.TowerBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hxrsnd.tower.TowerBase</span></code></a></p>
-<p>Channel Cut tower.</p>
-<p>Components</p>
-<dl class="simple">
-<dt>th<span class="classifier">RotationAero</span></dt><dd><p>Rotation stage of the channel cut crystal</p>
-</dd>
-<dt>x<span class="classifier">LinearAero</span></dt><dd><p>Translation stage of the tower</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt id="hxrsnd.tower.ChannelCutTower.position">
-<em class="property">property </em><code class="sig-name descname">position</code><a class="headerlink" href="#hxrsnd.tower.ChannelCutTower.position" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the theta position of the crystal (th) in degrees.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>position</strong> – Position of the arm in degrees.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="hxrsnd.tower.ChannelCutTower.set_energy">
-<code class="sig-name descname">set_energy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E</span></em>, <em class="sig-param"><span class="n">wait</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">check_status</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.tower.ChannelCutTower.set_energy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the angles of the crystals in the channel cut line to maximize the
-inputted energy.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>E</strong> (<em>float</em>) – Energy to use for the system.</p></li>
-<li><p><strong>wait</strong> (<em>bool</em><em>, </em><em>optional</em>) – Wait for motion to complete before returning the console.</p></li>
-<li><p><strong>check_status</strong> (<em>bool</em><em>, </em><em>optional</em>) – Check if the motors are in a valid state to move.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -557,7 +259,7 @@ inputted energy.</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, SLAC National Accelerator Laboratory.
+        &#169; Copyright 2021, SLAC National Accelerator Laboratory.
 
     </p>
   </div>

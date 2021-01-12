@@ -1,13 +1,13 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="python" >
 <head>
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>General Scans &mdash; HXRSnD 0.2.3 documentation</title>
+  <title>General Scans &mdash; HXRSnD  documentation</title>
   
 
   
@@ -61,10 +61,6 @@
 
           
             
-            
-              <div class="version">
-                0.2.3
-              </div>
             
           
 
@@ -208,7 +204,7 @@
 <h1>General Scans<a class="headerlink" href="#general-scans" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="hxrsnd.plans.scans.linear_scan">
-<code class="sig-prename descclassname">hxrsnd.plans.scans.</code><code class="sig-name descname">linear_scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">num</span></em>, <em class="sig-param"><span class="n">use_diag</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">return_to_start</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">md</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.scans.linear_scan" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.scans.</code><code class="sig-name descname">linear_scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">num</span></em>, <em class="sig-param"><span class="n">use_diag</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">return_to_start</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">md</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/plans/scans.html#linear_scan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.plans.scans.linear_scan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Linear scan of a motor without a detector.</p>
 <p>Performs a linear scan using the inputted motor, optionally using the
 diagnostics, and optionally moving the motor back to the original start
@@ -216,50 +212,68 @@ position. This scan is different from the regular scan because it does not
 take a detector, and simply scans the motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>motor</strong> (<em>object</em>) – any ‘setable’ object (motor, temp controller, etc.)</p></li>
-<li><p><strong>start</strong> (<em>float</em>) – starting position of motor</p></li>
-<li><p><strong>stop</strong> (<em>float</em>) – ending position of motor</p></li>
-<li><p><strong>num</strong> (<em>int</em>) – number of steps</p></li>
-<li><p><strong>use_diag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Include the diagnostic motors in the scan.</p></li>
-<li><p><strong>md</strong> (<em>dict</em><em>, </em><em>optional</em>) – metadata</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>motor</strong><span class="classifier">object</span></dt><dd><p>any 'setable' object (motor, temp controller, etc.)</p>
+</dd>
+<dt><strong>start</strong><span class="classifier">float</span></dt><dd><p>starting position of motor</p>
+</dd>
+<dt><strong>stop</strong><span class="classifier">float</span></dt><dd><p>ending position of motor</p>
+</dd>
+<dt><strong>num</strong><span class="classifier">int</span></dt><dd><p>number of steps</p>
+</dd>
+<dt><strong>use_diag</strong><span class="classifier">bool, optional</span></dt><dd><p>Include the diagnostic motors in the scan.</p>
+</dd>
+<dt><strong>md</strong><span class="classifier">dict, optional</span></dt><dd><p>metadata</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="hxrsnd.plans.scans.centroid_scan">
-<code class="sig-prename descclassname">hxrsnd.plans.scans.</code><code class="sig-name descname">centroid_scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">steps</span></em>, <em class="sig-param"><span class="n">average</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">detector_fields</span><span class="o">=</span><span class="default_value">['stats2_centroid_x', 'stats2_centroid_y']</span></em>, <em class="sig-param"><span class="n">motor_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">system</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">system_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filters</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">return_to_start</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.scans.centroid_scan" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.scans.</code><code class="sig-name descname">centroid_scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">steps</span></em>, <em class="sig-param"><span class="n">average</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">detector_fields</span><span class="o">=</span><span class="default_value">['stats2_centroid_x', 'stats2_centroid_y']</span></em>, <em class="sig-param"><span class="n">motor_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">system</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">system_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filters</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">return_to_start</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/plans/scans.html#centroid_scan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.plans.scans.centroid_scan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a scan and returns the centroids of the inputted detector.</p>
 <p>The returned centroids can be absolute or relative to the initial value. The
 values are returned in a pandas DataFrame where the indices are the target
 motor positions.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>detector</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">BeamDetector</span></code>) – Detector from which to take the value measurements</p></li>
-<li><p><strong>motor</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Motor</span></code>) – Main motor to perform the scan</p></li>
-<li><p><strong>start</strong> (<em>float</em>) – Starting position of motor</p></li>
-<li><p><strong>stop</strong> (<em>float</em>) – Ending position of motor</p></li>
-<li><p><strong>steps</strong> (<em>int</em>) – Number of steps to take</p></li>
-<li><p><strong>average</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of averages to take for each measurement</p></li>
-<li><p><strong>detector_fields</strong> (<em>iterable</em><em>, </em><em>optional</em>) – Fields of the detector to add to the returned dataframe</p></li>
-<li><p><strong>motor_fields</strong> (<em>iterable</em><em>, </em><em>optional</em>) – Fields of the motor to add to the returned dataframe</p></li>
-<li><p><strong>system</strong> (<em>list</em><em>, </em><em>optional</em>) – Extra devices to include in the datastream as we measure the average</p></li>
-<li><p><strong>system_fields</strong> (<em>list</em><em>, </em><em>optional</em>) – Fields of the extra devices to add to the returned dataframe</p></li>
-<li><p><strong>filters</strong> (<em>dict</em><em>, </em><em>optional</em>) – Key, callable pairs of event keys and single input functions that
+<dd class="field-odd"><dl>
+<dt><strong>detector</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">BeamDetector</span></code></span></dt><dd><p>Detector from which to take the value measurements</p>
+</dd>
+<dt><strong>motor</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Motor</span></code></span></dt><dd><p>Main motor to perform the scan</p>
+</dd>
+<dt><strong>start</strong><span class="classifier">float</span></dt><dd><p>Starting position of motor</p>
+</dd>
+<dt><strong>stop</strong><span class="classifier">float</span></dt><dd><p>Ending position of motor</p>
+</dd>
+<dt><strong>steps</strong><span class="classifier">int</span></dt><dd><p>Number of steps to take</p>
+</dd>
+<dt><strong>average</strong><span class="classifier">int, optional</span></dt><dd><p>Number of averages to take for each measurement</p>
+</dd>
+<dt><strong>detector_fields</strong><span class="classifier">iterable, optional</span></dt><dd><p>Fields of the detector to add to the returned dataframe</p>
+</dd>
+<dt><strong>motor_fields</strong><span class="classifier">iterable, optional</span></dt><dd><p>Fields of the motor to add to the returned dataframe</p>
+</dd>
+<dt><strong>system</strong><span class="classifier">list, optional</span></dt><dd><p>Extra devices to include in the datastream as we measure the average</p>
+</dd>
+<dt><strong>system_fields</strong><span class="classifier">list, optional</span></dt><dd><p>Fields of the extra devices to add to the returned dataframe</p>
+</dd>
+<dt><strong>filters</strong><span class="classifier">dict, optional</span></dt><dd><p>Key, callable pairs of event keys and single input functions that
 evaluate to True or False. For more infromation see
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">apply_filters()</span></code></p></li>
-<li><p><strong>return_to_start</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move the scan motor back to its initial position after the scan</p></li>
-</ul>
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">apply_filters()</span></code></p>
+</dd>
+<dt><strong>return_to_start</strong><span class="classifier">bool, optional</span></dt><dd><p>Move the scan motor back to its initial position after the scan</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>df</strong> – DataFrame containing the detector, motor, and system fields at every
+<dd class="field-even"><dl class="simple">
+<dt><strong>df</strong><span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame containing the detector, motor, and system fields at every
 step of the scan.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>pd.DataFrame</p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -280,7 +294,7 @@ step of the scan.</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, SLAC National Accelerator Laboratory.
+        &#169; Copyright 2021, SLAC National Accelerator Laboratory.
 
     </p>
   </div>

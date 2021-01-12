@@ -1,13 +1,13 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="python" >
 <head>
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Delay Calibration &mdash; HXRSnD 0.2.3 documentation</title>
+  <title>Delay Calibration &mdash; HXRSnD  documentation</title>
   
 
   
@@ -61,10 +61,6 @@
 
           
             
-            
-              <div class="version">
-                0.2.3
-              </div>
             
           
 
@@ -208,116 +204,154 @@
 <h1>Delay Calibration<a class="headerlink" href="#delay-calibration" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="hxrsnd.plans.calibration.calibrate_motor">
-<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">calibrate_motor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">detector_fields</span></em>, <em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">motor_fields</span></em>, <em class="sig-param"><span class="n">calib_motors</span></em>, <em class="sig-param"><span class="n">calib_fields</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">steps</span></em>, <em class="sig-param"><span class="n">confirm_overwrite</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.calibration.calibrate_motor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">calibrate_motor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">detector_fields</span></em>, <em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">motor_fields</span></em>, <em class="sig-param"><span class="n">calib_motors</span></em>, <em class="sig-param"><span class="n">calib_fields</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">steps</span></em>, <em class="sig-param"><span class="n">confirm_overwrite</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/plans/calibration.html#calibrate_motor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.plans.calibration.calibrate_motor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a calibration scan using the inputted detector, motor, and
 calibration motors, then configures the motor using the resulting
 calibration.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>detector</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">BeamDetector</span></code>) – Detector from which to take the value measurements</p></li>
-<li><p><strong>detector_fields</strong> (<em>iterable</em>) – Fields of the detector to measure</p></li>
-<li><p><strong>motor</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Motor</span></code>) – Main motor to perform the scan</p></li>
-<li><p><strong>calib_motors</strong> (iterable, <code class="xref py py-class docutils literal notranslate"><span class="pre">Motor</span></code>) – Motor to calibrate each detector field with</p></li>
-<li><p><strong>start</strong> (<em>float</em>) – Starting position of motor</p></li>
-<li><p><strong>stop</strong> (<em>float</em>) – Ending position of motor</p></li>
-<li><p><strong>steps</strong> (<em>int</em>) – Number of steps to take</p></li>
-<li><p><strong>confirm_overwrite</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prompt the user if this plan will overwrite an existing calibration</p></li>
-</ul>
+<dd class="field-odd"><dl>
+<dt><strong>detector</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">BeamDetector</span></code></span></dt><dd><p>Detector from which to take the value measurements</p>
+</dd>
+<dt><strong>detector_fields</strong><span class="classifier">iterable</span></dt><dd><p>Fields of the detector to measure</p>
+</dd>
+<dt><strong>motor</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Motor</span></code></span></dt><dd><p>Main motor to perform the scan</p>
+</dd>
+<dt><strong>calib_motors</strong><span class="classifier">iterable, <code class="xref py py-class docutils literal notranslate"><span class="pre">Motor</span></code></span></dt><dd><p>Motor to calibrate each detector field with</p>
+</dd>
+<dt><strong>start</strong><span class="classifier">float</span></dt><dd><p>Starting position of motor</p>
+</dd>
+<dt><strong>stop</strong><span class="classifier">float</span></dt><dd><p>Ending position of motor</p>
+</dd>
+<dt><strong>steps</strong><span class="classifier">int</span></dt><dd><p>Number of steps to take</p>
+</dd>
+<dt><strong>confirm_overwrite</strong><span class="classifier">bool, optional</span></dt><dd><p>Prompt the user if this plan will overwrite an existing calibration</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>configs</strong> – Old configuration and the new configuration.</p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>configs</strong><span class="classifier">tuple of dict</span></dt><dd><p>Old configuration and the new configuration.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>tuple of dict</p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="hxrsnd.plans.calibration.calibration_scan">
-<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">calibration_scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">detector_fields</span></em>, <em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">motor_fields</span></em>, <em class="sig-param"><span class="n">calib_motors</span></em>, <em class="sig-param"><span class="n">calib_fields</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">steps</span></em>, <em class="sig-param"><span class="n">first_step</span><span class="o">=</span><span class="default_value">0.01</span></em>, <em class="sig-param"><span class="n">average</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filters</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">return_to_start</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.calibration.calibration_scan" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">calibration_scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">detector_fields</span></em>, <em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">motor_fields</span></em>, <em class="sig-param"><span class="n">calib_motors</span></em>, <em class="sig-param"><span class="n">calib_fields</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">steps</span></em>, <em class="sig-param"><span class="n">first_step</span><span class="o">=</span><span class="default_value">0.01</span></em>, <em class="sig-param"><span class="n">average</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filters</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">return_to_start</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/plans/calibration.html#calibration_scan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.plans.calibration.calibration_scan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a calibration scan for the main motor and returns a correction
 table for the calibration motors.</p>
 <p>This adds to <code class="docutils literal notranslate"><span class="pre">calibration_scan</span></code> by moving the motors to their original
 positions and and running the calibration calculation function. It returns
 the expected motor calibration given the results from the scan, as well as
 the dataframe from the scan with all the data.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>detector</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">BeamDetector</span></code>) – Detector from which to take the value measurements</p></li>
-<li><p><strong>detector_fields</strong> (<em>iterable</em>) – Fields of the detector to measure</p></li>
-<li><p><strong>motor</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Motor</span></code>) – Main motor to perform the scan</p></li>
-<li><p><strong>calib_motors</strong> (iterable, <code class="xref py py-class docutils literal notranslate"><span class="pre">Motor</span></code>) – Motor to calibrate each detector field with</p></li>
-<li><p><strong>start</strong> (<em>float</em>) – Starting position of motor</p></li>
-<li><p><strong>stop</strong> (<em>float</em>) – Ending position of motor</p></li>
-<li><p><strong>steps</strong> (<em>int</em>) – Number of steps to take</p></li>
-<li><p><strong>first_step</strong> (<em>float</em><em>, </em><em>optional</em>) – First step to take on each calibration motor when performing the
-correction</p></li>
-<li><p><strong>average</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of averages to take for each measurement</p></li>
-<li><p><strong>delay</strong> (<em>float</em><em>, </em><em>optional</em>) – Time to wait inbetween reads</p></li>
-<li><p><strong>tolerance</strong> (<em>float</em><em>, </em><em>optional</em>) – Tolerance to use when applying the correction to detector field</p></li>
-<li><p><strong>max_steps</strong> (<em>int</em><em>, </em><em>optional</em>) – Limit the number of steps the correction will take before exiting</p></li>
-<li><p><strong>gradients</strong> (<em>float</em><em>, </em><em>optional</em>) – Assume an initial gradient for the relationship between detector value
-and calibration motor position</p></li>
-<li><p><strong>return_to_start</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move all the motors to their original positions after the scan has been
-completed</p></li>
-</ul>
+<dd class="field-odd"><dl>
+<dt><strong>detector</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">BeamDetector</span></code></span></dt><dd><p>Detector from which to take the value measurements</p>
+</dd>
+<dt><strong>detector_fields</strong><span class="classifier">iterable</span></dt><dd><p>Fields of the detector to measure</p>
+</dd>
+<dt><strong>motor</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Motor</span></code></span></dt><dd><p>Main motor to perform the scan</p>
+</dd>
+<dt><strong>calib_motors</strong><span class="classifier">iterable, <code class="xref py py-class docutils literal notranslate"><span class="pre">Motor</span></code></span></dt><dd><p>Motor to calibrate each detector field with</p>
+</dd>
+<dt><strong>start</strong><span class="classifier">float</span></dt><dd><p>Starting position of motor</p>
+</dd>
+<dt><strong>stop</strong><span class="classifier">float</span></dt><dd><p>Ending position of motor</p>
+</dd>
+<dt><strong>steps</strong><span class="classifier">int</span></dt><dd><p>Number of steps to take</p>
+</dd>
+<dt><strong>first_step</strong><span class="classifier">float, optional</span></dt><dd><p>First step to take on each calibration motor when performing the
+correction</p>
+</dd>
+<dt><strong>average</strong><span class="classifier">int, optional</span></dt><dd><p>Number of averages to take for each measurement</p>
+</dd>
+<dt><strong>delay</strong><span class="classifier">float, optional</span></dt><dd><p>Time to wait inbetween reads</p>
+</dd>
+<dt><strong>tolerance</strong><span class="classifier">float, optional</span></dt><dd><p>Tolerance to use when applying the correction to detector field</p>
+</dd>
+<dt><strong>max_steps</strong><span class="classifier">int, optional</span></dt><dd><p>Limit the number of steps the correction will take before exiting</p>
+</dd>
+<dt><strong>gradients</strong><span class="classifier">float, optional</span></dt><dd><p>Assume an initial gradient for the relationship between detector value
+and calibration motor position</p>
+</dd>
+<dt><strong>return_to_start</strong><span class="classifier">bool, optional</span></dt><dd><p>Move all the motors to their original positions after the scan has been
+completed</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>df_calibration</strong> (<em>pd.DataFrame</em>) – Dataframe containing the points to be used for the calibration by the
-calibration motors</p></li>
-<li><p><strong>df_calibration_scan</strong> (<em>pd.DataFrame</em>) – DataFrame containing the positions of the detector,  motor, and
+<dd class="field-even"><dl class="simple">
+<dt><strong>df_calibration</strong><span class="classifier">pd.DataFrame</span></dt><dd><p>Dataframe containing the points to be used for the calibration by the
+calibration motors</p>
+</dd>
+<dt><strong>df_calibration_scan</strong><span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame containing the positions of the detector,  motor, and
 calibration motor fields during the initial scan. The indices are the
-target motor positions.</p></li>
-<li><p><strong>scaling</strong> (<em>list</em>) – List of the scaling values in units of motor egu / detector value used
-to calculate the calibration.</p></li>
-<li><p><strong>start_positions</strong> (<em>list</em>) – List of starting positions used to perform the calibration calculation.</p></li>
-</ul>
-</p>
+target motor positions.</p>
+</dd>
+<dt><strong>scaling</strong><span class="classifier">list</span></dt><dd><p>List of the scaling values in units of motor egu / detector value used
+to calculate the calibration.</p>
+</dd>
+<dt><strong>start_positions</strong><span class="classifier">list</span></dt><dd><p>List of starting positions used to perform the calibration calculation.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="hxrsnd.plans.calibration.calibration_centroid_scan">
-<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">calibration_centroid_scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">calib_motors</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">steps</span></em>, <em class="sig-param"><span class="n">calib_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.calibration.calibration_centroid_scan" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">calibration_centroid_scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">calib_motors</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">steps</span></em>, <em class="sig-param"><span class="n">calib_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/plans/calibration.html#calibration_centroid_scan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.plans.calibration.calibration_centroid_scan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a centroid scan producing a dataframe with the values of the
 detector, motor, and calibration motor fields.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>detector</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">BeamDetector</span></code>) – Detector from which to take the value measurements</p></li>
-<li><p><strong>motor</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Motor</span></code>) – Main motor to perform the scan</p></li>
-<li><p><strong>calib_motors</strong> (<em>iterable</em>) – Calibration motors</p></li>
-<li><p><strong>start</strong> (<em>float</em>) – Starting position of motor</p></li>
-<li><p><strong>stop</strong> (<em>float</em>) – Ending position of motor</p></li>
-<li><p><strong>steps</strong> (<em>int</em>) – Number of steps to take</p></li>
-<li><p><strong>average</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of averages to take for each measurement</p></li>
-<li><p><strong>detector_fields</strong> (<em>iterable</em><em>, </em><em>optional</em>) – Fields of the detector to add to the returned dataframe</p></li>
-<li><p><strong>motor_fields</strong> (<em>iterable</em><em>, </em><em>optional</em>) – Fields of the motor to add to the returned dataframe</p></li>
-<li><p><strong>calib_fields</strong> (<em>list</em><em>, </em><em>optional</em>) – Fields of the of the calibration motors to add to the returned dataframe</p></li>
-</ul>
+<dd class="field-odd"><dl>
+<dt><strong>detector</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">BeamDetector</span></code></span></dt><dd><p>Detector from which to take the value measurements</p>
+</dd>
+<dt><strong>motor</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Motor</span></code></span></dt><dd><p>Main motor to perform the scan</p>
+</dd>
+<dt><strong>calib_motors</strong><span class="classifier">iterable</span></dt><dd><p>Calibration motors</p>
+</dd>
+<dt><strong>start</strong><span class="classifier">float</span></dt><dd><p>Starting position of motor</p>
+</dd>
+<dt><strong>stop</strong><span class="classifier">float</span></dt><dd><p>Ending position of motor</p>
+</dd>
+<dt><strong>steps</strong><span class="classifier">int</span></dt><dd><p>Number of steps to take</p>
+</dd>
+<dt><strong>average</strong><span class="classifier">int, optional</span></dt><dd><p>Number of averages to take for each measurement</p>
+</dd>
+<dt><strong>detector_fields</strong><span class="classifier">iterable, optional</span></dt><dd><p>Fields of the detector to add to the returned dataframe</p>
+</dd>
+<dt><strong>motor_fields</strong><span class="classifier">iterable, optional</span></dt><dd><p>Fields of the motor to add to the returned dataframe</p>
+</dd>
+<dt><strong>calib_fields</strong><span class="classifier">list, optional</span></dt><dd><p>Fields of the of the calibration motors to add to the returned dataframe</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>df</strong> – DataFrame containing the detector, motor, and calibration motor fields
+<dd class="field-even"><dl class="simple">
+<dt><strong>df</strong><span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame containing the detector, motor, and calibration motor fields
 at every step of the scan.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>pd.DataFrame</p>
+</dl>
 </dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If the inputted number of calibration motors does not have the same
-    length as the number of calibration fields.</p>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If the inputted number of calibration motors does not have the same
+length as the number of calibration fields.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="hxrsnd.plans.calibration.detector_scaling_walk">
-<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">detector_scaling_walk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df_scan</span></em>, <em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">calib_motors</span></em>, <em class="sig-param"><span class="n">first_step</span><span class="o">=</span><span class="default_value">0.01</span></em>, <em class="sig-param"><span class="n">average</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filters</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tolerance</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">delay</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_steps</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">system</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">drop_missing</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">gradients</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.calibration.detector_scaling_walk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">detector_scaling_walk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df_scan</span></em>, <em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">calib_motors</span></em>, <em class="sig-param"><span class="n">first_step</span><span class="o">=</span><span class="default_value">0.01</span></em>, <em class="sig-param"><span class="n">average</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filters</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tolerance</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">delay</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_steps</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">system</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">drop_missing</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">gradients</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/plans/calibration.html#detector_scaling_walk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.plans.calibration.detector_scaling_walk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a walk to to the detector value farthest from the current value
 using each of calibration motors, and then determines the motor to detector
 scaling</p>
@@ -327,59 +361,74 @@ then performs a walk_to_pixel to that value using the corresponding
 calibration motor. Since the final absolute position does not matter so long
 as it is recorded, if a RuntimeError or LimitError is raised, the plan will
 simply use the current motor position for the scaling calculation.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>df_scan</strong> (<em>pd.DataFrame</em>) – Dataframe containing the results of a centroid scan performed using the
-detector, motor, and calibration motors.</p></li>
-<li><p><strong>detector</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code>) – Detector from which to take the value measurements</p></li>
-<li><p><strong>calib_motors</strong> (iterable, <code class="xref py py-class docutils literal notranslate"><span class="pre">Motor</span></code>) – Motor to calibrate each detector field with</p></li>
-<li><p><strong>first_step</strong> (<em>float</em><em>, </em><em>optional</em>) – First step to take on each calibration motor when performing the
-correction</p></li>
-<li><p><strong>average</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of averages to take for each measurement</p></li>
-<li><p><strong>delay</strong> (<em>float</em><em>, </em><em>optional</em>) – Time to wait inbetween reads</p></li>
-<li><p><strong>tolerance</strong> (<em>float</em><em>, </em><em>optional</em>) – Tolerance to use when applying the correction to detector field</p></li>
-<li><p><strong>max_steps</strong> (<em>int</em><em>, </em><em>optional</em>) – Limit the number of steps the correction will take before exiting</p></li>
-<li><p><strong>drop_missing</strong> (<em>bool</em><em>, </em><em>optional</em>) – Choice to include events where event keys are missing</p></li>
-<li><p><strong>gradients</strong> (<em>float</em><em>, </em><em>optional</em>) – Assume an initial gradient for the relationship between detector value
-and calibration motor position</p></li>
-</ul>
+<dd class="field-odd"><dl>
+<dt><strong>df_scan</strong><span class="classifier">pd.DataFrame</span></dt><dd><p>Dataframe containing the results of a centroid scan performed using the
+detector, motor, and calibration motors.</p>
+</dd>
+<dt><strong>detector</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></span></dt><dd><p>Detector from which to take the value measurements</p>
+</dd>
+<dt><strong>calib_motors</strong><span class="classifier">iterable, <code class="xref py py-class docutils literal notranslate"><span class="pre">Motor</span></code></span></dt><dd><p>Motor to calibrate each detector field with</p>
+</dd>
+<dt><strong>first_step</strong><span class="classifier">float, optional</span></dt><dd><p>First step to take on each calibration motor when performing the
+correction</p>
+</dd>
+<dt><strong>average</strong><span class="classifier">int, optional</span></dt><dd><p>Number of averages to take for each measurement</p>
+</dd>
+<dt><strong>delay</strong><span class="classifier">float, optional</span></dt><dd><p>Time to wait inbetween reads</p>
+</dd>
+<dt><strong>tolerance</strong><span class="classifier">float, optional</span></dt><dd><p>Tolerance to use when applying the correction to detector field</p>
+</dd>
+<dt><strong>max_steps</strong><span class="classifier">int, optional</span></dt><dd><p>Limit the number of steps the correction will take before exiting</p>
+</dd>
+<dt><strong>drop_missing</strong><span class="classifier">bool, optional</span></dt><dd><p>Choice to include events where event keys are missing</p>
+</dd>
+<dt><strong>gradients</strong><span class="classifier">float, optional</span></dt><dd><p>Assume an initial gradient for the relationship between detector value
+and calibration motor position</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>scaling</strong> (<em>list</em>) – List of scales in the units of motor egu / detector value</p></li>
-<li><p><strong>start_positions</strong> (<em>list</em>) – List of the initial positions of the motors before the walk</p></li>
-</ul>
-</p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>scaling</strong><span class="classifier">list</span></dt><dd><p>List of scales in the units of motor egu / detector value</p>
+</dd>
+<dt><strong>start_positions</strong><span class="classifier">list</span></dt><dd><p>List of the initial positions of the motors before the walk</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="hxrsnd.plans.calibration.build_calibration_df">
-<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">build_calibration_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df_scan</span></em>, <em class="sig-param"><span class="n">scaling</span></em>, <em class="sig-param"><span class="n">start_positions</span></em>, <em class="sig-param"><span class="n">detector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hxrsnd.plans.calibration.build_calibration_df" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hxrsnd.plans.calibration.</code><code class="sig-name descname">build_calibration_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df_scan</span></em>, <em class="sig-param"><span class="n">scaling</span></em>, <em class="sig-param"><span class="n">start_positions</span></em>, <em class="sig-param"><span class="n">detector</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/plans/calibration.html#build_calibration_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.plans.calibration.build_calibration_df" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes the scan dataframe, scaling, and starting positions to build a
 calibration table for the calibration motors.</p>
 <p>The resulting dataframe will contain all the scan motor read fields as well
 as two columns for each calibration motor that has an absolute correction
 relative correction.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>df_scan</strong> (<em>pd.DataFrame</em>) – Dataframe containing the results of a centroid scan performed using the
-detector, motor, and calibration motors.</p></li>
-<li><p><strong>scaling</strong> (<em>list</em>) – List of scales in the units of motor egu / detector value</p></li>
-<li><p><strong>start_positions</strong> (<em>list</em>) – List of the initial positions of the motors before the walk</p></li>
-<li><p><strong>detector</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code>) – Detector from which to take the value measurements</p></li>
-</ul>
+<dd class="field-odd"><dl>
+<dt><strong>df_scan</strong><span class="classifier">pd.DataFrame</span></dt><dd><p>Dataframe containing the results of a centroid scan performed using the
+detector, motor, and calibration motors.</p>
+</dd>
+<dt><strong>scaling</strong><span class="classifier">list</span></dt><dd><p>List of scales in the units of motor egu / detector value</p>
+</dd>
+<dt><strong>start_positions</strong><span class="classifier">list</span></dt><dd><p>List of the initial positions of the motors before the walk</p>
+</dd>
+<dt><strong>detector</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></span></dt><dd><p>Detector from which to take the value measurements</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>df_calibration</strong> – Calibration dataframe that has all the scan motor fields and the
+<dd class="field-even"><dl class="simple">
+<dt><strong>df_calibration</strong><span class="classifier">pd.DataFrame</span></dt><dd><p>Calibration dataframe that has all the scan motor fields and the
 corrections required of the calibration motors in both absolute and
 relative corrections.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>pd.DataFrame</p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -400,7 +449,7 @@ relative corrections.</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, SLAC National Accelerator Laboratory.
+        &#169; Copyright 2021, SLAC National Accelerator Laboratory.
 
     </p>
   </div>
