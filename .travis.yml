@@ -2,14 +2,13 @@ version: ~> 1.0
 
 env:
   global:
-    - OFFICIAL_REPO="pcdshub/hxrsnd"
+    # doctr generated secure variable for documentation upload
     - secure: "jEGneicPLd/a1M7p+7l/AB6LknxVtWnzndbcKLB9Mr4dAqw9YkElMcxhjr2JYuNehFtX/iL+k+wpcvJoLE1OXnZisT9HjAzVbV3mioro6EJwiJtGnPoeh0vSjhiRsG7GbHVcg/iFzZvRmzqLOFZKfsxdXXMUM67PlDk2+8CnZYD+AfZfbvhg79n99TtEMwk9Af27AxjeiUnlp1bWFg+z8CD8v1+yk+/OmG0rT7bppcqpdyO6uDVW8OSivqfTPSacCo7lYACUfA19lPjWmTpJLbs/4ja4pOh6fzIv5jZR6aW88TwsRXhSnntAIcIw+i4XN9e9qXXR1dU65Rab5/KgmUlcOGIsLrf62UsP59nLXpLjPaxsDKUOy+VjQLWh4xMf+e94E46Kqf4CGaGTlyqiDerWuJFBn3dQeeNv0qiPhdQRLGBdGJYBa5p/cvt4SIPkX784TKQQBRs/NnxoUTHvivtxg6Kzy5mYw5iIGuIOtla+h1tjNRmLCEb15XSl6fxKxutCvL2XxnkXADq/BcB1QjZVf6ijPmjCil6ire/QXjUoz3sMTZsifDkdwS2DsspgbP54Vru+2BAEaAZuFblpsYiomhk6V1AKX1TU1SdTdkqLY/hkuUnt0RuxjdDVTpO6KHUODgRFveSMU7KhM/L0KFqeDBYFKPZa98o2fFKo1Ks="
-
     # enable the usage of versions menu which allow versioning of the docs
     # pages and not only the master branch
     - DOCTR_VERSIONS_MENU="1"
     # Dependency files used to build the documentation (space separated)
-    - DOCS_REQUIREMENTS="dev-requirements.txt"
+    - DOCS_REQUIREMENTS="doc-requirements.txt dev-requirements.txt requirements.txt"
     # Options to be passed to flake8 for package linting. Usually this is just
     # the package name but you can enable other flake8 options via this config
     - PYTHON_LINT_OPTIONS="hxrsnd"
