@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Calculations &mdash; HXRSnD  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Utility Functions" href="utils.html" />
+    <link rel="prev" title="Miscellaneous" href="misc_plans.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> HXRSnD
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripting.html">Adding Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">EDM Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_scans.html">Running Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_daq_scans.html">Running DAQ Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibrating_delay_scans.html">Calibrating Delay Scans</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Devices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sndsystem.html">Split and Delay System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macromotor.html">Macromotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tower.html">Towers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aerotech.html">Aerotech Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="attocube.html">Attocube Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diode.html">Wave-8 Diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pneumatic.html">Pneumatics and Air Bearings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rtd.html">Temperature Sensors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Plans</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="alignment.html">Alignment Plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">Delay Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scans.html">General Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc_plans.html">Miscellaneous</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Miscellaneous</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Calculations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#bragg-calculations">Bragg Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#macro-motion-calculations">Macro-motion Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utility Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Core SnD Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pswalker/">pswalker</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pcds-devices/">pcds-devices</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://slaclab.github.io/pydm/">pydm</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Related Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/bluesky">bluesky</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/ophyd">ophyd</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GitHub Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab/">SLAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/pcdshub/">PCDS</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">HXRSnD</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Calculations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/bragg.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="calculations">
+<h1>Calculations<a class="headerlink" href="#calculations" title="Permalink to this headline">¶</a></h1>
+<p>The bragg angle and energy calculations used to perform the energy macro-motions
+are in following script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HXRSnD</span><span class="o">/</span><span class="n">hxrsnd</span><span class="o">/</span><span class="n">bragg</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<div class="section" id="bragg-calculations">
+<h2>Bragg Calculations<a class="headerlink" href="#bragg-calculations" title="Permalink to this headline">¶</a></h2>
+<p>Both the angle and energy calculations were  pulled from <code class="docutils literal notranslate"><span class="pre">blutil</span></code> and the
+script should contain all the necessary components to perform the calculation.</p>
+<dl class="py function">
+<dt id="hxrsnd.bragg.bragg_angle">
+<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">bragg_angle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ID</span><span class="o">=</span><span class="default_value">'Si'</span></em>, <em class="sig-param"><span class="n">hkl</span><span class="o">=</span><span class="default_value">(2, 2, 0)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/bragg.html#bragg_angle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.bragg.bragg_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the Bragg angle (deg) of the specified material, reflection and
+photon energy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>E</strong><span class="classifier">float, optional</span></dt><dd><p>Photon energy in eV or keV (default is LCLS value)</p>
+</dd>
+<dt><strong>ID</strong><span class="classifier">str, optional</span></dt><dd><p>Chemical fomula : 'Si'</p>
+</dd>
+<dt><strong>hlk</strong><span class="classifier">tuple, optional</span></dt><dd><p>The reflection : (2,2,0)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>two_theta</strong><span class="classifier">float</span></dt><dd><p>Expected bragg angle</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxrsnd.bragg.bragg_energy">
+<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">bragg_energy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theta</span></em>, <em class="sig-param"><span class="n">ID</span><span class="o">=</span><span class="default_value">'Si'</span></em>, <em class="sig-param"><span class="n">hkl</span><span class="o">=</span><span class="default_value">(2, 2, 0)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/bragg.html#bragg_energy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.bragg.bragg_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the photon energy that satisfies the Bragg condition of the
+specified material, reflection and theta angle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>theta</strong><span class="classifier">float, optional</span></dt><dd><p>The scattering angle in degrees</p>
+</dd>
+<dt><strong>ID</strong><span class="classifier">str, optional</span></dt><dd><p>Chemical fomula : 'Si'</p>
+</dd>
+<dt><strong>hlk</strong><span class="classifier">tuple, optional</span></dt><dd><p>The reflection : (2,2,0)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>E</strong><span class="classifier">float, optional</span></dt><dd><p>Photon energy in eV</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="macro-motion-calculations">
+<h2>Macro-motion Calculations<a class="headerlink" href="#macro-motion-calculations" title="Permalink to this headline">¶</a></h2>
+<p>There are three functions that perform the same calculations used in for the
+macromotors. These were used to used to perform quick position verification.</p>
+<dl class="py function">
+<dt id="hxrsnd.bragg.snd_L">
+<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">snd_L</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E1</span></em>, <em class="sig-param"><span class="n">E2</span></em>, <em class="sig-param"><span class="n">delay</span></em>, <em class="sig-param"><span class="n">gap</span><span class="o">=</span><span class="default_value">55</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/bragg.html#snd_L"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.bragg.snd_L" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the theta angles of the towers and the delay length based on the
+desired energy and delay.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>E1</strong><span class="classifier">float</span></dt><dd><p>Energy of the delay branch in eV</p>
+</dd>
+<dt><strong>E2</strong><span class="classifier">float</span></dt><dd><p>Energy of the channel-cut branch in eV</p>
+</dd>
+<dt><strong>delay</strong><span class="classifier">float</span></dt><dd><p>Delay of the system in picoseconds</p>
+</dd>
+<dt><strong>gap</strong><span class="classifier">float, optional</span></dt><dd><p>Distance between the channel-cut crystals</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>theta_L</strong><span class="classifier">float</span></dt><dd><p>The necessary angle of the delay branch in degrees.</p>
+</dd>
+<dt><strong>theta_cc</strong><span class="classifier">float</span></dt><dd><p>The necessary angle of the channel-cut branch in degrees.</p>
+</dd>
+<dt><strong>L</strong><span class="classifier">float</span></dt><dd><p>The necessary length of the delay crystals in mm.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxrsnd.bragg.snd_diag">
+<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">snd_diag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E1</span></em>, <em class="sig-param"><span class="n">E2</span></em>, <em class="sig-param"><span class="n">delay</span></em>, <em class="sig-param"><span class="n">gap</span><span class="o">=</span><span class="default_value">55</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/bragg.html#snd_diag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.bragg.snd_diag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the positions of the middle diagnostics of the system based on
+the inputted energy and delay.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>E1</strong><span class="classifier">float</span></dt><dd><p>Energy of the delay branch in eV</p>
+</dd>
+<dt><strong>E2</strong><span class="classifier">float</span></dt><dd><p>Energy of the channel-cut branch in eV</p>
+</dd>
+<dt><strong>delay</strong><span class="classifier">float</span></dt><dd><p>Delay of the system in picoseconds</p>
+</dd>
+<dt><strong>gap</strong><span class="classifier">float, optional</span></dt><dd><p>Distance between the channel-cut crystals</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>dd_x</strong><span class="classifier">float</span></dt><dd><p>The necessary position of the middle delay diagnostic in mm</p>
+</dd>
+<dt><strong>dcc_x</strong><span class="classifier">float</span></dt><dd><p>The necessary position of the middle channel-cut diagnostic in mm</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="hxrsnd.bragg.snd_delay">
+<code class="sig-prename descclassname">hxrsnd.bragg.</code><code class="sig-name descname">snd_delay</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">E1</span></em>, <em class="sig-param"><span class="n">E2</span></em>, <em class="sig-param"><span class="n">L</span></em>, <em class="sig-param"><span class="n">gap</span><span class="o">=</span><span class="default_value">55</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/bragg.html#snd_delay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.bragg.snd_delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the delay of the system based on the inputted energies and the
+delay length.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>E1</strong><span class="classifier">float</span></dt><dd><p>Energy of the delay branch in eV</p>
+</dd>
+<dt><strong>E2</strong><span class="classifier">float</span></dt><dd><p>Energy of the channel-cut branch in eV</p>
+</dd>
+<dt><strong>L</strong><span class="classifier">float</span></dt><dd><p>Position of the delay crystals in mm</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>delay</strong><span class="classifier">float</span></dt><dd><p>The delay of the system in picoseconds</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="utils.html" class="btn btn-neutral float-right" title="Utility Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="misc_plans.html" class="btn btn-neutral float-left" title="Miscellaneous" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, SLAC National Accelerator Laboratory.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
