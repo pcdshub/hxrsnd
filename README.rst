@@ -4,9 +4,6 @@ Welcome to the Hard X-Ray Split and Delay Automated Controls System!
 .. image:: https://travis-ci.org/pcdshub/hxrsnd.svg?branch=master
     :target: https://travis-ci.org/pcdshub/hxrsnd
 
-.. image:: https://codecov.io/gh/pcdshub/hxrsnd/branch/master/graph/badge.svg
-  :target: https://codecov.io/gh/pcdshub/hxrsnd
-
 .. image:: https://landscape.io/github/pcdshub/hxrsnd/master/landscape.svg?style=flat
    :target: https://landscape.io/github/pcdshub/hxrsnd/master
 
