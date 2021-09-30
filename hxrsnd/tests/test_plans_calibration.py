@@ -68,6 +68,9 @@ def test_calibration_centroid_scan_renames_columns_correctly(fresh_RE):
 
 def test_detector_scaling_walk_start_positions_are_valid(fresh_RE):
     camera = SynCamera(m1, m2, delay, name="camera")
+    m1.set(0)
+    m2.set(0)
+    delay.set(0)
     calib_motors = [m1, m2]
 
     def test_plan():
