@@ -39,7 +39,7 @@ class MacroBase(SndMotor):
                      'status', 'wait', 'c', 'gap']
 
     # Set add_prefix to be blank so cmp doesnt append the parent prefix
-    readback = Cmp(AttributeSignal, "position", add_prefix='')
+    readback = Cmp(AttributeSignal, "position", add_prefix='', kind='hinted')
 
     def __init__(self, prefix, name=None, read_attrs=None, *args, **kwargs):
         read_attrs = read_attrs or ["readback"]
