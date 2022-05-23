@@ -14,10 +14,10 @@ build:
 
 requirements:
   build:
-    - python >=3.6
+    - python >=3.6,<3.10
     - setuptools
   run:
-    - python >=3.6
+    - python >=3.6,<3.10
     - ipython
     - numpy
     - pandas
