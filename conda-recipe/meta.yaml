@@ -29,6 +29,8 @@ requirements:
     - pswalker >=1.0.5
     - pcdsdevices >=4.0.0
     - pyepics
+  run_constrained:
+    - pyqt <5.15
 
 test:
   imports:
