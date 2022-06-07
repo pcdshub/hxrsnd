@@ -30,7 +30,7 @@ requirements:
     - pcdsdevices >=6.1.0
     - pyepics
   run_constrained:
-    - pcdsutils >=0.11.0
+    - pcdsutils >=0.10.0
     - pyqt <5.15
 
 test:
