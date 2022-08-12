@@ -244,7 +244,9 @@ def fake_detector(detector, name="TEST"):
 # Hotfix area detector plugins for tests
 for comp in (PCDSAreaDetector.image1, PCDSAreaDetector.stats2):
     plugin_class = comp.cls
-    plugin_class.plugin_type = Cmp(Signal, value=plugin_class._plugin_type)
+    cpt = Cmp(Signal, value=plugin_class._plugin_type)
+    cpt.attr = 'plugin_type'
+    plugin_class.plugin_type = cpt
 
 # Hotfix make_fake_device for ophyd=1.2.0
 fake_device_cache[EpicsSignalWithRBV] = FakeEpicsSignal
