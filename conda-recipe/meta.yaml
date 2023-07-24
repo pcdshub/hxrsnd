@@ -31,7 +31,6 @@ requirements:
     - pyepics
   run_constrained:
     - pcdsutils >=0.10.0
-    - pyqt <5.15
 
 test:
   imports:
