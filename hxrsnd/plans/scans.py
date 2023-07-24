@@ -77,7 +77,7 @@ def linear_scan(motor, start, stop, num, use_diag=True, return_to_start=True,
     def inner_scan():
 
         for i, step in enumerate(steps):
-            logger.info("\nStep {0}: Moving to {1}".format(i+1, step))
+            logger.info(f"\nStep {i+1}: Moving to {step}")
             grp = _short_uid('set')
             yield Msg('checkpoint')
             # Set wait to be false in set once the status object is implemented
@@ -86,7 +86,7 @@ def linear_scan(motor, start, stop, num, use_diag=True, return_to_start=True,
             yield from trigger_and_read([motor])
 
         if return_to_start:
-            logger.info("\nScan complete. Moving back to starting position: {0}"
+            logger.info("\nScan complete. Moving back to starting position: {}"
                         "\n".format(start))
             yield Msg('set', motor, start, group=grp, *args, **kwargs)
             yield Msg('wait', None, group=grp)
@@ -172,7 +172,7 @@ def centroid_scan(detector, motor, start, stop, steps, average=None,
     def per_step(detectors, motor, step):
         # Perform step
         yield from checkpoint()
-        logger.debug("Measuring average at step {0} ...".format(step))
+        logger.debug(f"Measuring average at step {step} ...")
         yield from abs_set(motor, step, wait=True)
         # Measure the average
         reads = (yield from measure_average(all_devices, num=average,

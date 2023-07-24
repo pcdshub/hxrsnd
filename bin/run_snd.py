@@ -17,11 +17,11 @@ try:
     from snd_devices import *  # noqa
 
     # Success
-    logger.debug("Successfully created SplitAndDelay class on '{0}'".format(
+    logger.debug("Successfully created SplitAndDelay class on '{}'".format(
         socket.gethostname()))
 except Exception as e:
-    logger.error("Failed to create SplitAndDelay class on '{0}'. Got error: "
-                 "{1}".format(socket.gethostname(), e))
+    logger.error("Failed to create SplitAndDelay class on '{}'. Got error: "
+                 "{}".format(socket.gethostname(), e))
     raise
 
 # Try importing from the scripts file if we succeeded at making the snd object
@@ -32,9 +32,9 @@ else:
     # There was some problem in the file
     except Exception as e:
         logger.warning("Failed to load scripts file, got the following error: "
-                       "{0}".format(e))
+                       "{}".format(e))
         raise
     # Notify the user that everything went smoothly
     else:
-        logger.info("Successfully initialized new SnD session on '{0}'".format(
+        logger.info("Successfully initialized new SnD session on '{}'".format(
             socket.gethostname()))

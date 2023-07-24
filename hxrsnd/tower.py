@@ -35,7 +35,7 @@ class TowerBase(SndDevice):
         for sig_name in self.component_names:
             signal = getattr(self, sig_name)
             if hasattr(signal, "desc"):
-                signal.desc = "{0} {1}".format(self.desc_short, signal.desc)
+                signal.desc = f"{self.desc_short} {signal.desc}"
 
     def set_energy(self, E, *args, **kwargs):
         """
@@ -204,7 +204,7 @@ class TowerBase(SndDevice):
             try:
                 motor.check_status(position)
             except Exception as e:
-                err = "Motor {0} got an exception: {1}".format(motor.desc, e)
+                err = f"Motor {motor.desc} got an exception: {e}"
                 logger.error(err)
                 raise e
 
@@ -258,7 +258,7 @@ class TowerBase(SndDevice):
         """
         if short:
             # Header
-            status += "\n{0}{1}\n{2}{3}".format(
+            status += "\n{}{}\n{}{}".format(
                 " "*offset, self.desc, " "*(offset+2), "-"*50)
 
             # Aerotech body
@@ -268,7 +268,7 @@ class TowerBase(SndDevice):
             if status_list_aero:
                 # Aerotech header
                 status += (
-                    "\n{0}{1:<16}|{2:^16}|{3:^16}\n{4}{5}".format(
+                    "\n{}{:<16}|{:^16}|{:^16}\n{}{}".format(
                         " "*(offset+2), "Motor", "Position", "Dial", " "*(offset+2), "-"*50
                     )
                 )
@@ -281,14 +281,14 @@ class TowerBase(SndDevice):
             if status_list_atto:
                 # Attocube Header
                 status += (
-                    "\n{0}{1}\n{2}{3:<16}|{4:^16}|{5:^16}\n{6}{7}".format(
+                    "\n{}{}\n{}{:<16}|{:^16}|{:^16}\n{}{}".format(
                         " "*(offset+2), "-"*50, " " * (offset+2),
                         "Motor", "Position", "Reference", " "*(offset+2), "-"*50)
                 )
                 status += "".join(status_list_atto)
 
         else:
-            status += "{0}{1}:\n{2}{3}\n".format(
+            status += "{}{}:\n{}{}\n".format(
                 " "*offset, self.desc, " "*offset, "-"*(len(self.desc)+1)
             )
             status_list = self._apply_all("status", (AeroBase, EccBase),

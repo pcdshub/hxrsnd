@@ -64,7 +64,7 @@ def calibrate_motor(detector, detector_fields, motor, motor_fields,
             try:
                 response = input("\nConfirm Overwrite [y/n]: ")
             except Exception as e:
-                logger.warning("Exception raised: {0}".format(e))
+                logger.warning(f"Exception raised: {e}")
                 response = "n"
             if response.lower() != "y":
                 logger.info("\nCalibration cancelled.")
@@ -266,7 +266,7 @@ def calibration_centroid_scan(detector, motor, calib_motors, start, stop, steps,
     # Make sure the same number of calibration fields as motors are passed
     if len(calib_motors) != len(calib_fields):
         raise ValueError("Must one calibration field for every calibration "
-                         "motor, but got {0} fields for {1} motors.".format(
+                         "motor, but got {} fields for {} motors.".format(
                              len(calib_fields), len(calib_motors)))
 
     # Perform the main scan, correctly passing the calibration parameters
@@ -342,7 +342,7 @@ def detector_scaling_walk(df_scan, detector, calib_motors,
     calib_fields = [col[:-4] for col in df_scan.columns if col.endswith("_pre")]
     if len(detector_fields) != len(calib_fields):
         raise ValueError("Must have same number of calibration fields as "
-                         "detector fields, but got {0} and {1}.".format(
+                         "detector fields, but got {} and {}.".format(
                              len(calib_fields), len(detector_fields)))
 
     # Perform all the initial necessities
@@ -379,7 +379,7 @@ def detector_scaling_walk(df_scan, detector, calib_motors,
 
         # Walk the cmotor to the first pre-correction detector entry
         try:
-            logger.debug("Beginning walk to {0} on {1} using {2}".format(
+            logger.debug("Beginning walk to {} on {} using {}".format(
                 df_scan.iloc[idx_max][dfld], detector.name, cmotor.name))
             yield from walk_to_pixel(
                 detector, cmotor, df_scan.iloc[idx_max][dfld], *args,
@@ -391,12 +391,12 @@ def detector_scaling_walk(df_scan, detector, calib_motors,
             )
 
         except RuntimeError:
-            logger.warning("walk_to_pixel raised a RuntimeError for motor '{0}'"
-                           ". Using its current position {1} for scale "
+            logger.warning("walk_to_pixel raised a RuntimeError for motor '{}'"
+                           ". Using its current position {} for scale "
                            "calulation.".format(cmotor.desc, cmotor.position))
         except LimitError:
             logger.warning("walk_to_pixel tried to exceed the limits of motor "
-                           "'{0}'. Using current position '{1}' for scale "
+                           "'{}'. Using current position '{}' for scale "
                            "calculation.".format(cmotor.desc, cmotor.position))
 
         # Get the positions and values we moved to
@@ -454,7 +454,7 @@ def build_calibration_df(df_scan, scaling, start_positions, detector):
     # Ensure these two are equal
     if len(detector_fields) != len(calib_fields):
         raise ValueError("Must have same number of calibration fields as "
-                         "detector fields, but got {0} and {1}.".format(
+                         "detector fields, but got {} and {}.".format(
                              len(calib_fields), len(detector_fields)))
 
     df_corrections = pd.DataFrame(index=df_scan.index)

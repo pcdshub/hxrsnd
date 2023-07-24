@@ -128,8 +128,7 @@ def _flatten(inp_iter):
     """
     for val in inp_iter:
         if isiterable(val):
-            for ival in _flatten(val):
-                yield ival
+            yield from _flatten(val)
         else:
             yield val
 
@@ -164,10 +163,10 @@ def stop_on_keyboardinterrupt(func):
                 return func(obj, *args, **kwargs)
             except KeyboardInterrupt:
                 obj.stop()
-                logger.info("Motor '{0}' stopped by keyboard interrupt".format(
+                logger.info("Motor '{}' stopped by keyboard interrupt".format(
                     obj.name))
         else:
-            raise AttributeError("Object '{0}' needs a stop method to use the "
+            raise AttributeError("Object '{}' needs a stop method to use the "
                                  "stop_on_keyboardinterrupt decorator.".format(
                                      obj))
     return stop_dev_on_keyboardinterrupt

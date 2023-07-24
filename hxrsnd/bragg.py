@@ -419,10 +419,10 @@ def snd_L(E1, E2, delay, gap=55):
     # gap is the distance between the two faces of the channel cut crystal
     L = (delay*cl/2.+gap*(1-cosd(2*theta_cc))/sind(theta_cc))/(1-cosd(
         2*theta_L))
-    logger.info("t1.L = t4.L = {} mm".format(L))
-    logger.info("t1.tth = t4.tth = {} degree".format(2*theta_L))
-    logger.info("t1.th1=t1.th2=t4.th1=t4.th2 = {} degree".format(theta_L))
-    logger.info("t2.th=t3.th = {} degree".format(theta_cc))
+    logger.info(f"t1.L = t4.L = {L} mm")
+    logger.info(f"t1.tth = t4.tth = {2*theta_L} degree")
+    logger.info(f"t1.th1=t1.th2=t4.th1=t4.th2 = {theta_L} degree")
+    logger.info(f"t2.th=t3.th = {theta_cc} degree")
     return theta_L, theta_cc, L
 
 
@@ -461,8 +461,8 @@ def snd_diag(E1, E2, delay, gap=55):
     L = (delay*cl/2.+gap*(1-cosd(2*theta_cc))/sind(theta_cc))/(1-cosd(
         2*theta_L))
     dd_x = -L*sind(2*theta_L)
-    logger.info("dd.x = {}".format(dd_x))
-    logger.info("dcc.x = {}".format(dcc_x))
+    logger.info(f"dd.x = {dd_x}")
+    logger.info(f"dcc.x = {dcc_x}")
     return dd_x, dcc_x
 
 

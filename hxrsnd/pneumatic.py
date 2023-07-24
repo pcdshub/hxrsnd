@@ -41,7 +41,7 @@ class PneuBase(SndDevice):
         status : str
             Status string.
         """
-        status += "{0}{1:<16}|{2:^16}\n".format(" "*offset, self.desc+"",
+        status += "{}{:<16}|{:^16}\n".format(" "*offset, self.desc+"",
                                                 self.position)
         if newline:
             status += "\n"
@@ -253,7 +253,7 @@ class SndPneumatics(SndDevice):
         status : str
             Status string.
         """
-        status += "\n{0}Pneumatics".format(" "*offset)
+        status += "\n{}Pneumatics".format(" "*offset)
         status += "\n{0}{1}\n{0}{2:^16}|{3:^16}\n{0}{4}\n".format(
             " "*(offset+2), "-"*34, "Device", "State", "-"*34)
         for valve in self._valves:

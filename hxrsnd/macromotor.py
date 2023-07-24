@@ -316,16 +316,16 @@ class MacroBase(SndMotor):
         except LimitError:
             logger.warning("Requested move is outside the soft limits")
         except MotorDisabled:
-            logger.warning("Cannot move '{0}' - a motor is currently disabled. "
+            logger.warning("Cannot move '{}' - a motor is currently disabled. "
                            "Try running 'motor.enable()'.".format(self.desc))
         except MotorFaulted:
-            logger.warning("Cannot move '{0}' - a motor is currently faulted. "
+            logger.warning("Cannot move '{}' - a motor is currently faulted. "
                            "Try running 'motor.clear()'.".format(self.desc))
         except MotorStopped:
-            logger.warning("Cannot move '{0}' - a motor is currently stopped. "
+            logger.warning("Cannot move '{}' - a motor is currently stopped. "
                            "Try running 'motor.state='Go''.".format(self.desc))
         except BadN2Pressure:
-            logger.warning("Cannot move '{0}' - pressure in a tower is bad."
+            logger.warning("Cannot move '{}' - pressure in a tower is bad."
                            "".format(self.desc))
         finally:
             if use_diag is not _UNSET:
@@ -362,7 +362,7 @@ class MacroBase(SndMotor):
         try:
             response = input("\nConfirm Move [y/n]: ")
         except Exception as e:
-            logger.info("Exception raised: {0}".format(e))
+            logger.info(f"Exception raised: {e}")
             response = "n"
 
         if response.lower() != "y":
@@ -388,12 +388,12 @@ class MacroBase(SndMotor):
             Determines whether the string is printed or returned.
         """
         try:
-            status += "\n{0}{1:<16} {2:^16}".format(
+            status += "\n{}{:<16} {:^16}".format(
                 " "*offset,
                 self.desc+":",
                 self.position)
         except TypeError:
-            status += "\n{0}{1:<16} {2:^}".format(
+            status += "\n{}{:<16} {:^}".format(
                 " "*offset,
                 self.desc+":",
                 str(self.position))
@@ -691,7 +691,7 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
         status = [tower.set_length(length, wait=False, check_status=False)
                   for tower in self._delay_towers]
         # Log the delay change
-        logger.debug("Setting delay to {0}.".format(delay))
+        logger.debug(f"Setting delay to {delay}.")
 
         if use_diag:
             # Move the delay diagnostic to the inputted position
@@ -755,7 +755,7 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
             self.parent.dd.x.set_position(position_dd, print_set=False)
 
         if print_set:
-            logger.info("Setting positions for delay to {0}.".format(delay))
+            logger.info(f"Setting positions for delay to {delay}.")
 
 
 class Energy1Macro(DelayTowerMacro):
@@ -946,7 +946,7 @@ class Energy1Macro(DelayTowerMacro):
         status = [tower.set_energy(E1, wait=False, check_status=False) for
                   tower in self._delay_towers]
         # Log the energy change
-        logger.debug("Setting E1 to {0}.".format(E1))
+        logger.debug(f"Setting E1 to {E1}.")
 
         # Move the delay diagnostic to the inputted position
         if use_diag:
@@ -1030,7 +1030,7 @@ class Energy1Macro(DelayTowerMacro):
 
         # Log the set
         if print_set is True:
-            logger.info("Setting positions for E1 to {0}.".format(E1))
+            logger.info(f"Setting positions for E1 to {E1}.")
 
 
 class Energy1CCMacro(Energy1Macro):
@@ -1161,7 +1161,7 @@ class Energy1CCMacro(Energy1Macro):
                                  check_status=False)
                   for tower in self._delay_towers]
         # Log the energy change
-        logger.debug("Setting E1_cc to {0}.".format(E1))
+        logger.debug(f"Setting E1_cc to {E1}.")
 
         # Move the delay diagnostic to the inputted position
         if use_diag:
@@ -1209,7 +1209,7 @@ class Energy1CCMacro(Energy1Macro):
 
         # Log the set
         if print_set is True:
-            logger.info("Setting positions for E1 to {0}.".format(E1))
+            logger.info(f"Setting positions for E1 to {E1}.")
 
 
 class Energy2Macro(MacroBase):
@@ -1402,7 +1402,7 @@ class Energy2Macro(MacroBase):
         if use_diag:
             status += [self.parent.dcc.x.move(position_dcc, wait=False)]
         # Log the energy change
-        logger.debug("Setting E2 to {0}.".format(E2))
+        logger.debug(f"Setting E2 to {E2}.")
 
         return status
 
@@ -1460,4 +1460,4 @@ class Energy2Macro(MacroBase):
 
         # Log the set
         if print_set is True:
-            logger.info("Setting positions for E2 to {0}.".format(E2))
+            logger.info(f"Setting positions for E2 to {E2}.")
