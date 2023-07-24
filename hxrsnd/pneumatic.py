@@ -41,8 +41,9 @@ class PneuBase(SndDevice):
         status : str
             Status string.
         """
-        status += "{}{:<16}|{:^16}\n".format(" "*offset, self.desc+"",
-                                                self.position)
+        status += "{}{:<16}|{:^16}\n".format(
+            " " * offset, self.desc + "", self.position
+        )
         if newline:
             status += "\n"
         if print_status is True:

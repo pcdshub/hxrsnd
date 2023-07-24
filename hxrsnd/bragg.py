@@ -177,7 +177,7 @@ def lam(E, o=0):
     return lam
 
 
-def lam2E(l):
+def lam2E(l):  # noqa: E741
     """
     Computes photon energy in eV
 
@@ -195,7 +195,7 @@ def lam2E(l):
     return E
 
 
-def lam2f(l):
+def lam2f(l):  # noqa: E741
     """
     Computes the photon frequency in Hz
 
@@ -302,7 +302,7 @@ def d_space(ID, hkl):
     ID = check_id(ID)
     h = hkl[0]
     k = hkl[1]
-    l = hkl[2]
+    l_ = hkl[2]
 
     lp = lattice_parameters[ID]
     a = lp[0]/u['ang']
@@ -320,8 +320,8 @@ def d_space(ID, hkl):
     sg = sind(gamma)
 
     invdsqr = 1 / (1.+2.*ca*cb*cg-ca**2.-cb**2.-cg**2.) * \
-        (h**2.*sa**2./a**2. + k**2.*sb**2./b**2. + l**2.*sg**2./c**2. +
-         2.*h*k*(ca*cb-cg)/a/b+2.*k*l*(cb*cg-ca)/b/c+2.*h*l*(ca*cg-cb)/a/c)
+        (h**2.*sa**2./a**2. + k**2.*sb**2./b**2. + l_**2.*sg**2./c**2. +
+         2.*h*k*(ca*cb-cg)/a/b+2.*k*l_*(cb*cg-ca)/b/c+2.*h*l_*(ca*cg-cb)/a/c)
 
     d = invdsqr**-0.5
     return d
@@ -378,8 +378,8 @@ def bragg_energy(theta, ID="Si", hkl=(2, 2, 0)):
     """
     ID = check_id(ID)
     d = d_space(ID, hkl)
-    l = 2*d*sind(theta)
-    E = lam2E(l)
+    l_ = 2*d*sind(theta)
+    E = lam2E(l_)
     return E
 
 

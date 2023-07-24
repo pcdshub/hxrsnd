@@ -284,24 +284,30 @@ class AeroBase(SndEpicsMotor):
                 if wait:
                     logger.info(f"Move completed for '{self.desc}'.")
                 else:
-                    logger.info(
-                        f"Move command sent to '{self.desc}'.")
+                    logger.info(f"Move command sent to '{self.desc}'.")
             return status
 
         # Catch all the common motor exceptions
         except LimitError:
-            logger.warning("Requested move '{}' is outside the soft limits "
-                           "{} for motor {}".format(position, self.limits,
-                                                      self.desc))
+            logger.warning(
+                "Requested move '{}' is outside the soft limits "
+                "{} for motor {}".format(position, self.limits, self.desc)
+            )
         except MotorDisabled:
-            logger.warning("Cannot move - motor {} is currently disabled. Try "
-                           "running 'motor.enable()'.".format(self.desc))
+            logger.warning(
+                "Cannot move - motor {} is currently disabled. Try "
+                "running 'motor.enable()'.".format(self.desc)
+            )
         except MotorFaulted:
-            logger.warning("Cannot move - motor {} is currently faulted. Try "
-                           "running 'motor.clear()'.".format(self.desc))
+            logger.warning(
+                "Cannot move - motor {} is currently faulted. Try "
+                "running 'motor.clear()'.".format(self.desc)
+            )
         except MotorStopped:
-            logger.warning("Cannot move - motor {} is currently stopped. Try "
-                           "running 'motor.state=\"Go\"'.".format(self.desc))
+            logger.warning(
+                "Cannot move - motor {} is currently stopped. Try "
+                "running 'motor.state=\"Go\"'.".format(self.desc)
+            )
 
     def check_status(self, position=None):
         """
@@ -647,24 +653,27 @@ class AeroBase(SndEpicsMotor):
         """
         if short:
             status += "\n{}{:<16}|{:^16.3f}|{:^16.3f}".format(
-                " "*offset, self.desc, self.position, self.dial.get())
+                " " * offset, self.desc, self.position, self.dial.get()
+            )
         else:
-            status += "{}{}\n".format(" "*offset, self.desc)
-            status += "{}PV: {:>25}\n".format(" "*(offset+2), self.prefix)
-            status += "{}Enabled: {:>20}\n".format(" "*(offset+2),
-                                                     str(self.enabled))
-            status += "{}Faulted: {:>20}\n".format(" "*(offset+2),
-                                                     str(self.faulted))
-            status += "{}State: {:>22}\n".format(" "*(offset+2),
-                                                   str(self.state))
-            status += "{}Position: {:>19}\n".format(" "*(offset+2),
-                                                      np.round(self.wm(), 6))
-            status += "{}Dial: {:>23}\n".format(" "*(offset+2),
-                                                  np.round(self.dial.get(),
-                                                           6))
+            status += "{}{}\n".format(" " * offset, self.desc)
+            status += "{}PV: {:>25}\n".format(" " * (offset + 2), self.prefix)
+            status += "{}Enabled: {:>20}\n".format(
+                " " * (offset + 2), str(self.enabled)
+            )
+            status += "{}Faulted: {:>20}\n".format(
+                " " * (offset + 2), str(self.faulted)
+            )
+            status += "{}State: {:>22}\n".format(" " * (offset + 2), str(self.state))
+            status += "{}Position: {:>19}\n".format(
+                " " * (offset + 2), np.round(self.wm(), 6)
+            )
+            status += "{}Dial: {:>23}\n".format(
+                " " * (offset + 2), np.round(self.dial.get(), 6)
+            )
             status += "{}Limits: {:>21}\n".format(
-                " "*(offset+2), str((int(self.low_limit),
-                                     int(self.high_limit))))
+                " " * (offset + 2), str((int(self.low_limit), int(self.high_limit)))
+            )
 
         if newline:
             status += "\n"
