@@ -1,5 +1,10 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
+exclude: |
+  (?x)^(
+    hxrsnd/_version.py|
+  )$
+
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
@@ -21,10 +26,8 @@ repos:
     rev: 6.0.0
     hooks:
     -   id: flake8
-        exclude: '^(versioneer.py)$'
-
 
 -   repo: https://github.com/timothycrosley/isort
-    rev: 5.12.0
+    rev: 5.11.4
     hooks:
     -   id: isort
