@@ -11,18 +11,18 @@ sys.path.insert(0, str(module_path))
 
 import hxrsnd  # noqa: E402 F401
 
-project = "HXRSnD"
+project = "hxrsnd"
 author = "SLAC National Accelerator Laboratory"
 
 copyright = f"{datetime.now().year}, {author}"
 
 # The short X.Y version
-version = ""
+version = str(hxrsnd.__version__)
 # The full version, including alpha/beta/rc tags
-release = ""
+release = str(hxrsnd.__version__)
 
 # -- General configuration ---------------------------------------------------
-needs_sphinx = "3.2.1"
+# needs_sphinx = "3.2.1"
 
 extensions = [
     "sphinxcontrib.jquery",
