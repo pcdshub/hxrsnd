@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 import logging
 import time
 from collections import OrderedDict
@@ -19,8 +18,8 @@ logger = logging.getLogger(__name__)
 @pytest.mark.parametrize("dev", get_classes_in_module(tower, Device))
 def test_devices_instantiate_and_run_ophyd_functions(dev):
     device = fake_device(dev, "TEST:SND:T1")
-    assert(isinstance(device.read(), OrderedDict))
-    assert(isinstance(device.read_configuration(), OrderedDict))
+    assert isinstance(device.read(), OrderedDict)
+    assert isinstance(device.read_configuration(), OrderedDict)
 
 
 def test_DelayTower_does_not_move_if_motors_not_ready():

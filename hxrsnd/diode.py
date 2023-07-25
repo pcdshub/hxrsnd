@@ -177,7 +177,7 @@ class HamamatsuXYMotionCamDiode(SndDevice):
         # Move to the blocked position if we aren't already there
         if self.blocked is True:
             # We are already in the blocked position
-            logger.info("Motor '{0}' is currently in the blocked position"
+            logger.info("Motor '{}' is currently in the blocked position"
                         "".format(self.x.desc))
         else:
             return self.x.mv(self.pos_func() + self.block_pos, *args, **kwargs)
@@ -209,7 +209,7 @@ class HamamatsuXYMotionCamDiode(SndDevice):
         # Move to the blocked position if we aren't already there
         if self.blocked is False:
             # We are already in the blocked position
-            logger.info("Motor '{0}' is currently in the unblocked position"
+            logger.info("Motor '{}' is currently in the unblocked position"
                         "".format(self.x.desc))
         else:
             return self.x.mv(self.pos_func(), *args, **kwargs)

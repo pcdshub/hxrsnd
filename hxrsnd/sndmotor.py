@@ -294,7 +294,7 @@ class CalibMotor(SndDevice):
         elif not isinstance(calib, pd.DataFrame):
             raise TypeError("Only Dataframes are supported for calibrations "
                             "tables at this time. Got a calibration of type "
-                            "{0}.".format(type(calib)))
+                            "{}.".format(type(calib)))
 
         # We have a correction table but no motors to correct with
         elif not motors:
@@ -305,7 +305,7 @@ class CalibMotor(SndDevice):
         # same length, so we cannot actually use it
         elif len(calib.columns) != len(motors):
             raise InputError("Mismatched calibration size and number of "
-                             "motors. Got {0} columns for {1} motors.".format(
+                             "motors. Got {} columns for {} motors.".format(
                                  len(calib.columns), len(motors)))
 
         # We have the correct correction table and motors but one of the of the

@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 """
 Script to hold temporary routines created during the beamtime.
 
@@ -130,7 +129,7 @@ def ascan(motor, start, stop, num, events_per_point=360, record=False,
         status.var0_min.put(min((start, stop)))
 
         for i, step in enumerate(np.linspace(start, stop, num)):
-            logger.info('Beginning step {}'.format(step))
+            logger.info(f'Beginning step {step}')
             try:
                 mstat = motor.set(step, verify_move=False, **kwargs)
             except TypeError:
@@ -139,7 +138,7 @@ def ascan(motor, start, stop, num, events_per_point=360, record=False,
             status_wait(mstat)
             scan_controls = get_controls(motor, controls)
             daq.begin(events=events, controls=scan_controls)
-            logger.info('Waiting for {} events ...'.format(events))
+            logger.info(f'Waiting for {events} events ...')
             daq.wait()
     finally:
         logger.info('DONE!')

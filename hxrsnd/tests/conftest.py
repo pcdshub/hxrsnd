@@ -184,7 +184,7 @@ def set_level(pytestconfig):
 
     # Report invalid logging level
     if not isinstance(log_level, int):
-        raise ValueError("Invalid log level : {}".format(log_level))
+        raise ValueError(f"Invalid log level : {log_level}")
 
     # Create basic configuration
     logging.basicConfig(level=log_level,

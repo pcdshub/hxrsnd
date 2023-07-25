@@ -61,7 +61,7 @@ def euclidean_distance(device, device_fields, targets, average=None,
     if len(device_fields) != len(targets):
         raise ValueError(
             "Number of device fields and targets must be the same."
-            "Got {0} and {1}".format(len(device_fields), len(targets))
+            "Got {} and {}".format(len(device_fields), len(targets))
         )
     # Measure the average
     read = (yield from measure_average([device], num=average, filters=filters))

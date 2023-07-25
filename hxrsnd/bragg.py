@@ -177,7 +177,7 @@ def lam(E, o=0):
     return lam
 
 
-def lam2E(l):
+def lam2E(l):  # noqa: E741
     """
     Computes photon energy in eV
 
@@ -195,7 +195,7 @@ def lam2E(l):
     return E
 
 
-def lam2f(l):
+def lam2f(l):  # noqa: E741
     """
     Computes the photon frequency in Hz
 
@@ -302,7 +302,7 @@ def d_space(ID, hkl):
     ID = check_id(ID)
     h = hkl[0]
     k = hkl[1]
-    l = hkl[2]
+    l_ = hkl[2]
 
     lp = lattice_parameters[ID]
     a = lp[0]/u['ang']
@@ -320,8 +320,8 @@ def d_space(ID, hkl):
     sg = sind(gamma)
 
     invdsqr = 1 / (1.+2.*ca*cb*cg-ca**2.-cb**2.-cg**2.) * \
-        (h**2.*sa**2./a**2. + k**2.*sb**2./b**2. + l**2.*sg**2./c**2. +
-         2.*h*k*(ca*cb-cg)/a/b+2.*k*l*(cb*cg-ca)/b/c+2.*h*l*(ca*cg-cb)/a/c)
+        (h**2.*sa**2./a**2. + k**2.*sb**2./b**2. + l_**2.*sg**2./c**2. +
+         2.*h*k*(ca*cb-cg)/a/b+2.*k*l_*(cb*cg-ca)/b/c+2.*h*l_*(ca*cg-cb)/a/c)
 
     d = invdsqr**-0.5
     return d
@@ -378,8 +378,8 @@ def bragg_energy(theta, ID="Si", hkl=(2, 2, 0)):
     """
     ID = check_id(ID)
     d = d_space(ID, hkl)
-    l = 2*d*sind(theta)
-    E = lam2E(l)
+    l_ = 2*d*sind(theta)
+    E = lam2E(l_)
     return E
 
 
@@ -419,10 +419,10 @@ def snd_L(E1, E2, delay, gap=55):
     # gap is the distance between the two faces of the channel cut crystal
     L = (delay*cl/2.+gap*(1-cosd(2*theta_cc))/sind(theta_cc))/(1-cosd(
         2*theta_L))
-    logger.info("t1.L = t4.L = {} mm".format(L))
-    logger.info("t1.tth = t4.tth = {} degree".format(2*theta_L))
-    logger.info("t1.th1=t1.th2=t4.th1=t4.th2 = {} degree".format(theta_L))
-    logger.info("t2.th=t3.th = {} degree".format(theta_cc))
+    logger.info(f"t1.L = t4.L = {L} mm")
+    logger.info(f"t1.tth = t4.tth = {2*theta_L} degree")
+    logger.info(f"t1.th1=t1.th2=t4.th1=t4.th2 = {theta_L} degree")
+    logger.info(f"t2.th=t3.th = {theta_cc} degree")
     return theta_L, theta_cc, L
 
 
@@ -461,8 +461,8 @@ def snd_diag(E1, E2, delay, gap=55):
     L = (delay*cl/2.+gap*(1-cosd(2*theta_cc))/sind(theta_cc))/(1-cosd(
         2*theta_L))
     dd_x = -L*sind(2*theta_L)
-    logger.info("dd.x = {}".format(dd_x))
-    logger.info("dcc.x = {}".format(dcc_x))
+    logger.info(f"dd.x = {dd_x}")
+    logger.info(f"dcc.x = {dcc_x}")
     return dd_x, dcc_x
 
 

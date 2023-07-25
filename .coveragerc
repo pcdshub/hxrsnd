@@ -3,12 +3,9 @@ source =
     hxrsnd
 [report]
 omit =
-    attocube_testing
-    #tests
-    */tests/*
-    *test*
     #versioning
     .*version.*
     *_version.py
-    bin
-    screens
+    #tests
+    *test*
+    hxrsnd/tests/*

@@ -1,8 +1,10 @@
-{% set data = load_setup_py_data() %}
+{% set package_name = "hxrsnd" %}
+{% set import_name = "hxrsnd" %}
+{% set version = load_file_regex(load_file=os.path.join(import_name, "_version.py"), regex_pattern=".*version = '(\S+)'").group(1) %}
 
 package:
-  name: hxrsnd
-  version : {{ data.get('version') }}
+  name: {{ package_name }}
+  version: {{ version }}
 
 source:
   path: ..
@@ -10,32 +12,36 @@ source:
 build:
   number: 0
   noarch: python
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
-    - python >=3.6
-    - setuptools
+  - python >=3.6
+  - setuptools_scm
+  - pip
   run:
-    - python >=3.6
-    - ipython
-    - numpy
-    - pandas
-    - lmfit
-    - simplejson
-    - pyyaml
-    - coloredlogs
-    - super_state_machine
-    - pswalker >=1.0.5
-    - pcdsdevices >=6.1.0
-    - pyepics
+  - python >=3.6
+  - ipython
+  - numpy
+  - pandas
+  - lmfit
+  - simplejson
+  - pyyaml
+  - coloredlogs
+  - super_state_machine
+  - pswalker >=1.0.5
+  - pcdsdevices >=6.1.0
+  - pyepics
   run_constrained:
-    - pcdsutils >=0.10.0
-    - pyqt <5.15
+  - pcdsutils >=0.10.0
 
 test:
   imports:
-    - hxrsnd
+  - hxrsnd
+  requires:
+  - pytest
+  - pytest-timeout
+  - pytest-cov
 
 about:
   home: https://github.com/pcdshub/hxrsnd

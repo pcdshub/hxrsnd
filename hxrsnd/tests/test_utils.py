@@ -36,7 +36,7 @@ def test_flatten_works_correctly(test):
 
 @pytest.mark.parametrize("screen", ["motor_expert_screen.sh", "snd_main"])
 def test_absolute_submodule_path_works_correctly(screen):
-    path = "HXRSnD/screens/{0}".format(screen)
+    path = f"HXRSnD/screens/{screen}"
     template = "/reg/neh/operator/xcsopr/bin/snd/HXRSnD/hxrsnd/utils.py"
     abs_path = Path(utils.absolute_submodule_path(path, template))
     assert abs_path == Path("/".join(template.split("/")[:-3]) + "/" + path)

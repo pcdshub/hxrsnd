@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 import logging
 from collections import OrderedDict
 from copy import deepcopy
@@ -25,8 +24,8 @@ rtol = 1e-6                             # Numpy relative tolerance
 @pytest.mark.parametrize("dev", get_classes_in_module(sndmotor, Device))
 def test_sndmotor_devices_instantiate_and_run_ophyd_functions(dev):
     device = fake_device(dev)
-    assert(isinstance(device.read(), OrderedDict))
-    assert(isinstance(device.read_configuration(), OrderedDict))
+    assert isinstance(device.read(), OrderedDict)
+    assert isinstance(device.read_configuration(), OrderedDict)
 
 
 def test_CalibMotor_configure_raises_errors_on_bad_inputs():

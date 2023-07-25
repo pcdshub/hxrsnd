@@ -121,10 +121,10 @@ class SplitAndDelay(SndDevice):
         Prints a string containing the blocking status and the position of the
         motor.
         """
-        status = "\n{0}{1:<14}|{2:^16}|{3:^16}\n{4}{5}".format(
+        status = "\n{}{:<14}|{:^16}|{:^16}\n{}{}".format(
             " "*2, "Diagnostic", "Blocking", "Position", " "*2, "-"*50)
         for diag in self._diagnostics:
-            status += "\n{0}{1:<14}|{2:^16}|{3:^16.3f}".format(
+            status += "\n{}{:<14}|{:^16}|{:^16.3f}".format(
                 " "*2, diag.desc, str(diag.blocked), diag.x.position)
         logger.info(status)
 

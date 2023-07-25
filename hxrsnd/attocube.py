@@ -33,7 +33,7 @@ class EccController(SndDevice):
         """
         Returns the firmware in the same date format as the EDM screen.
         """
-        return "{0}/{1}/{2}".format(
+        return "{}/{}/{}".format(
             self._firm_day.get(), self._firm_month.get(), self._firm_year.get())
 
     @property
@@ -211,7 +211,7 @@ class EccBase(SndMotor, PositionerBase):
             The status object for setting the power signal.
         """
         status = self.motor_enable.set(1, timeout=self.set_timeout)
-        return self._status_print(status, "Enabled motor '{0}'".format(
+        return self._status_print(status, "Enabled motor '{}'".format(
             self.desc), ret_status=ret_status, print_set=print_set)
 
     def disable(self, ret_status=False, print_set=True):
@@ -232,7 +232,7 @@ class EccBase(SndMotor, PositionerBase):
             The status object for setting the power signal.
         """
         status = self.motor_enable.set(0, timeout=self.set_timeout)
-        return self._status_print(status, "Disabled motor '{0}'".format(
+        return self._status_print(status, "Disabled motor '{}'".format(
             self.desc), ret_status=ret_status, print_set=print_set)
 
     @property
@@ -293,7 +293,7 @@ class EccBase(SndMotor, PositionerBase):
             Status object for the set.
         """
         status = self.motor_reset.set(1, timeout=self.set_timeout)
-        return self._status_print(status, "Reset motor '{0}'".format(
+        return self._status_print(status, "Reset motor '{}'".format(
             self.desc), ret_status=ret_status, print_set=print_set)
 
     def move(self, position, check_status=True, timeout=None, *args, **kwargs):
@@ -327,7 +327,7 @@ class EccBase(SndMotor, PositionerBase):
         # Check the motor status
         if check_status:
             self.check_status(position)
-        logger.debug("Moving {0} to {1}".format(self.name, position))
+        logger.debug(f"Moving {self.name} to {position}")
         # Begin the move process
         return self.user_setpoint.set(position, timeout=timeout)
 
@@ -370,21 +370,26 @@ class EccBase(SndMotor, PositionerBase):
 
             # Notify the user that a motor has completed or the command is sent
             if print_move:
-                logger.info("Move command sent to '{0}'.".format(self.desc))
+                logger.info(f"Move command sent to '{self.desc}'.")
             # Check if a status object is desired
             return status
 
         # Catch all the common motor exceptions
         except LimitError:
-            logger.warning("Requested move '{0}' is outside the soft limits "
-                           "{1} for motor {2}".format(position, self.limits,
-                                                      self.desc))
+            logger.warning(
+                "Requested move '{}' is outside the soft limits "
+                "{} for motor {}".format(position, self.limits, self.desc)
+            )
         except MotorDisabled:
-            logger.warning("Cannot move - motor {0} is currently disabled. Try "
-                           "running 'motor.enable()'.".format(self.desc))
+            logger.warning(
+                "Cannot move - motor {} is currently disabled. Try "
+                "running 'motor.enable()'.".format(self.desc)
+            )
         except MotorFaulted:
-            logger.warning("Cannot move - motor {0} is currently faulted. Try "
-                           "running 'motor.clear()'.".format(self.desc))
+            logger.warning(
+                "Cannot move - motor {} is currently faulted. Try "
+                "running 'motor.clear()'.".format(self.desc)
+            )
 
     def check_status(self, position=None):
         """
@@ -406,12 +411,12 @@ class EccBase(SndMotor, PositionerBase):
             If the motor has an error.
         """
         if not self.enabled:
-            err = "Motor '{0}' is currently disabled.".format(self.desc)
+            err = f"Motor '{self.desc}' is currently disabled."
             logger.error(err)
             raise MotorDisabled(err)
 
         if self.error:
-            err = "Motor '{0}' currently has an error.".format(self.desc)
+            err = f"Motor '{self.desc}' currently has an error."
             logger.error(err)
             raise MotorError(err)
 
@@ -439,12 +444,12 @@ class EccBase(SndMotor, PositionerBase):
         """
         # Check for invalid positions
         if position is None or np.isnan(position) or np.isinf(position):
-            raise ValueError("Invalid value inputted: '{0}'".format(position))
+            raise ValueError(f"Invalid value inputted: '{position}'")
 
         # Check if it is within the soft limits
         if not (self.low_limit <= position <= self.high_limit):
             err_str = (
-                "Requested value {0} outside of range: [{1}, {2}]"
+                "Requested value {} outside of range: [{}, {}]"
                 "".format(position, self.low_limit, self.high_limit)
             )
             logger.warn(err_str)
@@ -469,7 +474,7 @@ class EccBase(SndMotor, PositionerBase):
         """
         status = self.motor_stop.set(1, wait=False, timeout=self.set_timeout)
         super().stop(success=success)
-        return self._status_print(status, "Stopped motor '{0}'".format(
+        return self._status_print(status, "Stopped motor '{}'".format(
             self.desc), ret_status=ret_status, print_set=print_set)
 
     def expert_screen(self, print_msg=True):
@@ -486,7 +491,7 @@ class EccBase(SndMotor, PositionerBase):
             "hxrsnd/screens/motor_expert_screens.sh")
         if print_msg:
             logger.info("Launching expert screen.")
-        os.system("{0} {1} {2} &".format(path, self.prefix, "attocube"))
+        os.system("{} {} {} &".format(path, self.prefix, "attocube"))
 
     def set_limits(self, llm, hlm):
         """
@@ -582,19 +587,22 @@ class EccBase(SndMotor, PositionerBase):
             Status string.
         """
         if short:
-            status += "\n{0}{1:<16}|{2:^16.3f}|{3:^16.3f}".format(
-                " "*offset, self.desc, self.position, self.reference)
+            status += "\n{}{:<16}|{:^16.3f}|{:^16.3f}".format(
+                " " * offset, self.desc, self.position, self.reference
+            )
         else:
-            status += "{0}{1}\n".format(" "*offset, self.desc)
-            status += "{0}PV: {1:>25}\n".format(" "*(offset+2), self.prefix)
-            status += "{0}Enabled: {1:>20}\n".format(" "*(offset+2),
-                                                     str(self.enabled))
-            status += "{0}Faulted: {1:>20}\n".format(" "*(offset+2),
-                                                     str(self.error))
-            status += "{0}Position: {1:>19}\n".format(" "*(offset+2),
-                                                      np.round(self.wm(), 6))
-            status += "{0}Limits: {1:>21}\n".format(
-                " "*(offset+2), str((int(self.low_limit), int(self.high_limit))))
+            status += "{}{}\n".format(" " * offset, self.desc)
+            status += "{}PV: {:>25}\n".format(" " * (offset + 2), self.prefix)
+            status += "{}Enabled: {:>20}\n".format(
+                " " * (offset + 2), str(self.enabled)
+            )
+            status += "{}Faulted: {:>20}\n".format(" " * (offset + 2), str(self.error))
+            status += "{}Position: {:>19}\n".format(
+                " " * (offset + 2), np.round(self.wm(), 6)
+            )
+            status += "{}Limits: {:>21}\n".format(
+                " " * (offset + 2), str((int(self.low_limit), int(self.high_limit)))
+            )
         if newline:
             status += "\n"
         if print_status is True:
