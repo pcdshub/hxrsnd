@@ -1,90 +1,51 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="python" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>General Scans &mdash; HXRSnD  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>General Scans &mdash; hxrsnd 0.2.12.dev26+gd0c9b08 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Miscellaneous" href="misc_plans.html" />
     <link rel="prev" title="Delay Calibration" href="calibration.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html" class="icon icon-home"> HXRSnD
           
-
-          
+          <a href="index.html" class="icon icon-home">
+            hxrsnd
           </a>
-
-          
-            
-            
-          
-
-          
+              <div class="version">
+                0.2.12.dev26+gd0c9b08
+              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basic_usage.html">Basic Usage</a></li>
@@ -94,7 +55,7 @@
 <li class="toctree-l1"><a class="reference internal" href="running_daq_scans.html">Running DAQ Scans</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating_delay_scans.html">Calibrating Delay Scans</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Devices</span></p>
+<p class="caption" role="heading"><span class="caption-text">Devices</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="sndsystem.html">Split and Delay System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="macromotor.html">Macromotors</a></li>
@@ -105,113 +66,76 @@
 <li class="toctree-l1"><a class="reference internal" href="pneumatic.html">Pneumatics and Air Bearings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rtd.html">Temperature Sensors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Plans</span></p>
+<p class="caption" role="heading"><span class="caption-text">Plans</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="alignment.html">Alignment Plans</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calibration.html">Delay Calibration</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">General Scans</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">General Scans</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hxrsnd.plans.scans.linear_scan"><code class="docutils literal notranslate"><span class="pre">linear_scan()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hxrsnd.plans.scans.centroid_scan"><code class="docutils literal notranslate"><span class="pre">centroid_scan()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="misc_plans.html">Miscellaneous</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Miscellaneous</span></p>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="bragg.html">Calculations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utils.html">Utility Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Core SnD Packages</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core SnD Packages</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pswalker/">pswalker</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pcds-devices/">pcds-devices</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://slaclab.github.io/pydm/">pydm</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Related Software</span></p>
+<p class="caption" role="heading"><span class="caption-text">Related Software</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/bluesky">bluesky</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/ophyd">ophyd</a></li>
 </ul>
-<p class="caption"><span class="caption-text">GitHub Links</span></p>
+<p class="caption" role="heading"><span class="caption-text">GitHub Links</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab/">SLAC</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/pcdshub/">PCDS</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">HXRSnD</a>
-        
+          <a href="index.html">hxrsnd</a>
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>General Scans</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">General Scans</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/scans.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="general-scans">
-<h1>General Scans<a class="headerlink" href="#general-scans" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="general-scans">
+<h1>General Scans<a class="headerlink" href="#general-scans" title="Permalink to this heading"></a></h1>
 <dl class="py function">
-<dt id="hxrsnd.plans.scans.linear_scan">
-<code class="sig-prename descclassname">hxrsnd.plans.scans.</code><code class="sig-name descname">linear_scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">num</span></em>, <em class="sig-param"><span class="n">use_diag</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">return_to_start</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">md</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/plans/scans.html#linear_scan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.plans.scans.linear_scan" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hxrsnd.plans.scans.linear_scan">
+<span class="sig-prename descclassname"><span class="pre">hxrsnd.plans.scans.</span></span><span class="sig-name descname"><span class="pre">linear_scan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">motor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_diag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_to_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">md</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/plans/scans.html#linear_scan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hxrsnd.plans.scans.linear_scan" title="Permalink to this definition"></a></dt>
 <dd><p>Linear scan of a motor without a detector.</p>
 <p>Performs a linear scan using the inputted motor, optionally using the
 diagnostics, and optionally moving the motor back to the original start
 position. This scan is different from the regular scan because it does not
 take a detector, and simply scans the motor.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>motor</strong><span class="classifier">object</span></dt><dd><p>any 'setable' object (motor, temp controller, etc.)</p>
 </dd>
@@ -231,14 +155,14 @@ take a detector, and simply scans the motor.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="hxrsnd.plans.scans.centroid_scan">
-<code class="sig-prename descclassname">hxrsnd.plans.scans.</code><code class="sig-name descname">centroid_scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detector</span></em>, <em class="sig-param"><span class="n">motor</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">steps</span></em>, <em class="sig-param"><span class="n">average</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">detector_fields</span><span class="o">=</span><span class="default_value">['stats2_centroid_x', 'stats2_centroid_y']</span></em>, <em class="sig-param"><span class="n">motor_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">system</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">system_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filters</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">return_to_start</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/plans/scans.html#centroid_scan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.plans.scans.centroid_scan" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hxrsnd.plans.scans.centroid_scan">
+<span class="sig-prename descclassname"><span class="pre">hxrsnd.plans.scans.</span></span><span class="sig-name descname"><span class="pre">centroid_scan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">motor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detector_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['stats2_centroid_x',</span> <span class="pre">'stats2_centroid_y']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">motor_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_to_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/plans/scans.html#centroid_scan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hxrsnd.plans.scans.centroid_scan" title="Permalink to this definition"></a></dt>
 <dd><p>Performs a scan and returns the centroids of the inputted detector.</p>
 <p>The returned centroids can be absolute or relative to the initial value. The
 values are returned in a pandas DataFrame where the indices are the target
 motor positions.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>detector</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">BeamDetector</span></code></span></dt><dd><p>Detector from which to take the value measurements</p>
 </dd>
@@ -268,7 +192,7 @@ evaluate to True or False. For more infromation see
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>df</strong><span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame containing the detector, motor, and system fields at every
 step of the scan.</p>
@@ -278,54 +202,37 @@ step of the scan.</p>
 </dl>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="misc_plans.html" class="btn btn-neutral float-right" title="Miscellaneous" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="calibration.html" class="btn btn-neutral float-left" title="Delay Calibration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="misc_plans.html" class="btn btn-neutral float-right" title="Miscellaneous" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, SLAC National Accelerator Laboratory.
-
-    </p>
+    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

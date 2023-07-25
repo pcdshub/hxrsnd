@@ -1,90 +1,51 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="python" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Utility Functions &mdash; HXRSnD  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>Utility Functions &mdash; hxrsnd 0.2.12.dev26+gd0c9b08 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Exceptions" href="exceptions.html" />
     <link rel="prev" title="Calculations" href="bragg.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html" class="icon icon-home"> HXRSnD
           
-
-          
+          <a href="index.html" class="icon icon-home">
+            hxrsnd
           </a>
-
-          
-            
-            
-          
-
-          
+              <div class="version">
+                0.2.12.dev26+gd0c9b08
+              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basic_usage.html">Basic Usage</a></li>
@@ -94,7 +55,7 @@
 <li class="toctree-l1"><a class="reference internal" href="running_daq_scans.html">Running DAQ Scans</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating_delay_scans.html">Calibrating Delay Scans</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Devices</span></p>
+<p class="caption" role="heading"><span class="caption-text">Devices</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="sndsystem.html">Split and Delay System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="macromotor.html">Macromotors</a></li>
@@ -105,110 +66,76 @@
 <li class="toctree-l1"><a class="reference internal" href="pneumatic.html">Pneumatics and Air Bearings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rtd.html">Temperature Sensors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Plans</span></p>
+<p class="caption" role="heading"><span class="caption-text">Plans</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="alignment.html">Alignment Plans</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calibration.html">Delay Calibration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scans.html">General Scans</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc_plans.html">Miscellaneous</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Miscellaneous</span></p>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="bragg.html">Calculations</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Utility Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Utility Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hxrsnd.utils.absolute_submodule_path"><code class="docutils literal notranslate"><span class="pre">absolute_submodule_path()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hxrsnd.utils.as_list"><code class="docutils literal notranslate"><span class="pre">as_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hxrsnd.utils.isiterable"><code class="docutils literal notranslate"><span class="pre">isiterable()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hxrsnd.utils.flatten"><code class="docutils literal notranslate"><span class="pre">flatten()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hxrsnd.utils._flatten"><code class="docutils literal notranslate"><span class="pre">_flatten()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Core SnD Packages</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core SnD Packages</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pswalker/">pswalker</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pcds-devices/">pcds-devices</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://slaclab.github.io/pydm/">pydm</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Related Software</span></p>
+<p class="caption" role="heading"><span class="caption-text">Related Software</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/bluesky">bluesky</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/ophyd">ophyd</a></li>
 </ul>
-<p class="caption"><span class="caption-text">GitHub Links</span></p>
+<p class="caption" role="heading"><span class="caption-text">GitHub Links</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab/">SLAC</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/pcdshub/">PCDS</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">HXRSnD</a>
-        
+          <a href="index.html">hxrsnd</a>
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Utility Functions</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Utility Functions</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/utils.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="utility-functions">
-<h1>Utility Functions<a class="headerlink" href="#utility-functions" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="utility-functions">
+<h1>Utility Functions<a class="headerlink" href="#utility-functions" title="Permalink to this heading"></a></h1>
 <dl class="py function">
-<dt id="hxrsnd.utils.absolute_submodule_path">
-<code class="sig-prename descclassname">hxrsnd.utils.</code><code class="sig-name descname">absolute_submodule_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">submodule</span></em>, <em class="sig-param"><span class="n">cur_dir</span><span class="o">=</span><span class="default_value">'/home/travis/build/pcdshub/hxrsnd/hxrsnd/utils.py'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/utils.html#absolute_submodule_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.utils.absolute_submodule_path" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hxrsnd.utils.absolute_submodule_path">
+<span class="sig-prename descclassname"><span class="pre">hxrsnd.utils.</span></span><span class="sig-name descname"><span class="pre">absolute_submodule_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">submodule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cur_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/home/runner/work/hxrsnd/hxrsnd/hxrsnd/utils.py'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/utils.html#absolute_submodule_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hxrsnd.utils.absolute_submodule_path" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the absolute path of the inputted SnD submodule based on an inputted
 absolute path, or the absolute path of this file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>submodule</strong><span class="classifier">str or Path</span></dt><dd><p>Desired submodule path.</p>
 </dd>
@@ -216,7 +143,7 @@ absolute path, or the absolute path of this file.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>full_path</strong><span class="classifier">str</span></dt><dd><p>Full string path to the inputted submodule.</p>
 </dd>
@@ -226,10 +153,12 @@ absolute path, or the absolute path of this file.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="hxrsnd.utils.as_list">
-<code class="sig-prename descclassname">hxrsnd.utils.</code><code class="sig-name descname">as_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">length</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tp</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">iter_to_list</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/utils.html#as_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.utils.as_list" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hxrsnd.utils.as_list">
+<span class="sig-prename descclassname"><span class="pre">hxrsnd.utils.</span></span><span class="sig-name descname"><span class="pre">as_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iter_to_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/utils.html#as_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hxrsnd.utils.as_list" title="Permalink to this definition"></a></dt>
 <dd><p>Force an argument to be a list, optionally of a given length, optionally
 with all elements cast to a given type if not None.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h2>
 <dl class="simple">
 <dt>obj<span class="classifier">Object</span></dt><dd><p>The obj we want to convert to a list.</p>
 </dd>
@@ -243,28 +172,29 @@ enclose it in one.</p>
 </dd>
 </dl>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>obj</strong><span class="classifier">list</span></dt><dd><p>The object enclosed or cast as a list.</p>
 </dd>
 </dl>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
-<dt id="hxrsnd.utils.isiterable">
-<code class="sig-prename descclassname">hxrsnd.utils.</code><code class="sig-name descname">isiterable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/utils.html#isiterable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.utils.isiterable" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hxrsnd.utils.isiterable">
+<span class="sig-prename descclassname"><span class="pre">hxrsnd.utils.</span></span><span class="sig-name descname"><span class="pre">isiterable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/utils.html#isiterable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hxrsnd.utils.isiterable" title="Permalink to this definition"></a></dt>
 <dd><p>Function that determines if an object is an iterable, not including
 str.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>obj</strong><span class="classifier">object</span></dt><dd><p>Object to test if it is an iterable.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>bool</strong><span class="classifier">bool</span></dt><dd><p>True if the obj is an iterable, False if not.</p>
 </dd>
@@ -274,17 +204,17 @@ str.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="hxrsnd.utils.flatten">
-<code class="sig-prename descclassname">hxrsnd.utils.</code><code class="sig-name descname">flatten</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inp_iter</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/utils.html#flatten"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.utils.flatten" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hxrsnd.utils.flatten">
+<span class="sig-prename descclassname"><span class="pre">hxrsnd.utils.</span></span><span class="sig-name descname"><span class="pre">flatten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp_iter</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/utils.html#flatten"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hxrsnd.utils.flatten" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a flattened list of the inputted iterable.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>inp_iter</strong><span class="classifier">iterable</span></dt><dd><p>The iterable to flatten.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>flattened_iter</strong><span class="classifier">list</span></dt><dd><p>The contents of the iterable as a flat list</p>
 </dd>
@@ -294,17 +224,17 @@ str.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="hxrsnd.utils._flatten">
-<code class="sig-prename descclassname">hxrsnd.utils.</code><code class="sig-name descname">_flatten</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inp_iter</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/utils.html#_flatten"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hxrsnd.utils._flatten" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hxrsnd.utils._flatten">
+<span class="sig-prename descclassname"><span class="pre">hxrsnd.utils.</span></span><span class="sig-name descname"><span class="pre">_flatten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp_iter</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hxrsnd/utils.html#_flatten"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hxrsnd.utils._flatten" title="Permalink to this definition"></a></dt>
 <dd><p>Recursively iterate through values in nested iterables.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>inp_iter</strong><span class="classifier">iterable</span></dt><dd><p>The iterable to flatten.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>value</strong><span class="classifier">object</span></dt><dd><p>The contents of the iterable</p>
 </dd>
@@ -313,54 +243,37 @@ str.</p>
 </dl>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="exceptions.html" class="btn btn-neutral float-right" title="Exceptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="bragg.html" class="btn btn-neutral float-left" title="Calculations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="exceptions.html" class="btn btn-neutral float-right" title="Exceptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, SLAC National Accelerator Laboratory.
-
-    </p>
+    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
