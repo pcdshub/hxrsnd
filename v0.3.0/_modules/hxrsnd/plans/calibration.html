@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hxrsnd.plans.calibration &mdash; hxrsnd 0.3.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            hxrsnd
+          </a>
+              <div class="version">
+                0.3.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scripting.html">Adding Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../screens.html">EDM Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../running_scans.html">Running Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../running_daq_scans.html">Running DAQ Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../calibrating_delay_scans.html">Calibrating Delay Scans</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Devices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../sndsystem.html">Split and Delay System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../macromotor.html">Macromotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tower.html">Towers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../aerotech.html">Aerotech Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../attocube.html">Attocube Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../diode.html">Wave-8 Diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pneumatic.html">Pneumatics and Air Bearings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rtd.html">Temperature Sensors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plans</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../alignment.html">Alignment Plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../calibration.html">Delay Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scans.html">General Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc_plans.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../bragg.html">Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utility Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../exceptions.html">Exceptions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core SnD Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pswalker/">pswalker</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pcds-devices/">pcds-devices</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://slaclab.github.io/pydm/">pydm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Related Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/bluesky">bluesky</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/ophyd">ophyd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GitHub Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab/">SLAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/pcdshub/">PCDS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">hxrsnd</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">hxrsnd.plans.calibration</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for hxrsnd.plans.calibration</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Calibration of the delay macromotor</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">ophyd.utils</span> <span class="kn">import</span> <span class="n">LimitError</span>
+<span class="kn">from</span> <span class="nn">pswalker.plans</span> <span class="kn">import</span> <span class="n">measure_average</span><span class="p">,</span> <span class="n">walk_to_pixel</span>
+
+<span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">as_list</span>
+<span class="kn">from</span> <span class="nn">.preprocessors</span> <span class="kn">import</span> <span class="n">return_to_start</span> <span class="k">as</span> <span class="n">_return_to_start</span>
+<span class="kn">from</span> <span class="nn">.scans</span> <span class="kn">import</span> <span class="n">centroid_scan</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="calibrate_motor"><a class="viewcode-back" href="../../../calibration.html#hxrsnd.plans.calibration.calibrate_motor">[docs]</a><span class="k">def</span> <span class="nf">calibrate_motor</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">detector_fields</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">motor_fields</span><span class="p">,</span>
+                    <span class="n">calib_motors</span><span class="p">,</span> <span class="n">calib_fields</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span>
+                    <span class="n">confirm_overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs a calibration scan using the inputted detector, motor, and</span>
+<span class="sd">    calibration motors, then configures the motor using the resulting</span>
+<span class="sd">    calibration.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    detector : :class:`.BeamDetector`</span>
+<span class="sd">        Detector from which to take the value measurements</span>
+
+<span class="sd">    detector_fields : iterable</span>
+<span class="sd">        Fields of the detector to measure</span>
+
+<span class="sd">    motor : :class:`.Motor`</span>
+<span class="sd">        Main motor to perform the scan</span>
+
+<span class="sd">    calib_motors : iterable, :class:`.Motor`</span>
+<span class="sd">        Motor to calibrate each detector field with</span>
+
+<span class="sd">    start : float</span>
+<span class="sd">        Starting position of motor</span>
+
+<span class="sd">    stop : float</span>
+<span class="sd">        Ending position of motor</span>
+
+<span class="sd">    steps : int</span>
+<span class="sd">        Number of steps to take</span>
+
+<span class="sd">    confirm_overwrite : bool, optional</span>
+<span class="sd">        Prompt the user if this plan will overwrite an existing calibration</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    configs : tuple of dict</span>
+<span class="sd">        Old configuration and the new configuration.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">calib_motors</span> <span class="o">=</span> <span class="n">as_list</span><span class="p">(</span><span class="n">calib_motors</span><span class="p">)</span>
+    <span class="c1"># Check for motor having a _calib field</span>
+    <span class="n">motor_config</span> <span class="o">=</span> <span class="n">motor</span><span class="o">.</span><span class="n">read_configuration</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">motor_config</span><span class="p">[</span><span class="s1">&#39;calib&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">motor_config</span><span class="p">[</span><span class="s1">&#39;motors&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Running the calibration procedure will overwrite the &quot;</span>
+                       <span class="s2">&quot;existing calibration.&quot;</span><span class="p">)</span>
+        <span class="c1"># If a calibration is loaded, prompt the user for verification</span>
+        <span class="k">if</span> <span class="n">confirm_overwrite</span><span class="p">:</span>
+            <span class="c1"># Prompt the user about the move before making it</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Confirm Overwrite [y/n]: &quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exception raised: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="s2">&quot;n&quot;</span>
+            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Calibration cancelled.&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Overwrite confirmed.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Perform the calibration scan</span>
+    <span class="n">df_calib</span><span class="p">,</span> <span class="n">df_scan</span><span class="p">,</span> <span class="n">scaling</span><span class="p">,</span> <span class="n">start_pos</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">calibration_scan</span><span class="p">(</span>
+        <span class="n">detector</span><span class="p">,</span>
+        <span class="n">detector_fields</span><span class="p">,</span>
+        <span class="n">motor</span><span class="p">,</span>
+        <span class="n">motor_fields</span><span class="p">,</span>
+        <span class="n">calib_motors</span><span class="p">,</span>
+        <span class="n">calib_fields</span><span class="p">,</span>
+        <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="c1"># Load the calibration into the motor</span>
+    <span class="k">return</span> <span class="n">motor</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">calib</span><span class="o">=</span><span class="n">df_calib</span><span class="p">,</span>
+                           <span class="n">scan</span><span class="o">=</span><span class="n">df_scan</span><span class="p">,</span>
+                           <span class="n">motors</span><span class="o">=</span><span class="p">[</span><span class="n">motor</span><span class="p">]</span><span class="o">+</span><span class="n">calib_motors</span><span class="p">,</span>
+                           <span class="n">scale</span><span class="o">=</span><span class="n">scaling</span><span class="p">,</span>
+                           <span class="n">start</span><span class="o">=</span><span class="n">start_pos</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="calibration_scan"><a class="viewcode-back" href="../../../calibration.html#hxrsnd.plans.calibration.calibration_scan">[docs]</a><span class="k">def</span> <span class="nf">calibration_scan</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">detector_fields</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">motor_fields</span><span class="p">,</span>
+                     <span class="n">calib_motors</span><span class="p">,</span> <span class="n">calib_fields</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span>
+                     <span class="n">first_step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                     <span class="n">return_to_start</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs a calibration scan for the main motor and returns a correction</span>
+<span class="sd">    table for the calibration motors.</span>
+
+<span class="sd">    This adds to ``calibration_scan`` by moving the motors to their original</span>
+<span class="sd">    positions and and running the calibration calculation function. It returns</span>
+<span class="sd">    the expected motor calibration given the results from the scan, as well as</span>
+<span class="sd">    the dataframe from the scan with all the data.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    detector : :class:`.BeamDetector`</span>
+<span class="sd">        Detector from which to take the value measurements</span>
+
+<span class="sd">    detector_fields : iterable</span>
+<span class="sd">        Fields of the detector to measure</span>
+
+<span class="sd">    motor : :class:`.Motor`</span>
+<span class="sd">        Main motor to perform the scan</span>
+
+<span class="sd">    calib_motors : iterable, :class:`.Motor`</span>
+<span class="sd">        Motor to calibrate each detector field with</span>
+
+<span class="sd">    start : float</span>
+<span class="sd">        Starting position of motor</span>
+
+<span class="sd">    stop : float</span>
+<span class="sd">        Ending position of motor</span>
+
+<span class="sd">    steps : int</span>
+<span class="sd">        Number of steps to take</span>
+
+<span class="sd">    first_step : float, optional</span>
+<span class="sd">        First step to take on each calibration motor when performing the</span>
+<span class="sd">        correction</span>
+
+<span class="sd">    average : int, optional</span>
+<span class="sd">        Number of averages to take for each measurement</span>
+
+<span class="sd">    delay : float, optional</span>
+<span class="sd">        Time to wait inbetween reads</span>
+
+<span class="sd">    tolerance : float, optional</span>
+<span class="sd">        Tolerance to use when applying the correction to detector field</span>
+
+<span class="sd">    max_steps : int, optional</span>
+<span class="sd">        Limit the number of steps the correction will take before exiting</span>
+
+<span class="sd">    gradients : float, optional</span>
+<span class="sd">        Assume an initial gradient for the relationship between detector value</span>
+<span class="sd">        and calibration motor position</span>
+
+<span class="sd">    return_to_start : bool, optional</span>
+<span class="sd">        Move all the motors to their original positions after the scan has been</span>
+<span class="sd">        completed</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df_calibration : pd.DataFrame</span>
+<span class="sd">        Dataframe containing the points to be used for the calibration by the</span>
+<span class="sd">        calibration motors</span>
+
+<span class="sd">    df_calibration_scan : pd.DataFrame</span>
+<span class="sd">        DataFrame containing the positions of the detector,  motor, and</span>
+<span class="sd">        calibration motor fields during the initial scan. The indices are the</span>
+<span class="sd">        target motor positions.</span>
+
+<span class="sd">    scaling : list</span>
+<span class="sd">        List of the scaling values in units of motor egu / detector value used</span>
+<span class="sd">        to calculate the calibration.</span>
+
+<span class="sd">    start_positions : list</span>
+<span class="sd">        List of starting positions used to perform the calibration calculation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">detector_fields</span><span class="p">)</span>
+    <span class="n">calib_motors</span> <span class="o">=</span> <span class="n">as_list</span><span class="p">(</span><span class="n">calib_motors</span><span class="p">)</span>
+    <span class="n">calib_fields</span> <span class="o">=</span> <span class="n">as_list</span><span class="p">(</span><span class="n">calib_fields</span> <span class="ow">or</span> <span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">calib_motors</span><span class="p">])</span>
+    <span class="n">motor_fields</span> <span class="o">=</span> <span class="n">as_list</span><span class="p">(</span><span class="n">motor_fields</span> <span class="ow">or</span> <span class="n">motor</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">calib_motors</span><span class="p">)</span> <span class="o">!=</span> <span class="n">num</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must have same number of calibration motors as &quot;</span>
+                         <span class="s2">&quot;detector fields.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">calib_fields</span><span class="p">)</span> <span class="o">!=</span> <span class="n">num</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must have same number of calibration fields as &quot;</span>
+                         <span class="s2">&quot;detector fields.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@_return_to_start</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="o">*</span><span class="n">calib_motors</span><span class="p">,</span> <span class="n">perform</span><span class="o">=</span><span class="n">return_to_start</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+        <span class="c1"># Perform the main scan, reading the positions of all the devices</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Beginning calibration scan&quot;</span><span class="p">)</span>
+        <span class="n">df_scan</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">calibration_centroid_scan</span><span class="p">(</span>
+            <span class="n">detector</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">calib_motors</span><span class="p">,</span>
+            <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span>
+            <span class="n">detector_fields</span><span class="o">=</span><span class="n">detector_fields</span><span class="p">,</span>
+            <span class="n">motor_fields</span><span class="o">=</span><span class="n">motor_fields</span><span class="p">,</span>
+            <span class="n">calib_fields</span><span class="o">=</span><span class="n">calib_fields</span><span class="p">,</span>
+            <span class="n">average</span><span class="o">=</span><span class="n">average</span><span class="p">,</span>
+            <span class="n">filters</span><span class="o">=</span><span class="n">filters</span><span class="p">)</span>
+
+        <span class="c1"># Find the distance per detector value scaling and initial positions</span>
+        <span class="n">scaling</span><span class="p">,</span> <span class="n">start_positions</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">detector_scaling_walk</span><span class="p">(</span>
+            <span class="n">df_scan</span><span class="p">,</span>
+            <span class="n">detector</span><span class="p">,</span>
+            <span class="n">calib_motors</span><span class="p">,</span>
+            <span class="n">first_step</span><span class="o">=</span><span class="n">first_step</span><span class="p">,</span>
+            <span class="n">average</span><span class="o">=</span><span class="n">average</span><span class="p">,</span>
+            <span class="n">filters</span><span class="o">=</span><span class="n">filters</span><span class="p">,</span>
+            <span class="n">system</span><span class="o">=</span><span class="p">[</span><span class="n">motor</span><span class="p">],</span>
+            <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="c1"># Build the calibration table</span>
+        <span class="n">df_calibration</span> <span class="o">=</span> <span class="n">build_calibration_df</span><span class="p">(</span><span class="n">df_scan</span><span class="p">,</span> <span class="n">scaling</span><span class="p">,</span> <span class="n">start_positions</span><span class="p">,</span>
+                                              <span class="n">detector</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Completed calibration scan.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df_calibration</span><span class="p">,</span> <span class="n">df_scan</span><span class="p">,</span> <span class="n">scaling</span><span class="p">,</span> <span class="n">start_positions</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="k">yield from</span> <span class="n">inner</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="calibration_centroid_scan"><a class="viewcode-back" href="../../../calibration.html#hxrsnd.plans.calibration.calibration_centroid_scan">[docs]</a><span class="k">def</span> <span class="nf">calibration_centroid_scan</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">calib_motors</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span>
+                              <span class="n">calib_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs a centroid scan producing a dataframe with the values of the</span>
+<span class="sd">    detector, motor, and calibration motor fields.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    detector : :class:`.BeamDetector`</span>
+<span class="sd">        Detector from which to take the value measurements</span>
+
+<span class="sd">    motor : :class:`.Motor`</span>
+<span class="sd">        Main motor to perform the scan</span>
+
+<span class="sd">    calib_motors : iterable</span>
+<span class="sd">        Calibration motors</span>
+
+<span class="sd">    start : float</span>
+<span class="sd">        Starting position of motor</span>
+
+<span class="sd">    stop : float</span>
+<span class="sd">        Ending position of motor</span>
+
+<span class="sd">    steps : int</span>
+<span class="sd">        Number of steps to take</span>
+
+<span class="sd">    average : int, optional</span>
+<span class="sd">        Number of averages to take for each measurement</span>
+
+<span class="sd">    detector_fields : iterable, optional</span>
+<span class="sd">        Fields of the detector to add to the returned dataframe</span>
+
+<span class="sd">    motor_fields : iterable, optional</span>
+<span class="sd">        Fields of the motor to add to the returned dataframe</span>
+
+<span class="sd">    calib_fields : list, optional</span>
+<span class="sd">        Fields of the of the calibration motors to add to the returned dataframe</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        DataFrame containing the detector, motor, and calibration motor fields</span>
+<span class="sd">        at every step of the scan.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If the inputted number of calibration motors does not have the same</span>
+<span class="sd">        length as the number of calibration fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">calib_fields</span> <span class="o">=</span> <span class="n">as_list</span><span class="p">(</span><span class="n">calib_fields</span> <span class="ow">or</span> <span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">calib_motors</span><span class="p">])</span>
+
+    <span class="c1"># Make sure the same number of calibration fields as motors are passed</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">calib_motors</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">calib_fields</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must one calibration field for every calibration &quot;</span>
+                         <span class="s2">&quot;motor, but got </span><span class="si">{}</span><span class="s2"> fields for </span><span class="si">{}</span><span class="s2"> motors.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                             <span class="nb">len</span><span class="p">(</span><span class="n">calib_fields</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">calib_motors</span><span class="p">)))</span>
+
+    <span class="c1"># Perform the main scan, correctly passing the calibration parameters</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">centroid_scan</span><span class="p">(</span>
+        <span class="n">detector</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">system</span><span class="o">=</span><span class="n">calib_motors</span><span class="p">,</span>
+        <span class="n">system_fields</span><span class="o">=</span><span class="n">calib_fields</span><span class="p">,</span> <span class="n">return_to_start</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Let&#39;s adjust the column names of the calib motors</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">+</span><span class="s2">&quot;_pre&quot;</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">calib_fields</span> <span class="k">else</span> <span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+<div class="viewcode-block" id="detector_scaling_walk"><a class="viewcode-back" href="../../../calibration.html#hxrsnd.plans.calibration.detector_scaling_walk">[docs]</a><span class="k">def</span> <span class="nf">detector_scaling_walk</span><span class="p">(</span><span class="n">df_scan</span><span class="p">,</span> <span class="n">detector</span><span class="p">,</span> <span class="n">calib_motors</span><span class="p">,</span>
+                          <span class="n">first_step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">tolerance</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">system</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">drop_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gradients</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs a walk to to the detector value farthest from the current value</span>
+<span class="sd">    using each of calibration motors, and then determines the motor to detector</span>
+<span class="sd">    scaling</span>
+
+<span class="sd">    Using the inputted scan dataframe, the plan loops through each detector</span>
+<span class="sd">    field, then finds the value that is farthest from the current value, and</span>
+<span class="sd">    then performs a walk_to_pixel to that value using the corresponding</span>
+<span class="sd">    calibration motor. Since the final absolute position does not matter so long</span>
+<span class="sd">    as it is recorded, if a RuntimeError or LimitError is raised, the plan will</span>
+<span class="sd">    simply use the current motor position for the scaling calculation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df_scan : pd.DataFrame</span>
+<span class="sd">        Dataframe containing the results of a centroid scan performed using the</span>
+<span class="sd">        detector, motor, and calibration motors.</span>
+
+<span class="sd">    detector : :class:`.Detector`</span>
+<span class="sd">        Detector from which to take the value measurements</span>
+
+<span class="sd">    calib_motors : iterable, :class:`.Motor`</span>
+<span class="sd">        Motor to calibrate each detector field with</span>
+
+<span class="sd">    first_step : float, optional</span>
+<span class="sd">        First step to take on each calibration motor when performing the</span>
+<span class="sd">        correction</span>
+
+<span class="sd">    average : int, optional</span>
+<span class="sd">        Number of averages to take for each measurement</span>
+
+<span class="sd">    delay : float, optional</span>
+<span class="sd">        Time to wait inbetween reads</span>
+
+<span class="sd">    tolerance : float, optional</span>
+<span class="sd">        Tolerance to use when applying the correction to detector field</span>
+
+<span class="sd">    max_steps : int, optional</span>
+<span class="sd">        Limit the number of steps the correction will take before exiting</span>
+
+<span class="sd">    drop_missing : bool, optional</span>
+<span class="sd">        Choice to include events where event keys are missing</span>
+
+<span class="sd">    gradients : float, optional</span>
+<span class="sd">        Assume an initial gradient for the relationship between detector value</span>
+<span class="sd">        and calibration motor position</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    scaling : list</span>
+<span class="sd">        List of scales in the units of motor egu / detector value</span>
+
+<span class="sd">    start_positions : list</span>
+<span class="sd">        List of the initial positions of the motors before the walk</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">detector_fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_scan</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">detector</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">col</span><span class="p">]</span>
+    <span class="n">calib_fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_scan</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;_pre&quot;</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">detector_fields</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">calib_fields</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must have same number of calibration fields as &quot;</span>
+                         <span class="s2">&quot;detector fields, but got </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                             <span class="nb">len</span><span class="p">(</span><span class="n">calib_fields</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">detector_fields</span><span class="p">)))</span>
+
+    <span class="c1"># Perform all the initial necessities</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">detector_fields</span><span class="p">)</span>
+    <span class="n">average</span> <span class="o">=</span> <span class="n">average</span> <span class="ow">or</span> <span class="mi">1</span>
+    <span class="n">calib_motors</span> <span class="o">=</span> <span class="n">as_list</span><span class="p">(</span><span class="n">calib_motors</span><span class="p">)</span>
+    <span class="n">first_step</span> <span class="o">=</span> <span class="n">as_list</span><span class="p">(</span><span class="n">first_step</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="n">tolerance</span> <span class="o">=</span> <span class="n">as_list</span><span class="p">(</span><span class="n">tolerance</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+    <span class="n">gradients</span> <span class="o">=</span> <span class="n">as_list</span><span class="p">(</span><span class="n">gradients</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+    <span class="n">max_steps</span> <span class="o">=</span> <span class="n">as_list</span><span class="p">(</span><span class="n">max_steps</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+    <span class="n">system</span> <span class="o">=</span> <span class="n">as_list</span><span class="p">(</span><span class="n">system</span> <span class="ow">or</span> <span class="p">[])</span> <span class="o">+</span> <span class="n">calib_motors</span>
+
+    <span class="c1"># Define the list that will hold the scaling</span>
+    <span class="n">scaling</span><span class="p">,</span> <span class="n">start_positions</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+
+    <span class="c1"># Now let&#39;s get the detector value to motor position conversion for each fld</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">dfld</span><span class="p">,</span> <span class="n">cfld</span><span class="p">,</span> <span class="n">cmotor</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">detector_fields</span><span class="p">,</span>
+                                                 <span class="n">calib_fields</span><span class="p">,</span>
+                                                 <span class="n">calib_motors</span><span class="p">)):</span>
+        <span class="c1"># Get a list of devices without the cmotor we are inputting</span>
+        <span class="n">inp_system</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">system</span><span class="p">)</span>
+        <span class="n">inp_system</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">cmotor</span><span class="p">)</span>
+
+        <span class="c1"># Store the current motor and detector value and position</span>
+        <span class="n">reads</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">measure_average</span><span class="p">([</span><span class="n">detector</span><span class="p">]</span><span class="o">+</span><span class="n">system</span><span class="p">,</span>
+                                           <span class="n">num</span><span class="o">=</span><span class="n">average</span><span class="p">,</span>
+                                           <span class="n">filters</span><span class="o">=</span><span class="n">filters</span><span class="p">)</span>
+        <span class="n">motor_start</span> <span class="o">=</span> <span class="n">reads</span><span class="p">[</span><span class="n">cfld</span><span class="p">]</span>
+        <span class="n">dfld_start</span> <span class="o">=</span> <span class="n">reads</span><span class="p">[</span><span class="n">dfld</span><span class="p">]</span>
+
+        <span class="c1"># Get the farthest detector value we know we can move to from the</span>
+        <span class="c1"># current position</span>
+        <span class="n">idx_max</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">df_scan</span><span class="p">[</span><span class="n">dfld</span><span class="p">]</span> <span class="o">-</span> <span class="n">dfld_start</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
+
+        <span class="c1"># Walk the cmotor to the first pre-correction detector entry</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Beginning walk to </span><span class="si">{}</span><span class="s2"> on </span><span class="si">{}</span><span class="s2"> using </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">df_scan</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx_max</span><span class="p">][</span><span class="n">dfld</span><span class="p">],</span> <span class="n">detector</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cmotor</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+            <span class="k">yield from</span> <span class="n">walk_to_pixel</span><span class="p">(</span>
+                <span class="n">detector</span><span class="p">,</span> <span class="n">cmotor</span><span class="p">,</span> <span class="n">df_scan</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx_max</span><span class="p">][</span><span class="n">dfld</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                <span class="n">filters</span><span class="o">=</span><span class="n">filters</span><span class="p">,</span> <span class="n">gradient</span><span class="o">=</span><span class="n">gradients</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                <span class="n">target_fields</span><span class="o">=</span><span class="p">[</span><span class="n">dfld</span><span class="p">,</span> <span class="n">cfld</span><span class="p">],</span>
+                <span class="n">first_step</span><span class="o">=</span><span class="n">first_step</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                <span class="n">system</span><span class="o">=</span><span class="n">inp_system</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="n">average</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="n">max_steps</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                <span class="o">**</span><span class="n">kwargs</span>
+            <span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;walk_to_pixel raised a RuntimeError for motor &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span>
+                           <span class="s2">&quot;. Using its current position </span><span class="si">{}</span><span class="s2"> for scale &quot;</span>
+                           <span class="s2">&quot;calulation.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cmotor</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span> <span class="n">cmotor</span><span class="o">.</span><span class="n">position</span><span class="p">))</span>
+        <span class="k">except</span> <span class="n">LimitError</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;walk_to_pixel tried to exceed the limits of motor &quot;</span>
+                           <span class="s2">&quot;&#39;</span><span class="si">{}</span><span class="s2">&#39;. Using current position &#39;</span><span class="si">{}</span><span class="s2">&#39; for scale &quot;</span>
+                           <span class="s2">&quot;calculation.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cmotor</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span> <span class="n">cmotor</span><span class="o">.</span><span class="n">position</span><span class="p">))</span>
+
+        <span class="c1"># Get the positions and values we moved to</span>
+        <span class="n">reads</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield from</span> <span class="n">measure_average</span><span class="p">([</span><span class="n">detector</span><span class="p">]</span><span class="o">+</span><span class="n">system</span><span class="p">,</span>
+                                            <span class="n">num</span><span class="o">=</span><span class="n">average</span><span class="p">,</span>
+                                            <span class="n">filters</span><span class="o">=</span><span class="n">filters</span><span class="p">))</span>
+        <span class="n">motor_end</span> <span class="o">=</span> <span class="n">reads</span><span class="p">[</span><span class="n">cfld</span><span class="p">]</span>
+        <span class="n">dfld_end</span> <span class="o">=</span> <span class="n">reads</span><span class="p">[</span><span class="n">dfld</span><span class="p">]</span>
+
+        <span class="c1"># Now lets find the conversion from signal value to motor distance</span>
+        <span class="n">scaling</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">motor_end</span> <span class="o">-</span> <span class="n">motor_start</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">dfld_end</span> <span class="o">-</span> <span class="n">dfld_start</span><span class="p">))</span>
+        <span class="c1"># Add the starting position to the motor start list</span>
+        <span class="n">start_positions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">motor_start</span><span class="p">)</span>
+
+    <span class="c1"># Return the final scaling list</span>
+    <span class="k">return</span> <span class="n">scaling</span><span class="p">,</span> <span class="n">start_positions</span></div>
+
+
+<div class="viewcode-block" id="build_calibration_df"><a class="viewcode-back" href="../../../calibration.html#hxrsnd.plans.calibration.build_calibration_df">[docs]</a><span class="k">def</span> <span class="nf">build_calibration_df</span><span class="p">(</span><span class="n">df_scan</span><span class="p">,</span> <span class="n">scaling</span><span class="p">,</span> <span class="n">start_positions</span><span class="p">,</span> <span class="n">detector</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Takes the scan dataframe, scaling, and starting positions to build a</span>
+<span class="sd">    calibration table for the calibration motors.</span>
+
+<span class="sd">    The resulting dataframe will contain all the scan motor read fields as well</span>
+<span class="sd">    as two columns for each calibration motor that has an absolute correction</span>
+<span class="sd">    relative correction.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df_scan : pd.DataFrame</span>
+<span class="sd">        Dataframe containing the results of a centroid scan performed using the</span>
+<span class="sd">        detector, motor, and calibration motors.</span>
+
+<span class="sd">    scaling : list</span>
+<span class="sd">        List of scales in the units of motor egu / detector value</span>
+
+<span class="sd">    start_positions : list</span>
+<span class="sd">        List of the initial positions of the motors before the walk</span>
+
+<span class="sd">    detector : :class:`.Detector`</span>
+<span class="sd">        Detector from which to take the value measurements</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df_calibration : pd.DataFrame</span>
+<span class="sd">        Calibration dataframe that has all the scan motor fields and the</span>
+<span class="sd">        corrections required of the calibration motors in both absolute and</span>
+<span class="sd">        relative corrections.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get the fields being used in the scan df</span>
+    <span class="n">detector_fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_scan</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">detector</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">col</span><span class="p">]</span>
+    <span class="n">calib_fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_scan</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;_pre&quot;</span><span class="p">)]</span>
+    <span class="n">motor_fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_scan</span><span class="o">.</span><span class="n">columns</span>
+                    <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">detector_fields</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">col</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;_pre&quot;</span><span class="p">)]</span>
+
+    <span class="c1"># Ensure these two are equal</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">detector_fields</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">calib_fields</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must have same number of calibration fields as &quot;</span>
+                         <span class="s2">&quot;detector fields, but got </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                             <span class="nb">len</span><span class="p">(</span><span class="n">calib_fields</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">detector_fields</span><span class="p">)))</span>
+
+    <span class="n">df_corrections</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">df_scan</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+    <span class="c1"># Use the conversion to create an expected correction table</span>
+    <span class="k">for</span> <span class="n">scale</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">cfld</span><span class="p">,</span> <span class="n">dfld</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">scaling</span><span class="p">,</span> <span class="n">start_positions</span><span class="p">,</span> <span class="n">calib_fields</span><span class="p">,</span>
+                                        <span class="n">detector_fields</span><span class="p">):</span>
+        <span class="c1"># Absolute move to make to perform correction for this motor</span>
+        <span class="n">df_corrections</span><span class="p">[</span><span class="n">cfld</span><span class="o">+</span><span class="s2">&quot;_post&quot;</span><span class="p">]</span> <span class="o">=</span> \
+            <span class="n">start</span> <span class="o">-</span> <span class="p">(</span><span class="n">df_scan</span><span class="p">[</span><span class="n">dfld</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_scan</span><span class="p">[</span><span class="n">dfld</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">scale</span>
+
+    <span class="c1"># Put together the calibration table</span>
+    <span class="n">df_calibration</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_scan</span><span class="p">[</span><span class="n">motor_fields</span><span class="p">],</span> <span class="n">df_corrections</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df_calibration</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

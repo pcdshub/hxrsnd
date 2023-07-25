@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Usage &mdash; hxrsnd 0.3.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Adding Scripts" href="scripting.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            hxrsnd
+          </a>
+              <div class="version">
+                0.3.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#device-list">Device List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#motor-and-macromotor-classes">Motor and Macromotor Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#methods-and-properties-common-to-all-motors">Methods and Properties Common to All Motors:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#methods-and-properties-common-to-aerotech-and-attocube-motors">Methods and Properties Common to Aerotech and Attocube Motors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aerotech-methods-and-properties">Aerotech Methods and Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#attocube-methods-and-properties">Attocube Methods and Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#towers">Towers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bragg-calculations">Bragg Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scripting.html">Adding Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">EDM Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_scans.html">Running Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_daq_scans.html">Running DAQ Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibrating_delay_scans.html">Calibrating Delay Scans</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Devices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sndsystem.html">Split and Delay System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macromotor.html">Macromotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tower.html">Towers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aerotech.html">Aerotech Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="attocube.html">Attocube Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diode.html">Wave-8 Diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pneumatic.html">Pneumatics and Air Bearings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rtd.html">Temperature Sensors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plans</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="alignment.html">Alignment Plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">Delay Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scans.html">General Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc_plans.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bragg.html">Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utility Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core SnD Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pswalker/">pswalker</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pcds-devices/">pcds-devices</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://slaclab.github.io/pydm/">pydm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Related Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/bluesky">bluesky</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/ophyd">ophyd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GitHub Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab/">SLAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/pcdshub/">PCDS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hxrsnd</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Basic Usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/basic_usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="basic-usage">
+<h1>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading"></a></h1>
+<p>Once the the <code class="docutils literal notranslate"><span class="pre">HXRSnD</span></code> module has been installed along with its dependencies,
+simply run the shell script in the <code class="docutils literal notranslate"><span class="pre">bin</span></code> folder. From the top level of
+<code class="docutils literal notranslate"><span class="pre">HXRSnD</span></code> the command to run is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="nb">bin</span><span class="o">/</span><span class="n">run_snd</span>
+</pre></div>
+</div>
+<p>This should set up the <code class="docutils literal notranslate"><span class="pre">IPython</span></code> shell with the system instantiated.</p>
+<section id="device-list">
+<h2>Device List<a class="headerlink" href="#device-list" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">snd</span></code> object is where most if not all of the interfacing with the system
+should be done. It has the following devices as attributes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">t1</span></code> - Tower 1 in the split and delay system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t4</span></code> - Tower 4 in the split and delay system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t2</span></code> - Tower 2 in the split and delay system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t3</span></code> - Tower 3 in the split and delay system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di</span></code> - Input diode for the system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dd</span></code> - Diode between the two delay towers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">do</span></code> - Output diode for the system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dci</span></code> - Input diode for the channel cut line</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dcc</span></code> - Diode between the two channel cut towers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dco</span></code> - Input diode for the channel cut line</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">E1</span></code> - Macromotor for the delay line energy</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">E2</span></code> - Macromotor for the channel cut energy</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delay</span></code> - Macromotor for the delay</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ab</span></code> - Air bearings of the system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">daq</span></code> - Object that interfaces with the DAQ</p></li>
+</ul>
+<p>Each of the devices has an assortment of motors that can be viewed from the
+'Component' section of the object's docstring. The easiest way to so is by using
+the <code class="docutils literal notranslate"><span class="pre">IPython</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code>, operator.</p>
+<p>For convenience, each of the components (except the macromotors) are
+instantiated independently and should behave identically to when interfaced
+using the <code class="docutils literal notranslate"><span class="pre">snd</span></code> object.</p>
+</section>
+<section id="motor-and-macromotor-classes">
+<h2>Motor and Macromotor Classes<a class="headerlink" href="#motor-and-macromotor-classes" title="Permalink to this heading"></a></h2>
+<p>The basic interface for the Attocube, Aerotech and macromotors were made to be
+largely the same, only differing in some of in the implemented convenience
+methods. The macromotors currently only have core functionality, but this will
+be expanded in the future.</p>
+<p>For each of the methods and properties listed below, using the <code class="docutils literal notranslate"><span class="pre">?</span></code> operator
+will show a more detailed docstring than what is listed below. Also, list of
+methods below is not an exhaustive list and is just a catalog of some of (what
+my idea are) the more useful methods and attributes.</p>
+<section id="methods-and-properties-common-to-all-motors">
+<h3>Methods and Properties Common to All Motors:<a class="headerlink" href="#methods-and-properties-common-to-all-motors" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.move()</span></code>, <code class="docutils literal notranslate"><span class="pre">motor.mv()</span></code> - Moves the motor to the inputted position.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.move_rel()</span></code>, <code class="docutils literal notranslate"><span class="pre">motor.mvr()</span></code> - Moves the motor by the inputted value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.position</span></code>, <code class="docutils literal notranslate"><span class="pre">motor.wm()</span></code> - Returns the current position of the motor.</p></li>
+</ul>
+</section>
+<section id="methods-and-properties-common-to-aerotech-and-attocube-motors">
+<h3>Methods and Properties Common to Aerotech and Attocube Motors<a class="headerlink" href="#methods-and-properties-common-to-aerotech-and-attocube-motors" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.enable()</span></code>, <code class="docutils literal notranslate"><span class="pre">motor.disable()</span></code> - Enables or disables the motor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.enabled</span></code> - Returns whether the motor is enabled.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.stop()</span></code> - Stops the current motor move.</p></li>
+</ul>
+</section>
+<section id="aerotech-methods-and-properties">
+<h3>Aerotech Methods and Properties<a class="headerlink" href="#aerotech-methods-and-properties" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.offset</span></code> - Current offset of the motor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.offset_position()</span></code> - Sets the current position to be the inputted position by changing the <code class="docutils literal notranslate"><span class="pre">motor.offset</span></code> value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.homf()</span></code>, <code class="docutils literal notranslate"><span class="pre">motor.homr()</span></code> - Homes the motor forward or in reverse.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.reconfig()</span></code> - Pulls the motor parameters from the controller.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.faulted</span></code> - Returns whether the motor is faulted.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.clear()</span></code> - Clears the motor from the faulted state.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.state</span></code> - Returns the state PV of the motor (Go, Stop).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.ready</span></code> - Returns whether the motor is ready for a motion.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.ready_motor()</span></code> - Clears, enabled and changes the state of the motor to &quot;Go&quot;.</p></li>
+</ul>
+</section>
+<section id="attocube-methods-and-properties">
+<h3>Attocube Methods and Properties<a class="headerlink" href="#attocube-methods-and-properties" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.connected</span></code> - Returns whether the motor is connected.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.refereced</span></code> - Returns whether the motor is referenced.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">motor.error</span></code> - Returns whether the motor has an error.</p></li>
+</ul>
+</section>
+</section>
+<section id="towers">
+<h2>Towers<a class="headerlink" href="#towers" title="Permalink to this heading"></a></h2>
+<p>The towers themselves have some methods and attributes that may be useful for
+general usage. Below is a list of some of them.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tower.enable()</span></code>, <code class="docutils literal notranslate"><span class="pre">tower.disable()</span></code>, <code class="docutils literal notranslate"><span class="pre">tower.clear()</span></code> - Enables, disables or clears all the (aerotech and attocube) motors in this tower.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower.pos_inserted</span></code>, <code class="docutils literal notranslate"><span class="pre">tower.pos_removed</span></code> - Attributes that hold the x values that correspond to the inserted and removed positions of the tower.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower.insert()</span></code>, <code class="docutils literal notranslate"><span class="pre">tower.remove()</span></code> - Moves the tower to the <code class="docutils literal notranslate"><span class="pre">pos_inserted</span></code> or <code class="docutils literal notranslate"><span class="pre">pos_removed</span></code> positions. <em>Note</em>: this only works if <code class="docutils literal notranslate"><span class="pre">pos_inserted</span></code> or <code class="docutils literal notranslate"><span class="pre">pos_removed</span></code> are set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower.energy</span></code> - Sets or returns the energy the tower is currently tuned for based on the angle of the theta motor. <em>Note</em>: This is not guaranteed to be correct for now.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower.theta</span></code> - The bragg angle the tower is currently set to maximize. This is computed using the overall theta motor of the tower (<code class="docutils literal notranslate"><span class="pre">tower.tth</span></code> for delay towers and <code class="docutils literal notranslate"><span class="pre">tower.th</span></code> for the channel cut tower). <em>Note</em>: This is not guaranteed to be correct for now.</p></li>
+</ul>
+</section>
+<section id="bragg-calculations">
+<h2>Bragg Calculations<a class="headerlink" href="#bragg-calculations" title="Permalink to this heading"></a></h2>
+<p>The bragg angle and energy calculations used to perform the energy macro-motions
+are in following script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HXRSnD</span><span class="o">/</span><span class="n">hxrsnd</span><span class="o">/</span><span class="n">bragg</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>They were both pulled from <code class="docutils literal notranslate"><span class="pre">blutil</span></code> and the script should contain all the
+necessary components to perform the calculation. For convenience, both
+<code class="docutils literal notranslate"><span class="pre">bragg_angle()</span></code> and <code class="docutils literal notranslate"><span class="pre">bragg_energy()</span></code> are imported to this environment for
+quick testing.</p>
+<p>Additionally, there are three functions implemented by Yanwen that are also
+present in the environment. These can be used to perform any quick calculations
+and are listed below:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">snd_L</span></code> - Calculates the bragg angles for the delay and channel cut branches, in addition to the delay.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd_diag</span></code> - Calculates the positions of the diagnostic motors in the middle of the system to intersect with the beam at the inputted energies and delay.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd_delay</span></code> - Calculates the delay of the system based on the length of the delay arm.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="scripting.html" class="btn btn-neutral float-right" title="Adding Scripts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to the Hard X-Ray Split and Delay Automated Controls System! &mdash; hxrsnd 0.3.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            hxrsnd
+          </a>
+              <div class="version">
+                0.3.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripting.html">Adding Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">EDM Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_scans.html">Running Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_daq_scans.html">Running DAQ Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibrating_delay_scans.html">Calibrating Delay Scans</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Devices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sndsystem.html">Split and Delay System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macromotor.html">Macromotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tower.html">Towers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aerotech.html">Aerotech Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="attocube.html">Attocube Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diode.html">Wave-8 Diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pneumatic.html">Pneumatics and Air Bearings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rtd.html">Temperature Sensors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plans</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="alignment.html">Alignment Plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">Delay Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scans.html">General Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc_plans.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bragg.html">Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utility Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core SnD Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pswalker/">pswalker</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pcds-devices/">pcds-devices</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://slaclab.github.io/pydm/">pydm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Related Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/bluesky">bluesky</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/ophyd">ophyd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GitHub Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab/">SLAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/pcdshub/">PCDS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">hxrsnd</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Welcome to the Hard X-Ray Split and Delay Automated Controls System!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="welcome-to-the-hard-x-ray-split-and-delay-automated-controls-system">
+<h1>Welcome to the Hard X-Ray Split and Delay Automated Controls System!<a class="headerlink" href="#welcome-to-the-hard-x-ray-split-and-delay-automated-controls-system" title="Permalink to this heading"></a></h1>
+<a class="reference external image-reference" href="https://travis-ci.org/pcdshub/hxrsnd"><img alt="https://travis-ci.org/pcdshub/hxrsnd.svg?branch=master" src="https://travis-ci.org/pcdshub/hxrsnd.svg?branch=master" /></a>
+<a class="reference external image-reference" href="https://landscape.io/github/pcdshub/hxrsnd/master"><img alt="https://landscape.io/github/pcdshub/hxrsnd/master/landscape.svg?style=flat" src="https://landscape.io/github/pcdshub/hxrsnd/master/landscape.svg?style=flat" /></a>
+<p>Controls automation module for the hard x-ray split and delay instrument.</p>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h2>
+<p>The easiest way to start using the hard x-ray split and delay is to navigate to
+the released area which has everything setup. From any of the LCLS NFS machines
+that can view XCS PVs, run the following to change to the correct directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd /reg/neh/operator/xcsopr/bin/snd
+</pre></div>
+</div>
+<p>From here, all the core functionality of the split and delay system can be
+accessed.</p>
+<section id="running-the-ipython-shell">
+<h3>Running the IPython Shell<a class="headerlink" href="#running-the-ipython-shell" title="Permalink to this heading"></a></h3>
+<p>The most common used way to interface with the system is through the <code class="docutils literal notranslate"><span class="pre">IPython</span></code>
+shell. From the top level SnD directory listed above, run the following launcher
+script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./run_snd
+</pre></div>
+</div>
+<p>The shell will have all the SnD objects instantiated and ready for use.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a softlink to the launcher script which lives in
+<code class="docutils literal notranslate"><span class="pre">bin/</span></code></p>
+</div>
+</section>
+<section id="instrument-screens">
+<h3>Instrument Screens<a class="headerlink" href="#instrument-screens" title="Permalink to this heading"></a></h3>
+<p>There is a system level EDM screen that has all the motors and pneumatics. To
+launch the screen, run the following launcher sript from the directory listed
+above:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./snd_main
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a softlink to the launcher script which lives in
+<code class="docutils literal notranslate"><span class="pre">hxrsnd/screens/</span></code></p>
+</div>
+<p>To view diode correlation plots, run the following launcher script from the
+directory listed above:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./show_diodes.sh
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_usage.html">Basic Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#device-list">Device List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#motor-and-macromotor-classes">Motor and Macromotor Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#towers">Towers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#bragg-calculations">Bragg Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scripting.html">Adding Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scripting.html#testing-new-scripts">Testing New Scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">EDM Screens</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="screens.html#system">System</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="running_scans.html">Running Scans</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="running_scans.html#defining-plans">Defining Plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running_scans.html#running-plans">Running Plans</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="running_daq_scans.html">Running DAQ Scans</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="running_daq_scans.html#configuring-the-daq">Configuring the DAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running_daq_scans.html#running-the-scan">Running the Scan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calibrating_delay_scans.html">Calibrating Delay Scans</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calibrating_delay_scans.html#characterizing-beam-instability">Characterizing Beam Instability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibrating_delay_scans.html#calibration-operations">Calibration Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibrating_delay_scans.html#inspecting-the-calibration">Inspecting the Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibrating_delay_scans.html#modifying-calibrations">Modifying Calibrations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Devices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sndsystem.html">Split and Delay System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macromotor.html">Macromotors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="macromotor.html#base-class">Base Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macromotor.html#base-delay-class">Base Delay Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macromotor.html#system-delay">System Delay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macromotor.html#delay-energy">Delay Energy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macromotor.html#delay-energy-channel-cut">Delay Energy Channel Cut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macromotor.html#channel-cut-energy">Channel Cut Energy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tower.html">Towers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tower.html#base-tower-class">Base Tower Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tower.html#delay-tower">Delay Tower</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tower.html#channel-cut-tower">Channel Cut Tower</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aerotech.html">Aerotech Motors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aerotech.html#base-class">Base Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aerotech.html#subclasses">Subclasses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="attocube.html">Attocube Motors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="attocube.html#base-class">Base Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attocube.html#subclasses">Subclasses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="diode.html">Wave-8 Diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pneumatic.html">Pneumatics and Air Bearings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rtd.html">Temperature Sensors</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Plans</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="alignment.html">Alignment Plans</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alignment.html#running-the-rocking-curve">Running the Rocking Curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alignment.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">Delay Calibration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#hxrsnd.plans.calibration.calibrate_motor"><code class="docutils literal notranslate"><span class="pre">calibrate_motor()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#hxrsnd.plans.calibration.calibration_scan"><code class="docutils literal notranslate"><span class="pre">calibration_scan()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#hxrsnd.plans.calibration.calibration_centroid_scan"><code class="docutils literal notranslate"><span class="pre">calibration_centroid_scan()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#hxrsnd.plans.calibration.detector_scaling_walk"><code class="docutils literal notranslate"><span class="pre">detector_scaling_walk()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#hxrsnd.plans.calibration.build_calibration_df"><code class="docutils literal notranslate"><span class="pre">build_calibration_df()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scans.html">General Scans</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scans.html#hxrsnd.plans.scans.linear_scan"><code class="docutils literal notranslate"><span class="pre">linear_scan()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="scans.html#hxrsnd.plans.scans.centroid_scan"><code class="docutils literal notranslate"><span class="pre">centroid_scan()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="misc_plans.html">Miscellaneous</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc_plans.html#hxrsnd.plans.plan_stubs.euclidean_distance"><code class="docutils literal notranslate"><span class="pre">euclidean_distance()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bragg.html">Calculations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bragg.html#bragg-calculations">Bragg Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bragg.html#macro-motion-calculations">Macro-motion Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utility Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#hxrsnd.utils.absolute_submodule_path"><code class="docutils literal notranslate"><span class="pre">absolute_submodule_path()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#hxrsnd.utils.as_list"><code class="docutils literal notranslate"><span class="pre">as_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#hxrsnd.utils.isiterable"><code class="docutils literal notranslate"><span class="pre">isiterable()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#hxrsnd.utils.flatten"><code class="docutils literal notranslate"><span class="pre">flatten()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#hxrsnd.utils._flatten"><code class="docutils literal notranslate"><span class="pre">_flatten()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#hxrsnd.exceptions.SndException"><code class="docutils literal notranslate"><span class="pre">SndException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#hxrsnd.exceptions.MotorDisabled"><code class="docutils literal notranslate"><span class="pre">MotorDisabled</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#hxrsnd.exceptions.MotorFaulted"><code class="docutils literal notranslate"><span class="pre">MotorFaulted</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#hxrsnd.exceptions.MotorError"><code class="docutils literal notranslate"><span class="pre">MotorError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#hxrsnd.exceptions.BadN2Pressure"><code class="docutils literal notranslate"><span class="pre">BadN2Pressure</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+<section id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

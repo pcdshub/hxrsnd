@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hxrsnd.utils &mdash; hxrsnd 0.3.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            hxrsnd
+          </a>
+              <div class="version">
+                0.3.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripting.html">Adding Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../screens.html">EDM Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../running_scans.html">Running Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../running_daq_scans.html">Running DAQ Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../calibrating_delay_scans.html">Calibrating Delay Scans</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Devices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../sndsystem.html">Split and Delay System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macromotor.html">Macromotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tower.html">Towers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aerotech.html">Aerotech Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attocube.html">Attocube Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../diode.html">Wave-8 Diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pneumatic.html">Pneumatics and Air Bearings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rtd.html">Temperature Sensors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plans</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../alignment.html">Alignment Plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../calibration.html">Delay Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scans.html">General Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc_plans.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bragg.html">Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils.html">Utility Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exceptions.html">Exceptions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core SnD Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pswalker/">pswalker</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pcds-devices/">pcds-devices</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://slaclab.github.io/pydm/">pydm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Related Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/bluesky">bluesky</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/ophyd">ophyd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GitHub Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab/">SLAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/pcdshub/">PCDS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">hxrsnd</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">hxrsnd.utils</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for hxrsnd.utils</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Script for small utility functions used in HXRSnD</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">nan</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="absolute_submodule_path"><a class="viewcode-back" href="../../utils.html#hxrsnd.utils.absolute_submodule_path">[docs]</a><span class="k">def</span> <span class="nf">absolute_submodule_path</span><span class="p">(</span><span class="n">submodule</span><span class="p">,</span> <span class="n">cur_dir</span><span class="o">=</span><span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the absolute path of the inputted SnD submodule based on an inputted</span>
+<span class="sd">    absolute path, or the absolute path of this file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    submodule : str or Path</span>
+<span class="sd">        Desired submodule path.</span>
+
+<span class="sd">    cur_dir : str or Path, optional</span>
+<span class="sd">        Absolute path to use as a template for the full submodule path.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    full_path : str</span>
+<span class="sd">        Full string path to the inputted submodule.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dir_parts</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">cur_dir</span><span class="p">)</span><span class="o">.</span><span class="n">parts</span>
+    <span class="n">sub_parts</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">submodule</span><span class="p">)</span><span class="o">.</span><span class="n">parts</span>
+    <span class="n">base_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="o">*</span><span class="n">dir_parts</span><span class="p">[:</span><span class="n">dir_parts</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">sub_parts</span><span class="p">[</span><span class="mi">0</span><span class="p">])])</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;.&quot;</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Could not match base path with desired submodule.&quot;</span><span class="p">)</span>
+    <span class="n">full_path</span> <span class="o">=</span> <span class="n">base_path</span> <span class="o">/</span> <span class="n">Path</span><span class="p">(</span><span class="n">submodule</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="as_list"><a class="viewcode-back" href="../../utils.html#hxrsnd.utils.as_list">[docs]</a><span class="k">def</span> <span class="nf">as_list</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">iter_to_list</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Force an argument to be a list, optionally of a given length, optionally</span>
+<span class="sd">    with all elements cast to a given type if not None.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ---------</span>
+<span class="sd">    obj : Object</span>
+<span class="sd">        The obj we want to convert to a list.</span>
+
+<span class="sd">    length : int or None, optional</span>
+<span class="sd">        Length of new list. Applies if the inputted obj is not an iterable and</span>
+<span class="sd">        iter_to_list is false.</span>
+
+<span class="sd">    tp : type, optional</span>
+<span class="sd">        Type to cast the values inside the list as.</span>
+
+<span class="sd">    iter_to_list : bool, optional</span>
+<span class="sd">        Determines if we should cast an iterable (not str) obj as a list or to</span>
+<span class="sd">        enclose it in one.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    obj : list</span>
+<span class="sd">        The object enclosed or cast as a list.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># If the obj is None, return empty list or fixed-length list of Nones</span>
+    <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">length</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">length</span>
+
+    <span class="c1"># If it is already a list do nothing</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="c1"># If it is an iterable (and not str), convert it to a list</span>
+    <span class="k">elif</span> <span class="n">isiterable</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="ow">and</span> <span class="n">iter_to_list</span><span class="p">:</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+    <span class="c1"># Otherwise, just enclose in a list making it the inputted length</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="p">[</span><span class="n">obj</span><span class="p">]</span> <span class="o">*</span> <span class="n">length</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="p">[</span><span class="n">obj</span><span class="p">]</span>
+
+    <span class="c1"># Cast to type; Let exceptions here bubble up to the top.</span>
+    <span class="k">if</span> <span class="n">tp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="p">[</span><span class="n">tp</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">obj</span></div>
+
+
+<div class="viewcode-block" id="isiterable"><a class="viewcode-back" href="../../utils.html#hxrsnd.utils.isiterable">[docs]</a><span class="k">def</span> <span class="nf">isiterable</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function that determines if an object is an iterable, not including</span>
+<span class="sd">    str.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    obj : object</span>
+<span class="sd">        Object to test if it is an iterable.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool : bool</span>
+<span class="sd">        True if the obj is an iterable, False if not.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="_flatten"><a class="viewcode-back" href="../../utils.html#hxrsnd.utils._flatten">[docs]</a><span class="k">def</span> <span class="nf">_flatten</span><span class="p">(</span><span class="n">inp_iter</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Recursively iterate through values in nested iterables.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    inp_iter : iterable</span>
+<span class="sd">        The iterable to flatten.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    value : object</span>
+<span class="sd">        The contents of the iterable</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">inp_iter</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">isiterable</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+            <span class="k">yield from</span> <span class="n">_flatten</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">val</span></div>
+
+
+<div class="viewcode-block" id="flatten"><a class="viewcode-back" href="../../utils.html#hxrsnd.utils.flatten">[docs]</a><span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="n">inp_iter</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a flattened list of the inputted iterable.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    inp_iter : iterable</span>
+<span class="sd">        The iterable to flatten.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    flattened_iter : list</span>
+<span class="sd">        The contents of the iterable as a flat list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">_flatten</span><span class="p">(</span><span class="n">inp_iter</span><span class="p">))</span></div>
+
+
+<span class="k">def</span> <span class="nf">stop_on_keyboardinterrupt</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Decorator that runs the object&#39;s `stop` method if a keyboard interrupt is</span>
+<span class="sd">    raised. This is meant to be used on ophyd device methods and expects the</span>
+<span class="sd">    first argument to be `self`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">stop_dev_on_keyboardinterrupt</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s2">&quot;stop&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">callable</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">stop</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+                <span class="n">obj</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Motor &#39;</span><span class="si">{}</span><span class="s2">&#39; stopped by keyboard interrupt&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">obj</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Object &#39;</span><span class="si">{}</span><span class="s2">&#39; needs a stop method to use the &quot;</span>
+                                 <span class="s2">&quot;stop_on_keyboardinterrupt decorator.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                                     <span class="n">obj</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">stop_dev_on_keyboardinterrupt</span>
+
+
+<span class="k">def</span> <span class="nf">nan_if_no_parent</span><span class="p">(</span><span class="n">method</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Decorator that will return None if the object passed via self does not have</span>
+<span class="sd">    a parent.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">nan</span>
+    <span class="k">return</span> <span class="n">inner</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
