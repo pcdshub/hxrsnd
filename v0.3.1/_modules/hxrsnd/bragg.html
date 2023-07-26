@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hxrsnd.bragg &mdash; hxrsnd 0.3.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            hxrsnd
+          </a>
+              <div class="version">
+                0.3.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripting.html">Adding Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../screens.html">EDM Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../running_scans.html">Running Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../running_daq_scans.html">Running DAQ Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../calibrating_delay_scans.html">Calibrating Delay Scans</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Devices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../sndsystem.html">Split and Delay System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macromotor.html">Macromotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tower.html">Towers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aerotech.html">Aerotech Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attocube.html">Attocube Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../diode.html">Wave-8 Diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pneumatic.html">Pneumatics and Air Bearings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rtd.html">Temperature Sensors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plans</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../alignment.html">Alignment Plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../calibration.html">Delay Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scans.html">General Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc_plans.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bragg.html">Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils.html">Utility Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exceptions.html">Exceptions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core SnD Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pswalker/">pswalker</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pcds-devices/">pcds-devices</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://slaclab.github.io/pydm/">pydm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Related Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/bluesky">bluesky</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/ophyd">ophyd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GitHub Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab/">SLAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/pcdshub/">PCDS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">hxrsnd</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">hxrsnd.bragg</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for hxrsnd.bragg</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Script to hold functions copied over from blutils that pertain to computing</span>
+<span class="sd">the bragg angle of the HXRSnD crystals.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># Globals</span>
+
+<span class="n">_manual_energy</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="c1"># Chemical Formula Aliases</span>
+<span class="n">alias</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Air&#39;</span><span class="p">:</span> <span class="s1">&#39;N1.562O.42C.0003Ar.0094&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;air&#39;</span><span class="p">:</span> <span class="s1">&#39;N1.562O.42C.0003Ar.0094&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;YAG&#39;</span><span class="p">:</span> <span class="s1">&#39;Y3Al5O12&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;yag&#39;</span><span class="p">:</span> <span class="s1">&#39;Y3Al5O12&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;Sapphire&#39;</span><span class="p">:</span> <span class="s1">&#39;Al2O3&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;sapphire&#39;</span><span class="p">:</span> <span class="s1">&#39;Al2O3&#39;</span><span class="p">,</span>
+         <span class="p">}</span>
+
+<span class="c1"># Crystal Lattice parameters (a, b, c, alpha, beta, gamma)</span>
+<span class="c1"># a,b,c in angstroms</span>
+<span class="c1"># alpha, beta, gamma in degrees</span>
+<span class="n">lattice_parameters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Si&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">5.4310205</span><span class="p">,</span> <span class="mf">5.4310205</span><span class="p">,</span> <span class="mf">5.4310205</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="c1"># define units and constants</span>
+<span class="n">u</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;ang&#39;</span><span class="p">:</span> <span class="mf">1e10</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Trigonometric Functions</span>
+
+
+<span class="k">def</span> <span class="nf">sind</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Sin of an angle specified in degrees.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    A : float</span>
+<span class="sd">        Angle in degrees.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    x : float</span>
+<span class="sd">        Sin of the angle.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Arad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">Arad</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+
+<span class="k">def</span> <span class="nf">cosd</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Cos of an angle specified in degrees.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    A : float</span>
+<span class="sd">        Angle in degrees.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    x : float</span>
+<span class="sd">        Cos of the angle.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Arad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">Arad</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+
+<span class="k">def</span> <span class="nf">tand</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tan of an angle specified in degrees.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    A : float</span>
+<span class="sd">        Angle in degrees.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    x : float</span>
+<span class="sd">        Tan of the angle.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Arad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">Arad</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+
+<span class="k">def</span> <span class="nf">asind</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the arcsin in degrees.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : float</span>
+<span class="sd">        Value to calculate arcsin of.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    A : float</span>
+<span class="sd">        Arcsin of the value in degrees.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">A</span>
+
+
+<span class="k">def</span> <span class="nf">acosd</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the arccos in degrees.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : float</span>
+<span class="sd">        Value to calculate arccos of.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    A : float</span>
+<span class="sd">        Arccos of the value in degrees.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">A</span>
+
+
+<span class="k">def</span> <span class="nf">atand</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the arctan in degrees.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : float</span>
+<span class="sd">        Value to calculate arctan of.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    A : float</span>
+<span class="sd">        Arctan of the value in degrees.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">A</span>
+
+<span class="c1"># Frequency, wavelength and energy conversions</span>
+
+
+<span class="k">def</span> <span class="nf">lam</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">o</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes photon wavelength in m</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    E : float</span>
+<span class="sd">        The input energy in eV or KeV</span>
+
+<span class="sd">    o : float, optional</span>
+<span class="sd">        Set o to 0 if working at sub-100 eV energies</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    lam : float</span>
+<span class="sd">        Input energy converted to wavelength</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">o</span><span class="p">:</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="n">E</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="n">eV</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+    <span class="n">lam</span> <span class="o">=</span> <span class="p">(</span><span class="mf">12398.4</span><span class="o">/</span><span class="n">E</span><span class="p">)</span><span class="o">/</span><span class="n">u</span><span class="p">[</span><span class="s1">&#39;ang&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">lam</span>
+
+
+<span class="k">def</span> <span class="nf">lam2E</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>  <span class="c1"># noqa: E741</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes photon energy in eV</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    l : float</span>
+<span class="sd">        Photon wavelength in m</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    E : float</span>
+<span class="sd">        Energy in eV</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="mf">12398.4</span><span class="o">/</span><span class="p">(</span><span class="n">l</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="s1">&#39;ang&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">E</span>
+
+
+<span class="k">def</span> <span class="nf">lam2f</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>  <span class="c1"># noqa: E741</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes the photon frequency in Hz</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    l : float</span>
+<span class="sd">        Photon wavelength in m</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    f : float</span>
+<span class="sd">        Frequency in Hz</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="mi">299792458</span><span class="o">/</span><span class="n">l</span>
+    <span class="k">return</span> <span class="n">f</span>
+
+<span class="c1"># Higher level functions</span>
+
+
+<span class="k">def</span> <span class="nf">eV</span><span class="p">(</span><span class="n">E</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns photon energy in eV if specified in eV or KeV. Assumes that any</span>
+<span class="sd">    value that is less than 100 is in KeV.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    E : float</span>
+<span class="sd">        The input energy to convert to eV</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    E : float</span>
+<span class="sd">        Energy converted to eV from KeV</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">E</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="n">E</span> <span class="o">*=</span> <span class="mf">1000.0</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">check_id</span><span class="p">(</span><span class="n">ID</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks to see if you are using an alias. Returns the chemical formula</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ID : str</span>
+<span class="sd">        The desired ID</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    id : str</span>
+<span class="sd">        The full ID name from the alias dictionary or just ID</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">alias</span><span class="p">[</span><span class="n">ID</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ID</span>
+
+
+<span class="k">def</span> <span class="nf">get_e</span><span class="p">(</span><span class="n">energy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">correct_ev</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get working energy</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    energy : float or None, optional</span>
+<span class="sd">        If energy passed in, return it, otherwise return manual_energy if set,</span>
+<span class="sd">        or machine energy otherwise.</span>
+
+<span class="sd">    correct_ev : bool, optional</span>
+<span class="sd">        Convert to eV if True</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    en : float</span>
+<span class="sd">        The desired working energy</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">en</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">energy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">en</span> <span class="o">=</span> <span class="n">energy</span>
+    <span class="k">elif</span> <span class="n">_manual_energy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">en</span> <span class="o">=</span> <span class="n">_manual_energy</span>
+    <span class="k">if</span> <span class="n">correct_ev</span><span class="p">:</span>
+        <span class="n">en</span> <span class="o">=</span> <span class="n">eV</span><span class="p">(</span><span class="n">en</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">en</span>
+
+
+<span class="k">def</span> <span class="nf">d_space</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">hkl</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes the d spacing (m) of the specified material and reflection</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ID : str</span>
+<span class="sd">        Chemical fomula : &#39;Si&#39;</span>
+
+<span class="sd">    hlk : tuple</span>
+<span class="sd">        The reflection : (2,2,0)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    d : float</span>
+<span class="sd">        The d-spacing of the crystal using the inputted reflection.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ID</span> <span class="o">=</span> <span class="n">check_id</span><span class="p">(</span><span class="n">ID</span><span class="p">)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">hkl</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">hkl</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">l_</span> <span class="o">=</span> <span class="n">hkl</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="n">lp</span> <span class="o">=</span> <span class="n">lattice_parameters</span><span class="p">[</span><span class="n">ID</span><span class="p">]</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">lp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">u</span><span class="p">[</span><span class="s1">&#39;ang&#39;</span><span class="p">]</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">lp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">u</span><span class="p">[</span><span class="s1">&#39;ang&#39;</span><span class="p">]</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">lp</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">u</span><span class="p">[</span><span class="s1">&#39;ang&#39;</span><span class="p">]</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">lp</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="n">lp</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="n">lp</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+
+    <span class="n">ca</span> <span class="o">=</span> <span class="n">cosd</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="n">cb</span> <span class="o">=</span> <span class="n">cosd</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+    <span class="n">cg</span> <span class="o">=</span> <span class="n">cosd</span><span class="p">(</span><span class="n">gamma</span><span class="p">)</span>
+    <span class="n">sa</span> <span class="o">=</span> <span class="n">sind</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="n">sb</span> <span class="o">=</span> <span class="n">sind</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+    <span class="n">sg</span> <span class="o">=</span> <span class="n">sind</span><span class="p">(</span><span class="n">gamma</span><span class="p">)</span>
+
+    <span class="n">invdsqr</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.</span><span class="o">+</span><span class="mf">2.</span><span class="o">*</span><span class="n">ca</span><span class="o">*</span><span class="n">cb</span><span class="o">*</span><span class="n">cg</span><span class="o">-</span><span class="n">ca</span><span class="o">**</span><span class="mf">2.</span><span class="o">-</span><span class="n">cb</span><span class="o">**</span><span class="mf">2.</span><span class="o">-</span><span class="n">cg</span><span class="o">**</span><span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> \
+        <span class="p">(</span><span class="n">h</span><span class="o">**</span><span class="mf">2.</span><span class="o">*</span><span class="n">sa</span><span class="o">**</span><span class="mf">2.</span><span class="o">/</span><span class="n">a</span><span class="o">**</span><span class="mf">2.</span> <span class="o">+</span> <span class="n">k</span><span class="o">**</span><span class="mf">2.</span><span class="o">*</span><span class="n">sb</span><span class="o">**</span><span class="mf">2.</span><span class="o">/</span><span class="n">b</span><span class="o">**</span><span class="mf">2.</span> <span class="o">+</span> <span class="n">l_</span><span class="o">**</span><span class="mf">2.</span><span class="o">*</span><span class="n">sg</span><span class="o">**</span><span class="mf">2.</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mf">2.</span> <span class="o">+</span>
+         <span class="mf">2.</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="n">ca</span><span class="o">*</span><span class="n">cb</span><span class="o">-</span><span class="n">cg</span><span class="p">)</span><span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="o">+</span><span class="mf">2.</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">l_</span><span class="o">*</span><span class="p">(</span><span class="n">cb</span><span class="o">*</span><span class="n">cg</span><span class="o">-</span><span class="n">ca</span><span class="p">)</span><span class="o">/</span><span class="n">b</span><span class="o">/</span><span class="n">c</span><span class="o">+</span><span class="mf">2.</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">l_</span><span class="o">*</span><span class="p">(</span><span class="n">ca</span><span class="o">*</span><span class="n">cg</span><span class="o">-</span><span class="n">cb</span><span class="p">)</span><span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="n">c</span><span class="p">)</span>
+
+    <span class="n">d</span> <span class="o">=</span> <span class="n">invdsqr</span><span class="o">**-</span><span class="mf">0.5</span>
+    <span class="k">return</span> <span class="n">d</span>
+
+
+<div class="viewcode-block" id="bragg_angle"><a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.bragg_angle">[docs]</a><span class="k">def</span> <span class="nf">bragg_angle</span><span class="p">(</span><span class="n">E</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ID</span><span class="o">=</span><span class="s2">&quot;Si&quot;</span><span class="p">,</span> <span class="n">hkl</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes the Bragg angle (deg) of the specified material, reflection and</span>
+<span class="sd">    photon energy.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    E : float, optional</span>
+<span class="sd">        Photon energy in eV or keV (default is LCLS value)</span>
+
+<span class="sd">    ID : str, optional</span>
+<span class="sd">        Chemical fomula : &#39;Si&#39;</span>
+
+<span class="sd">    hlk : tuple, optional</span>
+<span class="sd">        The reflection : (2,2,0)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    two_theta : float</span>
+<span class="sd">        Expected bragg angle</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ID</span> <span class="o">=</span> <span class="n">check_id</span><span class="p">(</span><span class="n">ID</span><span class="p">)</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">get_e</span><span class="p">(</span><span class="n">energy</span><span class="o">=</span><span class="n">E</span><span class="p">,</span> <span class="n">correct_ev</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">d_space</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">hkl</span><span class="p">)</span>
+    <span class="n">two_theta</span> <span class="o">=</span> <span class="n">asind</span><span class="p">(</span><span class="n">lam</span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">d</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">two_theta</span></div>
+
+
+<div class="viewcode-block" id="bragg_energy"><a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.bragg_energy">[docs]</a><span class="k">def</span> <span class="nf">bragg_energy</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">ID</span><span class="o">=</span><span class="s2">&quot;Si&quot;</span><span class="p">,</span> <span class="n">hkl</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes the photon energy that satisfies the Bragg condition of the</span>
+<span class="sd">    specified material, reflection and theta angle.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    theta : float, optional</span>
+<span class="sd">        The scattering angle in degrees</span>
+
+<span class="sd">    ID : str, optional</span>
+<span class="sd">        Chemical fomula : &#39;Si&#39;</span>
+
+<span class="sd">    hlk : tuple, optional</span>
+<span class="sd">        The reflection : (2,2,0)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    E : float, optional</span>
+<span class="sd">        Photon energy in eV</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ID</span> <span class="o">=</span> <span class="n">check_id</span><span class="p">(</span><span class="n">ID</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">d_space</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">hkl</span><span class="p">)</span>
+    <span class="n">l_</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">d</span><span class="o">*</span><span class="n">sind</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">lam2E</span><span class="p">(</span><span class="n">l_</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">E</span></div>
+
+
+<div class="viewcode-block" id="snd_L"><a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.snd_L">[docs]</a><span class="k">def</span> <span class="nf">snd_L</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">55</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the theta angles of the towers and the delay length based on the</span>
+<span class="sd">    desired energy and delay.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    E1 : float</span>
+<span class="sd">        Energy of the delay branch in eV</span>
+
+<span class="sd">    E2 : float</span>
+<span class="sd">        Energy of the channel-cut branch in eV</span>
+
+<span class="sd">    delay : float</span>
+<span class="sd">        Delay of the system in picoseconds</span>
+
+<span class="sd">    gap : float, optional</span>
+<span class="sd">        Distance between the channel-cut crystals</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    theta_L : float</span>
+<span class="sd">        The necessary angle of the delay branch in degrees.</span>
+
+<span class="sd">    theta_cc : float</span>
+<span class="sd">        The necessary angle of the channel-cut branch in degrees.</span>
+
+<span class="sd">    L : float</span>
+<span class="sd">        The necessary length of the delay crystals in mm.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cl</span> <span class="o">=</span> <span class="mf">0.3</span>
+    <span class="n">theta_L</span> <span class="o">=</span> <span class="n">bragg_angle</span><span class="p">(</span><span class="s1">&#39;Si&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">E1</span><span class="p">)</span>
+    <span class="n">theta_cc</span> <span class="o">=</span> <span class="n">bragg_angle</span><span class="p">(</span><span class="s1">&#39;Si&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">E2</span><span class="p">)</span>
+    <span class="c1"># gap is the distance between the two faces of the channel cut crystal</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">(</span><span class="n">delay</span><span class="o">*</span><span class="n">cl</span><span class="o">/</span><span class="mf">2.</span><span class="o">+</span><span class="n">gap</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cosd</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">theta_cc</span><span class="p">))</span><span class="o">/</span><span class="n">sind</span><span class="p">(</span><span class="n">theta_cc</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cosd</span><span class="p">(</span>
+        <span class="mi">2</span><span class="o">*</span><span class="n">theta_L</span><span class="p">))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t1.L = t4.L = </span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t1.tth = t4.tth = </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">theta_L</span><span class="si">}</span><span class="s2"> degree&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t1.th1=t1.th2=t4.th1=t4.th2 = </span><span class="si">{</span><span class="n">theta_L</span><span class="si">}</span><span class="s2"> degree&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t2.th=t3.th = </span><span class="si">{</span><span class="n">theta_cc</span><span class="si">}</span><span class="s2"> degree&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">theta_L</span><span class="p">,</span> <span class="n">theta_cc</span><span class="p">,</span> <span class="n">L</span></div>
+
+
+<div class="viewcode-block" id="snd_diag"><a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.snd_diag">[docs]</a><span class="k">def</span> <span class="nf">snd_diag</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">55</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the positions of the middle diagnostics of the system based on</span>
+<span class="sd">    the inputted energy and delay.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    E1 : float</span>
+<span class="sd">        Energy of the delay branch in eV</span>
+
+<span class="sd">    E2 : float</span>
+<span class="sd">        Energy of the channel-cut branch in eV</span>
+
+<span class="sd">    delay : float</span>
+<span class="sd">        Delay of the system in picoseconds</span>
+
+<span class="sd">    gap : float, optional</span>
+<span class="sd">        Distance between the channel-cut crystals</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dd_x : float</span>
+<span class="sd">        The necessary position of the middle delay diagnostic in mm</span>
+
+<span class="sd">    dcc_x : float</span>
+<span class="sd">        The necessary position of the middle channel-cut diagnostic in mm</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cl</span> <span class="o">=</span> <span class="mf">0.3</span>
+    <span class="c1"># speed of light</span>
+    <span class="n">theta_L</span> <span class="o">=</span> <span class="n">bragg_angle</span><span class="p">(</span><span class="s1">&#39;Si&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">E1</span><span class="p">)</span>
+    <span class="n">theta_cc</span> <span class="o">=</span> <span class="n">bragg_angle</span><span class="p">(</span><span class="s1">&#39;Si&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">E2</span><span class="p">)</span>
+    <span class="n">dcc_x</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">cosd</span><span class="p">(</span><span class="n">theta_cc</span><span class="p">)</span><span class="o">*</span><span class="n">gap</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">(</span><span class="n">delay</span><span class="o">*</span><span class="n">cl</span><span class="o">/</span><span class="mf">2.</span><span class="o">+</span><span class="n">gap</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cosd</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">theta_cc</span><span class="p">))</span><span class="o">/</span><span class="n">sind</span><span class="p">(</span><span class="n">theta_cc</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cosd</span><span class="p">(</span>
+        <span class="mi">2</span><span class="o">*</span><span class="n">theta_L</span><span class="p">))</span>
+    <span class="n">dd_x</span> <span class="o">=</span> <span class="o">-</span><span class="n">L</span><span class="o">*</span><span class="n">sind</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">theta_L</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dd.x = </span><span class="si">{</span><span class="n">dd_x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dcc.x = </span><span class="si">{</span><span class="n">dcc_x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dd_x</span><span class="p">,</span> <span class="n">dcc_x</span></div>
+
+
+<div class="viewcode-block" id="snd_delay"><a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.snd_delay">[docs]</a><span class="k">def</span> <span class="nf">snd_delay</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">55</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the delay of the system based on the inputted energies and the</span>
+<span class="sd">    delay length.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    E1 : float</span>
+<span class="sd">        Energy of the delay branch in eV</span>
+
+<span class="sd">    E2 : float</span>
+<span class="sd">        Energy of the channel-cut branch in eV</span>
+
+<span class="sd">    L : float</span>
+<span class="sd">        Position of the delay crystals in mm</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    delay : float</span>
+<span class="sd">        The delay of the system in picoseconds</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cl</span> <span class="o">=</span> <span class="mf">0.3</span>
+    <span class="n">theta_L</span> <span class="o">=</span> <span class="n">bragg_angle</span><span class="p">(</span><span class="s1">&#39;Si&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">E1</span><span class="p">)</span>
+    <span class="n">theta_cc</span> <span class="o">=</span> <span class="n">bragg_angle</span><span class="p">(</span><span class="s1">&#39;Si&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">E2</span><span class="p">)</span>
+    <span class="n">delay</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">L</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cosd</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">theta_L</span><span class="p">))</span> <span class="o">-</span> <span class="n">gap</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cosd</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">theta_cc</span><span class="p">))</span><span class="o">/</span><span class="n">sind</span><span class="p">(</span>
+        <span class="n">theta_cc</span><span class="p">))</span><span class="o">/</span><span class="n">cl</span>
+    <span class="k">return</span> <span class="n">delay</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

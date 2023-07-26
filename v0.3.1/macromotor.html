@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Macromotors &mdash; hxrsnd 0.3.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Towers" href="tower.html" />
+    <link rel="prev" title="Split and Delay System" href="sndsystem.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            hxrsnd
+          </a>
+              <div class="version">
+                0.3.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripting.html">Adding Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">EDM Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_scans.html">Running Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_daq_scans.html">Running DAQ Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibrating_delay_scans.html">Calibrating Delay Scans</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Devices</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sndsystem.html">Split and Delay System</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Macromotors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#base-class">Base Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#base-delay-class">Base Delay Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-delay">System Delay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delay-energy">Delay Energy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delay-energy-channel-cut">Delay Energy Channel Cut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#channel-cut-energy">Channel Cut Energy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tower.html">Towers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aerotech.html">Aerotech Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="attocube.html">Attocube Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diode.html">Wave-8 Diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pneumatic.html">Pneumatics and Air Bearings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rtd.html">Temperature Sensors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plans</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="alignment.html">Alignment Plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">Delay Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scans.html">General Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc_plans.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bragg.html">Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utility Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core SnD Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pswalker/">pswalker</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pcds-devices/">pcds-devices</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://slaclab.github.io/pydm/">pydm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Related Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/bluesky">bluesky</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/ophyd">ophyd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GitHub Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab/">SLAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/pcdshub/">PCDS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hxrsnd</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Macromotors</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/macromotor.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="macromotors">
+<h1>Macromotors<a class="headerlink" href="#macromotors" title="Permalink to this heading"></a></h1>
+<section id="base-class">
+<h2>Base Class<a class="headerlink" href="#base-class" title="Permalink to this heading"></a></h2>
+<p>All of the macromotors inherit fromt the <code class="docutils literal notranslate"><span class="pre">MacroBase</span></code> class, which implements
+the high level interface for each of the macromotors.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">MacroBase</span></code>(prefix[, name, read_attrs])</p></td>
+<td><p>Base pseudo-motor class for the SnD macro-motions.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="base-delay-class">
+<h2>Base Delay Class<a class="headerlink" href="#base-delay-class" title="Permalink to this heading"></a></h2>
+<p>All delay macromotors inherit from this abstract class.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">DelayTowerMacro</span></code>(prefix[, name, read_attrs])</p></td>
+<td><p>Class for the delay tower macros</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="system-delay">
+<h2>System Delay<a class="headerlink" href="#system-delay" title="Permalink to this heading"></a></h2>
+<p>Macromotor <code class="docutils literal notranslate"><span class="pre">snd.Delay</span></code> that controls the system delay by manipulating the
+following motors:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t1.L</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t4.L</span></code></p></li>
+</ul>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">DelayMacro</span></code>(prefix[, name])</p></td>
+<td><p>Macro-motor for the delay macro-motor.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="delay-energy">
+<h2>Delay Energy<a class="headerlink" href="#delay-energy" title="Permalink to this heading"></a></h2>
+<p>Macromotor <code class="docutils literal notranslate"><span class="pre">snd.E1</span></code> that controls the delay branch energy by manipulating the
+following motors:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t1.tth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t1.th1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t1.th2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t4.tth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t4.th1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t4.th2</span></code></p></li>
+</ul>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Energy1Macro</span></code>(prefix[, name, read_attrs])</p></td>
+<td><p>Macro-motor for the energy 1 macro-motor.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="delay-energy-channel-cut">
+<h2>Delay Energy Channel Cut<a class="headerlink" href="#delay-energy-channel-cut" title="Permalink to this heading"></a></h2>
+<p>Macromotor <code class="docutils literal notranslate"><span class="pre">snd.E1_cc</span></code> that controls the delay branch energy by manipulating
+the following motors:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t1.tth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t4.tth</span></code></p></li>
+</ul>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Energy1CCMacro</span></code>(prefix[, name, read_attrs])</p></td>
+<td><p>Macro-motor for the energy 1 channel cut macro-motor.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="channel-cut-energy">
+<h2>Channel Cut Energy<a class="headerlink" href="#channel-cut-energy" title="Permalink to this heading"></a></h2>
+<p>Macromotor <code class="docutils literal notranslate"><span class="pre">snd.E2</span></code> that controls the channel cut branch energy by
+manipulating the following motors:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t2.th</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snd.t3.th</span></code></p></li>
+</ul>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Energy2Macro</span></code>(prefix[, name, read_attrs])</p></td>
+<td><p>Macro-motor for the energy 2 macro-motor.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sndsystem.html" class="btn btn-neutral float-left" title="Split and Delay System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tower.html" class="btn btn-neutral float-right" title="Towers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
