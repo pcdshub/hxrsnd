@@ -12,8 +12,12 @@ from ophyd.sim import NullStatus
 from ophyd.status import wait as status_wait
 from ophyd.utils import LimitError
 from pcdsdevices.areadetector.detectors import PCDSAreaDetector
+from pcdsdevices.pseudopos import (PseudoPositioner, PseudoSingleInterface,
+                                   pseudo_position_argument, real_position_argument)
+from pcdsdevices.interface import BaseInterface
 from pswalker.utils import field_prepend
 
+from .aerotech import InterRotationAero, InterLinearAero
 from .bragg import bragg_angle, cosd, sind
 from .exceptions import (BadN2Pressure, MotorDisabled, MotorFaulted,
                          MotorStopped)
@@ -1461,3 +1465,24 @@ class Energy2Macro(MacroBase):
         # Log the set
         if print_set is True:
             logger.info(f"Setting positions for E2 to {E2}.")
+
+
+class _SNDDelay(BaseInterface, PseudoPositioner):
+    c = 0.299792458  # mm/ps
+    gap = 55  # m
+
+    L = Cmp(InterLinearAero, ':T1:L')
+    t1_tth = Cmp(InterRotationAero, ':T1:TTH')
+    t2_th = Cmp(InterRotationAero, ':T2:TH')
+
+    delay = Cmp(PseudoSingleInterface)
+
+    @pseudo_position_argument
+    def forward(self, pseudo_pos):
+        return self.RealPosition(L=self.L.position, t1_tth=self.t1_tth.position,
+                                 t2_tth=self.t2_th.position)
+
+    @real_position_argument
+    def inverse(self, real_pos):
+        delay = (2*(real_pos.L*(1-cosd(real_pos.t1_tth)) - self.gap*(1-cosd(2*real_pos.t2_th)) / sind(real_pos.t2_th))/self.c)
+        return self.PseudoPosition(delay=delay)
