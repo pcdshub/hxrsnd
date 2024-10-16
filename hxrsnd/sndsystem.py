@@ -8,7 +8,8 @@ import logging
 from ophyd import Component as Cmp
 
 from .diode import HamamatsuXMotionDiode, HamamatsuXYMotionCamDiode
-from .macromotor import DelayMacro, Energy1CCMacro, Energy1Macro, Energy2Macro, _SNDDelay
+from .macromotor import (DelayMacro, Energy1CCMacro, Energy1Macro,
+                         Energy2Macro, _SNDDelay)
 from .pneumatic import SndPneumatics
 from .snddevice import SndDevice
 from .tower import ChannelCutTower, DelayTower
