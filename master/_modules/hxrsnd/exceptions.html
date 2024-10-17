@@ -1,20 +1,20 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="python" >
+<html class="writer-html5" lang="python" data-content_root="../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hxrsnd.exceptions &mdash; hxrsnd 0.3.1.dev2+g033f4b9 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>hxrsnd.exceptions &mdash; hxrsnd 0.3.2.dev10+g351f1fe documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=198f1585"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -31,9 +31,6 @@
           <a href="../../index.html" class="icon icon-home">
             hxrsnd
           </a>
-              <div class="version">
-                0.3.1.dev2+g033f4b9
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -144,21 +141,29 @@
     <span class="k">pass</span>
 
 
-<div class="viewcode-block" id="SndException"><a class="viewcode-back" href="../../exceptions.html#hxrsnd.exceptions.SndException">[docs]</a><span class="k">class</span> <span class="nc">SndException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<div class="viewcode-block" id="SndException">
+<a class="viewcode-back" href="../../exceptions.html#hxrsnd.exceptions.SndException">[docs]</a>
+<span class="k">class</span> <span class="nc">SndException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base aerotech motor exceptions.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="MotorDisabled"><a class="viewcode-back" href="../../exceptions.html#hxrsnd.exceptions.MotorDisabled">[docs]</a><span class="k">class</span> <span class="nc">MotorDisabled</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
+
+<div class="viewcode-block" id="MotorDisabled">
+<a class="viewcode-back" href="../../exceptions.html#hxrsnd.exceptions.MotorDisabled">[docs]</a>
+<span class="k">class</span> <span class="nc">MotorDisabled</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Exception raised when an action requiring the motor be enabled is requested.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="MotorFaulted"><a class="viewcode-back" href="../../exceptions.html#hxrsnd.exceptions.MotorFaulted">[docs]</a><span class="k">class</span> <span class="nc">MotorFaulted</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
+
+<div class="viewcode-block" id="MotorFaulted">
+<a class="viewcode-back" href="../../exceptions.html#hxrsnd.exceptions.MotorFaulted">[docs]</a>
+<span class="k">class</span> <span class="nc">MotorFaulted</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Exception raised when an action requiring the motor not be faulted is</span>
 <span class="sd">    requested.</span>
@@ -166,12 +171,16 @@
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="MotorError"><a class="viewcode-back" href="../../exceptions.html#hxrsnd.exceptions.MotorError">[docs]</a><span class="k">class</span> <span class="nc">MotorError</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
+
+<div class="viewcode-block" id="MotorError">
+<a class="viewcode-back" href="../../exceptions.html#hxrsnd.exceptions.MotorError">[docs]</a>
+<span class="k">class</span> <span class="nc">MotorError</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Exception raised when an action requiring the motor not have an error is</span>
 <span class="sd">    requested.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
+
 
 
 <span class="k">class</span> <span class="nc">MotorStopped</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
@@ -182,12 +191,15 @@
     <span class="k">pass</span>
 
 
-<div class="viewcode-block" id="BadN2Pressure"><a class="viewcode-back" href="../../exceptions.html#hxrsnd.exceptions.BadN2Pressure">[docs]</a><span class="k">class</span> <span class="nc">BadN2Pressure</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
+<div class="viewcode-block" id="BadN2Pressure">
+<a class="viewcode-back" href="../../exceptions.html#hxrsnd.exceptions.BadN2Pressure">[docs]</a>
+<span class="k">class</span> <span class="nc">BadN2Pressure</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Exception raised when an action requiring the N2 pressure be good is</span>
 <span class="sd">    requested with a bad pressure.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
+
 </pre></div>
 
            </div>
@@ -197,7 +209,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -1,20 +1,20 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="python" >
+<html class="writer-html5" lang="python" data-content_root="../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hxrsnd.bragg &mdash; hxrsnd 0.3.1.dev2+g033f4b9 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>hxrsnd.bragg &mdash; hxrsnd 0.3.2.dev10+g351f1fe documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=198f1585"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -31,9 +31,6 @@
           <a href="../../index.html" class="icon icon-home">
             hxrsnd
           </a>
-              <div class="version">
-                0.3.1.dev2+g033f4b9
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -447,7 +444,9 @@
     <span class="k">return</span> <span class="n">d</span>
 
 
-<div class="viewcode-block" id="bragg_angle"><a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.bragg_angle">[docs]</a><span class="k">def</span> <span class="nf">bragg_angle</span><span class="p">(</span><span class="n">E</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ID</span><span class="o">=</span><span class="s2">&quot;Si&quot;</span><span class="p">,</span> <span class="n">hkl</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+<div class="viewcode-block" id="bragg_angle">
+<a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.bragg_angle">[docs]</a>
+<span class="k">def</span> <span class="nf">bragg_angle</span><span class="p">(</span><span class="n">E</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ID</span><span class="o">=</span><span class="s2">&quot;Si&quot;</span><span class="p">,</span> <span class="n">hkl</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the Bragg angle (deg) of the specified material, reflection and</span>
 <span class="sd">    photon energy.</span>
@@ -475,7 +474,10 @@
     <span class="k">return</span> <span class="n">two_theta</span></div>
 
 
-<div class="viewcode-block" id="bragg_energy"><a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.bragg_energy">[docs]</a><span class="k">def</span> <span class="nf">bragg_energy</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">ID</span><span class="o">=</span><span class="s2">&quot;Si&quot;</span><span class="p">,</span> <span class="n">hkl</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+
+<div class="viewcode-block" id="bragg_energy">
+<a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.bragg_energy">[docs]</a>
+<span class="k">def</span> <span class="nf">bragg_energy</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">ID</span><span class="o">=</span><span class="s2">&quot;Si&quot;</span><span class="p">,</span> <span class="n">hkl</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the photon energy that satisfies the Bragg condition of the</span>
 <span class="sd">    specified material, reflection and theta angle.</span>
@@ -503,7 +505,10 @@
     <span class="k">return</span> <span class="n">E</span></div>
 
 
-<div class="viewcode-block" id="snd_L"><a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.snd_L">[docs]</a><span class="k">def</span> <span class="nf">snd_L</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">55</span><span class="p">):</span>
+
+<div class="viewcode-block" id="snd_L">
+<a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.snd_L">[docs]</a>
+<span class="k">def</span> <span class="nf">snd_L</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">55</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the theta angles of the towers and the delay length based on the</span>
 <span class="sd">    desired energy and delay.</span>
@@ -546,7 +551,10 @@
     <span class="k">return</span> <span class="n">theta_L</span><span class="p">,</span> <span class="n">theta_cc</span><span class="p">,</span> <span class="n">L</span></div>
 
 
-<div class="viewcode-block" id="snd_diag"><a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.snd_diag">[docs]</a><span class="k">def</span> <span class="nf">snd_diag</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">55</span><span class="p">):</span>
+
+<div class="viewcode-block" id="snd_diag">
+<a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.snd_diag">[docs]</a>
+<span class="k">def</span> <span class="nf">snd_diag</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">55</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the positions of the middle diagnostics of the system based on</span>
 <span class="sd">    the inputted energy and delay.</span>
@@ -586,7 +594,10 @@
     <span class="k">return</span> <span class="n">dd_x</span><span class="p">,</span> <span class="n">dcc_x</span></div>
 
 
-<div class="viewcode-block" id="snd_delay"><a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.snd_delay">[docs]</a><span class="k">def</span> <span class="nf">snd_delay</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">55</span><span class="p">):</span>
+
+<div class="viewcode-block" id="snd_delay">
+<a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.snd_delay">[docs]</a>
+<span class="k">def</span> <span class="nf">snd_delay</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">55</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the delay of the system based on the inputted energies and the</span>
 <span class="sd">    delay length.</span>
@@ -613,6 +624,7 @@
     <span class="n">delay</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">L</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cosd</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">theta_L</span><span class="p">))</span> <span class="o">-</span> <span class="n">gap</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cosd</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">theta_cc</span><span class="p">))</span><span class="o">/</span><span class="n">sind</span><span class="p">(</span>
         <span class="n">theta_cc</span><span class="p">))</span><span class="o">/</span><span class="n">cl</span>
     <span class="k">return</span> <span class="n">delay</span></div>
+
 </pre></div>
 
            </div>
@@ -622,7 +634,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

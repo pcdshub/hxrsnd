@@ -1,21 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="python" >
+<html class="writer-html5" lang="python" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calibrating Delay Scans &mdash; hxrsnd 0.3.1.dev2+g033f4b9 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Calibrating Delay Scans &mdash; hxrsnd 0.3.2.dev10+g351f1fe documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=198f1585"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -34,9 +34,6 @@
           <a href="index.html" class="icon icon-home">
             hxrsnd
           </a>
-              <div class="version">
-                0.3.1.dev2+g033f4b9
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -136,7 +133,7 @@
            <div itemprop="articleBody">
              
   <section id="calibrating-delay-scans">
-<h1>Calibrating Delay Scans<a class="headerlink" href="#calibrating-delay-scans" title="Permalink to this heading"></a></h1>
+<h1>Calibrating Delay Scans<a class="headerlink" href="#calibrating-delay-scans" title="Link to this heading"></a></h1>
 <p>Performing uncalibrated scans using the <code class="docutils literal notranslate"><span class="pre">delay</span></code> macromotor results in
 positional instability of the beam at the sample. To address this, <code class="docutils literal notranslate"><span class="pre">delay</span></code> has
 several methods to characterize and correct the scan.</p>
@@ -146,7 +143,7 @@ several methods to characterize and correct the scan.</p>
 should be used with caution.</p>
 </div>
 <section id="characterizing-beam-instability">
-<h2>Characterizing Beam Instability<a class="headerlink" href="#characterizing-beam-instability" title="Permalink to this heading"></a></h2>
+<h2>Characterizing Beam Instability<a class="headerlink" href="#characterizing-beam-instability" title="Link to this heading"></a></h2>
 <p>The main way to characterize the current scan instability is to run the
 <code class="docutils literal notranslate"><span class="pre">centroid_scan</span></code> method. The method performs a scan using the inputted scan
 parameters, measuring the centroids of the beam at Opal 1. The results are then
@@ -172,7 +169,7 @@ scan is run, the previous scan data is overwritten.</p>
 </div>
 </section>
 <section id="calibration-operations">
-<h2>Calibration Operations<a class="headerlink" href="#calibration-operations" title="Permalink to this heading"></a></h2>
+<h2>Calibration Operations<a class="headerlink" href="#calibration-operations" title="Link to this heading"></a></h2>
 <p>In the event <code class="docutils literal notranslate"><span class="pre">centroid_scan</span></code> reveals the beam drifts too much throughout the
 scan, there is a routine for building a correction table using the
 <code class="docutils literal notranslate"><span class="pre">snd.t1.chi1</span></code> and <code class="docutils literal notranslate"><span class="pre">snd.t1.y1</span></code> motors to correct for the x and y centroids
@@ -182,7 +179,7 @@ between each of the motor positions and the beam centroids. Together all the
 information collected during a <code class="docutils literal notranslate"><span class="pre">calibrate</span></code> run, constitutes a specific
 calibration.</p>
 <section id="high-level-properties">
-<h3>High-Level Properties<a class="headerlink" href="#high-level-properties" title="Permalink to this heading"></a></h3>
+<h3>High-Level Properties<a class="headerlink" href="#high-level-properties" title="Link to this heading"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">delay</span></code> macromotor comes with two high level properties pertaining to the
 current state of the calibration. <code class="docutils literal notranslate"><span class="pre">has_calibration</span></code> indicates that a properly
 configured calibration is currently loaded to the motor, simply returning a
@@ -200,7 +197,7 @@ both <code class="docutils literal notranslate"><span class="pre">has_calibratio
 </div>
 </section>
 <section id="creating-a-new-calibration">
-<h3>Creating a New Calibration<a class="headerlink" href="#creating-a-new-calibration" title="Permalink to this heading"></a></h3>
+<h3>Creating a New Calibration<a class="headerlink" href="#creating-a-new-calibration" title="Link to this heading"></a></h3>
 <p>If a new calibration is necessary, the entire calibration routine can be run
 using the <code class="docutils literal notranslate"><span class="pre">calibrate</span></code> method along with the desired scan parameters.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">snd</span><span class="o">.</span><span class="n">delay</span><span class="o">.</span><span class="n">calibrate</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
@@ -219,7 +216,7 @@ to run <code class="docutils literal notranslate"><span class="pre">calibrate</s
 </div>
 </section>
 <section id="saving-and-loading-calibrations">
-<h3>Saving and Loading Calibrations<a class="headerlink" href="#saving-and-loading-calibrations" title="Permalink to this heading"></a></h3>
+<h3>Saving and Loading Calibrations<a class="headerlink" href="#saving-and-loading-calibrations" title="Link to this heading"></a></h3>
 <p>Calibrations used for the <code class="docutils literal notranslate"><span class="pre">delay</span></code> motor are all saved in the
 <code class="docutils literal notranslate"><span class="pre">HXRSnD/calibrations</span></code> directory. Whenever a <code class="docutils literal notranslate"><span class="pre">calibration</span></code> routine has
 completed, the calibration is saved into a file named
@@ -246,7 +243,7 @@ dound calibration. For example,</p>
 </section>
 </section>
 <section id="inspecting-the-calibration">
-<h2>Inspecting the Calibration<a class="headerlink" href="#inspecting-the-calibration" title="Permalink to this heading"></a></h2>
+<h2>Inspecting the Calibration<a class="headerlink" href="#inspecting-the-calibration" title="Link to this heading"></a></h2>
 <p>To view the contents of a calibration, the <code class="docutils literal notranslate"><span class="pre">calibration</span></code> property returns a
 dictionary with five keys:</p>
 <ul class="simple">
@@ -267,7 +264,7 @@ the live calibration.</p>
 </div>
 </section>
 <section id="modifying-calibrations">
-<h2>Modifying Calibrations<a class="headerlink" href="#modifying-calibrations" title="Permalink to this heading"></a></h2>
+<h2>Modifying Calibrations<a class="headerlink" href="#modifying-calibrations" title="Link to this heading"></a></h2>
 <p>Each of the five calibration values listed above can be modified outright using
 the <code class="docutils literal notranslate"><span class="pre">configure</span></code> method. This is done by running <code class="docutils literal notranslate"><span class="pre">configure</span></code> and passing the
 desired change as a keyword argument.</p>
@@ -277,7 +274,7 @@ desired change as a keyword argument.</p>
 listed below.</p>
 </div>
 <section id="correction-table-post-processing">
-<h3>Correction Table Post-Processing<a class="headerlink" href="#correction-table-post-processing" title="Permalink to this heading"></a></h3>
+<h3>Correction Table Post-Processing<a class="headerlink" href="#correction-table-post-processing" title="Link to this heading"></a></h3>
 <p>A simple reason to modify the correction table would be to apply some level of
 post processing to the resulting table. For example, to apply a Savitzky-Golay
 smoothing filter, first capturet he current correction table in a new dataframe
@@ -303,7 +300,7 @@ number of columns must equal the number of motors listed in
 </div>
 </section>
 <section id="rescaling-the-correction-table">
-<h3>Rescaling the Correction Table<a class="headerlink" href="#rescaling-the-correction-table" title="Permalink to this heading"></a></h3>
+<h3>Rescaling the Correction Table<a class="headerlink" href="#rescaling-the-correction-table" title="Link to this heading"></a></h3>
 <p>In the event that the picosecond per pixel scaling factor may need to be redone,
 the method <code class="docutils literal notranslate"><span class="pre">rescale_calibration</span></code> will perform the scaling routine and then
 update the calibration accordingly.</p>
@@ -325,7 +322,7 @@ update the calibration accordingly.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

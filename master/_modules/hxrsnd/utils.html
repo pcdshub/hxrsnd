@@ -1,20 +1,20 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="python" >
+<html class="writer-html5" lang="python" data-content_root="../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hxrsnd.utils &mdash; hxrsnd 0.3.1.dev2+g033f4b9 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>hxrsnd.utils &mdash; hxrsnd 0.3.2.dev10+g351f1fe documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=198f1585"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -31,9 +31,6 @@
           <a href="../../index.html" class="icon icon-home">
             hxrsnd
           </a>
-              <div class="version">
-                0.3.1.dev2+g033f4b9
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -131,7 +128,9 @@
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="absolute_submodule_path"><a class="viewcode-back" href="../../utils.html#hxrsnd.utils.absolute_submodule_path">[docs]</a><span class="k">def</span> <span class="nf">absolute_submodule_path</span><span class="p">(</span><span class="n">submodule</span><span class="p">,</span> <span class="n">cur_dir</span><span class="o">=</span><span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]):</span>
+<div class="viewcode-block" id="absolute_submodule_path">
+<a class="viewcode-back" href="../../utils.html#hxrsnd.utils.absolute_submodule_path">[docs]</a>
+<span class="k">def</span> <span class="nf">absolute_submodule_path</span><span class="p">(</span><span class="n">submodule</span><span class="p">,</span> <span class="n">cur_dir</span><span class="o">=</span><span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the absolute path of the inputted SnD submodule based on an inputted</span>
 <span class="sd">    absolute path, or the absolute path of this file.</span>
@@ -158,7 +157,10 @@
     <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="as_list"><a class="viewcode-back" href="../../utils.html#hxrsnd.utils.as_list">[docs]</a><span class="k">def</span> <span class="nf">as_list</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">iter_to_list</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+<div class="viewcode-block" id="as_list">
+<a class="viewcode-back" href="../../utils.html#hxrsnd.utils.as_list">[docs]</a>
+<span class="k">def</span> <span class="nf">as_list</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">iter_to_list</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Force an argument to be a list, optionally of a given length, optionally</span>
 <span class="sd">    with all elements cast to a given type if not None.</span>
@@ -211,7 +213,10 @@
     <span class="k">return</span> <span class="n">obj</span></div>
 
 
-<div class="viewcode-block" id="isiterable"><a class="viewcode-back" href="../../utils.html#hxrsnd.utils.isiterable">[docs]</a><span class="k">def</span> <span class="nf">isiterable</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+
+<div class="viewcode-block" id="isiterable">
+<a class="viewcode-back" href="../../utils.html#hxrsnd.utils.isiterable">[docs]</a>
+<span class="k">def</span> <span class="nf">isiterable</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function that determines if an object is an iterable, not including</span>
 <span class="sd">    str.</span>
@@ -232,7 +237,10 @@
         <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="_flatten"><a class="viewcode-back" href="../../utils.html#hxrsnd.utils._flatten">[docs]</a><span class="k">def</span> <span class="nf">_flatten</span><span class="p">(</span><span class="n">inp_iter</span><span class="p">):</span>
+
+<div class="viewcode-block" id="_flatten">
+<a class="viewcode-back" href="../../utils.html#hxrsnd.utils._flatten">[docs]</a>
+<span class="k">def</span> <span class="nf">_flatten</span><span class="p">(</span><span class="n">inp_iter</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Recursively iterate through values in nested iterables.</span>
 
@@ -253,7 +261,10 @@
             <span class="k">yield</span> <span class="n">val</span></div>
 
 
-<div class="viewcode-block" id="flatten"><a class="viewcode-back" href="../../utils.html#hxrsnd.utils.flatten">[docs]</a><span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="n">inp_iter</span><span class="p">):</span>
+
+<div class="viewcode-block" id="flatten">
+<a class="viewcode-back" href="../../utils.html#hxrsnd.utils.flatten">[docs]</a>
+<span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="n">inp_iter</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a flattened list of the inputted iterable.</span>
 
@@ -268,6 +279,7 @@
 <span class="sd">        The contents of the iterable as a flat list</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">_flatten</span><span class="p">(</span><span class="n">inp_iter</span><span class="p">))</span></div>
+
 
 
 <span class="k">def</span> <span class="nf">stop_on_keyboardinterrupt</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
@@ -313,7 +325,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

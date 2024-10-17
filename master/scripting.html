@@ -1,21 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="python" >
+<html class="writer-html5" lang="python" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adding Scripts &mdash; hxrsnd 0.3.1.dev2+g033f4b9 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Adding Scripts &mdash; hxrsnd 0.3.2.dev10+g351f1fe documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=198f1585"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -34,9 +34,6 @@
           <a href="index.html" class="icon icon-home">
             hxrsnd
           </a>
-              <div class="version">
-                0.3.1.dev2+g033f4b9
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -124,13 +121,13 @@
            <div itemprop="articleBody">
              
   <section id="adding-scripts">
-<h1>Adding Scripts<a class="headerlink" href="#adding-scripts" title="Permalink to this heading"></a></h1>
+<h1>Adding Scripts<a class="headerlink" href="#adding-scripts" title="Link to this heading"></a></h1>
 <p>If new functions, classes, objects, etc. need to be injected into the
 environment, the best place to put them is in the <code class="docutils literal notranslate"><span class="pre">HXRSnD/scripts.py</span></code> file.
 The contents of this file are star (*) imported into the SnD <code class="docutils literal notranslate"><span class="pre">IPython</span></code>
 environment after the <code class="docutils literal notranslate"><span class="pre">snd</span></code> object has been instantiated.</p>
 <section id="testing-new-scripts">
-<h2>Testing New Scripts<a class="headerlink" href="#testing-new-scripts" title="Permalink to this heading"></a></h2>
+<h2>Testing New Scripts<a class="headerlink" href="#testing-new-scripts" title="Link to this heading"></a></h2>
 <p>If new code is added to this file, it is advisable that you run the <code class="docutils literal notranslate"><span class="pre">pytest</span></code>
 test that ensures importability. To run the test, in the top level directory,
 first source the snd environment:</p>
@@ -162,7 +159,7 @@ that it is syntactically correct.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

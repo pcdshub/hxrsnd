@@ -1,20 +1,20 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="python" >
+<html class="writer-html5" lang="python" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hxrsnd.plans.scans &mdash; hxrsnd 0.3.1.dev2+g033f4b9 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>hxrsnd.plans.scans &mdash; hxrsnd 0.3.2.dev10+g351f1fe documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=198f1585"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -31,9 +31,6 @@
           <a href="../../../index.html" class="icon icon-home">
             hxrsnd
           </a>
-              <div class="version">
-                0.3.1.dev2+g033f4b9
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -139,7 +136,9 @@
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="linear_scan"><a class="viewcode-back" href="../../../scans.html#hxrsnd.plans.scans.linear_scan">[docs]</a><span class="k">def</span> <span class="nf">linear_scan</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">use_diag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_to_start</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<div class="viewcode-block" id="linear_scan">
+<a class="viewcode-back" href="../../../scans.html#hxrsnd.plans.scans.linear_scan">[docs]</a>
+<span class="k">def</span> <span class="nf">linear_scan</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">use_diag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_to_start</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                 <span class="n">md</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Linear scan of a motor without a detector.</span>
@@ -214,7 +213,10 @@
     <span class="k">return</span> <span class="p">(</span><span class="k">yield from</span> <span class="n">inner_scan</span><span class="p">())</span></div>
 
 
-<div class="viewcode-block" id="centroid_scan"><a class="viewcode-back" href="../../../scans.html#hxrsnd.plans.scans.centroid_scan">[docs]</a><span class="k">def</span> <span class="nf">centroid_scan</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+
+<div class="viewcode-block" id="centroid_scan">
+<a class="viewcode-back" href="../../../scans.html#hxrsnd.plans.scans.centroid_scan">[docs]</a>
+<span class="k">def</span> <span class="nf">centroid_scan</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                   <span class="n">detector_fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;stats2_centroid_x&#39;</span><span class="p">,</span> <span class="s1">&#39;stats2_centroid_y&#39;</span><span class="p">],</span>
                   <span class="n">motor_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">system</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">system_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                   <span class="n">filters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_to_start</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -310,6 +312,7 @@
 
     <span class="c1"># Return the filled dataframe</span>
     <span class="k">return</span> <span class="n">df</span></div>
+
 </pre></div>
 
            </div>
@@ -319,7 +322,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
