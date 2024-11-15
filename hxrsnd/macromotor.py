@@ -4,6 +4,7 @@ Script to hold the energy macromotors
 All units of time are in picoseconds, units of length are in mm.
 """
 import logging
+import os
 from functools import reduce
 
 from ophyd.device import Component as Cmp
@@ -528,7 +529,6 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
 	      calib_detector = Cmp(PCDSAreaDetector, 'XCS:USR:O1000:01:', add_prefix=[])
     else:
         print("calib_detector is disconnected")
-    
 
     def __init__(self, prefix, name=None, *args, **kwargs):
         super().__init__(prefix, name=name, *args, **kwargs)
