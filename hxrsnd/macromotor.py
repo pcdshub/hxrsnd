@@ -526,7 +526,7 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
     #     return is_aligned
 
     if os.system('caget XCS:USR:O1000:01:') != 256:
-	      calib_detector = Cmp(PCDSAreaDetector, 'XCS:USR:O1000:01:', add_prefix=[])
+        calib_detector = Cmp(PCDSAreaDetector, 'XCS:USR:O1000:01:', add_prefix=[])
     else:
         print("calib_detector is disconnected")
 
