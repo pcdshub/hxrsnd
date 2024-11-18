@@ -11,7 +11,6 @@ from ophyd.signal import AttributeSignal
 from ophyd.sim import NullStatus
 from ophyd.status import wait as status_wait
 from ophyd.utils import LimitError
-#from pcdsdevices.areadetector.detectors import PCDSAreaDetector
 from pcdsdevices.interface import BaseInterface
 from pcdsdevices.pseudopos import (PseudoPositioner, PseudoSingleInterface,
                                    pseudo_position_argument,
