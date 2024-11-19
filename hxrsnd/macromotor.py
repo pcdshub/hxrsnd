@@ -11,7 +11,6 @@ from ophyd.signal import AttributeSignal
 from ophyd.sim import NullStatus
 from ophyd.status import wait as status_wait
 from ophyd.utils import LimitError
-from pcdsdevices.areadetector.detectors import PCDSAreaDetector
 from pcdsdevices.interface import BaseInterface
 from pcdsdevices.pseudopos import (PseudoPositioner, PseudoSingleInterface,
                                    pseudo_position_argument,
@@ -523,8 +522,6 @@ class DelayMacro(CalibMotor, DelayTowerMacro):
     #         logger.warning("Delay mismatch between t1 and t4. t1: {0:.3f}ps, "
     #                        "t4: {1:.3f}ps".format(t1_delay, t4_delay))
     #     return is_aligned
-
-    calib_detector = Cmp(PCDSAreaDetector, 'XCS:USR:O1000:01:', add_prefix=[])
 
     def __init__(self, prefix, name=None, *args, **kwargs):
         super().__init__(prefix, name=name, *args, **kwargs)
