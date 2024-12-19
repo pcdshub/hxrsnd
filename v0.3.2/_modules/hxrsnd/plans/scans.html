@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hxrsnd.plans.scans &mdash; hxrsnd 0.3.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2c9b010c"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            hxrsnd
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scripting.html">Adding Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../screens.html">EDM Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../running_scans.html">Running Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../running_daq_scans.html">Running DAQ Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../calibrating_delay_scans.html">Calibrating Delay Scans</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Devices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../sndsystem.html">Split and Delay System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../macromotor.html">Macromotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tower.html">Towers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../aerotech.html">Aerotech Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../attocube.html">Attocube Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../diode.html">Wave-8 Diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pneumatic.html">Pneumatics and Air Bearings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rtd.html">Temperature Sensors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plans</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../alignment.html">Alignment Plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../calibration.html">Delay Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scans.html">General Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc_plans.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../bragg.html">Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utility Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../exceptions.html">Exceptions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core SnD Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pswalker/">pswalker</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pcds-devices/">pcds-devices</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://slaclab.github.io/pydm/">pydm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Related Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/bluesky">bluesky</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/ophyd">ophyd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GitHub Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab/">SLAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/pcdshub/">PCDS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">hxrsnd</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">hxrsnd.plans.scans</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for hxrsnd.plans.scans</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Scans for HXRSnD</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">bluesky</span> <span class="kn">import</span> <span class="n">Msg</span>
+<span class="kn">from</span> <span class="nn">bluesky.plan_stubs</span> <span class="kn">import</span> <span class="n">abs_set</span><span class="p">,</span> <span class="n">checkpoint</span><span class="p">,</span> <span class="n">trigger_and_read</span>
+<span class="kn">from</span> <span class="nn">bluesky.plans</span> <span class="kn">import</span> <span class="n">scan</span>
+<span class="kn">from</span> <span class="nn">bluesky.preprocessors</span> <span class="kn">import</span> <span class="n">run_decorator</span><span class="p">,</span> <span class="n">stub_wrapper</span>
+<span class="kn">from</span> <span class="nn">bluesky.utils</span> <span class="kn">import</span> <span class="n">short_uid</span> <span class="k">as</span> <span class="n">_short_uid</span>
+<span class="kn">from</span> <span class="nn">pswalker.plans</span> <span class="kn">import</span> <span class="n">measure_average</span>
+<span class="kn">from</span> <span class="nn">pswalker.utils</span> <span class="kn">import</span> <span class="n">field_prepend</span>
+
+<span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">as_list</span>
+<span class="kn">from</span> <span class="nn">.preprocessors</span> <span class="kn">import</span> <span class="n">return_to_start</span> <span class="k">as</span> <span class="n">_return_to_start</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="linear_scan">
+<a class="viewcode-back" href="../../../scans.html#hxrsnd.plans.scans.linear_scan">[docs]</a>
+<span class="k">def</span> <span class="nf">linear_scan</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">use_diag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_to_start</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">md</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Linear scan of a motor without a detector.</span>
+
+<span class="sd">    Performs a linear scan using the inputted motor, optionally using the</span>
+<span class="sd">    diagnostics, and optionally moving the motor back to the original start</span>
+<span class="sd">    position. This scan is different from the regular scan because it does not</span>
+<span class="sd">    take a detector, and simply scans the motor.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    motor : object</span>
+<span class="sd">        any &#39;setable&#39; object (motor, temp controller, etc.)</span>
+
+<span class="sd">    start : float</span>
+<span class="sd">        starting position of motor</span>
+
+<span class="sd">    stop : float</span>
+<span class="sd">        ending position of motor</span>
+
+<span class="sd">    num : int</span>
+<span class="sd">        number of steps</span>
+
+<span class="sd">    use_diag : bool, optional</span>
+<span class="sd">        Include the diagnostic motors in the scan.</span>
+
+<span class="sd">    md : dict, optional</span>
+<span class="sd">        metadata</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Save some metadata on this scan</span>
+    <span class="n">_md</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;motors&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">],</span>
+           <span class="s1">&#39;num_points&#39;</span><span class="p">:</span> <span class="n">num</span><span class="p">,</span>
+           <span class="s1">&#39;num_intervals&#39;</span><span class="p">:</span> <span class="n">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+           <span class="s1">&#39;plan_args&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;num&#39;</span><span class="p">:</span> <span class="n">num</span><span class="p">,</span>
+                         <span class="s1">&#39;motor&#39;</span><span class="p">:</span> <span class="nb">repr</span><span class="p">(</span><span class="n">motor</span><span class="p">),</span>
+                         <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="n">start</span><span class="p">,</span>
+                         <span class="s1">&#39;stop&#39;</span><span class="p">:</span> <span class="n">stop</span><span class="p">},</span>
+           <span class="s1">&#39;plan_name&#39;</span><span class="p">:</span> <span class="s1">&#39;daq_scan&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;plan_pattern&#39;</span><span class="p">:</span> <span class="s1">&#39;linspace&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;plan_pattern_module&#39;</span><span class="p">:</span> <span class="s1">&#39;numpy&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;plan_pattern_args&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">stop</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">num</span><span class="p">),</span>
+           <span class="s1">&#39;hints&#39;</span><span class="p">:</span> <span class="p">{},</span>
+           <span class="p">}</span>
+    <span class="n">_md</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">md</span> <span class="ow">or</span> <span class="p">{})</span>
+
+    <span class="c1"># Build the list of steps</span>
+    <span class="n">steps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">**</span><span class="n">_md</span><span class="p">[</span><span class="s1">&#39;plan_pattern_args&#39;</span><span class="p">])</span>
+
+    <span class="c1"># Let&#39;s store this for now</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">motor</span><span class="o">.</span><span class="n">position</span>
+
+    <span class="c1"># Define the inner scan</span>
+    <span class="c1"># @stage_decorator([motor])</span>
+    <span class="nd">@run_decorator</span><span class="p">(</span><span class="n">md</span><span class="o">=</span><span class="n">_md</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">inner_scan</span><span class="p">():</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Step </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: Moving to </span><span class="si">{</span><span class="n">step</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">grp</span> <span class="o">=</span> <span class="n">_short_uid</span><span class="p">(</span><span class="s1">&#39;set&#39;</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;checkpoint&#39;</span><span class="p">)</span>
+            <span class="c1"># Set wait to be false in set once the status object is implemented</span>
+            <span class="k">yield</span> <span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;set&#39;</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">grp</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;wait&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">grp</span><span class="p">)</span>
+            <span class="k">yield from</span> <span class="n">trigger_and_read</span><span class="p">([</span><span class="n">motor</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">return_to_start</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Scan complete. Moving back to starting position: </span><span class="si">{}</span><span class="s2">&quot;</span>
+                        <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">start</span><span class="p">))</span>
+            <span class="k">yield</span> <span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;set&#39;</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">grp</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;wait&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">grp</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="k">yield from</span> <span class="n">inner_scan</span><span class="p">())</span></div>
+
+
+
+<div class="viewcode-block" id="centroid_scan">
+<a class="viewcode-back" href="../../../scans.html#hxrsnd.plans.scans.centroid_scan">[docs]</a>
+<span class="k">def</span> <span class="nf">centroid_scan</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">detector_fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;stats2_centroid_x&#39;</span><span class="p">,</span> <span class="s1">&#39;stats2_centroid_y&#39;</span><span class="p">],</span>
+                  <span class="n">motor_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">system</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">system_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">filters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_to_start</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Performs a scan and returns the centroids of the inputted detector.</span>
+
+<span class="sd">    The returned centroids can be absolute or relative to the initial value. The</span>
+<span class="sd">    values are returned in a pandas DataFrame where the indices are the target</span>
+<span class="sd">    motor positions.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    detector : :class:`.BeamDetector`</span>
+<span class="sd">        Detector from which to take the value measurements</span>
+
+<span class="sd">    motor : :class:`.Motor`</span>
+<span class="sd">        Main motor to perform the scan</span>
+
+<span class="sd">    start : float</span>
+<span class="sd">        Starting position of motor</span>
+
+<span class="sd">    stop : float</span>
+<span class="sd">        Ending position of motor</span>
+
+<span class="sd">    steps : int</span>
+<span class="sd">        Number of steps to take</span>
+
+<span class="sd">    average : int, optional</span>
+<span class="sd">        Number of averages to take for each measurement</span>
+
+<span class="sd">    detector_fields : iterable, optional</span>
+<span class="sd">        Fields of the detector to add to the returned dataframe</span>
+
+<span class="sd">    motor_fields : iterable, optional</span>
+<span class="sd">        Fields of the motor to add to the returned dataframe</span>
+
+<span class="sd">    system : list, optional</span>
+<span class="sd">        Extra devices to include in the datastream as we measure the average</span>
+
+<span class="sd">    system_fields : list, optional</span>
+<span class="sd">        Fields of the extra devices to add to the returned dataframe</span>
+
+<span class="sd">    filters : dict, optional</span>
+<span class="sd">        Key, callable pairs of event keys and single input functions that</span>
+<span class="sd">        evaluate to True or False. For more infromation see</span>
+<span class="sd">        :meth:`.apply_filters`</span>
+
+<span class="sd">    return_to_start : bool, optional</span>
+<span class="sd">        Move the scan motor back to its initial position after the scan</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        DataFrame containing the detector, motor, and system fields at every</span>
+<span class="sd">        step of the scan.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">average</span> <span class="o">=</span> <span class="n">average</span> <span class="ow">or</span> <span class="mi">1</span>
+    <span class="n">system</span> <span class="o">=</span> <span class="n">as_list</span><span class="p">(</span><span class="n">system</span> <span class="ow">or</span> <span class="p">[])</span>
+    <span class="n">all_devices</span> <span class="o">=</span> <span class="p">[</span><span class="n">motor</span><span class="p">]</span> <span class="o">+</span> <span class="n">system</span> <span class="o">+</span> <span class="p">[</span><span class="n">detector</span><span class="p">]</span>
+
+    <span class="c1"># Ensure all fields are lists</span>
+    <span class="n">detector_fields</span> <span class="o">=</span> <span class="n">as_list</span><span class="p">(</span><span class="n">detector_fields</span><span class="p">)</span>
+    <span class="n">motor_fields</span> <span class="o">=</span> <span class="n">as_list</span><span class="p">(</span><span class="n">motor_fields</span> <span class="ow">or</span> <span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">system_fields</span> <span class="o">=</span> <span class="n">as_list</span><span class="p">(</span><span class="n">system_fields</span> <span class="ow">or</span> <span class="p">[])</span>
+
+    <span class="c1"># Get the full detector fields</span>
+    <span class="n">prep_det_fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">field_prepend</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="n">detector</span><span class="p">)</span> <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="n">detector_fields</span><span class="p">]</span>
+    <span class="c1"># Put all the fields together into one list</span>
+    <span class="n">all_fields</span> <span class="o">=</span> <span class="n">motor_fields</span> <span class="o">+</span> <span class="n">system_fields</span> <span class="o">+</span> <span class="n">prep_det_fields</span>
+
+    <span class="c1"># Build the dataframe with the centroids</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">all_fields</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">))</span>
+
+    <span class="c1"># Create a basic measuring plan</span>
+    <span class="k">def</span> <span class="nf">per_step</span><span class="p">(</span><span class="n">detectors</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+        <span class="c1"># Perform step</span>
+        <span class="k">yield from</span> <span class="n">checkpoint</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Measuring average at step </span><span class="si">{</span><span class="n">step</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+        <span class="k">yield from</span> <span class="n">abs_set</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># Measure the average</span>
+        <span class="n">reads</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield from</span> <span class="n">measure_average</span><span class="p">(</span><span class="n">all_devices</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">average</span><span class="p">,</span>
+                                            <span class="n">filters</span><span class="o">=</span><span class="n">filters</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+        <span class="c1"># Fill the dataframe at this step with the centroid difference</span>
+        <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="n">all_fields</span><span class="p">:</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">step</span><span class="p">,</span> <span class="n">fld</span><span class="p">]</span> <span class="o">=</span> <span class="n">reads</span><span class="p">[</span><span class="n">fld</span><span class="p">]</span>
+
+    <span class="c1"># Run the inner plan</span>
+    <span class="nd">@_return_to_start</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="n">perform</span><span class="o">=</span><span class="n">return_to_start</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+        <span class="n">plan</span> <span class="o">=</span> <span class="n">scan</span><span class="p">([</span><span class="n">detector</span><span class="p">],</span> <span class="n">motor</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">per_step</span><span class="o">=</span><span class="n">per_step</span><span class="p">)</span>
+        <span class="k">yield from</span> <span class="n">stub_wrapper</span><span class="p">(</span><span class="n">plan</span><span class="p">)</span>
+    <span class="k">yield from</span> <span class="n">inner</span><span class="p">()</span>
+
+    <span class="c1"># Return the filled dataframe</span>
+    <span class="k">return</span> <span class="n">df</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

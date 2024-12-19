@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hxrsnd.plans.alignment &mdash; hxrsnd 0.3.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2c9b010c"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            hxrsnd
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scripting.html">Adding Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../screens.html">EDM Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../running_scans.html">Running Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../running_daq_scans.html">Running DAQ Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../calibrating_delay_scans.html">Calibrating Delay Scans</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Devices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../sndsystem.html">Split and Delay System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../macromotor.html">Macromotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tower.html">Towers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../aerotech.html">Aerotech Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../attocube.html">Attocube Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../diode.html">Wave-8 Diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pneumatic.html">Pneumatics and Air Bearings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rtd.html">Temperature Sensors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plans</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../alignment.html">Alignment Plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../calibration.html">Delay Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scans.html">General Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc_plans.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../bragg.html">Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utility Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../exceptions.html">Exceptions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core SnD Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pswalker/">pswalker</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pcds-devices/">pcds-devices</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://slaclab.github.io/pydm/">pydm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Related Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/bluesky">bluesky</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/ophyd">ophyd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GitHub Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab/">SLAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/pcdshub/">PCDS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">hxrsnd</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">hxrsnd.plans.alignment</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for hxrsnd.plans.alignment</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Alignment plans for the HXRSnD</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">bluesky.plan_stubs</span> <span class="kn">import</span> <span class="n">abs_set</span><span class="p">,</span> <span class="n">checkpoint</span>
+<span class="kn">from</span> <span class="nn">bluesky.plans</span> <span class="kn">import</span> <span class="n">list_scan</span>
+<span class="kn">from</span> <span class="nn">bluesky.preprocessors</span> <span class="kn">import</span> <span class="n">msg_mutator</span><span class="p">,</span> <span class="n">subs_decorator</span>
+<span class="kn">from</span> <span class="nn">lmfit.models</span> <span class="kn">import</span> <span class="n">LorentzianModel</span>
+<span class="kn">from</span> <span class="nn">pswalker.callbacks</span> <span class="kn">import</span> <span class="n">LiveBuild</span>
+<span class="kn">from</span> <span class="nn">pswalker.plans</span> <span class="kn">import</span> <span class="n">measure_average</span>
+
+<span class="kn">from</span> <span class="nn">..exceptions</span> <span class="kn">import</span> <span class="n">UndefinedBounds</span>
+<span class="kn">from</span> <span class="nn">.plan_stubs</span> <span class="kn">import</span> <span class="n">block_run_control</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="maximize_lorentz">
+<a class="viewcode-back" href="../../../alignment.html#hxrsnd.plans.alignment.maximize_lorentz">[docs]</a>
+<span class="k">def</span> <span class="nf">maximize_lorentz</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">read_field</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                     <span class="n">bounds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                     <span class="n">position_field</span><span class="o">=</span><span class="s1">&#39;user_readback&#39;</span><span class="p">,</span> <span class="n">initial_guess</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Maximize a signal with a Lorentzian relationship to a motor</span>
+
+<span class="sd">    The following plan does a linear step scan through the parameter space</span>
+<span class="sd">    while collecting information to create a Lorentzian model. After the scan</span>
+<span class="sd">    has completed, the created model will be queried to find the estimated</span>
+<span class="sd">    motor position that will yield the absolute maximum of the Lorentz equation</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    detector : obj</span>
+<span class="sd">        The object to be read during the plan</span>
+
+<span class="sd">    motor : obj</span>
+<span class="sd">        The object to be moved via the plan.</span>
+
+<span class="sd">    read_field : str</span>
+<span class="sd">        Field of detector to maximize</span>
+
+<span class="sd">    nsteps : int, optional</span>
+<span class="sd">        The step size used by the initial linear scan to create the Lorentzian</span>
+<span class="sd">        model. A smaller step size will create a more accurate model, while a</span>
+<span class="sd">        larger step size will increase the speed of the entire operation.</span>
+
+<span class="sd">    bounds : tuple, optional</span>
+<span class="sd">        The lower and higher limit of the search space. If no value is given</span>
+<span class="sd">        the :attr:`.limits` property of the motor will be queried next. If this</span>
+<span class="sd">        does not yield anything useful an exception will be raised</span>
+
+<span class="sd">    average : int, optional</span>
+<span class="sd">        The number of shots to average at every step of the scan. If left as</span>
+<span class="sd">        None, no average will be used</span>
+
+<span class="sd">    filters : dict, optional</span>
+<span class="sd">        Filters used to drop shots from the analysis</span>
+
+<span class="sd">    position_field : str, optional</span>
+<span class="sd">        Motor field that will have the Lorentzian relationship with the given</span>
+<span class="sd">        signal</span>
+
+<span class="sd">    initial_guess : dict, optional</span>
+<span class="sd">        Initial guess to the Lorentz model parameters of `sigma` `center`</span>
+<span class="sd">        `amplitude`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">average</span> <span class="o">=</span> <span class="n">average</span> <span class="ow">or</span> <span class="mi">1</span>
+    <span class="c1"># Define bounds</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">bounds</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">bounds</span> <span class="o">=</span> <span class="n">motor</span><span class="o">.</span><span class="n">limits</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Bounds were not specified, the area &quot;</span>
+                         <span class="s2">&quot;between </span><span class="si">%s</span><span class="s2"> and </span><span class="si">%s</span><span class="s2"> will searched&quot;</span><span class="p">,</span>
+                         <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">UndefinedBounds</span><span class="p">(</span><span class="s2">&quot;Bounds are not defined by motor </span><span class="si">{}</span><span class="s2"> or &quot;</span>
+                                  <span class="s2">&quot;plan&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">))</span> <span class="kn">from</span> <span class="nn">exc</span>
+    <span class="c1"># Calculate steps</span>
+    <span class="n">steps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">step_size</span><span class="p">)</span>
+    <span class="c1"># Include the last step even if this is smaller than the step_size</span>
+    <span class="n">steps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">steps</span><span class="p">,</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="c1"># Create Lorentz fit and live model build</span>
+    <span class="n">fit</span> <span class="o">=</span> <span class="n">LorentzianModel</span><span class="p">(</span><span class="n">missing</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">)</span>
+    <span class="n">i_vars</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">position_field</span><span class="p">}</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">LiveBuild</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">read_field</span><span class="p">,</span> <span class="n">i_vars</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="n">filters</span><span class="p">,</span>
+                      <span class="n">average</span><span class="o">=</span><span class="n">average</span><span class="p">,</span> <span class="n">init_guess</span><span class="o">=</span><span class="n">initial_guess</span><span class="p">)</span>
+    <span class="c1"># update_every=len(steps)) # Set to fit only on last step</span>
+
+    <span class="c1"># Create per_step plan</span>
+    <span class="k">def</span> <span class="nf">measure</span><span class="p">(</span><span class="n">detectors</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+        <span class="c1"># Perform step</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Measuring average at step </span><span class="si">%s</span><span class="s2"> ...&quot;</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+        <span class="k">yield from</span> <span class="n">checkpoint</span><span class="p">()</span>
+        <span class="k">yield from</span> <span class="n">abs_set</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># Measure the average</span>
+        <span class="k">return</span> <span class="p">(</span><span class="k">yield from</span> <span class="n">measure_average</span><span class="p">([</span><span class="n">motor</span><span class="p">,</span> <span class="n">detector</span><span class="p">],</span>
+                                           <span class="n">num</span><span class="o">=</span><span class="n">average</span><span class="p">,</span>
+                                           <span class="n">filters</span><span class="o">=</span><span class="n">filters</span><span class="p">))</span>
+    <span class="c1"># Create linear scan</span>
+    <span class="n">plan</span> <span class="o">=</span> <span class="n">list_scan</span><span class="p">([</span><span class="n">detector</span><span class="p">],</span> <span class="n">motor</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">per_step</span><span class="o">=</span><span class="n">measure</span><span class="p">)</span>
+
+    <span class="nd">@subs_decorator</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+        <span class="c1"># Run plan (stripping open/close run messages)</span>
+        <span class="k">yield from</span> <span class="n">msg_mutator</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">block_run_control</span><span class="p">)</span>
+
+        <span class="c1"># Yield result of Lorentz model</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">fit_report</span><span class="p">())</span>
+        <span class="n">max_position</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s1">&#39;center&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Check that the estimated position is reasonable</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_position</span> <span class="o">&lt;</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Predicted maximum position of </span><span class="si">{}</span><span class="s2"> is outside the &quot;</span>
+                             <span class="s2">&quot;bounds </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_position</span><span class="p">,</span> <span class="n">bounds</span><span class="p">))</span>
+        <span class="c1"># Order move to maximum position</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Travelling to maximum of Lorentz at </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">max_position</span><span class="p">)</span>
+        <span class="k">yield from</span> <span class="n">abs_set</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s1">&#39;center&#39;</span><span class="p">],</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Run the assembled plan</span>
+    <span class="k">yield from</span> <span class="n">inner</span><span class="p">()</span>
+    <span class="c1"># Return the fit</span>
+    <span class="k">return</span> <span class="n">model</span></div>
+
+
+
+<div class="viewcode-block" id="rocking_curve">
+<a class="viewcode-back" href="../../../alignment.html#hxrsnd.plans.alignment.rocking_curve">[docs]</a>
+<span class="k">def</span> <span class="nf">rocking_curve</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">read_field</span><span class="p">,</span> <span class="n">coarse_step</span><span class="p">,</span> <span class="n">fine_step</span><span class="p">,</span>
+                  <span class="n">bounds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fine_space</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">initial_guess</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">position_field</span><span class="o">=</span><span class="s1">&#39;user_readback&#39;</span><span class="p">,</span> <span class="n">show_plot</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Travel to the maxima of a bell curve</span>
+
+<span class="sd">    The rocking curve scan is two repeated calls of :func:`.maximize_lorentz`.</span>
+<span class="sd">    The first is a rough step scan which searches the area given by ``bounds``</span>
+<span class="sd">    using ``coarse_step``, the idea is that this will populate the model enough</span>
+<span class="sd">    such that we can do a more accurate scan of a smaller region of the search</span>
+<span class="sd">    space. Once the rough scan is completed, the maxima of the fit is used as</span>
+<span class="sd">    the center of the new fine scan that probes a region of space with a region</span>
+<span class="sd">    twice as large as the ``fine_space`` parameter. After this, the motor is</span>
+<span class="sd">    translated to the calculated maxima of the model</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    detector : obj</span>
+<span class="sd">        The object to be read during the plan</span>
+
+<span class="sd">    motor : obj</span>
+<span class="sd">        The object to be moved via the plan.</span>
+
+<span class="sd">    read_field : str</span>
+<span class="sd">        Field of detector to maximize</span>
+
+<span class="sd">    coarse_step : float</span>
+<span class="sd">        Step size for the initial rough scan</span>
+
+<span class="sd">    fine_step : float</span>
+<span class="sd">        Step size for the fine scan</span>
+
+<span class="sd">    bounds : tuple, optional</span>
+<span class="sd">        Bounds for the original rough scan. If not provided, the soft limits of</span>
+<span class="sd">        the motor are used</span>
+
+<span class="sd">    average : int, optional</span>
+<span class="sd">        Number of shots to average at each step</span>
+
+<span class="sd">    fine_space : float, optional</span>
+<span class="sd">        The amount to scan on either side of the rough scan result. Note that</span>
+<span class="sd">        the rocking_curve will never tell the secondary scan to travel outside</span>
+
+<span class="sd">    position_field : str, optional</span>
+<span class="sd">        Motor field that will have the Lorentzian relationship with the given</span>
+<span class="sd">        signal</span>
+
+<span class="sd">    initial_guess : dict, optional</span>
+<span class="sd">        Initial guess to the Lorentz model parameters of `sigma` `center`</span>
+<span class="sd">        `amplitude`</span>
+<span class="sd">        of the ``bounds``, so this region may be truncated.</span>
+
+<span class="sd">    show_plot : bool, optional</span>
+<span class="sd">        Create a plot displaying the progress of the `rocking_curve`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Define bounds</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">bounds</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">bounds</span> <span class="o">=</span> <span class="n">motor</span><span class="o">.</span><span class="n">limits</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Bounds were not specified, the area &quot;</span>
+                         <span class="s2">&quot;between </span><span class="si">%s</span><span class="s2"> and </span><span class="si">%s</span><span class="s2"> will searched&quot;</span><span class="p">,</span>
+                         <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">UndefinedBounds</span><span class="p">(</span><span class="s2">&quot;Bounds are not defined by motor </span><span class="si">{}</span><span class="s2"> or &quot;</span>
+                                  <span class="s2">&quot;plan&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">))</span> <span class="kn">from</span> <span class="nn">exc</span>
+    <span class="k">if</span> <span class="n">show_plot</span><span class="p">:</span>
+        <span class="c1"># Create plot</span>
+        <span class="c1"># subscribe first plot to rough_scan</span>
+        <span class="k">pass</span>
+    <span class="c1"># Run the initial rough scan</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">maximize_lorentz</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">read_field</span><span class="p">,</span>
+                                            <span class="n">step_size</span><span class="o">=</span><span class="n">coarse_step</span><span class="p">,</span>
+                                            <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="n">average</span><span class="p">,</span>
+                                            <span class="n">position_field</span><span class="o">=</span><span class="n">position_field</span><span class="p">,</span>
+                                            <span class="n">initial_guess</span><span class="o">=</span><span class="n">initial_guess</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unable to find a proper maximum value&quot;</span>
+                         <span class="s2">&quot;during rough scan&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+    <span class="c1"># Define new bounds</span>
+    <span class="n">center</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s1">&#39;center&#39;</span><span class="p">]</span>
+    <span class="n">bounds</span> <span class="o">=</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">center</span> <span class="o">-</span> <span class="n">fine_space</span><span class="p">,</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+              <span class="nb">min</span><span class="p">(</span><span class="n">center</span> <span class="o">+</span> <span class="n">fine_space</span><span class="p">,</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Rough scan of region yielded maximum of </span><span class="si">%s</span><span class="s2">, &quot;</span>
+                <span class="s2">&quot;performing fine scan from </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2"> ...&quot;</span><span class="p">,</span>
+                <span class="n">center</span><span class="p">,</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">show_plot</span><span class="p">:</span>
+        <span class="c1"># Highlight search space on first plot</span>
+        <span class="c1"># Subscribe secondary plot</span>
+        <span class="k">pass</span>
+
+    <span class="c1"># Run the initial rough scan</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">fit</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">maximize_lorentz</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">read_field</span><span class="p">,</span>
+                                          <span class="n">step_size</span><span class="o">=</span><span class="n">fine_step</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">,</span>
+                                          <span class="n">average</span><span class="o">=</span><span class="n">average</span><span class="p">,</span>
+                                          <span class="n">position_field</span><span class="o">=</span><span class="n">position_field</span><span class="p">,</span>
+                                          <span class="n">initial_guess</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unable to find a proper maximum value&quot;</span>
+                         <span class="s2">&quot;during fine scan&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+    <span class="k">if</span> <span class="n">show_plot</span><span class="p">:</span>
+        <span class="c1"># Draw final calculated max on plots</span>
+        <span class="k">pass</span>
+
+    <span class="k">return</span> <span class="n">fit</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

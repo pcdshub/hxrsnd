@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calibrating Delay Scans &mdash; hxrsnd 0.3.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2c9b010c"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Split and Delay System" href="sndsystem.html" />
+    <link rel="prev" title="Running DAQ Scans" href="running_daq_scans.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            hxrsnd
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripting.html">Adding Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="screens.html">EDM Screens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_scans.html">Running Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_daq_scans.html">Running DAQ Scans</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Calibrating Delay Scans</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#characterizing-beam-instability">Characterizing Beam Instability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calibration-operations">Calibration Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#high-level-properties">High-Level Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-new-calibration">Creating a New Calibration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#saving-and-loading-calibrations">Saving and Loading Calibrations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#inspecting-the-calibration">Inspecting the Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modifying-calibrations">Modifying Calibrations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#correction-table-post-processing">Correction Table Post-Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rescaling-the-correction-table">Rescaling the Correction Table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Devices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sndsystem.html">Split and Delay System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macromotor.html">Macromotors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tower.html">Towers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aerotech.html">Aerotech Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="attocube.html">Attocube Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diode.html">Wave-8 Diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pneumatic.html">Pneumatics and Air Bearings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rtd.html">Temperature Sensors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plans</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="alignment.html">Alignment Plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">Delay Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scans.html">General Scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc_plans.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bragg.html">Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utility Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core SnD Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pswalker/">pswalker</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pswww.slac.stanford.edu/swdoc/releases/skywalker/pcds-devices/">pcds-devices</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://slaclab.github.io/pydm/">pydm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Related Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/bluesky">bluesky</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nsls-ii.github.io/ophyd">ophyd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GitHub Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab/">SLAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/pcdshub/">PCDS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hxrsnd</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Calibrating Delay Scans</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/calibrating_delay_scans.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="calibrating-delay-scans">
+<h1>Calibrating Delay Scans<a class="headerlink" href="#calibrating-delay-scans" title="Link to this heading"></a></h1>
+<p>Performing uncalibrated scans using the <code class="docutils literal notranslate"><span class="pre">delay</span></code> macromotor results in
+positional instability of the beam at the sample. To address this, <code class="docutils literal notranslate"><span class="pre">delay</span></code> has
+several methods to characterize and correct the scan.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The functionality described here has not been commissioned, and
+should be used with caution.</p>
+</div>
+<section id="characterizing-beam-instability">
+<h2>Characterizing Beam Instability<a class="headerlink" href="#characterizing-beam-instability" title="Link to this heading"></a></h2>
+<p>The main way to characterize the current scan instability is to run the
+<code class="docutils literal notranslate"><span class="pre">centroid_scan</span></code> method. The method performs a scan using the inputted scan
+parameters, measuring the centroids of the beam at Opal 1. The results are then
+saved and graphed for the user to see.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">snd</span><span class="o">.</span><span class="n">delay</span><span class="o">.</span><span class="n">centroid_scan</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To view the centroids again after the scan has been completed, the method
+<code class="docutils literal notranslate"><span class="pre">view_centroids</span></code> can be used to view the centroids from the most recent
+<code class="docutils literal notranslate"><span class="pre">centroids_scan</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">snd</span><span class="o">.</span><span class="n">delay</span><span class="o">.</span><span class="n">view_centroids</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>To view the graph displayed after the scan, run the <code class="docutils literal notranslate"><span class="pre">graph_centroids</span></code> method.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">snd</span><span class="o">.</span><span class="n">delay</span><span class="o">.</span><span class="n">graph_centroids</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The results shown by <code class="docutils literal notranslate"><span class="pre">view_centroids</span></code> and <code class="docutils literal notranslate"><span class="pre">graph_centroids</span></code> come
+from the recent centroid scan or calibration. Anytime a new centroid
+scan is run, the previous scan data is overwritten.</p>
+</div>
+</section>
+<section id="calibration-operations">
+<h2>Calibration Operations<a class="headerlink" href="#calibration-operations" title="Link to this heading"></a></h2>
+<p>In the event <code class="docutils literal notranslate"><span class="pre">centroid_scan</span></code> reveals the beam drifts too much throughout the
+scan, there is a routine for building a correction table using the
+<code class="docutils literal notranslate"><span class="pre">snd.t1.chi1</span></code> and <code class="docutils literal notranslate"><span class="pre">snd.t1.y1</span></code> motors to correct for the x and y centroids
+respectively. This correction table is put together using the table generated
+from a <code class="docutils literal notranslate"><span class="pre">centroid_scan</span></code> along with parameters to find the scaling information
+between each of the motor positions and the beam centroids. Together all the
+information collected during a <code class="docutils literal notranslate"><span class="pre">calibrate</span></code> run, constitutes a specific
+calibration.</p>
+<section id="high-level-properties">
+<h3>High-Level Properties<a class="headerlink" href="#high-level-properties" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">delay</span></code> macromotor comes with two high level properties pertaining to the
+current state of the calibration. <code class="docutils literal notranslate"><span class="pre">has_calibration</span></code> indicates that a properly
+configured calibration is currently loaded to the motor, simply returning a
+<code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
+<p>The second high level property is <code class="docutils literal notranslate"><span class="pre">use_calibration</span></code> which determines whether
+a calibration should be used during a move. By default, anytime a calibration is
+created or loaded, <code class="docutils literal notranslate"><span class="pre">use_calibration</span></code> is set to be <code class="docutils literal notranslate"><span class="pre">True</span></code>. However, this is
+primarily useful if there is a move where performing a the correction is not
+desired. By setting <code class="docutils literal notranslate"><span class="pre">use_calibration</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code> all moves will be done
+without corrections</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Motor corrections will only be performed on every <code class="docutils literal notranslate"><span class="pre">move</span></code> command if
+both <code class="docutils literal notranslate"><span class="pre">has_calibration</span></code> and <code class="docutils literal notranslate"><span class="pre">use_calibration</span></code> are <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</div>
+</section>
+<section id="creating-a-new-calibration">
+<h3>Creating a New Calibration<a class="headerlink" href="#creating-a-new-calibration" title="Link to this heading"></a></h3>
+<p>If a new calibration is necessary, the entire calibration routine can be run
+using the <code class="docutils literal notranslate"><span class="pre">calibrate</span></code> method along with the desired scan parameters.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">snd</span><span class="o">.</span><span class="n">delay</span><span class="o">.</span><span class="n">calibrate</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The calibration routine itself consists of first performing a centroid scan to
+measure the current beam drift, and then performing a walk using each of the
+calibration motors to find the motor position to centroid scaling. Once,
+complete, the motor will automatically start using the new calibration for all
+subsequent <code class="docutils literal notranslate"><span class="pre">move</span></code> commands. Additionally, all the motors will be returned to
+their original positions after the routine has completed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A confirmation to overwrite the existing calibration will be required
+to run <code class="docutils literal notranslate"><span class="pre">calibrate</span></code> if the motor already has a valid configuration.</p>
+</div>
+</section>
+<section id="saving-and-loading-calibrations">
+<h3>Saving and Loading Calibrations<a class="headerlink" href="#saving-and-loading-calibrations" title="Link to this heading"></a></h3>
+<p>Calibrations used for the <code class="docutils literal notranslate"><span class="pre">delay</span></code> motor are all saved in the
+<code class="docutils literal notranslate"><span class="pre">HXRSnD/calibrations</span></code> directory. Whenever a <code class="docutils literal notranslate"><span class="pre">calibration</span></code> routine has
+completed, the calibration is saved into a file named
+<code class="docutils literal notranslate"><span class="pre">current_calibration.json</span></code>. To save a calibration more permanently, the
+method <code class="docutils literal notranslate"><span class="pre">save_calibration</span></code> can be used by passing a either filename or a full
+path. Running,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">snd</span><span class="o">.</span><span class="n">delay</span><span class="o">.</span><span class="n">save_calibration</span><span class="p">(</span><span class="s1">&#39;my_calibration&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Will save the current calibration as
+<code class="docutils literal notranslate"><span class="pre">HXRSnD/calibrations/my_calibration.json</span></code>.</p>
+<p>To load this configuration, the <code class="docutils literal notranslate"><span class="pre">load_calibration</span></code> method takes calibration
+names, searches the <code class="docutils literal notranslate"><span class="pre">HXRSnD/calibrations</span></code> directory, and then applies the
+dound calibration. For example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">snd</span><span class="o">.</span><span class="n">delay</span><span class="o">.</span><span class="n">load_calibration</span><span class="p">(</span><span class="s1">&#39;my_calibration&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>loads the <code class="docutils literal notranslate"><span class="pre">my_calibration.json</span></code> from <code class="docutils literal notranslate"><span class="pre">HXRSnD/calibrations</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Running <code class="docutils literal notranslate"><span class="pre">load_calibration</span></code> without any inputs automatically loads
+<code class="docutils literal notranslate"><span class="pre">current_calibration.json</span></code>.</p>
+</div>
+</section>
+</section>
+<section id="inspecting-the-calibration">
+<h2>Inspecting the Calibration<a class="headerlink" href="#inspecting-the-calibration" title="Link to this heading"></a></h2>
+<p>To view the contents of a calibration, the <code class="docutils literal notranslate"><span class="pre">calibration</span></code> property returns a
+dictionary with five keys:</p>
+<ul class="simple">
+<li><p>calib : <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> containing the correction table used by the
+calibration motors.</p></li>
+<li><p>motors : List of <code class="docutils literal notranslate"><span class="pre">Motor</span></code> objects that refer to the motors used by the
+calibration.</p></li>
+<li><p>scan : <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> containing the results of the centroid scan used to
+build the correction table.</p></li>
+<li><p>scale : List if values in units of ps/pixel, used to convert between pixel
+positions and delay position.</p></li>
+<li><p>start : List of starting positions of the motors used to calculate the scale.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">calibration</span></code> is a read-only property and cannot be used to modify
+the live calibration.</p>
+</div>
+</section>
+<section id="modifying-calibrations">
+<h2>Modifying Calibrations<a class="headerlink" href="#modifying-calibrations" title="Link to this heading"></a></h2>
+<p>Each of the five calibration values listed above can be modified outright using
+the <code class="docutils literal notranslate"><span class="pre">configure</span></code> method. This is done by running <code class="docutils literal notranslate"><span class="pre">configure</span></code> and passing the
+desired change as a keyword argument.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is not advisable to change the the calibration in ways not
+listed below.</p>
+</div>
+<section id="correction-table-post-processing">
+<h3>Correction Table Post-Processing<a class="headerlink" href="#correction-table-post-processing" title="Link to this heading"></a></h3>
+<p>A simple reason to modify the correction table would be to apply some level of
+post processing to the resulting table. For example, to apply a Savitzky-Golay
+smoothing filter, first capturet he current correction table in a new dataframe
+using the <code class="docutils literal notranslate"><span class="pre">calibration</span></code> property,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">df_calib</span> <span class="o">=</span> <span class="n">snd</span><span class="o">.</span><span class="n">delay</span><span class="o">.</span><span class="n">calibration</span><span class="p">[</span><span class="s1">&#39;calib&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Then create a new dataframe with the applied filter using some <code class="docutils literal notranslate"><span class="pre">window_length</span></code>
+and <code class="docutils literal notranslate"><span class="pre">polyorder</span></code> (see documentation on <code class="docutils literal notranslate"><span class="pre">scipy.signal.savgol_filter</span></code> for more
+details),</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">df_savgol</span> <span class="o">=</span> <span class="n">df_calib</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">savgol_filter</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">window_length</span><span class="p">,</span> <span class="n">polyorder</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>And then configure the motor to use this new correction table,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">snd</span><span class="o">.</span><span class="n">delay</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">calib</span><span class="o">=</span><span class="n">df_savgol</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Whenever the correction table is modified using <code class="docutils literal notranslate"><span class="pre">configure</span></code>, the
+number of columns must equal the number of motors listed in
+<code class="docutils literal notranslate"><span class="pre">snd.delay.calibration['motors']</span></code>.</p>
+</div>
+</section>
+<section id="rescaling-the-correction-table">
+<h3>Rescaling the Correction Table<a class="headerlink" href="#rescaling-the-correction-table" title="Link to this heading"></a></h3>
+<p>In the event that the picosecond per pixel scaling factor may need to be redone,
+the method <code class="docutils literal notranslate"><span class="pre">rescale_calibration</span></code> will perform the scaling routine and then
+update the calibration accordingly.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">snd</span><span class="o">.</span><span class="n">delay</span><span class="o">.</span><span class="n">rescale_calibration</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="running_daq_scans.html" class="btn btn-neutral float-left" title="Running DAQ Scans" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sndsystem.html" class="btn btn-neutral float-right" title="Split and Delay System" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
