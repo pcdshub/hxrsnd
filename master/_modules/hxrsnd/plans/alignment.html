@@ -5,14 +5,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hxrsnd.plans.alignment &mdash; hxrsnd 0.3.2.dev10+g351f1fe documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+  <title>hxrsnd.plans.alignment &mdash; hxrsnd 0.3.3.dev2+gf746407 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../_static/documentation_options.js?v=198f1585"></script>
+      <script src="../../../_static/documentation_options.js?v=47e5e3a5"></script>
       <script src="../../../_static/doctools.js?v=9a2dae69"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -119,25 +119,25 @@
 <span class="sd">Alignment plans for the HXRSnD</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">bluesky.plan_stubs</span> <span class="kn">import</span> <span class="n">abs_set</span><span class="p">,</span> <span class="n">checkpoint</span>
-<span class="kn">from</span> <span class="nn">bluesky.plans</span> <span class="kn">import</span> <span class="n">list_scan</span>
-<span class="kn">from</span> <span class="nn">bluesky.preprocessors</span> <span class="kn">import</span> <span class="n">msg_mutator</span><span class="p">,</span> <span class="n">subs_decorator</span>
-<span class="kn">from</span> <span class="nn">lmfit.models</span> <span class="kn">import</span> <span class="n">LorentzianModel</span>
-<span class="kn">from</span> <span class="nn">pswalker.callbacks</span> <span class="kn">import</span> <span class="n">LiveBuild</span>
-<span class="kn">from</span> <span class="nn">pswalker.plans</span> <span class="kn">import</span> <span class="n">measure_average</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluesky.plan_stubs</span><span class="w"> </span><span class="kn">import</span> <span class="n">abs_set</span><span class="p">,</span> <span class="n">checkpoint</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluesky.plans</span><span class="w"> </span><span class="kn">import</span> <span class="n">list_scan</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluesky.preprocessors</span><span class="w"> </span><span class="kn">import</span> <span class="n">msg_mutator</span><span class="p">,</span> <span class="n">subs_decorator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lmfit.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">LorentzianModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pswalker.callbacks</span><span class="w"> </span><span class="kn">import</span> <span class="n">LiveBuild</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pswalker.plans</span><span class="w"> </span><span class="kn">import</span> <span class="n">measure_average</span>
 
-<span class="kn">from</span> <span class="nn">..exceptions</span> <span class="kn">import</span> <span class="n">UndefinedBounds</span>
-<span class="kn">from</span> <span class="nn">.plan_stubs</span> <span class="kn">import</span> <span class="n">block_run_control</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">UndefinedBounds</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.plan_stubs</span><span class="w"> </span><span class="kn">import</span> <span class="n">block_run_control</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="maximize_lorentz">
 <a class="viewcode-back" href="../../../alignment.html#hxrsnd.plans.alignment.maximize_lorentz">[docs]</a>
-<span class="k">def</span> <span class="nf">maximize_lorentz</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">read_field</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">maximize_lorentz</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">read_field</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                      <span class="n">bounds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">position_field</span><span class="o">=</span><span class="s1">&#39;user_readback&#39;</span><span class="p">,</span> <span class="n">initial_guess</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -194,7 +194,7 @@
                          <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="k">except</span> <span class="ne">AttributeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">UndefinedBounds</span><span class="p">(</span><span class="s2">&quot;Bounds are not defined by motor </span><span class="si">{}</span><span class="s2"> or &quot;</span>
-                                  <span class="s2">&quot;plan&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">))</span> <span class="kn">from</span> <span class="nn">exc</span>
+                                  <span class="s2">&quot;plan&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">))</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
     <span class="c1"># Calculate steps</span>
     <span class="n">steps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">step_size</span><span class="p">)</span>
     <span class="c1"># Include the last step even if this is smaller than the step_size</span>
@@ -207,7 +207,7 @@
     <span class="c1"># update_every=len(steps)) # Set to fit only on last step</span>
 
     <span class="c1"># Create per_step plan</span>
-    <span class="k">def</span> <span class="nf">measure</span><span class="p">(</span><span class="n">detectors</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">measure</span><span class="p">(</span><span class="n">detectors</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
         <span class="c1"># Perform step</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Measuring average at step </span><span class="si">%s</span><span class="s2"> ...&quot;</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
         <span class="k">yield from</span> <span class="n">checkpoint</span><span class="p">()</span>
@@ -220,7 +220,7 @@
     <span class="n">plan</span> <span class="o">=</span> <span class="n">list_scan</span><span class="p">([</span><span class="n">detector</span><span class="p">],</span> <span class="n">motor</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">per_step</span><span class="o">=</span><span class="n">measure</span><span class="p">)</span>
 
     <span class="nd">@subs_decorator</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
         <span class="c1"># Run plan (stripping open/close run messages)</span>
         <span class="k">yield from</span> <span class="n">msg_mutator</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">block_run_control</span><span class="p">)</span>
 
@@ -245,7 +245,7 @@
 
 <div class="viewcode-block" id="rocking_curve">
 <a class="viewcode-back" href="../../../alignment.html#hxrsnd.plans.alignment.rocking_curve">[docs]</a>
-<span class="k">def</span> <span class="nf">rocking_curve</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">read_field</span><span class="p">,</span> <span class="n">coarse_step</span><span class="p">,</span> <span class="n">fine_step</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rocking_curve</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">read_field</span><span class="p">,</span> <span class="n">coarse_step</span><span class="p">,</span> <span class="n">fine_step</span><span class="p">,</span>
                   <span class="n">bounds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fine_space</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">initial_guess</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                   <span class="n">position_field</span><span class="o">=</span><span class="s1">&#39;user_readback&#39;</span><span class="p">,</span> <span class="n">show_plot</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -309,7 +309,7 @@
                          <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="k">except</span> <span class="ne">AttributeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">UndefinedBounds</span><span class="p">(</span><span class="s2">&quot;Bounds are not defined by motor </span><span class="si">{}</span><span class="s2"> or &quot;</span>
-                                  <span class="s2">&quot;plan&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">))</span> <span class="kn">from</span> <span class="nn">exc</span>
+                                  <span class="s2">&quot;plan&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">))</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
     <span class="k">if</span> <span class="n">show_plot</span><span class="p">:</span>
         <span class="c1"># Create plot</span>
         <span class="c1"># subscribe first plot to rough_scan</span>
@@ -323,7 +323,7 @@
                                             <span class="n">initial_guess</span><span class="o">=</span><span class="n">initial_guess</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unable to find a proper maximum value&quot;</span>
-                         <span class="s2">&quot;during rough scan&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+                         <span class="s2">&quot;during rough scan&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
     <span class="c1"># Define new bounds</span>
     <span class="n">center</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s1">&#39;center&#39;</span><span class="p">]</span>
     <span class="n">bounds</span> <span class="o">=</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">center</span> <span class="o">-</span> <span class="n">fine_space</span><span class="p">,</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
@@ -347,7 +347,7 @@
                                           <span class="n">initial_guess</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unable to find a proper maximum value&quot;</span>
-                         <span class="s2">&quot;during fine scan&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+                         <span class="s2">&quot;during fine scan&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
     <span class="k">if</span> <span class="n">show_plot</span><span class="p">:</span>
         <span class="c1"># Draw final calculated max on plots</span>
@@ -364,7 +364,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2025, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

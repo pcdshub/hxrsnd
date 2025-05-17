@@ -5,14 +5,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hxrsnd.plans.calibration &mdash; hxrsnd 0.3.2.dev10+g351f1fe documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+  <title>hxrsnd.plans.calibration &mdash; hxrsnd 0.3.3.dev2+gf746407 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../_static/documentation_options.js?v=198f1585"></script>
+      <script src="../../../_static/documentation_options.js?v=47e5e3a5"></script>
       <script src="../../../_static/doctools.js?v=9a2dae69"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -118,22 +118,22 @@
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Calibration of the delay macromotor</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">ophyd.utils</span> <span class="kn">import</span> <span class="n">LimitError</span>
-<span class="kn">from</span> <span class="nn">pswalker.plans</span> <span class="kn">import</span> <span class="n">measure_average</span><span class="p">,</span> <span class="n">walk_to_pixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ophyd.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">LimitError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pswalker.plans</span><span class="w"> </span><span class="kn">import</span> <span class="n">measure_average</span><span class="p">,</span> <span class="n">walk_to_pixel</span>
 
-<span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">as_list</span>
-<span class="kn">from</span> <span class="nn">.preprocessors</span> <span class="kn">import</span> <span class="n">return_to_start</span> <span class="k">as</span> <span class="n">_return_to_start</span>
-<span class="kn">from</span> <span class="nn">.scans</span> <span class="kn">import</span> <span class="n">centroid_scan</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">as_list</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.preprocessors</span><span class="w"> </span><span class="kn">import</span> <span class="n">return_to_start</span> <span class="k">as</span> <span class="n">_return_to_start</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.scans</span><span class="w"> </span><span class="kn">import</span> <span class="n">centroid_scan</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="calibrate_motor">
 <a class="viewcode-back" href="../../../calibration.html#hxrsnd.plans.calibration.calibrate_motor">[docs]</a>
-<span class="k">def</span> <span class="nf">calibrate_motor</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">detector_fields</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">motor_fields</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calibrate_motor</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">detector_fields</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">motor_fields</span><span class="p">,</span>
                     <span class="n">calib_motors</span><span class="p">,</span> <span class="n">calib_fields</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span>
                     <span class="n">confirm_overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs a calibration scan using the inputted detector, motor, and</span>
@@ -212,7 +212,7 @@
 
 <div class="viewcode-block" id="calibration_scan">
 <a class="viewcode-back" href="../../../calibration.html#hxrsnd.plans.calibration.calibration_scan">[docs]</a>
-<span class="k">def</span> <span class="nf">calibration_scan</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">detector_fields</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">motor_fields</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calibration_scan</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">detector_fields</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">motor_fields</span><span class="p">,</span>
                      <span class="n">calib_motors</span><span class="p">,</span> <span class="n">calib_fields</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span>
                      <span class="n">first_step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">return_to_start</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -301,7 +301,7 @@
                          <span class="s2">&quot;detector fields.&quot;</span><span class="p">)</span>
 
     <span class="nd">@_return_to_start</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="o">*</span><span class="n">calib_motors</span><span class="p">,</span> <span class="n">perform</span><span class="o">=</span><span class="n">return_to_start</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
         <span class="c1"># Perform the main scan, reading the positions of all the devices</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Beginning calibration scan&quot;</span><span class="p">)</span>
         <span class="n">df_scan</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">calibration_centroid_scan</span><span class="p">(</span>
@@ -337,7 +337,7 @@
 
 <div class="viewcode-block" id="calibration_centroid_scan">
 <a class="viewcode-back" href="../../../calibration.html#hxrsnd.plans.calibration.calibration_centroid_scan">[docs]</a>
-<span class="k">def</span> <span class="nf">calibration_centroid_scan</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">calib_motors</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calibration_centroid_scan</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">calib_motors</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span>
                               <span class="n">calib_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs a centroid scan producing a dataframe with the values of the</span>
 <span class="sd">    detector, motor, and calibration motor fields.</span>
@@ -408,7 +408,7 @@
 
 <div class="viewcode-block" id="detector_scaling_walk">
 <a class="viewcode-back" href="../../../calibration.html#hxrsnd.plans.calibration.detector_scaling_walk">[docs]</a>
-<span class="k">def</span> <span class="nf">detector_scaling_walk</span><span class="p">(</span><span class="n">df_scan</span><span class="p">,</span> <span class="n">detector</span><span class="p">,</span> <span class="n">calib_motors</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">detector_scaling_walk</span><span class="p">(</span><span class="n">df_scan</span><span class="p">,</span> <span class="n">detector</span><span class="p">,</span> <span class="n">calib_motors</span><span class="p">,</span>
                           <span class="n">first_step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                           <span class="n">tolerance</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">system</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                           <span class="n">drop_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gradients</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -546,7 +546,7 @@
 
 <div class="viewcode-block" id="build_calibration_df">
 <a class="viewcode-back" href="../../../calibration.html#hxrsnd.plans.calibration.build_calibration_df">[docs]</a>
-<span class="k">def</span> <span class="nf">build_calibration_df</span><span class="p">(</span><span class="n">df_scan</span><span class="p">,</span> <span class="n">scaling</span><span class="p">,</span> <span class="n">start_positions</span><span class="p">,</span> <span class="n">detector</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">build_calibration_df</span><span class="p">(</span><span class="n">df_scan</span><span class="p">,</span> <span class="n">scaling</span><span class="p">,</span> <span class="n">start_positions</span><span class="p">,</span> <span class="n">detector</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Takes the scan dataframe, scaling, and starting positions to build a</span>
 <span class="sd">    calibration table for the calibration motors.</span>
 
@@ -611,7 +611,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2025, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

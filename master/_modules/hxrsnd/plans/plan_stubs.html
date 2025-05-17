@@ -5,14 +5,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hxrsnd.plans.plan_stubs &mdash; hxrsnd 0.3.2.dev10+g351f1fe documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+  <title>hxrsnd.plans.plan_stubs &mdash; hxrsnd 0.3.3.dev2+gf746407 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../_static/documentation_options.js?v=198f1585"></script>
+      <script src="../../../_static/documentation_options.js?v=47e5e3a5"></script>
       <script src="../../../_static/doctools.js?v=9a2dae69"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -119,13 +119,13 @@
 <span class="sd">Small plans used in HXRSnD</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
-<span class="kn">from</span> <span class="nn">pswalker.plans</span> <span class="kn">import</span> <span class="n">measure_average</span>
-<span class="kn">from</span> <span class="nn">pswalker.utils</span> <span class="kn">import</span> <span class="n">field_prepend</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pswalker.plans</span><span class="w"> </span><span class="kn">import</span> <span class="n">measure_average</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pswalker.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">field_prepend</span>
 
-<span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">as_list</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">as_list</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
@@ -133,7 +133,7 @@
 <span class="c1"># Should probably be added as bluesky PR</span>
 
 
-<span class="k">def</span> <span class="nf">block_run_control</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">block_run_control</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Block open and close run messages</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -144,7 +144,7 @@
 
 <div class="viewcode-block" id="euclidean_distance">
 <a class="viewcode-back" href="../../../misc_plans.html#hxrsnd.plans.plan_stubs.euclidean_distance">[docs]</a>
-<span class="k">def</span> <span class="nf">euclidean_distance</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">device_fields</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">euclidean_distance</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">device_fields</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                        <span class="n">filters</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the euclidean distance between the device_fields and targets.</span>
@@ -200,7 +200,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2025, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

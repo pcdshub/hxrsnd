@@ -5,14 +5,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hxrsnd.exceptions &mdash; hxrsnd 0.3.2.dev10+g351f1fe documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+  <title>hxrsnd.exceptions &mdash; hxrsnd 0.3.3.dev2+gf746407 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=198f1585"></script>
+      <script src="../../_static/documentation_options.js?v=47e5e3a5"></script>
       <script src="../../_static/doctools.js?v=9a2dae69"></script>
       <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -120,21 +120,21 @@
 <span class="sd">Exceptions for the SnD system.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <span class="c1"># Exceptions</span>
 
 
-<span class="k">class</span> <span class="nc">InputError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">InputError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Exception when the inputs to a function or method are invalid.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span>
 
 
-<span class="k">class</span> <span class="nc">UndefinedBounds</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UndefinedBounds</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Exception when bounds of plan are not defined</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -143,7 +143,7 @@
 
 <div class="viewcode-block" id="SndException">
 <a class="viewcode-back" href="../../exceptions.html#hxrsnd.exceptions.SndException">[docs]</a>
-<span class="k">class</span> <span class="nc">SndException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SndException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base aerotech motor exceptions.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -153,7 +153,7 @@
 
 <div class="viewcode-block" id="MotorDisabled">
 <a class="viewcode-back" href="../../exceptions.html#hxrsnd.exceptions.MotorDisabled">[docs]</a>
-<span class="k">class</span> <span class="nc">MotorDisabled</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MotorDisabled</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Exception raised when an action requiring the motor be enabled is requested.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -163,7 +163,7 @@
 
 <div class="viewcode-block" id="MotorFaulted">
 <a class="viewcode-back" href="../../exceptions.html#hxrsnd.exceptions.MotorFaulted">[docs]</a>
-<span class="k">class</span> <span class="nc">MotorFaulted</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MotorFaulted</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Exception raised when an action requiring the motor not be faulted is</span>
 <span class="sd">    requested.</span>
@@ -174,7 +174,7 @@
 
 <div class="viewcode-block" id="MotorError">
 <a class="viewcode-back" href="../../exceptions.html#hxrsnd.exceptions.MotorError">[docs]</a>
-<span class="k">class</span> <span class="nc">MotorError</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MotorError</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Exception raised when an action requiring the motor not have an error is</span>
 <span class="sd">    requested.</span>
@@ -183,7 +183,7 @@
 
 
 
-<span class="k">class</span> <span class="nc">MotorStopped</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MotorStopped</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Exception raised when an action requiring the motor to not be stopped is</span>
 <span class="sd">    requested.</span>
@@ -193,7 +193,7 @@
 
 <div class="viewcode-block" id="BadN2Pressure">
 <a class="viewcode-back" href="../../exceptions.html#hxrsnd.exceptions.BadN2Pressure">[docs]</a>
-<span class="k">class</span> <span class="nc">BadN2Pressure</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BadN2Pressure</span><span class="p">(</span><span class="n">SndException</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Exception raised when an action requiring the N2 pressure be good is</span>
 <span class="sd">    requested with a bad pressure.</span>
@@ -209,7 +209,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2025, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

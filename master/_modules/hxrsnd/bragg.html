@@ -5,14 +5,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hxrsnd.bragg &mdash; hxrsnd 0.3.2.dev10+g351f1fe documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+  <title>hxrsnd.bragg &mdash; hxrsnd 0.3.3.dev2+gf746407 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=198f1585"></script>
+      <script src="../../_static/documentation_options.js?v=47e5e3a5"></script>
       <script src="../../_static/doctools.js?v=9a2dae69"></script>
       <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -119,9 +119,9 @@
 <span class="sd">Script to hold functions copied over from blutils that pertain to computing</span>
 <span class="sd">the bragg angle of the HXRSnD crystals.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
@@ -153,7 +153,7 @@
 <span class="c1"># Trigonometric Functions</span>
 
 
-<span class="k">def</span> <span class="nf">sind</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sind</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Sin of an angle specified in degrees.</span>
 
@@ -172,7 +172,7 @@
     <span class="k">return</span> <span class="n">x</span>
 
 
-<span class="k">def</span> <span class="nf">cosd</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cosd</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Cos of an angle specified in degrees.</span>
 
@@ -191,7 +191,7 @@
     <span class="k">return</span> <span class="n">x</span>
 
 
-<span class="k">def</span> <span class="nf">tand</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tand</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Tan of an angle specified in degrees.</span>
 
@@ -210,7 +210,7 @@
     <span class="k">return</span> <span class="n">x</span>
 
 
-<span class="k">def</span> <span class="nf">asind</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">asind</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the arcsin in degrees.</span>
 
@@ -229,7 +229,7 @@
     <span class="k">return</span> <span class="n">A</span>
 
 
-<span class="k">def</span> <span class="nf">acosd</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">acosd</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the arccos in degrees.</span>
 
@@ -248,7 +248,7 @@
     <span class="k">return</span> <span class="n">A</span>
 
 
-<span class="k">def</span> <span class="nf">atand</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">atand</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the arctan in degrees.</span>
 
@@ -269,7 +269,7 @@
 <span class="c1"># Frequency, wavelength and energy conversions</span>
 
 
-<span class="k">def</span> <span class="nf">lam</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">o</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lam</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">o</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes photon wavelength in m</span>
 
@@ -294,7 +294,7 @@
     <span class="k">return</span> <span class="n">lam</span>
 
 
-<span class="k">def</span> <span class="nf">lam2E</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>  <span class="c1"># noqa: E741</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lam2E</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>  <span class="c1"># noqa: E741</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes photon energy in eV</span>
 
@@ -312,7 +312,7 @@
     <span class="k">return</span> <span class="n">E</span>
 
 
-<span class="k">def</span> <span class="nf">lam2f</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>  <span class="c1"># noqa: E741</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lam2f</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>  <span class="c1"># noqa: E741</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the photon frequency in Hz</span>
 
@@ -332,7 +332,7 @@
 <span class="c1"># Higher level functions</span>
 
 
-<span class="k">def</span> <span class="nf">eV</span><span class="p">(</span><span class="n">E</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">eV</span><span class="p">(</span><span class="n">E</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns photon energy in eV if specified in eV or KeV. Assumes that any</span>
 <span class="sd">    value that is less than 100 is in KeV.</span>
@@ -352,7 +352,7 @@
     <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">check_id</span><span class="p">(</span><span class="n">ID</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">check_id</span><span class="p">(</span><span class="n">ID</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Checks to see if you are using an alias. Returns the chemical formula</span>
 
@@ -371,7 +371,7 @@
         <span class="k">return</span> <span class="n">ID</span>
 
 
-<span class="k">def</span> <span class="nf">get_e</span><span class="p">(</span><span class="n">energy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">correct_ev</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_e</span><span class="p">(</span><span class="n">energy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">correct_ev</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get working energy</span>
 
@@ -399,7 +399,7 @@
     <span class="k">return</span> <span class="n">en</span>
 
 
-<span class="k">def</span> <span class="nf">d_space</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">hkl</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">d_space</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">hkl</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the d spacing (m) of the specified material and reflection</span>
 
@@ -446,7 +446,7 @@
 
 <div class="viewcode-block" id="bragg_angle">
 <a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.bragg_angle">[docs]</a>
-<span class="k">def</span> <span class="nf">bragg_angle</span><span class="p">(</span><span class="n">E</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ID</span><span class="o">=</span><span class="s2">&quot;Si&quot;</span><span class="p">,</span> <span class="n">hkl</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bragg_angle</span><span class="p">(</span><span class="n">E</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ID</span><span class="o">=</span><span class="s2">&quot;Si&quot;</span><span class="p">,</span> <span class="n">hkl</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the Bragg angle (deg) of the specified material, reflection and</span>
 <span class="sd">    photon energy.</span>
@@ -477,7 +477,7 @@
 
 <div class="viewcode-block" id="bragg_energy">
 <a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.bragg_energy">[docs]</a>
-<span class="k">def</span> <span class="nf">bragg_energy</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">ID</span><span class="o">=</span><span class="s2">&quot;Si&quot;</span><span class="p">,</span> <span class="n">hkl</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bragg_energy</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">ID</span><span class="o">=</span><span class="s2">&quot;Si&quot;</span><span class="p">,</span> <span class="n">hkl</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the photon energy that satisfies the Bragg condition of the</span>
 <span class="sd">    specified material, reflection and theta angle.</span>
@@ -508,7 +508,7 @@
 
 <div class="viewcode-block" id="snd_L">
 <a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.snd_L">[docs]</a>
-<span class="k">def</span> <span class="nf">snd_L</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">55</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">snd_L</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">55</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the theta angles of the towers and the delay length based on the</span>
 <span class="sd">    desired energy and delay.</span>
@@ -554,7 +554,7 @@
 
 <div class="viewcode-block" id="snd_diag">
 <a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.snd_diag">[docs]</a>
-<span class="k">def</span> <span class="nf">snd_diag</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">55</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">snd_diag</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">55</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the positions of the middle diagnostics of the system based on</span>
 <span class="sd">    the inputted energy and delay.</span>
@@ -597,7 +597,7 @@
 
 <div class="viewcode-block" id="snd_delay">
 <a class="viewcode-back" href="../../bragg.html#hxrsnd.bragg.snd_delay">[docs]</a>
-<span class="k">def</span> <span class="nf">snd_delay</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">55</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">snd_delay</span><span class="p">(</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">55</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the delay of the system based on the inputted energies and the</span>
 <span class="sd">    delay length.</span>
@@ -634,7 +634,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2025, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
